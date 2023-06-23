@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SPLO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TSPLT>
+    <SPRAS>1</SPRAS>
+    <PAPART>ZAFO_MB</PAPART>
+   </TSPLT>
+   <TSPLD>
+    <PAPART>ZAFO_MB</PAPART>
+    <PFORMAT>ZAFO_MB</PFORMAT>
+    <ORIENT>.</ORIENT>
+    <TYPE>S</TYPE>
+   </TSPLD>
+  </asx:values>
+ </asx:abap>
+</abapGit>

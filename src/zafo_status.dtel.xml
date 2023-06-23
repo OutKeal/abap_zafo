@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZAFO_STATUS</ROLLNAME>
+    <DDLANGUAGE>1</DDLANGUAGE>
+    <DOMNAME>ZAFO_STATUS</DOMNAME>
+    <HEADLEN>55</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>申请单状态</DDTEXT>
+    <REPTEXT>申请单状态</REPTEXT>
+    <SCRTEXT_S>申请单状态</SCRTEXT_S>
+    <SCRTEXT_M>申请单状态</SCRTEXT_M>
+    <SCRTEXT_L>申请单状态</SCRTEXT_L>
+    <DTELMASTER>1</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+    <LANGU>쁩</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Application status</DDTEXT>
+     <REPTEXT>Application status</REPTEXT>
+     <SCRTEXT_S>Applicatio</SCRTEXT_S>
+     <SCRTEXT_M>Application status</SCRTEXT_M>
+     <SCRTEXT_L>Application status</SCRTEXT_L>
+    </item>
+    <item>
+     <DDLANGUAGE>쁩</DDLANGUAGE>
+     <DDTEXT>Tình trạng ứng dụng</DDTEXT>
+     <REPTEXT>Tình trạng ứng dụng</REPTEXT>
+     <SCRTEXT_S>Tình trạng</SCRTEXT_S>
+     <SCRTEXT_M>Tình trạng ứng dụng</SCRTEXT_M>
+     <SCRTEXT_L>Tình trạng ứng dụng</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

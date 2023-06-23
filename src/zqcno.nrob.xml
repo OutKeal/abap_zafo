@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_NROB" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <ATTRIBUTES>
+    <OBJECT>ZQCNO</OBJECT>
+    <DOMLEN>ZQCNO</DOMLEN>
+    <PERCENTAGE>5.0</PERCENTAGE>
+    <BUFFER>X</BUFFER>
+    <NOIVBUFFER>00000010</NOIVBUFFER>
+    <CHANGED_AT>20230412092542.192921</CHANGED_AT>
+    <CHANGED_BY>AT-WXY</CHANGED_BY>
+    <ENAME>H-WANGF</ENAME>
+    <EDATE>2021-01-26</EDATE>
+    <ETIME>10:43:06</ETIME>
+   </ATTRIBUTES>
+   <TEXT>
+    <LANGU>1</LANGU>
+    <OBJECT>ZQCNO</OBJECT>
+    <TXT>质检报告</TXT>
+    <TXTSHORT>质检报告</TXTSHORT>
+    <ENAME>H-WANGF</ENAME>
+    <EDATE>2021-01-26</EDATE>
+    <ETIME>10:43:06</ETIME>
+   </TEXT>
+  </asx:values>
+ </asx:abap>
+</abapGit>

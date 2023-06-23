@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TRAN" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TSTC>
+    <TCODE>ZAFO_QC</TCODE>
+    <PGMNA>ZAFO_QC</PGMNA>
+    <DYPNO>1000</DYPNO>
+    <CINFO>gA==</CINFO>
+   </TSTC>
+   <TSTCC>
+    <TCODE>ZAFO_QC</TCODE>
+   </TSTCC>
+   <TSTCT>
+    <SPRSL>1</SPRSL>
+    <TCODE>ZAFO_QC</TCODE>
+    <TTEXT>质检报告维护(仓库)</TTEXT>
+   </TSTCT>
+   <I18N_TPOOL>
+    <TSTCT>
+     <SPRSL>E</SPRSL>
+     <TTEXT>Inspection report</TTEXT>
+    </TSTCT>
+   </I18N_TPOOL>
+  </asx:values>
+ </asx:abap>
+</abapGit>

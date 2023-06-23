@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SUSO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOBJ>
+    <OBJCT>ZAFO_BSART</OBJCT>
+    <FIEL1>BSART</FIEL1>
+    <FIEL2>ACTVT</FIEL2>
+    <OCLSS>ZAFO</OCLSS>
+   </TOBJ>
+   <TOBJT>
+    <LANGU>1</LANGU>
+    <OBJECT>ZAFO_BSART</OBJECT>
+    <TTEXT>采购类型</TTEXT>
+   </TOBJT>
+   <TACTZ>
+    <TACTZ>
+     <BROBJ>ZAFO_BSART</BROBJ>
+     <ACTVT>01</ACTVT>
+    </TACTZ>
+    <TACTZ>
+     <BROBJ>ZAFO_BSART</BROBJ>
+     <ACTVT>02</ACTVT>
+    </TACTZ>
+    <TACTZ>
+     <BROBJ>ZAFO_BSART</BROBJ>
+     <ACTVT>03</ACTVT>
+    </TACTZ>
+    <TACTZ>
+     <BROBJ>ZAFO_BSART</BROBJ>
+     <ACTVT>06</ACTVT>
+    </TACTZ>
+   </TACTZ>
+  </asx:values>
+ </asx:abap>
+</abapGit>

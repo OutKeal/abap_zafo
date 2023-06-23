@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZAFO_SERVE_PLAYERS</ROLLNAME>
+    <DDLANGUAGE>1</DDLANGUAGE>
+    <DOMNAME>CHAR40</DOMNAME>
+    <HEADLEN>40</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>参与人</DDTEXT>
+    <REPTEXT>参与人</REPTEXT>
+    <SCRTEXT_S>参与人</SCRTEXT_S>
+    <SCRTEXT_M>参与人</SCRTEXT_M>
+    <SCRTEXT_L>参与人</SCRTEXT_L>
+    <DTELMASTER>1</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>participant</DDTEXT>
+     <REPTEXT>participant</REPTEXT>
+     <SCRTEXT_S>participan</SCRTEXT_S>
+     <SCRTEXT_M>participant</SCRTEXT_M>
+     <SCRTEXT_L>participant</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

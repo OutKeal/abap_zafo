@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZAFO_BAK_BUSTYP</ROLLNAME>
+    <DDLANGUAGE>1</DDLANGUAGE>
+    <HEADLEN>50</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>备选业务类型</DDTEXT>
+    <REPTEXT>备选业务类型</REPTEXT>
+    <SCRTEXT_S>备选业务类型</SCRTEXT_S>
+    <SCRTEXT_M>备选业务类型</SCRTEXT_M>
+    <SCRTEXT_L>备选业务类型</SCRTEXT_L>
+    <DTELMASTER>1</DTELMASTER>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000050</LENG>
+    <OUTPUTLEN>000050</OUTPUTLEN>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Alternative business type</DDTEXT>
+     <REPTEXT>Alternative business type</REPTEXT>
+     <SCRTEXT_S>Alternativ</SCRTEXT_S>
+     <SCRTEXT_M>Alternative business</SCRTEXT_M>
+     <SCRTEXT_L>Alternative business type</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

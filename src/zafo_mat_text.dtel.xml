@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZAFO_MAT_TEXT</ROLLNAME>
+    <DDLANGUAGE>1</DDLANGUAGE>
+    <DOMNAME>CHAR20</DOMNAME>
+    <HEADLEN>20</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>材质</DDTEXT>
+    <REPTEXT>材质</REPTEXT>
+    <SCRTEXT_S>材质</SCRTEXT_S>
+    <SCRTEXT_M>材质</SCRTEXT_M>
+    <SCRTEXT_L>材质</SCRTEXT_L>
+    <DTELMASTER>1</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+    <LANGU>쁩</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Material</DDTEXT>
+     <REPTEXT>Material</REPTEXT>
+     <SCRTEXT_S>Material</SCRTEXT_S>
+     <SCRTEXT_M>Material</SCRTEXT_M>
+     <SCRTEXT_L>Material</SCRTEXT_L>
+    </item>
+    <item>
+     <DDLANGUAGE>쁩</DDLANGUAGE>
+     <DDTEXT>Vật chất</DDTEXT>
+     <REPTEXT>Vật chất</REPTEXT>
+     <SCRTEXT_S>Vật chất</SCRTEXT_S>
+     <SCRTEXT_M>Vật chất</SCRTEXT_M>
+     <SCRTEXT_L>Vật chất</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
