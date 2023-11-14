@@ -1,16 +1,16 @@
 *****           Implementation of object type ZAFO                 *****
 INCLUDE <object>.
-begin_data object. " Do not change.. DATA is generated
+BEGIN_DATA OBJECT. " Do not change.. DATA is generated
 * only private members may be inserted into structure private
 DATA:
-  " begin of private,
-  "   to declare private attributes remove comments and
-  "   insert private attributes here ...
-  " end of private,
-  BEGIN OF key,
-    afono LIKE zafo_head-afono,
-  END OF key.
-end_data object. " Do not change.. DATA is generated
+" begin of private,
+"   to declare private attributes remove comments and
+"   insert private attributes here ...
+" end of private,
+  BEGIN OF KEY,
+      AFONO LIKE ZAFO_HEAD-AFONO,
+  END OF KEY.
+END_DATA OBJECT. " Do not change.. DATA is generated
 
 begin_method gosaddobjects changing container.
 DATA:
@@ -67,3 +67,44 @@ ENDIF.
 
 
 end_method.
+
+BEGIN_METHOD CREATE CHANGING CONTAINER.
+DATA:
+      ISHEAD LIKE ZAFO_BAPI_HEAD,
+      IPOST TYPE BAPIFLAG-BAPIFLAG,
+      NOCOMMIT TYPE BAPIFLAG-BAPIFLAG,
+      EAFONO TYPE ZAFO_SHEAD-AFONO,
+      ESHEAD LIKE ZAFO_SHEAD,
+      ITITEM LIKE ZAFO_BAPI_ITEM OCCURS 0,
+      ETITEM LIKE ZAFO_SITEM OCCURS 0,
+      ETRETURN LIKE BAPIRET2 OCCURS 0.
+  SWC_GET_ELEMENT CONTAINER 'IsHead' ISHEAD.
+  SWC_GET_ELEMENT CONTAINER 'IPost' IPOST.
+  SWC_GET_ELEMENT CONTAINER 'NoCommit' NOCOMMIT.
+  SWC_GET_TABLE CONTAINER 'ItItem' ITITEM.
+  SWC_GET_TABLE CONTAINER 'EtItem' ETITEM.
+  SWC_GET_TABLE CONTAINER 'EtReturn' ETRETURN.
+  CALL FUNCTION 'ZAFO_CREATE'
+    EXPORTING
+      IS_HEAD = ISHEAD
+      I_POST = IPOST
+      NO_COMMIT = NOCOMMIT
+    IMPORTING
+      E_AFONO = EAFONO
+      ES_HEAD = ESHEAD
+    TABLES
+      IT_ITEM = ITITEM
+      ET_ITEM = ETITEM
+      ET_RETURN = ETRETURN
+    EXCEPTIONS
+      OTHERS = 01.
+  CASE SY-SUBRC.
+    WHEN 0.            " OK
+    WHEN OTHERS.       " to be implemented
+  ENDCASE.
+  SWC_SET_ELEMENT CONTAINER 'EAfono' EAFONO.
+  SWC_SET_ELEMENT CONTAINER 'EsHead' ESHEAD.
+  SWC_SET_TABLE CONTAINER 'ItItem' ITITEM.
+  SWC_SET_TABLE CONTAINER 'EtItem' ETITEM.
+  SWC_SET_TABLE CONTAINER 'EtReturn' ETRETURN.
+END_METHOD.

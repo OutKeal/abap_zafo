@@ -20,7 +20,6 @@
    </DD04V>
    <I18N_LANGS>
     <LANGU>E</LANGU>
-    <LANGU>쁩</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
@@ -30,14 +29,6 @@
      <SCRTEXT_S>Last modif</SCRTEXT_S>
      <SCRTEXT_M>Last modified by</SCRTEXT_M>
      <SCRTEXT_L>Last modified by</SCRTEXT_L>
-    </item>
-    <item>
-     <DDLANGUAGE>쁩</DDLANGUAGE>
-     <DDTEXT>Sửa đổi lần cuối bởi</DDTEXT>
-     <REPTEXT>Sửa đổi lần</REPTEXT>
-     <SCRTEXT_S>Sửa đổi lầ</SCRTEXT_S>
-     <SCRTEXT_M>Sửa đổi lần cuối bởi</SCRTEXT_M>
-     <SCRTEXT_L>Sửa đổi lần cuối bởi</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

@@ -14,14 +14,8 @@
    <TSTCT>
     <SPRSL>1</SPRSL>
     <TCODE>ZAFO_S01</TCODE>
-    <TTEXT>材料仓出入库业务</TTEXT>
+    <TTEXT>仓库业务</TTEXT>
    </TSTCT>
-   <I18N_TPOOL>
-    <TSTCT>
-     <SPRSL>E</SPRSL>
-     <TTEXT>Material warehouse in and out busine</TTEXT>
-    </TSTCT>
-   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

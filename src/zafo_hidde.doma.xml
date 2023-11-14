@@ -16,13 +16,13 @@
      <VALPOS>0001</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>X</DOMVALUE_L>
-     <DDTEXT>隐藏</DDTEXT>
+     <DDTEXT>全隐藏</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>I</DOMVALUE_L>
-     <DDTEXT>ITEM隐藏</DDTEXT>
+     <DDTEXT>创建时隐藏</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0003</VALPOS>
@@ -33,42 +33,8 @@
     <DD07V>
      <VALPOS>0004</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
-     <DDTEXT>无</DDTEXT>
     </DD07V>
    </DD07V_TAB>
-   <I18N_LANGS>
-    <LANGU>E</LANGU>
-   </I18N_LANGS>
-   <DD01_TEXTS>
-    <item>
-     <DDLANGUAGE>E</DDLANGUAGE>
-    </item>
-   </DD01_TEXTS>
-   <DD07_TEXTS>
-    <item>
-     <VALPOS>0001</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>X</DOMVALUE_L>
-     <DDTEXT>hide</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0002</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>I</DOMVALUE_L>
-     <DDTEXT>ITEM hide</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0003</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>C</DOMVALUE_L>
-     <DDTEXT>Hide when selected</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0004</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DDTEXT>no</DDTEXT>
-    </item>
-   </DD07_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

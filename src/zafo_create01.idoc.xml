@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_IDOC" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <IDOC>
+    <ATTRIBUTES>
+     <DESCRP>ZAFO调用创建</DESCRP>
+     <FIRSTTYP>ZAFO_CREATE01</FIRSTTYP>
+     <LASTTYP>ZAFO_CREATE01</LASTTYP>
+     <GENERATED>X</GENERATED>
+    </ATTRIBUTES>
+    <T_SYNTAX>
+     <EDI_IAPI02>
+      <NR>0001</NR>
+      <SEGTYP>Z1ZAFO_CREATE</SEGTYP>
+      <PARFLG>X</PARFLG>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0000000001</OCCMAX>
+      <HLEVEL>01</HLEVEL>
+     </EDI_IAPI02>
+     <EDI_IAPI02>
+      <NR>0002</NR>
+      <SEGTYP>Z1ZAFO_BAPI_HEAD</SEGTYP>
+      <PARSEG>Z1ZAFO_CREATE</PARSEG>
+      <PARPNO>0001</PARPNO>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0000000001</OCCMAX>
+      <HLEVEL>02</HLEVEL>
+     </EDI_IAPI02>
+     <EDI_IAPI02>
+      <NR>0003</NR>
+      <SEGTYP>Z1ZAFO_BAPI_ITEM</SEGTYP>
+      <PARSEG>Z1ZAFO_CREATE</PARSEG>
+      <PARPNO>0001</PARPNO>
+      <OCCMIN>0000000001</OCCMIN>
+      <OCCMAX>0999999999</OCCMAX>
+      <HLEVEL>02</HLEVEL>
+     </EDI_IAPI02>
+    </T_SYNTAX>
+   </IDOC>
+  </asx:values>
+ </asx:abap>
+</abapGit>

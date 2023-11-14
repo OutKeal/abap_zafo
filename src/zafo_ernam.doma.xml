@@ -8,9 +8,7 @@
     <DATATYPE>CHAR</DATATYPE>
     <LENG>000012</LENG>
     <OUTPUTLEN>000012</OUTPUTLEN>
-    <ENTITYTAB>USR02</ENTITYTAB>
-    <CONVEXIT>USER</CONVEXIT>
-    <DDTEXT>创建人</DDTEXT>
+    <DDTEXT>申请人</DDTEXT>
    </DD01V>
   </asx:values>
  </asx:abap>

@@ -5,7 +5,7 @@
 *&---------------------------------------------------------------------*
 REPORT zafo MESSAGE-ID zafo.
 
-INCLUDE zafo_i01_top.
+INCLUDE zafo_top.
 
 INCLUDE zafo_sel.
 
@@ -13,41 +13,29 @@ INCLUDE zafo_f01.
 
 INCLUDE zafo_f02.
 
-INCLUDE zafo_f03.
-
-
 INITIALIZATION.
-
+  "页面初始化
   PERFORM frm_init.
 
-  PERFORM frm_set_list.
-
-  PERFORM frm_set_default_value.
-
 AT SELECTION-SCREEN ON s_lifnr.
-  PERFORM frm_vendor_search_s.
 
-AT SELECTION-SCREEN ON s_zname1.
-  PERFORM frm_vendor_search_sname.
+  PERFORM frm_vendor_search.
+
+AT SELECTION-SCREEN ON s_kunnr.
+
+  PERFORM frm_customer_search.
+
+  AT SELECTION-SCREEN ON s_matnr.
+
+  PERFORM frm_material_search.
 
 AT SELECTION-SCREEN.
 
-  PERFORM frm_download_temp CHANGING sscrfields-ucomm.  "下载模板
-
-  IF sscrfields-ucomm = 'CON'.
-    PERFORM frm_set_default_value .
-  ELSEIF sscrfields-ucomm = 'TYP'.
-    IF p_dis EQ 'X' .
-      CLEAR p_dis.
-      p_cre = 'X'.
-    ENDIF.
-    PERFORM frm_set_default_value .
-  ENDIF.
+  PERFORM frm_at_screen CHANGING sscrfields-ucomm.
 
 AT SELECTION-SCREEN OUTPUT.
 
   PERFORM frm_set_sel_screen.
-
 
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.
 
@@ -56,3 +44,5 @@ AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.
 START-OF-SELECTION.
 
   PERFORM frm_run.
+
+END-OF-SELECTION.

@@ -9,6 +9,56 @@
     <FIXPT>X</FIXPT>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
+   <DYNPROS>
+    <item>
+     <HEADER>
+      <PROGRAM>ZAFO</PROGRAM>
+      <SCREEN>0100</SCREEN>
+      <LANGUAGE>1</LANGUAGE>
+      <DESCRIPT>选择屏幕</DESCRIPT>
+      <TYPE>N</TYPE>
+      <NEXTSCREEN>0100</NEXTSCREEN>
+      <LINES>027</LINES>
+      <COLUMNS>120</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+     <FLOW_LOGIC>
+      <RPY_DYFLOW>
+       <LINE>PROCESS BEFORE OUTPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>* MODULE STATUS_0100.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>*</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>* MODULE USER_COMMAND_0100.</LINE>
+      </RPY_DYFLOW>
+     </FLOW_LOGIC>
+    </item>
+   </DYNPROS>
    <TPOOL>
     <item>
      <ID>I</ID>
@@ -19,181 +69,56 @@
     <item>
      <ID>I</ID>
      <KEY>002</KEY>
-     <ENTRY>仓位信息</ENTRY>
-     <LENGTH>14</LENGTH>
+     <ENTRY>仓库信息</ENTRY>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>003</KEY>
-     <ENTRY>销售合同</ENTRY>
-     <LENGTH>14</LENGTH>
+     <ENTRY>销售信息</ENTRY>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>004</KEY>
      <ENTRY>采购信息</ENTRY>
-     <LENGTH>14</LENGTH>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>005</KEY>
      <ENTRY>物料信息</ENTRY>
-     <LENGTH>14</LENGTH>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>006</KEY>
-     <ENTRY>质检信息</ENTRY>
-     <LENGTH>14</LENGTH>
+     <ENTRY>生产订单</ENTRY>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>007</KEY>
      <ENTRY>查询信息</ENTRY>
-     <LENGTH>14</LENGTH>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>008</KEY>
-     <ENTRY>选择文件</ENTRY>
-     <LENGTH>14</LENGTH>
+     <ENTRY>下载模板</ENTRY>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>009</KEY>
-     <ENTRY>未审核</ENTRY>
+     <ENTRY>上传数据</ENTRY>
      <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>010</KEY>
-     <ENTRY>初始</ENTRY>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>012</KEY>
-     <ENTRY>已完成</ENTRY>
-     <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>013</KEY>
-     <ENTRY>变更数量</ENTRY>
-     <LENGTH>14</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>014</KEY>
-     <ENTRY>新增行</ENTRY>
-     <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>015</KEY>
-     <LENGTH>1</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>016</KEY>
-     <ENTRY>已删除BOM</ENTRY>
-     <LENGTH>16</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>017</KEY>
-     <ENTRY>大货单不存在</ENTRY>
+     <ENTRY>操作选择</ENTRY>
      <LENGTH>10</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>018</KEY>
-     <ENTRY>跨公司业务公司不能一致</ENTRY>
-     <LENGTH>21</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>019</KEY>
-     <ENTRY>跨公司业务公司不能一致</ENTRY>
-     <LENGTH>21</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>020</KEY>
-     <ENTRY>操作</ENTRY>
-     <LENGTH>10</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>021</KEY>
-     <ENTRY>发料公司必须一致</ENTRY>
-     <LENGTH>18</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>022</KEY>
-     <ENTRY>无合格数量</ENTRY>
-     <LENGTH>15</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>023</KEY>
-     <ENTRY>后续已完成</ENTRY>
-     <LENGTH>15</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>024</KEY>
-     <ENTRY>已审核</ENTRY>
-     <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>025</KEY>
-     <ENTRY>检验中</ENTRY>
-     <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>026</KEY>
-     <ENTRY>无合格数</ENTRY>
-     <LENGTH>14</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>027</KEY>
-     <ENTRY>全部不合格</ENTRY>
-     <LENGTH>15</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>030</KEY>
-     <ENTRY>下载模板</ENTRY>
-     <LENGTH>14</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>040</KEY>
-     <ENTRY>上传路径</ENTRY>
-     <LENGTH>10</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>100</KEY>
-     <ENTRY>未审批</ENTRY>
-     <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>101</KEY>
-     <ENTRY>初始</ENTRY>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>102</KEY>
-     <ENTRY>业务未确认</ENTRY>
-     <LENGTH>15</LENGTH>
     </item>
     <item>
      <ID>R</ID>
@@ -244,21 +169,15 @@
     </item>
     <item>
      <ID>S</ID>
+     <KEY>P_REF</KEY>
+     <ENTRY>参考创建</ENTRY>
+     <LENGTH>12</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
      <KEY>P_ROW</KEY>
      <ENTRY>模板开始行</ENTRY>
      <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>P_SCAN</KEY>
-     <ENTRY>扫码创建</ENTRY>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>P_SELF</KEY>
-     <ENTRY>只看自己</ENTRY>
-     <LENGTH>12</LENGTH>
     </item>
     <item>
      <ID>S</ID>
@@ -281,8 +200,14 @@
     <item>
      <ID>S</ID>
      <KEY>S_AUART</KEY>
-     <ENTRY>销售订单类型</ENTRY>
-     <LENGTH>14</LENGTH>
+     <ENTRY>订单类型</ENTRY>
+     <LENGTH>12</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_AUFNR</KEY>
+     <ENTRY>生产订单</ENTRY>
+     <LENGTH>12</LENGTH>
     </item>
     <item>
      <ID>S</ID>
@@ -298,14 +223,8 @@
     </item>
     <item>
      <ID>S</ID>
-     <KEY>S_CATE1</KEY>
-     <ENTRY>大类</ENTRY>
-     <LENGTH>10</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_CATE2</KEY>
-     <ENTRY>中类</ENTRY>
+     <KEY>S_CHARG</KEY>
+     <ENTRY>批次</ENTRY>
      <LENGTH>10</LENGTH>
     </item>
     <item>
@@ -316,9 +235,21 @@
     </item>
     <item>
      <ID>S</ID>
+     <KEY>S_EEIND</KEY>
+     <ENTRY>交货日期</ENTRY>
+     <LENGTH>12</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
      <KEY>S_EKGRP</KEY>
      <ENTRY>采购组</ENTRY>
      <LENGTH>11</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_EKORG</KEY>
+     <ENTRY>采购组织</ENTRY>
+     <LENGTH>12</LENGTH>
     </item>
     <item>
      <ID>S</ID>
@@ -334,8 +265,8 @@
     </item>
     <item>
      <ID>S</ID>
-     <KEY>S_IDNLF</KEY>
-     <ENTRY>工厂款号</ENTRY>
+     <KEY>S_EXORD</KEY>
+     <ENTRY>参考单号</ENTRY>
      <LENGTH>12</LENGTH>
     </item>
     <item>
@@ -353,7 +284,7 @@
     <item>
      <ID>S</ID>
      <KEY>S_LIFNR</KEY>
-     <ENTRY>供应商</ENTRY>
+     <ENTRY>供应商编号</ENTRY>
      <LENGTH>13</LENGTH>
     </item>
     <item>
@@ -361,6 +292,12 @@
      <KEY>S_MAKTX</KEY>
      <ENTRY>物料名称</ENTRY>
      <LENGTH>12</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_MATKL</KEY>
+     <ENTRY>物料组</ENTRY>
+     <LENGTH>11</LENGTH>
     </item>
     <item>
      <ID>S</ID>
@@ -376,27 +313,9 @@
     </item>
     <item>
      <ID>S</ID>
-     <KEY>S_NENAM</KEY>
-     <ENTRY>通知人</ENTRY>
-     <LENGTH>11</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_PERNAM</KEY>
-     <ENTRY>采购下单人</ENTRY>
-     <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_POTEXT</KEY>
-     <ENTRY>采购编号</ENTRY>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_QCNO</KEY>
-     <ENTRY>质检单号</ENTRY>
-     <LENGTH>12</LENGTH>
+     <KEY>S_SATNR</KEY>
+     <ENTRY>款号</ENTRY>
+     <LENGTH>10</LENGTH>
     </item>
     <item>
      <ID>S</ID>
@@ -407,50 +326,14 @@
     <item>
      <ID>S</ID>
      <KEY>S_VBELN</KEY>
-     <ENTRY>销售凭证</ENTRY>
+     <ENTRY>销售订单</ENTRY>
      <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_VGBEL</KEY>
-     <ENTRY>INVOICE.NO</ENTRY>
-     <LENGTH>18</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_VKGRP</KEY>
-     <ENTRY>销售组</ENTRY>
-     <LENGTH>11</LENGTH>
     </item>
     <item>
      <ID>S</ID>
      <KEY>S_WERKS</KEY>
      <ENTRY>工厂</ENTRY>
      <LENGTH>10</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_ZNAME1</KEY>
-     <ENTRY>供应商名称</ENTRY>
-     <LENGTH>13</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_ZPPDHD</KEY>
-     <ENTRY>大货通知单号</ENTRY>
-     <LENGTH>14</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_ZZPINO</KEY>
-     <ENTRY>销售合同</ENTRY>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <ID>S</ID>
-     <KEY>S_ZZWLLY</KEY>
-     <ENTRY>物料来源</ENTRY>
-     <LENGTH>12</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
@@ -838,101 +721,6 @@
        <ID>S</ID>
        <KEY>S_ZZWLLY</KEY>
        <ENTRY>Material source</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-     </TEXTPOOL>
-    </item>
-    <item>
-     <LANGUAGE>쁩</LANGUAGE>
-     <TEXTPOOL>
-      <item>
-       <ID>I</ID>
-       <KEY>001</KEY>
-       <ENTRY>Loại hình kinh doanh</ENTRY>
-       <LENGTH>20</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>P_AFONO</KEY>
-       <ENTRY>Đơn số</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>P_TYP</KEY>
-       <ENTRY>Loại hình kinh doanh</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>P_WERKS</KEY>
-       <ENTRY>nhà máy</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_BSART</KEY>
-       <ENTRY>Mua loại</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_BUDAT</KEY>
-       <ENTRY>Ngày đăng</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_EKGRP</KEY>
-       <ENTRY>Nhóm Mua</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ERDAT</KEY>
-       <ENTRY>Ngày thành lập</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ERNAM</KEY>
-       <ENTRY>người sáng lập</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_IDNLF</KEY>
-       <ENTRY>Số kiểu nhà máy</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_KUNNR</KEY>
-       <ENTRY>khách hàng</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_QCNO</KEY>
-       <ENTRY>Số QC</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_WERKS</KEY>
-       <ENTRY>nhà máy</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ZPPDHD</KEY>
-       <ENTRY>Mã đơn thông báo hàng đại trà</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ZZWLLY</KEY>
-       <ENTRY>Nguồn nguyên liệu</ENTRY>
        <LENGTH>38</LENGTH>
       </item>
      </TEXTPOOL>

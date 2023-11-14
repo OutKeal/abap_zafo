@@ -8,7 +8,6 @@ FUNCTION conversion_exit_user_output .
 *"--------------------------------------------------------------------
 
   DATA:l_uname TYPE char40.
-  CHECK input IS NOT INITIAL.
   SELECT SINGLE
     name_textc INTO l_uname
     FROM user_addr

@@ -20,7 +20,6 @@
    </DD04V>
    <I18N_LANGS>
     <LANGU>E</LANGU>
-    <LANGU>쁩</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
@@ -30,14 +29,6 @@
      <SCRTEXT_S>Modifier</SCRTEXT_S>
      <SCRTEXT_M>Modifier</SCRTEXT_M>
      <SCRTEXT_L>Modifier</SCRTEXT_L>
-    </item>
-    <item>
-     <DDLANGUAGE>쁩</DDLANGUAGE>
-     <DDTEXT>người sửa chữa</DDTEXT>
-     <REPTEXT>người sửa chữa</REPTEXT>
-     <SCRTEXT_S>người sửa</SCRTEXT_S>
-     <SCRTEXT_M>người sửa chữa</SCRTEXT_M>
-     <SCRTEXT_L>người sửa chữa</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

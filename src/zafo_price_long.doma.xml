@@ -10,7 +10,7 @@
     <OUTPUTLEN>000010</OUTPUTLEN>
     <DECIMALS>000006</DECIMALS>
     <CONVEXIT>PRICE</CONVEXIT>
-    <DDTEXT>单价</DDTEXT>
+    <DDTEXT>长价格</DDTEXT>
    </DD01V>
   </asx:values>
  </asx:abap>

@@ -16,49 +16,49 @@
      <VALPOS>0001</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>A</DOMVALUE_L>
-     <DDTEXT>未清PO</DDTEXT>
+     <DDTEXT>采购收货参考</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>B</DOMVALUE_L>
-     <DDTEXT>库存</DDTEXT>
+     <DDTEXT>一般库存参考</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0003</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>C</DOMVALUE_L>
-     <DDTEXT>订单库存</DDTEXT>
+     <DDTEXT>一般+订单库存参考</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0004</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>D</DOMVALUE_L>
-     <DDTEXT>BOM采购</DDTEXT>
+     <DDTEXT>生产订单采购参考</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0005</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>E</DOMVALUE_L>
-     <DDTEXT>产前样发料</DDTEXT>
+     <DDTEXT>订单库存参考</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0006</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>F</DOMVALUE_L>
-     <DDTEXT>生产发料</DDTEXT>
+     <DDTEXT>生产报工</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0007</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>G</DOMVALUE_L>
-     <DDTEXT>质检报告合格</DDTEXT>
+     <DDTEXT>采购原单退货</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0008</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>H</DOMVALUE_L>
-     <DDTEXT>领料转移单</DDTEXT>
+     <DDTEXT>生产发料</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0009</VALPOS>
@@ -70,226 +70,25 @@
      <VALPOS>0010</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>J</DOMVALUE_L>
-     <DDTEXT>大货经销采购</DDTEXT>
+     <DDTEXT>生产入库</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0011</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
      <DOMVALUE_L>K</DOMVALUE_L>
-     <DDTEXT>库存+订单库存</DDTEXT>
+     <DDTEXT>参考工序外协加工</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0012</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>L</DOMVALUE_L>
-     <DDTEXT>采购BOM变更</DDTEXT>
+     <DOMVALUE_L>Z</DOMVALUE_L>
+     <DDTEXT>前序参考(只引用一次)</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0013</VALPOS>
      <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>M</DOMVALUE_L>
-     <DDTEXT>海外材料收货</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0014</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>N</DOMVALUE_L>
-     <DDTEXT>材料采购入库冲销</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0015</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>O</DOMVALUE_L>
-     <DDTEXT>清关业务</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0016</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>P</DOMVALUE_L>
-     <DDTEXT>库存采购入库冲销</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0017</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>Y</DOMVALUE_L>
-     <DDTEXT>AFO调拨单</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0018</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>Z</DOMVALUE_L>
-     <DDTEXT>AFO申请单</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0019</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>R</DOMVALUE_L>
-     <DDTEXT>出库冲销</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0020</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>W</DOMVALUE_L>
-     <DDTEXT>半成品委外加工发料</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0021</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>U</DOMVALUE_L>
-     <DDTEXT>工序委外</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0022</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>Q</DOMVALUE_L>
-     <DDTEXT>徳誉采购</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0023</VALPOS>
-     <DDLANGUAGE>1</DDLANGUAGE>
-     <DOMVALUE_L>S</DOMVALUE_L>
-     <DDTEXT>分销发货</DDTEXT>
     </DD07V>
    </DD07V_TAB>
-   <I18N_LANGS>
-    <LANGU>E</LANGU>
-   </I18N_LANGS>
-   <DD01_TEXTS>
-    <item>
-     <DDLANGUAGE>E</DDLANGUAGE>
-    </item>
-   </DD01_TEXTS>
-   <DD07_TEXTS>
-    <item>
-     <VALPOS>0001</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>A</DOMVALUE_L>
-     <DDTEXT>Outstanding PO</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0002</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>B</DOMVALUE_L>
-     <DDTEXT>in stock</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0003</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>C</DOMVALUE_L>
-     <DDTEXT>Order inventory</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0004</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>D</DOMVALUE_L>
-     <DDTEXT>BOM purchase</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0005</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>E</DOMVALUE_L>
-     <DDTEXT>Prenatal sample distribution</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0006</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>F</DOMVALUE_L>
-     <DDTEXT>Production issue</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0007</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>G</DOMVALUE_L>
-     <DDTEXT>Quality inspection report qualified</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0008</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>H</DOMVALUE_L>
-     <DDTEXT>Import procurement</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0009</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>I</DOMVALUE_L>
-     <DDTEXT>Production returns</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0010</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>J</DOMVALUE_L>
-     <DDTEXT>Bulk merchandise distribution and procurement</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0011</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>K</DOMVALUE_L>
-     <DDTEXT>Inventory + order inventory</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0012</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>L</DOMVALUE_L>
-     <DDTEXT>Purchasing BOM changes</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0013</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>M</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0014</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>N</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0015</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>O</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0016</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>P</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0017</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>Y</DOMVALUE_L>
-     <DDTEXT>AFO Transfer Order</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0018</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>Z</DOMVALUE_L>
-     <DDTEXT>AFO application form</DDTEXT>
-    </item>
-    <item>
-     <VALPOS>0019</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>R</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0020</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>W</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0021</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>U</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0022</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>Q</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0023</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>S</DOMVALUE_L>
-    </item>
-   </DD07_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

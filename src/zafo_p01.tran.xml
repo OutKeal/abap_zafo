@@ -14,14 +14,8 @@
    <TSTCT>
     <SPRSL>1</SPRSL>
     <TCODE>ZAFO_P01</TCODE>
-    <TTEXT>BOM转采购订单</TTEXT>
+    <TTEXT>采购业务</TTEXT>
    </TSTCT>
-   <I18N_TPOOL>
-    <TSTCT>
-     <SPRSL>E</SPRSL>
-     <TTEXT>BOM to purchase order</TTEXT>
-    </TSTCT>
-   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

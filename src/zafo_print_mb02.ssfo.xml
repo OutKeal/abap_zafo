@@ -9,8 +9,8 @@
    <DEVCLASS></DEVCLASS>
    <VERSION>00001</VERSION>
    <FIRSTUSER>DUMMY</FIRSTUSER>
-   <FIRSTDATE>2021-03-25</FIRSTDATE>
-   <FIRSTTIME>14:20:17</FIRSTTIME>
+   <FIRSTDATE>2022-01-11</FIRSTDATE>
+   <FIRSTTIME>08:51:40</FIRSTTIME>
    <LASTUSER>DUMMY</LASTUSER>
    <LASTDATE></LASTDATE>
    <LASTTIME></LASTTIME>
@@ -191,7 +191,7 @@
            </NEXTPAGE>
            <NUMB_MODE>I</NUMB_MODE>
            <NUMB_TYPE>A</NUMB_TYPE>
-           <PAGEORTN>P</PAGEORTN>
+           <PAGEORTN>L</PAGEORTN>
            <T_CAPTION>
             <item>
              <LANGU>1</LANGU>
@@ -278,7 +278,7 @@
                       <U_FRAME>PT</U_FRAME>
                      </PATTERN>
                      <USEBORDER>X</USEBORDER>
-                     <WIDTH>190.00</WIDTH>
+                     <WIDTH>260.00</WIDTH>
                      <U_WIDTH>MM</U_WIDTH>
                      <APPMODE>L</APPMODE>
                      <U_LEFT>MM</U_LEFT>
@@ -315,7 +315,99 @@
                       <item>
                        <NAME>%C1</NAME>
                        <COLUMNNR>001</COLUMNNR>
-                       <CWIDTH>190.00</CWIDTH>
+                       <CWIDTH>50.00</CWIDTH>
+                       <U_CWIDTH>MM</U_CWIDTH>
+                       <SHADING>000</SHADING>
+                       <BORDERS>
+                        <item>
+                         <IDX>001</IDX>
+                         <INTENSITY>000</INTENSITY>
+                         <LLEFT>0.00</LLEFT>
+                         <LLEFT_U>MM</LLEFT_U>
+                         <LTOP>0.00</LTOP>
+                         <LTOP_U>MM</LTOP_U>
+                         <LRIGHT>0.00</LRIGHT>
+                         <LRIGHT_U>MM</LRIGHT_U>
+                         <LBOTTOM>0.00</LBOTTOM>
+                         <LBOTTOM_U>MM</LBOTTOM_U>
+                         <FILLCOLOR>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </FILLCOLOR>
+                         <CLEFT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CLEFT>
+                         <CTOP>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CTOP>
+                         <CRIGHT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CRIGHT>
+                         <CBOTTOM>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CBOTTOM>
+                        </item>
+                       </BORDERS>
+                      </item>
+                      <item>
+                       <NAME>%C1</NAME>
+                       <COLUMNNR>002</COLUMNNR>
+                       <CWIDTH>160.00</CWIDTH>
+                       <U_CWIDTH>MM</U_CWIDTH>
+                       <SHADING>000</SHADING>
+                       <BORDERS>
+                        <item>
+                         <IDX>001</IDX>
+                         <INTENSITY>000</INTENSITY>
+                         <LLEFT>0.00</LLEFT>
+                         <LLEFT_U>MM</LLEFT_U>
+                         <LTOP>0.00</LTOP>
+                         <LTOP_U>MM</LTOP_U>
+                         <LRIGHT>0.00</LRIGHT>
+                         <LRIGHT_U>MM</LRIGHT_U>
+                         <LBOTTOM>0.00</LBOTTOM>
+                         <LBOTTOM_U>MM</LBOTTOM_U>
+                         <FILLCOLOR>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </FILLCOLOR>
+                         <CLEFT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CLEFT>
+                         <CTOP>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CTOP>
+                         <CRIGHT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CRIGHT>
+                         <CBOTTOM>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CBOTTOM>
+                        </item>
+                       </BORDERS>
+                      </item>
+                      <item>
+                       <NAME>%C1</NAME>
+                       <COLUMNNR>003</COLUMNNR>
+                       <CWIDTH>50.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -361,7 +453,7 @@
                       <item>
                        <NAME>%C2</NAME>
                        <COLUMNNR>001</COLUMNNR>
-                       <CWIDTH>50.00</CWIDTH>
+                       <CWIDTH>90.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -453,7 +545,7 @@
                       <item>
                        <NAME>%C2</NAME>
                        <COLUMNNR>003</COLUMNNR>
-                       <CWIDTH>50.00</CWIDTH>
+                       <CWIDTH>80.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -499,7 +591,7 @@
                       <item>
                        <NAME>%C3</NAME>
                        <COLUMNNR>001</COLUMNNR>
-                       <CWIDTH>50.00</CWIDTH>
+                       <CWIDTH>90.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -591,7 +683,7 @@
                       <item>
                        <NAME>%C3</NAME>
                        <COLUMNNR>003</COLUMNNR>
-                       <CWIDTH>50.00</CWIDTH>
+                       <CWIDTH>80.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -687,7 +779,7 @@
                          <INAME>%OUTATTRIB2</INAME>
                         </NAME>
                         <T_LINENR>001</T_LINENR>
-                        <T_CELLNR>001</T_CELLNR>
+                        <T_CELLNR>002</T_CELLNR>
                         <U_WFRAME>PT</U_WFRAME>
                         <U_WBOXV>CM</U_WBOXV>
                         <U_WBOXH>CM</U_WBOXH>
@@ -908,7 +1000,7 @@
                         <NAME>
                          <INAME>%OUTATTRIB4</INAME>
                         </NAME>
-                        <T_LINENR>002</T_LINENR>
+                        <T_LINENR>001</T_LINENR>
                         <T_CELLNR>001</T_CELLNR>
                         <U_WFRAME>PT</U_WFRAME>
                         <U_WBOXV>CM</U_WBOXV>
@@ -993,7 +1085,7 @@
                         <APPMODE>P</APPMODE>
                         <TEXT>
                          <item>
-                          <TDFORMAT>I1</TDFORMAT>
+                          <TDFORMAT>I3</TDFORMAT>
                           <TDLINE>&amp;GS_PRINT_H-HEAD_TXT2&amp;</TDLINE>
                          </item>
                         </TEXT>
@@ -1019,7 +1111,7 @@
                         <NAME>
                          <INAME>%OUTATTRIB5</INAME>
                         </NAME>
-                        <T_LINENR>002</T_LINENR>
+                        <T_LINENR>001</T_LINENR>
                         <T_CELLNR>003</T_CELLNR>
                         <U_WFRAME>PT</U_WFRAME>
                         <U_WBOXV>CM</U_WBOXV>
@@ -1130,7 +1222,7 @@
                         <NAME>
                          <INAME>%OUTATTRIB6</INAME>
                         </NAME>
-                        <T_LINENR>003</T_LINENR>
+                        <T_LINENR>002</T_LINENR>
                         <T_CELLNR>001</T_CELLNR>
                         <U_WFRAME>PT</U_WFRAME>
                         <U_WBOXV>CM</U_WBOXV>
@@ -1215,7 +1307,7 @@
                         <APPMODE>P</APPMODE>
                         <TEXT>
                          <item>
-                          <TDFORMAT>I1</TDFORMAT>
+                          <TDFORMAT>I3</TDFORMAT>
                           <TDLINE>&amp;GS_PRINT_H-HEAD_TXT4&amp;</TDLINE>
                          </item>
                         </TEXT>
@@ -1241,7 +1333,7 @@
                         <NAME>
                          <INAME>%OUTATTRIB30</INAME>
                         </NAME>
-                        <T_LINENR>003</T_LINENR>
+                        <T_LINENR>002</T_LINENR>
                         <T_CELLNR>003</T_CELLNR>
                         <U_WFRAME>PT</U_WFRAME>
                         <U_WBOXV>CM</U_WBOXV>
@@ -1313,6 +1405,228 @@
                       <sf:SUCC/>
                      </sf:NODE>
                     </sf:item>
+                    <sf:item>
+                     <sf:NODE>
+                      <NODETYPE>TI</NODETYPE>
+                      <sf:OBJ>
+                       <sf:TEXT>
+                        <NAME>
+                         <INAME>%TEXT29</INAME>
+                        </NAME>
+                        <CAPTION>新文本 29</CAPTION>
+                        <NOLANGUAGE>X</NOLANGUAGE>
+                        <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>*</TDFORMAT>
+                          <TDLINE>&amp;GS_PRINT_H-HEAD_TXT5&amp;</TDLINE>
+                         </item>
+                        </TEXT>
+                        <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                        <TEXT_AREA>
+                         <ENABLED>F</ENABLED>
+                         <NCOLS>0</NCOLS>
+                         <NROWS>0</NROWS>
+                        </TEXT_AREA>
+                        <T_CAPTION>
+                         <item>
+                          <LANGU>1</LANGU>
+                          <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                          <OBJTYPE>TI</OBJTYPE>
+                          <INAME>%TEXT29</INAME>
+                          <CAPTION>新文本 29</CAPTION>
+                         </item>
+                        </T_CAPTION>
+                       </sf:TEXT>
+                      </sf:OBJ>
+                      <sf:OUTATTR>
+                       <sf:OUTATTR>
+                        <NAME>
+                         <INAME>%OUTATTRIB36</INAME>
+                        </NAME>
+                        <T_LINENR>003</T_LINENR>
+                        <T_CELLNR>001</T_CELLNR>
+                        <U_WFRAME>PT</U_WFRAME>
+                        <U_WBOXV>CM</U_WBOXV>
+                        <U_WBOXH>CM</U_WBOXH>
+                        <U_WLEFT>CM</U_WLEFT>
+                        <U_WWIDTH>CM</U_WWIDTH>
+                        <U_WTOP>CM</U_WTOP>
+                        <U_WHEIGHT>CM</U_WHEIGHT>
+                        <BORDER>
+                         <LEFTATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </LEFTATTR>
+                         <TOPATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </TOPATTR>
+                         <RIGHTATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </RIGHTATTR>
+                         <BOTTOMATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </BOTTOMATTR>
+                        </BORDER>
+                        <T_CAPTION>
+                         <item>
+                          <LANGU>1</LANGU>
+                          <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                          <OBJTYPE>OA</OBJTYPE>
+                          <INAME>%OUTATTRIB36</INAME>
+                         </item>
+                        </T_CAPTION>
+                       </sf:OUTATTR>
+                      </sf:OUTATTR>
+                      <sf:SUCC/>
+                     </sf:NODE>
+                    </sf:item>
+                    <sf:item>
+                     <sf:NODE>
+                      <NODETYPE>TI</NODETYPE>
+                      <sf:OBJ>
+                       <sf:TEXT>
+                        <NAME>
+                         <INAME>%TEXT30</INAME>
+                        </NAME>
+                        <CAPTION>新文本 30</CAPTION>
+                        <NOLANGUAGE>X</NOLANGUAGE>
+                        <APPMODE>P</APPMODE>
+                        <TEXT>
+                         <item>
+                          <TDFORMAT>I3</TDFORMAT>
+                          <TDLINE>&amp;GS_PRINT_H-HEAD_TXT6&amp;</TDLINE>
+                         </item>
+                        </TEXT>
+                        <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                        <TEXT_AREA>
+                         <ENABLED>F</ENABLED>
+                         <NCOLS>0</NCOLS>
+                         <NROWS>0</NROWS>
+                        </TEXT_AREA>
+                        <T_CAPTION>
+                         <item>
+                          <LANGU>1</LANGU>
+                          <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                          <OBJTYPE>TI</OBJTYPE>
+                          <INAME>%TEXT30</INAME>
+                          <CAPTION>新文本 30</CAPTION>
+                         </item>
+                        </T_CAPTION>
+                       </sf:TEXT>
+                      </sf:OBJ>
+                      <sf:OUTATTR>
+                       <sf:OUTATTR>
+                        <NAME>
+                         <INAME>%OUTATTRIB37</INAME>
+                        </NAME>
+                        <T_LINENR>003</T_LINENR>
+                        <T_CELLNR>003</T_CELLNR>
+                        <U_WFRAME>PT</U_WFRAME>
+                        <U_WBOXV>CM</U_WBOXV>
+                        <U_WBOXH>CM</U_WBOXH>
+                        <U_WLEFT>CM</U_WLEFT>
+                        <U_WWIDTH>CM</U_WWIDTH>
+                        <U_WTOP>CM</U_WTOP>
+                        <U_WHEIGHT>CM</U_WHEIGHT>
+                        <BORDER>
+                         <LEFTATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </LEFTATTR>
+                         <TOPATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </TOPATTR>
+                         <RIGHTATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </RIGHTATTR>
+                         <BOTTOMATTR>
+                          <THICKNESS>0.00</THICKNESS>
+                          <THICKNESSU>PT</THICKNESSU>
+                          <DISTANCE>0.00</DISTANCE>
+                          <DISTANCEU>CM</DISTANCEU>
+                          <COLOR>
+                           <RED>000</RED>
+                           <GREEN>000</GREEN>
+                           <BLUE>000</BLUE>
+                           <TRANS>000</TRANS>
+                          </COLOR>
+                         </BOTTOMATTR>
+                        </BORDER>
+                        <T_CAPTION>
+                         <item>
+                          <LANGU>1</LANGU>
+                          <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                          <OBJTYPE>OA</OBJTYPE>
+                          <INAME>%OUTATTRIB37</INAME>
+                         </item>
+                        </T_CAPTION>
+                       </sf:OUTATTR>
+                      </sf:OUTATTR>
+                      <sf:SUCC/>
+                     </sf:NODE>
+                    </sf:item>
                    </sf:SUCC>
                   </sf:NODE>
                  </sf:item>
@@ -1329,11 +1643,11 @@
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>
-              <WLEFT>10.00</WLEFT>
+              <WLEFT>15.00</WLEFT>
               <U_WLEFT>MM</U_WLEFT>
-              <WWIDTH>190.00</WWIDTH>
+              <WWIDTH>260.00</WWIDTH>
               <U_WWIDTH>MM</U_WWIDTH>
-              <WTOP>10.00</WTOP>
+              <WTOP>15.00</WTOP>
               <U_WTOP>MM</U_WTOP>
               <WHEIGHT>20.00</WHEIGHT>
               <U_WHEIGHT>MM</U_WHEIGHT>
@@ -1444,12 +1758,11 @@
                      <U_FHEIGHT>CM</U_FHEIGHT>
                      <PATTERN>
                       <PATTNUM>0000</PATTNUM>
-                      <BORDER>X</BORDER>
                       <FRAME>3.00</FRAME>
                       <U_FRAME>TW</U_FRAME>
                      </PATTERN>
                      <USEBORDER>X</USEBORDER>
-                     <WIDTH>190.00</WIDTH>
+                     <WIDTH>260.00</WIDTH>
                      <U_WIDTH>MM</U_WIDTH>
                      <APPMODE>L</APPMODE>
                      <U_LEFT>MM</U_LEFT>
@@ -1473,7 +1786,7 @@
                       <item>
                        <NAME>%LTYPE1</NAME>
                        <COLUMNNR>001</COLUMNNR>
-                       <CWIDTH>80.00</CWIDTH>
+                       <CWIDTH>15.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -1518,14 +1831,13 @@
                           <BLUE>000</BLUE>
                           <USED>X</USED>
                          </CBOTTOM>
-                         <HIGHLIGHTD>X</HIGHLIGHTD>
                         </item>
                        </BORDERS>
                       </item>
                       <item>
                        <NAME>%LTYPE1</NAME>
                        <COLUMNNR>002</COLUMNNR>
-                       <CWIDTH>10.00</CWIDTH>
+                       <CWIDTH>20.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -1570,7 +1882,6 @@
                           <BLUE>000</BLUE>
                           <USED>X</USED>
                          </CBOTTOM>
-                         <HIGHLIGHTD>X</HIGHLIGHTD>
                         </item>
                        </BORDERS>
                       </item>
@@ -1622,13 +1933,114 @@
                           <BLUE>000</BLUE>
                           <USED>X</USED>
                          </CBOTTOM>
-                         <HIGHLIGHTD>X</HIGHLIGHTD>
                         </item>
                        </BORDERS>
                       </item>
                       <item>
                        <NAME>%LTYPE1</NAME>
                        <COLUMNNR>004</COLUMNNR>
+                       <CWIDTH>40.00</CWIDTH>
+                       <U_CWIDTH>MM</U_CWIDTH>
+                       <SHADING>000</SHADING>
+                       <BORDERS>
+                        <item>
+                         <IDX>001</IDX>
+                         <INTENSITY>000</INTENSITY>
+                         <LLEFT>15.00</LLEFT>
+                         <LLEFT_U>TW</LLEFT_U>
+                         <LTOP>15.00</LTOP>
+                         <LTOP_U>TW</LTOP_U>
+                         <LRIGHT>15.00</LRIGHT>
+                         <LRIGHT_U>TW</LRIGHT_U>
+                         <LBOTTOM>15.00</LBOTTOM>
+                         <LBOTTOM_U>TW</LBOTTOM_U>
+                         <FILLCOLOR>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </FILLCOLOR>
+                         <CLEFT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CLEFT>
+                         <CTOP>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CTOP>
+                         <CRIGHT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CRIGHT>
+                         <CBOTTOM>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CBOTTOM>
+                        </item>
+                       </BORDERS>
+                      </item>
+                      <item>
+                       <NAME>%LTYPE1</NAME>
+                       <COLUMNNR>005</COLUMNNR>
+                       <CWIDTH>40.00</CWIDTH>
+                       <U_CWIDTH>MM</U_CWIDTH>
+                       <SHADING>000</SHADING>
+                       <BORDERS>
+                        <item>
+                         <IDX>001</IDX>
+                         <INTENSITY>000</INTENSITY>
+                         <LLEFT>15.00</LLEFT>
+                         <LLEFT_U>TW</LLEFT_U>
+                         <LTOP>15.00</LTOP>
+                         <LTOP_U>TW</LTOP_U>
+                         <LRIGHT>15.00</LRIGHT>
+                         <LRIGHT_U>TW</LRIGHT_U>
+                         <LBOTTOM>15.00</LBOTTOM>
+                         <LBOTTOM_U>TW</LBOTTOM_U>
+                         <FILLCOLOR>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </FILLCOLOR>
+                         <CLEFT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CLEFT>
+                         <CTOP>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CTOP>
+                         <CRIGHT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CRIGHT>
+                         <CBOTTOM>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CBOTTOM>
+                        </item>
+                       </BORDERS>
+                      </item>
+                      <item>
+                       <NAME>%LTYPE1</NAME>
+                       <COLUMNNR>006</COLUMNNR>
                        <CWIDTH>20.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
@@ -1674,14 +2086,13 @@
                           <BLUE>000</BLUE>
                           <USED>X</USED>
                          </CBOTTOM>
-                         <HIGHLIGHTD>X</HIGHLIGHTD>
                         </item>
                        </BORDERS>
                       </item>
                       <item>
                        <NAME>%LTYPE1</NAME>
-                       <COLUMNNR>005</COLUMNNR>
-                       <CWIDTH>30.00</CWIDTH>
+                       <COLUMNNR>007</COLUMNNR>
+                       <CWIDTH>20.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -1726,14 +2137,13 @@
                           <BLUE>000</BLUE>
                           <USED>X</USED>
                          </CBOTTOM>
-                         <HIGHLIGHTD>X</HIGHLIGHTD>
                         </item>
                        </BORDERS>
                       </item>
                       <item>
                        <NAME>%LTYPE1</NAME>
-                       <COLUMNNR>006</COLUMNNR>
-                       <CWIDTH>30.00</CWIDTH>
+                       <COLUMNNR>008</COLUMNNR>
+                       <CWIDTH>20.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -1759,6 +2169,155 @@
                           <GREEN>000</GREEN>
                           <BLUE>000</BLUE>
                           <USED>X</USED>
+                         </CLEFT>
+                         <CTOP>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CTOP>
+                         <CRIGHT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CRIGHT>
+                         <CBOTTOM>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CBOTTOM>
+                        </item>
+                       </BORDERS>
+                      </item>
+                      <item>
+                       <NAME>%LTYPE1</NAME>
+                       <COLUMNNR>009</COLUMNNR>
+                       <CWIDTH>20.00</CWIDTH>
+                       <U_CWIDTH>MM</U_CWIDTH>
+                       <SHADING>000</SHADING>
+                       <BORDERS>
+                        <item>
+                         <IDX>001</IDX>
+                         <INTENSITY>000</INTENSITY>
+                         <LLEFT>15.00</LLEFT>
+                         <LLEFT_U>TW</LLEFT_U>
+                         <LTOP>15.00</LTOP>
+                         <LTOP_U>TW</LTOP_U>
+                         <LRIGHT>15.00</LRIGHT>
+                         <LRIGHT_U>TW</LRIGHT_U>
+                         <LBOTTOM>15.00</LBOTTOM>
+                         <LBOTTOM_U>TW</LBOTTOM_U>
+                         <FILLCOLOR>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </FILLCOLOR>
+                         <CLEFT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CLEFT>
+                         <CTOP>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CTOP>
+                         <CRIGHT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CRIGHT>
+                         <CBOTTOM>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CBOTTOM>
+                        </item>
+                       </BORDERS>
+                      </item>
+                      <item>
+                       <NAME>%LTYPE1</NAME>
+                       <COLUMNNR>010</COLUMNNR>
+                       <CWIDTH>20.00</CWIDTH>
+                       <U_CWIDTH>MM</U_CWIDTH>
+                       <SHADING>000</SHADING>
+                       <BORDERS>
+                        <item>
+                         <IDX>001</IDX>
+                         <INTENSITY>000</INTENSITY>
+                         <LLEFT>15.00</LLEFT>
+                         <LLEFT_U>TW</LLEFT_U>
+                         <LTOP>15.00</LTOP>
+                         <LTOP_U>TW</LTOP_U>
+                         <LRIGHT>0.00</LRIGHT>
+                         <LRIGHT_U>TW</LRIGHT_U>
+                         <LBOTTOM>15.00</LBOTTOM>
+                         <LBOTTOM_U>TW</LBOTTOM_U>
+                         <FILLCOLOR>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </FILLCOLOR>
+                         <CLEFT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CLEFT>
+                         <CTOP>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CTOP>
+                         <CRIGHT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </CRIGHT>
+                         <CBOTTOM>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                          <USED>X</USED>
+                         </CBOTTOM>
+                        </item>
+                       </BORDERS>
+                      </item>
+                      <item>
+                       <NAME>%LTYPE1</NAME>
+                       <COLUMNNR>011</COLUMNNR>
+                       <CWIDTH>25.00</CWIDTH>
+                       <U_CWIDTH>MM</U_CWIDTH>
+                       <SHADING>000</SHADING>
+                       <BORDERS>
+                        <item>
+                         <IDX>001</IDX>
+                         <INTENSITY>000</INTENSITY>
+                         <LLEFT>0.00</LLEFT>
+                         <LLEFT_U>TW</LLEFT_U>
+                         <LTOP>15.00</LTOP>
+                         <LTOP_U>TW</LTOP_U>
+                         <LRIGHT>15.00</LRIGHT>
+                         <LRIGHT_U>TW</LRIGHT_U>
+                         <LBOTTOM>15.00</LBOTTOM>
+                         <LBOTTOM_U>TW</LBOTTOM_U>
+                         <FILLCOLOR>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
+                         </FILLCOLOR>
+                         <CLEFT>
+                          <RED>000</RED>
+                          <GREEN>000</GREEN>
+                          <BLUE>000</BLUE>
                          </CLEFT>
                          <CTOP>
                           <RED>000</RED>
@@ -1785,7 +2344,7 @@
                       <item>
                        <NAME>%LTYPE2</NAME>
                        <COLUMNNR>001</COLUMNNR>
-                       <CWIDTH>30.00</CWIDTH>
+                       <CWIDTH>90.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -1794,7 +2353,7 @@
                          <INTENSITY>000</INTENSITY>
                          <LLEFT>0.00</LLEFT>
                          <LLEFT_U>TW</LLEFT_U>
-                         <LTOP>15.00</LTOP>
+                         <LTOP>0.00</LTOP>
                          <LTOP_U>TW</LTOP_U>
                          <LRIGHT>0.00</LRIGHT>
                          <LRIGHT_U>TW</LRIGHT_U>
@@ -1815,7 +2374,6 @@
                           <RED>000</RED>
                           <GREEN>000</GREEN>
                           <BLUE>000</BLUE>
-                          <USED>X</USED>
                          </CTOP>
                          <CRIGHT>
                           <RED>000</RED>
@@ -1833,7 +2391,7 @@
                       <item>
                        <NAME>%LTYPE2</NAME>
                        <COLUMNNR>002</COLUMNNR>
-                       <CWIDTH>30.00</CWIDTH>
+                       <CWIDTH>90.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -1842,7 +2400,7 @@
                          <INTENSITY>000</INTENSITY>
                          <LLEFT>0.00</LLEFT>
                          <LLEFT_U>TW</LLEFT_U>
-                         <LTOP>15.00</LTOP>
+                         <LTOP>0.00</LTOP>
                          <LTOP_U>TW</LTOP_U>
                          <LRIGHT>0.00</LRIGHT>
                          <LRIGHT_U>TW</LRIGHT_U>
@@ -1863,7 +2421,6 @@
                           <RED>000</RED>
                           <GREEN>000</GREEN>
                           <BLUE>000</BLUE>
-                          <USED>X</USED>
                          </CTOP>
                          <CRIGHT>
                           <RED>000</RED>
@@ -1881,7 +2438,7 @@
                       <item>
                        <NAME>%LTYPE2</NAME>
                        <COLUMNNR>003</COLUMNNR>
-                       <CWIDTH>30.00</CWIDTH>
+                       <CWIDTH>80.00</CWIDTH>
                        <U_CWIDTH>MM</U_CWIDTH>
                        <SHADING>000</SHADING>
                        <BORDERS>
@@ -1890,7 +2447,7 @@
                          <INTENSITY>000</INTENSITY>
                          <LLEFT>0.00</LLEFT>
                          <LLEFT_U>TW</LLEFT_U>
-                         <LTOP>15.00</LTOP>
+                         <LTOP>0.00</LTOP>
                          <LTOP_U>TW</LTOP_U>
                          <LRIGHT>0.00</LRIGHT>
                          <LRIGHT_U>TW</LRIGHT_U>
@@ -1911,151 +2468,6 @@
                           <RED>000</RED>
                           <GREEN>000</GREEN>
                           <BLUE>000</BLUE>
-                          <USED>X</USED>
-                         </CTOP>
-                         <CRIGHT>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CRIGHT>
-                         <CBOTTOM>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CBOTTOM>
-                        </item>
-                       </BORDERS>
-                      </item>
-                      <item>
-                       <NAME>%LTYPE2</NAME>
-                       <COLUMNNR>004</COLUMNNR>
-                       <CWIDTH>30.00</CWIDTH>
-                       <U_CWIDTH>MM</U_CWIDTH>
-                       <SHADING>000</SHADING>
-                       <BORDERS>
-                        <item>
-                         <IDX>001</IDX>
-                         <INTENSITY>000</INTENSITY>
-                         <LLEFT>0.00</LLEFT>
-                         <LLEFT_U>TW</LLEFT_U>
-                         <LTOP>15.00</LTOP>
-                         <LTOP_U>TW</LTOP_U>
-                         <LRIGHT>0.00</LRIGHT>
-                         <LRIGHT_U>TW</LRIGHT_U>
-                         <LBOTTOM>0.00</LBOTTOM>
-                         <LBOTTOM_U>TW</LBOTTOM_U>
-                         <FILLCOLOR>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                          <USED>X</USED>
-                         </FILLCOLOR>
-                         <CLEFT>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CLEFT>
-                         <CTOP>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                          <USED>X</USED>
-                         </CTOP>
-                         <CRIGHT>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CRIGHT>
-                         <CBOTTOM>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CBOTTOM>
-                        </item>
-                       </BORDERS>
-                      </item>
-                      <item>
-                       <NAME>%LTYPE2</NAME>
-                       <COLUMNNR>005</COLUMNNR>
-                       <CWIDTH>30.00</CWIDTH>
-                       <U_CWIDTH>MM</U_CWIDTH>
-                       <SHADING>000</SHADING>
-                       <BORDERS>
-                        <item>
-                         <IDX>001</IDX>
-                         <INTENSITY>000</INTENSITY>
-                         <LLEFT>0.00</LLEFT>
-                         <LLEFT_U>TW</LLEFT_U>
-                         <LTOP>15.00</LTOP>
-                         <LTOP_U>TW</LTOP_U>
-                         <LRIGHT>0.00</LRIGHT>
-                         <LRIGHT_U>TW</LRIGHT_U>
-                         <LBOTTOM>0.00</LBOTTOM>
-                         <LBOTTOM_U>TW</LBOTTOM_U>
-                         <FILLCOLOR>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                          <USED>X</USED>
-                         </FILLCOLOR>
-                         <CLEFT>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CLEFT>
-                         <CTOP>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                          <USED>X</USED>
-                         </CTOP>
-                         <CRIGHT>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CRIGHT>
-                         <CBOTTOM>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CBOTTOM>
-                        </item>
-                       </BORDERS>
-                      </item>
-                      <item>
-                       <NAME>%LTYPE2</NAME>
-                       <COLUMNNR>006</COLUMNNR>
-                       <CWIDTH>40.00</CWIDTH>
-                       <U_CWIDTH>MM</U_CWIDTH>
-                       <SHADING>000</SHADING>
-                       <BORDERS>
-                        <item>
-                         <IDX>001</IDX>
-                         <INTENSITY>000</INTENSITY>
-                         <LLEFT>0.00</LLEFT>
-                         <LLEFT_U>TW</LLEFT_U>
-                         <LTOP>15.00</LTOP>
-                         <LTOP_U>TW</LTOP_U>
-                         <LRIGHT>0.00</LRIGHT>
-                         <LRIGHT_U>TW</LRIGHT_U>
-                         <LBOTTOM>0.00</LBOTTOM>
-                         <LBOTTOM_U>TW</LBOTTOM_U>
-                         <FILLCOLOR>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                          <USED>X</USED>
-                         </FILLCOLOR>
-                         <CLEFT>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                         </CLEFT>
-                         <CTOP>
-                          <RED>000</RED>
-                          <GREEN>000</GREEN>
-                          <BLUE>000</BLUE>
-                          <USED>X</USED>
                          </CTOP>
                          <CRIGHT>
                           <RED>000</RED>
@@ -2352,7 +2764,7 @@
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>I6</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME1&amp;</TDLINE>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME01&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -2386,7 +2798,7 @@
                               <NAME>
                                <INAME>%CELL2</INAME>
                               </NAME>
-                              <CAPTION>物品名称||颜色||规格||说明</CAPTION>
+                              <CAPTION>物品名称</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -2405,7 +2817,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL2</INAME>
-                                <CAPTION>物品名称||颜色||规格||说明</CAPTION>
+                                <CAPTION>物品名称</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -2497,7 +2909,7 @@
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>I6</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME2&amp;</TDLINE>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME02&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -2531,7 +2943,7 @@
                               <NAME>
                                <INAME>%CELL3</INAME>
                               </NAME>
-                              <CAPTION>单位</CAPTION>
+                              <CAPTION>工厂款号</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -2550,7 +2962,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL3</INAME>
-                                <CAPTION>单位</CAPTION>
+                                <CAPTION>工厂款号</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -2642,7 +3054,7 @@
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>I6</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME3&amp;</TDLINE>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME03&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -2676,7 +3088,7 @@
                               <NAME>
                                <INAME>%CELL4</INAME>
                               </NAME>
-                              <CAPTION>数量</CAPTION>
+                              <CAPTION>颜色</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -2695,7 +3107,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL4</INAME>
-                                <CAPTION>数量</CAPTION>
+                                <CAPTION>颜色</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -2787,7 +3199,7 @@
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>I6</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME4&amp;</TDLINE>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME04&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -2821,7 +3233,7 @@
                               <NAME>
                                <INAME>%CELL5</INAME>
                               </NAME>
-                              <CAPTION>单价</CAPTION>
+                              <CAPTION>规格</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -2840,7 +3252,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL5</INAME>
-                                <CAPTION>单价</CAPTION>
+                                <CAPTION>规格</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -2932,7 +3344,7 @@
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>I6</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME5&amp;</TDLINE>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME05&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -2966,7 +3378,7 @@
                               <NAME>
                                <INAME>%CELL6</INAME>
                               </NAME>
-                              <CAPTION>金额</CAPTION>
+                              <CAPTION>说明</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -2985,7 +3397,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL6</INAME>
-                                <CAPTION>金额</CAPTION>
+                                <CAPTION>说明</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -3077,7 +3489,7 @@
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>I6</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME6&amp;</TDLINE>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME06&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -3093,6 +3505,731 @@
                                    <OBJTYPE>TI</OBJTYPE>
                                    <INAME>%TEXT11</INAME>
                                    <CAPTION>金额</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL7</INAME>
+                              </NAME>
+                              <CAPTION>数量</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL7</INAME>
+                                <CAPTION>数量</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB14</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB14</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT12</INAME>
+                                 </NAME>
+                                 <CAPTION>备注</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I6</TDFORMAT>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME07&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT12</INAME>
+                                   <CAPTION>备注</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL21</INAME>
+                              </NAME>
+                              <CAPTION>单位</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL21</INAME>
+                                <CAPTION>单位</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB31</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB31</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT28</INAME>
+                                 </NAME>
+                                 <CAPTION>备注</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I6</TDFORMAT>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME08&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT28</INAME>
+                                   <CAPTION>备注</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL23</INAME>
+                              </NAME>
+                              <CAPTION>新列 23</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL23</INAME>
+                                <CAPTION>新列 23</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB33</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB33</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT31</INAME>
+                                 </NAME>
+                                 <CAPTION>新文本 31</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I6</TDFORMAT>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME09&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT31</INAME>
+                                   <CAPTION>新文本 31</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL25</INAME>
+                              </NAME>
+                              <CAPTION>新列 25</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL25</INAME>
+                                <CAPTION>新列 25</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB38</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB38</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT33</INAME>
+                                 </NAME>
+                                 <CAPTION>新文本 33</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I6</TDFORMAT>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME10&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT33</INAME>
+                                   <CAPTION>新文本 33</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL27</INAME>
+                              </NAME>
+                              <CAPTION>新列 27</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL27</INAME>
+                                <CAPTION>新列 27</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB40</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB40</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT34</INAME>
+                                 </NAME>
+                                 <CAPTION>新文本 34</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I6</TDFORMAT>
+                                   <TDLINE>&amp;GS_PRINT_H-COL_NAME11&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT34</INAME>
+                                   <CAPTION>新文本 34</CAPTION>
                                   </item>
                                  </T_CAPTION>
                                 </sf:TEXT>
@@ -3355,7 +4492,7 @@
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
-                                   <TDFORMAT>I1</TDFORMAT>
+                                   <TDFORMAT>I5</TDFORMAT>
                                    <TDLINE>&amp;GT_PRINT_I-COL01&amp;</TDLINE>
                                   </item>
                                  </TEXT>
@@ -3390,7 +4527,7 @@
                               <NAME>
                                <INAME>%CELL9</INAME>
                               </NAME>
-                              <CAPTION>物品名称||颜色||规格||说明</CAPTION>
+                              <CAPTION>物品名称</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -3409,7 +4546,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL9</INAME>
-                                <CAPTION>物品名称||颜色||规格||说明</CAPTION>
+                                <CAPTION>物品名称</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -3500,7 +4637,7 @@
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
-                                   <TDFORMAT>I1</TDFORMAT>
+                                   <TDFORMAT>I5</TDFORMAT>
                                    <TDLINE>&amp;GT_PRINT_I-COL02&amp;</TDLINE>
                                   </item>
                                  </TEXT>
@@ -3535,7 +4672,7 @@
                               <NAME>
                                <INAME>%CELL10</INAME>
                               </NAME>
-                              <CAPTION>单位</CAPTION>
+                              <CAPTION>工厂款号</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -3554,7 +4691,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL10</INAME>
-                                <CAPTION>单位</CAPTION>
+                                <CAPTION>工厂款号</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -3680,7 +4817,7 @@
                               <NAME>
                                <INAME>%CELL11</INAME>
                               </NAME>
-                              <CAPTION>数量</CAPTION>
+                              <CAPTION>颜色</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -3699,7 +4836,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL11</INAME>
-                                <CAPTION>数量</CAPTION>
+                                <CAPTION>颜色</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -3790,7 +4927,7 @@
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
-                                   <TDFORMAT>I3</TDFORMAT>
+                                   <TDFORMAT>I5</TDFORMAT>
                                    <TDLINE>&amp;GT_PRINT_I-COL04&amp;</TDLINE>
                                   </item>
                                  </TEXT>
@@ -3825,7 +4962,7 @@
                               <NAME>
                                <INAME>%CELL12</INAME>
                               </NAME>
-                              <CAPTION>单价</CAPTION>
+                              <CAPTION>规格</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -3844,7 +4981,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL12</INAME>
-                                <CAPTION>单价</CAPTION>
+                                <CAPTION>规格</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -3935,7 +5072,7 @@
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
-                                   <TDFORMAT>I3</TDFORMAT>
+                                   <TDFORMAT>I5</TDFORMAT>
                                    <TDLINE>&amp;GT_PRINT_I-COL05&amp;</TDLINE>
                                   </item>
                                  </TEXT>
@@ -3970,7 +5107,7 @@
                               <NAME>
                                <INAME>%CELL13</INAME>
                               </NAME>
-                              <CAPTION>金额</CAPTION>
+                              <CAPTION>说明</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -3989,7 +5126,7 @@
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL13</INAME>
-                                <CAPTION>金额</CAPTION>
+                                <CAPTION>说明</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -4080,7 +5217,7 @@
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
-                                   <TDFORMAT>I3</TDFORMAT>
+                                   <TDFORMAT>I5</TDFORMAT>
                                    <TDLINE>&amp;GT_PRINT_I-COL06&amp;</TDLINE>
                                   </item>
                                  </TEXT>
@@ -4097,6 +5234,731 @@
                                    <OBJTYPE>TI</OBJTYPE>
                                    <INAME>%TEXT18</INAME>
                                    <CAPTION>金额</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL14</INAME>
+                              </NAME>
+                              <CAPTION>数量</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL14</INAME>
+                                <CAPTION>数量</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB22</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB22</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT19</INAME>
+                                 </NAME>
+                                 <CAPTION>备注</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I5</TDFORMAT>
+                                   <TDLINE>&amp;GT_PRINT_I-COL07&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT19</INAME>
+                                   <CAPTION>备注</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL22</INAME>
+                              </NAME>
+                              <CAPTION>单位</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL22</INAME>
+                                <CAPTION>单位</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB32</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB32</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT27</INAME>
+                                 </NAME>
+                                 <CAPTION>备注</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I5</TDFORMAT>
+                                   <TDLINE>&amp;GT_PRINT_I-COL08&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT27</INAME>
+                                   <CAPTION>备注</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL24</INAME>
+                              </NAME>
+                              <CAPTION>新列 24</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL24</INAME>
+                                <CAPTION>新列 24</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB34</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB34</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT32</INAME>
+                                 </NAME>
+                                 <CAPTION>新文本 32</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I5</TDFORMAT>
+                                   <TDLINE>&amp;GT_PRINT_I-COL09&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT32</INAME>
+                                   <CAPTION>新文本 32</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL26</INAME>
+                              </NAME>
+                              <CAPTION>新列 26</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL26</INAME>
+                                <CAPTION>新列 26</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB39</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB39</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT35</INAME>
+                                 </NAME>
+                                 <CAPTION>新文本 35</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I5</TDFORMAT>
+                                   <TDLINE>&amp;GT_PRINT_I-COL10&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT35</INAME>
+                                   <CAPTION>新文本 35</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL28</INAME>
+                              </NAME>
+                              <CAPTION>新列 28</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL28</INAME>
+                                <CAPTION>新列 28</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB41</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB41</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT36</INAME>
+                                 </NAME>
+                                 <CAPTION>新文本 36</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I5</TDFORMAT>
+                                   <TDLINE>&amp;GT_PRINT_I-COL11&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT36</INAME>
+                                   <CAPTION>新文本 36</CAPTION>
                                   </item>
                                  </T_CAPTION>
                                 </sf:TEXT>
@@ -4240,6 +6102,26 @@
                            </T_CAPTION>
                           </sf:OUTATTR>
                          </sf:OUTATTR>
+                         <sf:COND>
+                          <sf:CONDITION>
+                           <NAME>
+                            <INAME>%CONDITION2</INAME>
+                           </NAME>
+                           <CAPTION>新备选 2</CAPTION>
+                           <OCOND>
+                            <FOOTER>X</FOOTER>
+                           </OCOND>
+                           <T_CAPTION>
+                            <item>
+                             <LANGU>1</LANGU>
+                             <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                             <OBJTYPE>CD</OBJTYPE>
+                             <INAME>%CONDITION2</INAME>
+                             <CAPTION>新备选 2</CAPTION>
+                            </item>
+                           </T_CAPTION>
+                          </sf:CONDITION>
+                         </sf:COND>
                          <sf:SUCC>
                           <sf:item>
                            <sf:NODE>
@@ -4359,7 +6241,7 @@
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
-                                   <TDFORMAT>I5</TDFORMAT>
+                                   <TDFORMAT>*</TDFORMAT>
                                    <TDLINE>&amp;GS_PRINT_H-FOOT_TXT1&amp;</TDLINE>
                                   </item>
                                  </TEXT>
@@ -4676,6 +6558,135 @@
                             </sf:SUCC>
                            </sf:NODE>
                           </sf:item>
+                         </sf:SUCC>
+                        </sf:NODE>
+                       </sf:item>
+                       <sf:item>
+                        <sf:NODE>
+                         <NODETYPE>SE</NODETYPE>
+                         <sf:OBJ>
+                          <sf:SECTION>
+                           <NAME>
+                            <INAME>%ROW4</INAME>
+                           </NAME>
+                           <CAPTION>新行 4</CAPTION>
+                           <SECTTYPE>R</SECTTYPE>
+                           <U_FHEIGHT>CM</U_FHEIGHT>
+                           <PATTERN>
+                            <PATTNUM>0000</PATTNUM>
+                            <FRAME>0.00</FRAME>
+                            <U_FRAME>PT</U_FRAME>
+                           </PATTERN>
+                           <U_WIDTH>CM</U_WIDTH>
+                           <U_LEFT>CM</U_LEFT>
+                           <U_TOP>CM</U_TOP>
+                           <U_SB>CM</U_SB>
+                           <U_SA>CM</U_SA>
+                           <T_CAPTION>
+                            <item>
+                             <LANGU>1</LANGU>
+                             <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                             <OBJTYPE>SE</OBJTYPE>
+                             <INAME>%ROW4</INAME>
+                             <CAPTION>新行 4</CAPTION>
+                            </item>
+                           </T_CAPTION>
+                          </sf:SECTION>
+                         </sf:OBJ>
+                         <sf:OUTATTR>
+                          <sf:OUTATTR>
+                           <NAME>
+                            <INAME>%OUTATTRIB27</INAME>
+                           </NAME>
+                           <T_LINETYPE>%LTYPE2</T_LINETYPE>
+                           <U_WFRAME>PT</U_WFRAME>
+                           <U_WBOXV>CM</U_WBOXV>
+                           <U_WBOXH>CM</U_WBOXH>
+                           <U_WLEFT>CM</U_WLEFT>
+                           <U_WWIDTH>CM</U_WWIDTH>
+                           <U_WTOP>CM</U_WTOP>
+                           <U_WHEIGHT>CM</U_WHEIGHT>
+                           <BORDER>
+                            <LEFTATTR>
+                             <THICKNESS>0.00</THICKNESS>
+                             <THICKNESSU>PT</THICKNESSU>
+                             <DISTANCE>0.00</DISTANCE>
+                             <DISTANCEU>CM</DISTANCEU>
+                             <COLOR>
+                              <RED>000</RED>
+                              <GREEN>000</GREEN>
+                              <BLUE>000</BLUE>
+                              <TRANS>000</TRANS>
+                             </COLOR>
+                            </LEFTATTR>
+                            <TOPATTR>
+                             <THICKNESS>0.00</THICKNESS>
+                             <THICKNESSU>PT</THICKNESSU>
+                             <DISTANCE>0.00</DISTANCE>
+                             <DISTANCEU>CM</DISTANCEU>
+                             <COLOR>
+                              <RED>000</RED>
+                              <GREEN>000</GREEN>
+                              <BLUE>000</BLUE>
+                              <TRANS>000</TRANS>
+                             </COLOR>
+                            </TOPATTR>
+                            <RIGHTATTR>
+                             <THICKNESS>0.00</THICKNESS>
+                             <THICKNESSU>PT</THICKNESSU>
+                             <DISTANCE>0.00</DISTANCE>
+                             <DISTANCEU>CM</DISTANCEU>
+                             <COLOR>
+                              <RED>000</RED>
+                              <GREEN>000</GREEN>
+                              <BLUE>000</BLUE>
+                              <TRANS>000</TRANS>
+                             </COLOR>
+                            </RIGHTATTR>
+                            <BOTTOMATTR>
+                             <THICKNESS>0.00</THICKNESS>
+                             <THICKNESSU>PT</THICKNESSU>
+                             <DISTANCE>0.00</DISTANCE>
+                             <DISTANCEU>CM</DISTANCEU>
+                             <COLOR>
+                              <RED>000</RED>
+                              <GREEN>000</GREEN>
+                              <BLUE>000</BLUE>
+                              <TRANS>000</TRANS>
+                             </COLOR>
+                            </BOTTOMATTR>
+                           </BORDER>
+                           <T_CAPTION>
+                            <item>
+                             <LANGU>1</LANGU>
+                             <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                             <OBJTYPE>OA</OBJTYPE>
+                             <INAME>%OUTATTRIB27</INAME>
+                            </item>
+                           </T_CAPTION>
+                          </sf:OUTATTR>
+                         </sf:OUTATTR>
+                         <sf:COND>
+                          <sf:CONDITION>
+                           <NAME>
+                            <INAME>%CONDITION3</INAME>
+                           </NAME>
+                           <CAPTION>新备选 3</CAPTION>
+                           <OCOND>
+                            <FOOTER>X</FOOTER>
+                           </OCOND>
+                           <T_CAPTION>
+                            <item>
+                             <LANGU>1</LANGU>
+                             <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                             <OBJTYPE>CD</OBJTYPE>
+                             <INAME>%CONDITION3</INAME>
+                             <CAPTION>新备选 3</CAPTION>
+                            </item>
+                           </T_CAPTION>
+                          </sf:CONDITION>
+                         </sf:COND>
+                         <sf:SUCC>
                           <sf:item>
                            <sf:NODE>
                             <NODETYPE>SE</NODETYPE>
@@ -4704,151 +6715,6 @@
                                 <OBJTYPE>SE</OBJTYPE>
                                 <INAME>%CELL18</INAME>
                                 <CAPTION>新列 18</CAPTION>
-                               </item>
-                              </T_CAPTION>
-                             </sf:SECTION>
-                            </sf:OBJ>
-                            <sf:OUTATTR>
-                             <sf:OUTATTR>
-                              <NAME>
-                               <INAME>%OUTATTRIB27</INAME>
-                              </NAME>
-                              <U_WFRAME>PT</U_WFRAME>
-                              <U_WBOXV>CM</U_WBOXV>
-                              <U_WBOXH>CM</U_WBOXH>
-                              <U_WLEFT>CM</U_WLEFT>
-                              <U_WWIDTH>CM</U_WWIDTH>
-                              <U_WTOP>CM</U_WTOP>
-                              <U_WHEIGHT>CM</U_WHEIGHT>
-                              <BORDER>
-                               <LEFTATTR>
-                                <THICKNESS>0.00</THICKNESS>
-                                <THICKNESSU>PT</THICKNESSU>
-                                <DISTANCE>0.00</DISTANCE>
-                                <DISTANCEU>CM</DISTANCEU>
-                                <COLOR>
-                                 <RED>000</RED>
-                                 <GREEN>000</GREEN>
-                                 <BLUE>000</BLUE>
-                                 <TRANS>000</TRANS>
-                                </COLOR>
-                               </LEFTATTR>
-                               <TOPATTR>
-                                <THICKNESS>0.00</THICKNESS>
-                                <THICKNESSU>PT</THICKNESSU>
-                                <DISTANCE>0.00</DISTANCE>
-                                <DISTANCEU>CM</DISTANCEU>
-                                <COLOR>
-                                 <RED>000</RED>
-                                 <GREEN>000</GREEN>
-                                 <BLUE>000</BLUE>
-                                 <TRANS>000</TRANS>
-                                </COLOR>
-                               </TOPATTR>
-                               <RIGHTATTR>
-                                <THICKNESS>0.00</THICKNESS>
-                                <THICKNESSU>PT</THICKNESSU>
-                                <DISTANCE>0.00</DISTANCE>
-                                <DISTANCEU>CM</DISTANCEU>
-                                <COLOR>
-                                 <RED>000</RED>
-                                 <GREEN>000</GREEN>
-                                 <BLUE>000</BLUE>
-                                 <TRANS>000</TRANS>
-                                </COLOR>
-                               </RIGHTATTR>
-                               <BOTTOMATTR>
-                                <THICKNESS>0.00</THICKNESS>
-                                <THICKNESSU>PT</THICKNESSU>
-                                <DISTANCE>0.00</DISTANCE>
-                                <DISTANCEU>CM</DISTANCEU>
-                                <COLOR>
-                                 <RED>000</RED>
-                                 <GREEN>000</GREEN>
-                                 <BLUE>000</BLUE>
-                                 <TRANS>000</TRANS>
-                                </COLOR>
-                               </BOTTOMATTR>
-                              </BORDER>
-                              <T_CAPTION>
-                               <item>
-                                <LANGU>1</LANGU>
-                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
-                                <OBJTYPE>OA</OBJTYPE>
-                                <INAME>%OUTATTRIB27</INAME>
-                               </item>
-                              </T_CAPTION>
-                             </sf:OUTATTR>
-                            </sf:OUTATTR>
-                            <sf:SUCC>
-                             <sf:item>
-                              <sf:NODE>
-                               <NODETYPE>TI</NODETYPE>
-                               <sf:OBJ>
-                                <sf:TEXT>
-                                 <NAME>
-                                  <INAME>%TEXT23</INAME>
-                                 </NAME>
-                                 <CAPTION>新文本 23</CAPTION>
-                                 <NOLANGUAGE>X</NOLANGUAGE>
-                                 <APPMODE>P</APPMODE>
-                                 <TEXT>
-                                  <item>
-                                   <TDFORMAT>I5</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-FOOT_TXT4&amp;</TDLINE>
-                                  </item>
-                                 </TEXT>
-                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
-                                 <TEXT_AREA>
-                                  <ENABLED>F</ENABLED>
-                                  <NCOLS>0</NCOLS>
-                                  <NROWS>0</NROWS>
-                                 </TEXT_AREA>
-                                 <T_CAPTION>
-                                  <item>
-                                   <LANGU>1</LANGU>
-                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
-                                   <OBJTYPE>TI</OBJTYPE>
-                                   <INAME>%TEXT23</INAME>
-                                   <CAPTION>新文本 23</CAPTION>
-                                  </item>
-                                 </T_CAPTION>
-                                </sf:TEXT>
-                               </sf:OBJ>
-                               <sf:SUCC/>
-                              </sf:NODE>
-                             </sf:item>
-                            </sf:SUCC>
-                           </sf:NODE>
-                          </sf:item>
-                          <sf:item>
-                           <sf:NODE>
-                            <NODETYPE>SE</NODETYPE>
-                            <sf:OBJ>
-                             <sf:SECTION>
-                              <NAME>
-                               <INAME>%CELL19</INAME>
-                              </NAME>
-                              <CAPTION>新列 19</CAPTION>
-                              <SECTTYPE>E</SECTTYPE>
-                              <U_FHEIGHT>CM</U_FHEIGHT>
-                              <PATTERN>
-                               <PATTNUM>0000</PATTNUM>
-                               <FRAME>0.00</FRAME>
-                               <U_FRAME>PT</U_FRAME>
-                              </PATTERN>
-                              <U_WIDTH>CM</U_WIDTH>
-                              <U_LEFT>CM</U_LEFT>
-                              <U_TOP>CM</U_TOP>
-                              <U_SB>CM</U_SB>
-                              <U_SA>CM</U_SA>
-                              <T_CAPTION>
-                               <item>
-                                <LANGU>1</LANGU>
-                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
-                                <OBJTYPE>SE</OBJTYPE>
-                                <INAME>%CELL19</INAME>
-                                <CAPTION>新列 19</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -4932,15 +6798,15 @@
                                <sf:OBJ>
                                 <sf:TEXT>
                                  <NAME>
-                                  <INAME>%TEXT24</INAME>
+                                  <INAME>%TEXT23</INAME>
                                  </NAME>
-                                 <CAPTION>新文本 24</CAPTION>
+                                 <CAPTION>新文本 23</CAPTION>
                                  <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
-                                   <TDFORMAT>I5</TDFORMAT>
-                                   <TDLINE>&amp;GS_PRINT_H-FOOT_TXT5&amp;</TDLINE>
+                                   <TDFORMAT>*</TDFORMAT>
+                                   <TDLINE>&amp;GS_PRINT_H-FOOT_TXT4&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -4954,8 +6820,8 @@
                                    <LANGU>1</LANGU>
                                    <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                    <OBJTYPE>TI</OBJTYPE>
-                                   <INAME>%TEXT24</INAME>
-                                   <CAPTION>新文本 24</CAPTION>
+                                   <INAME>%TEXT23</INAME>
+                                   <CAPTION>新文本 23</CAPTION>
                                   </item>
                                  </T_CAPTION>
                                 </sf:TEXT>
@@ -4972,9 +6838,9 @@
                             <sf:OBJ>
                              <sf:SECTION>
                               <NAME>
-                               <INAME>%CELL20</INAME>
+                               <INAME>%CELL19</INAME>
                               </NAME>
-                              <CAPTION>新列 20</CAPTION>
+                              <CAPTION>新列 19</CAPTION>
                               <SECTTYPE>E</SECTTYPE>
                               <U_FHEIGHT>CM</U_FHEIGHT>
                               <PATTERN>
@@ -4992,8 +6858,8 @@
                                 <LANGU>1</LANGU>
                                 <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
                                 <OBJTYPE>SE</OBJTYPE>
-                                <INAME>%CELL20</INAME>
-                                <CAPTION>新列 20</CAPTION>
+                                <INAME>%CELL19</INAME>
+                                <CAPTION>新列 19</CAPTION>
                                </item>
                               </T_CAPTION>
                              </sf:SECTION>
@@ -5077,14 +6943,160 @@
                                <sf:OBJ>
                                 <sf:TEXT>
                                  <NAME>
-                                  <INAME>%TEXT25</INAME>
+                                  <INAME>%TEXT24</INAME>
                                  </NAME>
-                                 <CAPTION>新文本 25</CAPTION>
+                                 <CAPTION>新文本 24</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
                                  <APPMODE>P</APPMODE>
                                  <TEXT>
                                   <item>
                                    <TDFORMAT>I5</TDFORMAT>
-                                   <TDLINE>Page: &amp;SFSY-PAGE&amp; / &amp;SFSY-FORMPAGES&amp;</TDLINE>
+                                   <TDLINE>&amp;GS_PRINT_H-FOOT_TXT5&amp;</TDLINE>
+                                  </item>
+                                 </TEXT>
+                                 <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
+                                 <TEXT_AREA>
+                                  <ENABLED>F</ENABLED>
+                                  <NCOLS>0</NCOLS>
+                                  <NROWS>0</NROWS>
+                                 </TEXT_AREA>
+                                 <T_CAPTION>
+                                  <item>
+                                   <LANGU>1</LANGU>
+                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                   <OBJTYPE>TI</OBJTYPE>
+                                   <INAME>%TEXT24</INAME>
+                                   <CAPTION>新文本 24</CAPTION>
+                                  </item>
+                                 </T_CAPTION>
+                                </sf:TEXT>
+                               </sf:OBJ>
+                               <sf:SUCC/>
+                              </sf:NODE>
+                             </sf:item>
+                            </sf:SUCC>
+                           </sf:NODE>
+                          </sf:item>
+                          <sf:item>
+                           <sf:NODE>
+                            <NODETYPE>SE</NODETYPE>
+                            <sf:OBJ>
+                             <sf:SECTION>
+                              <NAME>
+                               <INAME>%CELL20</INAME>
+                              </NAME>
+                              <CAPTION>新列 20</CAPTION>
+                              <SECTTYPE>E</SECTTYPE>
+                              <U_FHEIGHT>CM</U_FHEIGHT>
+                              <PATTERN>
+                               <PATTNUM>0000</PATTNUM>
+                               <FRAME>0.00</FRAME>
+                               <U_FRAME>PT</U_FRAME>
+                              </PATTERN>
+                              <U_WIDTH>CM</U_WIDTH>
+                              <U_LEFT>CM</U_LEFT>
+                              <U_TOP>CM</U_TOP>
+                              <U_SB>CM</U_SB>
+                              <U_SA>CM</U_SA>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>SE</OBJTYPE>
+                                <INAME>%CELL20</INAME>
+                                <CAPTION>新列 20</CAPTION>
+                               </item>
+                              </T_CAPTION>
+                             </sf:SECTION>
+                            </sf:OBJ>
+                            <sf:OUTATTR>
+                             <sf:OUTATTR>
+                              <NAME>
+                               <INAME>%OUTATTRIB42</INAME>
+                              </NAME>
+                              <U_WFRAME>PT</U_WFRAME>
+                              <U_WBOXV>CM</U_WBOXV>
+                              <U_WBOXH>CM</U_WBOXH>
+                              <U_WLEFT>CM</U_WLEFT>
+                              <U_WWIDTH>CM</U_WWIDTH>
+                              <U_WTOP>CM</U_WTOP>
+                              <U_WHEIGHT>CM</U_WHEIGHT>
+                              <BORDER>
+                               <LEFTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </LEFTATTR>
+                               <TOPATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </TOPATTR>
+                               <RIGHTATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </RIGHTATTR>
+                               <BOTTOMATTR>
+                                <THICKNESS>0.00</THICKNESS>
+                                <THICKNESSU>PT</THICKNESSU>
+                                <DISTANCE>0.00</DISTANCE>
+                                <DISTANCEU>CM</DISTANCEU>
+                                <COLOR>
+                                 <RED>000</RED>
+                                 <GREEN>000</GREEN>
+                                 <BLUE>000</BLUE>
+                                 <TRANS>000</TRANS>
+                                </COLOR>
+                               </BOTTOMATTR>
+                              </BORDER>
+                              <T_CAPTION>
+                               <item>
+                                <LANGU>1</LANGU>
+                                <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
+                                <OBJTYPE>OA</OBJTYPE>
+                                <INAME>%OUTATTRIB42</INAME>
+                               </item>
+                              </T_CAPTION>
+                             </sf:OUTATTR>
+                            </sf:OUTATTR>
+                            <sf:SUCC>
+                             <sf:item>
+                              <sf:NODE>
+                               <NODETYPE>TI</NODETYPE>
+                               <sf:OBJ>
+                                <sf:TEXT>
+                                 <NAME>
+                                  <INAME>%TEXT25</INAME>
+                                 </NAME>
+                                 <CAPTION>新文本 25</CAPTION>
+                                 <NOLANGUAGE>X</NOLANGUAGE>
+                                 <APPMODE>P</APPMODE>
+                                 <TEXT>
+                                  <item>
+                                   <TDFORMAT>I5</TDFORMAT>
+                                   <TDLINE>&amp;GS_PRINT_H-FOOT_TXT6&amp;</TDLINE>
                                   </item>
                                  </TEXT>
                                  <STYLE_NAME>ZAFO_PRINT_STY01</STYLE_NAME>
@@ -5102,17 +7114,6 @@
                                    <CAPTION>新文本 25</CAPTION>
                                   </item>
                                  </T_CAPTION>
-                                 <T_TEXT>
-                                  <item>
-                                   <SPRAS>1</SPRAS>
-                                   <TXTYPE>F</TXTYPE>
-                                   <FORMNAME>ZAFO_PRINT_MB02</FORMNAME>
-                                   <INAME>%TEXT25</INAME>
-                                   <LINENR>000001</LINENR>
-                                   <TDFORMAT>I5</TDFORMAT>
-                                   <TDLINE>Page: &amp;SFSY-PAGE&amp; / &amp;SFSY-FORMPAGES&amp;</TDLINE>
-                                  </item>
-                                 </T_TEXT>
                                 </sf:TEXT>
                                </sf:OBJ>
                                <sf:SUCC/>
@@ -5144,13 +7145,13 @@
               <U_WFRAME>PT</U_WFRAME>
               <U_WBOXV>CM</U_WBOXV>
               <U_WBOXH>CM</U_WBOXH>
-              <WLEFT>10.00</WLEFT>
+              <WLEFT>15.00</WLEFT>
               <U_WLEFT>MM</U_WLEFT>
-              <WWIDTH>190.00</WWIDTH>
+              <WWIDTH>260.00</WWIDTH>
               <U_WWIDTH>MM</U_WWIDTH>
-              <WTOP>30.00</WTOP>
+              <WTOP>36.00</WTOP>
               <U_WTOP>MM</U_WTOP>
-              <WHEIGHT>260.00</WHEIGHT>
+              <WHEIGHT>160.00</WHEIGHT>
               <U_WHEIGHT>MM</U_WHEIGHT>
               <T_CAPTION>
                <item>

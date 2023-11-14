@@ -6,6 +6,7 @@
     <ROLLNAME>ZAFO_BUSTYP</ROLLNAME>
     <DDLANGUAGE>1</DDLANGUAGE>
     <DOMNAME>ZAFO_BUSTYP</DOMNAME>
+    <MEMORYID>ZAFO_BUSTYP</MEMORYID>
     <HEADLEN>10</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
@@ -20,7 +21,6 @@
    </DD04V>
    <I18N_LANGS>
     <LANGU>E</LANGU>
-    <LANGU>쁩</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
@@ -30,14 +30,6 @@
      <SCRTEXT_S>business t</SCRTEXT_S>
      <SCRTEXT_M>business type</SCRTEXT_M>
      <SCRTEXT_L>business type</SCRTEXT_L>
-    </item>
-    <item>
-     <DDLANGUAGE>쁩</DDLANGUAGE>
-     <DDTEXT>Loại hình kinh doanh</DDTEXT>
-     <REPTEXT>Loại hình</REPTEXT>
-     <SCRTEXT_S>Loại hình</SCRTEXT_S>
-     <SCRTEXT_M>Loại hình kinh doanh</SCRTEXT_M>
-     <SCRTEXT_L>Loại hình kinh doanh</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

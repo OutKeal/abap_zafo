@@ -20,7 +20,6 @@
    </DD04V>
    <I18N_LANGS>
     <LANGU>E</LANGU>
-    <LANGU>쁩</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
@@ -30,14 +29,6 @@
      <SCRTEXT_S>applicant</SCRTEXT_S>
      <SCRTEXT_M>applicant</SCRTEXT_M>
      <SCRTEXT_L>applicant</SCRTEXT_L>
-    </item>
-    <item>
-     <DDLANGUAGE>쁩</DDLANGUAGE>
-     <DDTEXT>người nộp đơn</DDTEXT>
-     <REPTEXT>người nộp đơ</REPTEXT>
-     <SCRTEXT_S>người nộp</SCRTEXT_S>
-     <SCRTEXT_M>người nộp đơn</SCRTEXT_M>
-     <SCRTEXT_L>người nộp đơn</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

@@ -1,7 +1,5 @@
 *---------------------------------------------------------------------*
 *    program for:   TABLEFRAME_ZAFO_CONFIG
-*   generation date: 2021-07-01 at 13:24:29
-*   view maintenance generator version: #001407#
 *---------------------------------------------------------------------*
 FUNCTION TABLEFRAME_ZAFO_CONFIG        .
 
