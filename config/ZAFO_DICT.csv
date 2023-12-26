@@ -1,0 +1,41 @@
+120	AT        	    	DICT01                        	A01                           	≤‚ ‘1
+120	AT        	    	DICT01                        	A02                           	≤‚ ‘2
+120	AT        	    	DICT02                        	B01                           	≤‚ ‘3
+120	AT        	    	DICT02                        	B02                           	≤‚ ‘4
+120	PO2       	    	MTART                         	Z003                          	
+120	MB_MO_GI  	    	DICT01                        	A01                           	≤‚ ‘1
+120	MB_MO_GI  	    	DICT01                        	A02                           	≤‚ ‘2
+120	MB_MO_GI  	    	DICT02                        	B01                           	≤‚ ‘3
+120	MB_MO_GI  	    	DICT02                        	B02                           	≤‚ ‘4
+120	MB_MO_GR  	    	DICT01                        	A01                           	≤‚ ‘1
+120	MB_MO_GR  	    	DICT01                        	A02                           	≤‚ ‘2
+120	MB_MO_GR  	    	DICT02                        	B01                           	≤‚ ‘3
+120	MB_MO_GR  	    	DICT02                        	B02                           	≤‚ ‘4
+120	PO        	    	DICT01                        	A01                           	≤‚ ‘1
+120	PO        	    	DICT01                        	A02                           	≤‚ ‘2
+120	PO        	    	DICT02                        	B01                           	≤‚ ‘3
+120	PO        	    	DICT02                        	B02                           	≤‚ ‘4
+120	PO1       	    	DICT01                        	A01                           	≤‚ ‘1
+120	PO1       	    	DICT01                        	A02                           	≤‚ ‘2
+120	PO1       	    	DICT02                        	B01                           	≤‚ ‘3
+120	PO1       	    	DICT02                        	B02                           	≤‚ ‘4
+120	PO2       	    	DICT01                        	A01                           	≤‚ ‘1
+120	PO2       	    	DICT01                        	A02                           	≤‚ ‘2
+120	PO2       	    	DICT02                        	B01                           	≤‚ ‘3
+120	PO2       	    	DICT02                        	B02                           	≤‚ ‘4
+120	PO3       	    	DICT01                        	A01                           	≤‚ ‘1
+120	PO3       	    	DICT01                        	A02                           	≤‚ ‘2
+120	PO3       	    	DICT02                        	B01                           	≤‚ ‘3
+120	PO3       	    	DICT02                        	B02                           	≤‚ ‘4
+120	PR        	    	DICT01                        	A01                           	≤‚ ‘1
+120	PR        	    	DICT01                        	A02                           	≤‚ ‘2
+120	PR        	    	DICT02                        	B01                           	≤‚ ‘3
+120	PR        	    	DICT02                        	B02                           	≤‚ ‘4
+120	PO2       	    	BSART                         	ZC01                          	
+120	PO2       	    	EKGRP                         	602                           	
+120	PO2       	    	EKGRP                         	603                           	
+120	PO2       	    	EKGRP                         	604                           	
+120	PO2       	    	EKGRP                         	605                           	
+120	PO2       	    	EKGRP                         	606                           	
+120	PO2       	    	EKGRP                         	607                           	
+120	PO2       	    	EKGRP                         	601                           	

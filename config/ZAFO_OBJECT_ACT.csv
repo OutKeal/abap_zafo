@@ -1,0 +1,100 @@
+120	PO        	004	&COMMIT             	          	PO_RELEASE
+120	PO        	007	&PRINT              	          	
+120	PO        	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+120	PO1       	004	&COMMIT             	          	PO_RELEASE
+120	PO1       	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+120	PO1       	007	&PRINT              	          	
+120	PO2       	004	&COMMIT             	          	PO_RELEASE
+120	PO2       	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+120	PO2       	007	&PRINT              	          	
+120	PO3       	004	&COMMIT             	          	PO_RELEASE
+120	PO3       	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+120	PO3       	007	&PRINT              	          	
+120	PO3       	003	&SAVE               	CHANGE    	PO_PO_CHANGE
+120	MB_MOVE_T 	001	&EDIT               	          	
+120	MB_MOVE_T 	002	&SAVE               	CREATE    	
+120	MB_MOVE_T 	003	&SAVE               	CHANGE    	
+120	MB_MOVE_T 	004	&POST               	          	MB_MOVE
+120	MB_MOVE_T 	005	&CANCEL             	          	MB_CANCEL
+120	AT        	001	&EDIT               	          	
+120	AT        	002	&SAVE               	CREATE    	
+120	AT        	003	&SAVE               	CHANGE    	
+120	AT        	006	&DELETE             	DELETE    	
+120	AT        	007	&POST               	          	AT_CREATE
+120	MB_MOVE_GR	001	&EDIT               	          	
+120	MB_MOVE_GR	002	&SAVE               	CREATE    	
+120	MB_MOVE_GR	003	&SAVE               	CHANGE    	
+120	MB_MOVE_GI	004	&POST               	          	MB_MOVE_GI
+120	MB_MOVE_GR	005	&CANCEL             	          	MB_CANCEL
+120	MB_MOVE_GI	001	&EDIT               	          	
+120	MB_MOVE_GI	002	&SAVE               	CREATE    	
+120	MB_MOVE_GI	003	&SAVE               	CHANGE    	
+120	MB_MOVE_GR	004	&POST               	          	MB_MOVE_GR
+120	MB_MOVE_GI	005	&CANCEL             	          	MB_CANCEL
+120	MB_PD     	001	&EDIT               	          	
+120	MB_PD     	002	&SAVE               	CREATE    	
+120	MB_PD     	003	&SAVE               	CHANGE    	
+120	MB_PD     	005	&CANCEL             	          	MB_CANCEL
+120	MB_PD     	004	&POST               	          	MB_PD
+120	CONF      	001	&EDIT               	          	
+120	CONF      	002	&SAVE               	CREATE    	
+120	CONF      	003	&SAVE               	CHANGE    	
+120	CONF      	006	&DELETE             	DELETE    	MO_CONF
+120	CONF      	010	&POST               	          	MO_CONF
+120	MB_BIN    	001	&EDIT               	          	
+120	MB_BIN    	002	&SAVE               	CREATE    	
+120	MB_BIN    	003	&SAVE               	CHANGE    	
+120	MB_BIN    	004	&POST               	          	MB_BIN
+120	MB_BIN    	005	&CANCEL             	          	MB_CANCEL
+120	MB_MOVE   	001	&EDIT               	          	
+120	MB_MOVE   	002	&SAVE               	CREATE    	
+120	MB_MOVE   	003	&SAVE               	CHANGE    	
+120	MB_MOVE   	004	&POST               	          	MB_MOVE
+120	MB_MOVE   	005	&CANCEL             	          	MB_CANCEL
+120	MB_MO_GI  	001	&EDIT               	          	
+120	MB_MO_GI  	002	&SAVE               	CREATE    	
+120	MB_MO_GI  	003	&SAVE               	CHANGE    	
+120	MB_MO_GI  	006	&DELETE             	          	
+120	MB_MO_GI  	007	&POST               	          	MB_MO_GI
+120	MB_MO_GR  	001	&EDIT               	          	
+120	MB_MO_GR  	002	&SAVE               	CREATE    	
+120	MB_MO_GR  	003	&SAVE               	CHANGE    	
+120	MB_MO_GR  	006	&DELETE             	          	
+120	MB_MO_GR  	007	&POST               	          	MB_MO_GR
+120	MB_MO_GR  	008	&CANCEL             	          	MB_CANCEL
+120	MB_PO_GR  	001	&EDIT               	          	
+120	MB_PO_GR  	002	&SAVE               	CREATE    	
+120	MB_PO_GR  	003	&SAVE               	CHANGE    	
+120	MB_PO_GR  	004	&POST               	          	MB_PO_GR
+120	MB_PO_GR  	005	&CANCEL             	          	MB_CANCEL
+120	MB_REL    	001	&EDIT               	          	
+120	MB_REL    	002	&SAVE               	CREATE    	
+120	MB_REL    	003	&SAVE               	CHANGE    	
+120	MB_REL    	004	&POST               	          	MB_REL
+120	MB_REL    	005	&CANCEL             	          	MB_CANCEL
+120	MB_REQ    	001	&EDIT               	          	
+120	MB_REQ    	002	&SAVE               	CREATE    	
+120	MB_REQ    	003	&SAVE               	CHANGE    	
+120	MB_REQ    	004	&POST               	          	MB_REQ
+120	MB_REQ    	005	&CANCEL             	          	MB_CANCEL
+120	PO        	001	&EDIT               	          	
+120	PO        	002	&SAVE               	CREATE    	PO_CREATE
+120	PO        	003	&SAVE               	CHANGE    	PO_CHANGE
+120	PO        	006	&DELETE             	          	PO_DELETE
+120	PO1       	001	&EDIT               	          	
+120	PO1       	002	&SAVE               	CREATE    	PO_CREATE
+120	PO1       	003	&SAVE               	CHANGE    	PO_CHANGE
+120	PO1       	006	&DELETE             	          	PO_DELETE
+120	PO2       	001	&EDIT               	          	
+120	PO2       	002	&SAVE               	CREATE    	PO_CREATE
+120	PO2       	003	&SAVE               	CHANGE    	PO_CHANGE
+120	PO2       	006	&DELETE             	          	PO_DELETE
+120	PO3       	001	&EDIT               	          	
+120	PO3       	002	&SAVE               	CREATE    	PO_CREATE1
+120	PO3       	006	&DELETE             	          	PO_DELETE
+120	PR        	001	&EDIT               	          	
+120	PR        	002	&SAVE               	CREATE    	PR_CREATE
+120	PR        	003	&SAVE               	CHANGE    	PR_CHANGE
+120	PR        	004	&COMMIT             	COMMIT    	
+120	PR        	005	&UNCOMMIT           	COMMIT    	
+120	PR        	006	&DELETE             	DELETE    	PR_DELETE

@@ -1,0 +1,81 @@
+120	PO_RELEASE          	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  1 	DATA:LT_ITEM TYPE TABLE OF BAPI2017_GM_ITEM_CREATE.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  2 	DATA:IS_ITEM TYPE  BAPI2017_GM_ITEM_CREATE.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  3 	DATA:LS_ITEM TYPE  BAPI2017_GM_ITEM_CREATE.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  4 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  5 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'GOODSMVT_ITEM'.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  6 	CHECK SY-SUBRC EQ 0.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  7 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  8 	CHECK SY-SUBRC EQ 0.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  9 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 10 	CHECK SY-SUBRC EQ 0.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 11 	
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 12 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 13 	  MOVE-CORRESPONDING <LINE> TO IS_ITEM.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 14 	  LS_ITEM-MATERIAL = IS_ITEM-MATERIAL.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 15 	  LS_ITEM-SPEC_STOCK = IS_ITEM-SPEC_STOCK.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 16 	  LS_ITEM-ORDERID = IS_ITEM-ORDERID.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 17 	  LS_ITEM-PLANT = IS_ITEM-PLANT.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 18 	  LS_ITEM-STGE_LOC = IS_ITEM-STGE_LOC.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 19 	  LS_ITEM-ENTRY_QNT = IS_ITEM-ENTRY_QNT.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 20 	  LS_ITEM-S_ORD_ITEM = IS_ITEM-VAL_S_ORD_ITEM.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 21 	  LS_ITEM-SALES_ORD = IS_ITEM-VAL_SALES_ORD.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 22 	  LS_ITEM-MOVE_TYPE = '101'.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 23 	  LS_ITEM-MVT_IND = 'F'.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 24 	  COLLECT LS_ITEM INTO LT_ITEM.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 25 	  CLEAR LS_ITEM.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 26 	ENDLOOP.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 27 	
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 28 	LOOP AT LT_ITEM INTO LS_ITEM.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 29 	  INSERT INITIAL LINE INTO <TABLE> ASSIGNING <LINE> INDEX SY-TABIX.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 30 	  MOVE LS_ITEM TO <LINE>.
+120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 31 	ENDLOOP.
+120	PO_RESET_RELEASE    	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  1 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  2 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'TIMETICKETS'.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  3 	CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  4 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
+120	MO_CONF             	BEFORE_POST         	                              	                              	  5 	CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  6 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  7 	CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  8 	DATA INDEX TYPE I.
+120	MO_CONF             	BEFORE_POST         	                              	                              	  9 	
+120	MO_CONF             	BEFORE_POST         	                              	                              	 10 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
+120	MO_CONF             	BEFORE_POST         	                              	                              	 11 	  ASSIGN COMPONENT 'CONF_NO' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_NO>).
+120	MO_CONF             	BEFORE_POST         	                              	                              	 12 	  CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 13 	
+120	MO_CONF             	BEFORE_POST         	                              	                              	 14 	  SELECT SINGLE * FROM ZAFO_MO_CONF INTO @DATA(CONF) WHERE RUECK = @<CONF_NO>.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 15 	  CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 16 	
+120	MO_CONF             	BEFORE_POST         	                              	                              	 17 	  DO 6 TIMES.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 18 	    INDEX = SY-INDEX.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 19 	    ASSIGN COMPONENT |VGW0{ INDEX }| OF STRUCTURE CONF TO FIELD-SYMBOL(<FROM_VALUE>).
+120	MO_CONF             	BEFORE_POST         	                              	                              	 20 	    CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 21 	    ASSIGN COMPONENT |CONF_ACTIVITY{ INDEX }| OF STRUCTURE <LINE> TO FIELD-SYMBOL(<TO_VALUE>).
+120	MO_CONF             	BEFORE_POST         	                              	                              	 22 	    CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 23 	    ASSIGN COMPONENT |YIELD| OF STRUCTURE <LINE> TO FIELD-SYMBOL(<SL>).
+120	MO_CONF             	BEFORE_POST         	                              	                              	 24 	    CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 25 	    <TO_VALUE> = <FROM_VALUE> * <SL>.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 26 	  ENDDO.
+120	MO_CONF             	BEFORE_POST         	                              	                              	 27 	ENDLOOP.
+120	MO_CONF             	AFTER_POST          	                              	                              	  1 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
+120	MO_CONF             	AFTER_POST          	                              	                              	  2 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'DETAIL_RETURN'.
+120	MO_CONF             	AFTER_POST          	                              	                              	  3 	CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	AFTER_POST          	                              	                              	  4 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
+120	MO_CONF             	AFTER_POST          	                              	                              	  5 	CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	AFTER_POST          	                              	                              	  6 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
+120	MO_CONF             	AFTER_POST          	                              	                              	  7 	CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	AFTER_POST          	                              	                              	  8 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
+120	MO_CONF             	AFTER_POST          	                              	                              	  9 	  ASSIGN COMPONENT 'CONF_NO' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_NO>).
+120	MO_CONF             	AFTER_POST          	                              	                              	 10 	  CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	AFTER_POST          	                              	                              	 11 	  ASSIGN COMPONENT 'CONF_CNT' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_CNT>).
+120	MO_CONF             	AFTER_POST          	                              	                              	 12 	  CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	AFTER_POST          	                              	                              	 13 	READ TABLE RUN->ITEM ASSIGNING FIELD-SYMBOL(<ITEM>) WITH KEY RUECK = <CONF_NO>.
+120	MO_CONF             	AFTER_POST          	                              	                              	 14 	  CHECK SY-SUBRC EQ 0.
+120	MO_CONF             	AFTER_POST          	                              	                              	 15 	  <ITEM>-RMZHL = <CONF_CNT>.
+120	MO_CONF             	AFTER_POST          	                              	                              	 16 	  <ITEM>-DOCNR = |{ <CONF_NO> }{ <CONF_CNT> }|.
+120	MO_CONF             	AFTER_POST          	                              	                              	 17 	ENDLOOP.
+120	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	ENTRY_QNT                     	  1 	c_value = COND menge_d( WHEN i_value < 0 THEN - i_value ELSE  i_value ).
+120	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	MOVE_TYPE                     	  1 	C_VALUE = COND #( WHEN I_VALUE < 0 THEN '702' ELSE '701' ).
+120	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	MOVE_TYPE                     	  2 	BREAK-POINT.
+120	PO_CHANGE           	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.

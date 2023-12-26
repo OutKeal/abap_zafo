@@ -1,0 +1,19 @@
+120	          	默认TEXT配置                      	          	 	 	          	                                                  	                    	
+120	MB_BIN    	绑定库存到销售订单                     	MB_BIN    	B	2	          	                                                  	ZAFO_S01            	MB
+120	MB_MOVE   	一步移库                          	MB_MOVE   	C	2	          	                                                  	ZAFO_S01            	MB
+120	MB_MOVE_GI	调拨出库                          	MB_MOVE_GI	C	2	          	                                                  	ZAFO_S01            	MB
+120	AT        	高级定制销售采购                      	AT        	 	1	          	                                                  	ZAFO_A01            	
+120	MB_MOVE_GR	调拨入库                          	MB_MOVE_GR	Y	2	MB_MOVE_GI	                                                  	ZAFO_S01            	MB
+120	MB_MOVE_T 	移库                            	MB_MOVE_T 	C	2	          	                                                  	ZAFO_S01            	MB
+120	MB_MO_GI  	生产发料                          	MB_MO_GI  	H	2	          	                                                  	ZAFO_S01            	MB
+120	MB_MO_GR  	生产入库                          	MB_MO_GR  	J	2	          	                                                  	ZAFO_S01            	MB
+120	CONF      	生产报工                          	CONF      	F	2	          	                                                  	ZPP004              	
+120	MB_PD     	盘点调整                          	MB_PD     	 	1	          	                                                  	ZAFO_S01            	MB
+120	MB_PO_GR  	采购订单收货                        	MB_PO_GR  	A	2	          	                                                  	ZAFO_S01            	MB
+120	MB_REL    	释放销售订单库存                      	MB_REL    	E	2	          	                                                  	ZAFO_S01            	MB
+120	MB_REQ    	成本中心领用                        	MB_REQ    	B	2	          	                                                  	ZAFO_S01            	MB
+120	PO        	采购订单(参考生产)                    	PO        	D	2	          	                                                  	ZAFO_P01            	PO
+120	PO2       	采购订单(无参考)                     	PO2       	 	1	          	                                                  	ZAFO_P01            	PO
+120	PO3       	采购订单(委外加工)                    	PO3       	K	2	          	                                                  	ZAFO_P01            	PO
+120	PO1       	采购订单(参考申请)                    	PO1       	Z	2	PR        	                                                  	ZAFO_A01            	PO
+120	PR        	测试采购申请                        	PR        	 	1	          	                                                  	ZAFO_A01            	PR

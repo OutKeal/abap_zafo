@@ -1,0 +1,17 @@
+120	PO_TEST   	000001	BUKRS_NAME          	BUKRS_BP_INFO       	NAME                          	
+120	PO_TEST   	000002	BUKRS_NAME1         	BUKRS_BP_INFO       	NAME                          	
+120	PO_TEST   	000003	BUKRS_ADDRESS       	BUKRS_BP_INFO       	ADDRESS                       	
+120	PO_TEST   	000004	BUKRS_TEL           	BUKRS_BP_INFO       	TEL                           	
+120	PO_TEST   	000010	LIFNR_NAME          	LIFNR_BP_INFO       	NAME                          	
+120	PO_TEST   	000011	LIFNR_NAME1         	LIFNR_BP_INFO       	NAME                          	
+120	PO_TEST   	000012	LIFNR_ADDRESS       	LIFNR_BP_INFO       	ADDRESS                       	
+120	PO_TEST   	000013	LIFNR_TEL           	LIFNR_BP_INFO       	TEL                           	
+120	PO_TEST   	000021	TABLE1              	ITEM                	MATNR                         	
+120	PO_TEST   	000022	TABLE1              	ITEM                	MAKTX                         	
+120	PO_TEST   	000026	TABLE1              	ITEM                	MENGE                         	
+120	PO_TEST   	000027	TABLE1              	ITEM                	PRICE                         	
+120	PO_TEST   	000028	TABLE1              	ITEM                	AMOUNT                        	
+120	PO_TEST   	000029	TABLE1              	ITEM                	EEIND                         	
+120	PO_TEST   	000023	TABLE1              	                    	COL01                         	成分规格
+120	PO_TEST   	000024	TABLE1              	                    	COL02                         	45CM
+120	PO_TEST   	000025	TABLE1              	                    	COL03                         	红色
