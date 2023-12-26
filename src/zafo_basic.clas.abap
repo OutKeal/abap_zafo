@@ -66,6 +66,7 @@ public section.
   class-methods GET_BUSTYP_DICT
     importing
       !BUSTYP type ZAFO_BUSTYP
+      !WERKS type WERKS_D
     returning
       value(RT_DICT) type ZAFO_TT_DICT .
   class-methods SET_ICON
@@ -288,6 +289,7 @@ METHOD call_transation_by_line.
   bool = abap_false.
   ASSIGN COMPONENT fieldname OF STRUCTURE line TO FIELD-SYMBOL(<value>).
   CHECK sy-subrc EQ 0.
+  CHECK <value> IS NOT INITIAL.
 
   CASE fieldname.
     WHEN 'BANFN' ."采购申请
@@ -346,7 +348,7 @@ METHOD call_transation_by_line.
       SET PARAMETER ID 'BUK' FIELD <bukrs>.
       CALL TRANSACTION 'FB03' AND SKIP FIRST SCREEN.
       bool = abap_true.
-    WHEN 'MATNR' OR 'STANR'. "商品"
+    WHEN 'MATNR' OR 'SATNR'. "商品"
       SET PARAMETER ID 'MAT' FIELD <value>.
       CALL TRANSACTION 'MM43' AND SKIP FIRST SCREEN.
       bool = abap_true.
@@ -465,15 +467,16 @@ ENDMETHOD.
     CHECK ls_bustyp-bustyp IS NOT INITIAL.
 
     rt_dict = VALUE #( FOR wa IN gt_dict
-    WHERE ( bustyp = ls_bustyp ) ( wa ) ) .
+    WHERE ( bustyp = ls_bustyp  and ( werks = werks or werks = '' ) ) ( wa ) ) .
 
     IF rt_dict IS INITIAL.
       SELECT * FROM zafo_dict
       WHERE bustyp = @ls_bustyp-bustyp
+       AND ( werks = @werks OR werks = '' )
       APPENDING TABLE @gt_dict.
       IF sy-subrc EQ 0.
         rt_dict = VALUE #( FOR wa IN gt_dict
-        WHERE ( bustyp = ls_bustyp-bustyp ) ( wa ) ) .
+        WHERE ( bustyp = ls_bustyp-bustyp and ( werks = werks or werks = '' ) ) ( wa ) ) .
       ELSE.
         APPEND VALUE #( bustyp = ls_bustyp-bustyp
         ) TO gt_dict.
@@ -593,14 +596,12 @@ ENDMETHOD.
 
 
   METHOD init_gui_status.
-    gui_status = VALUE #( ( '&EDIT' )
-                                        ( '&SAVE' )
-                                        ( '&COMMIT' )
-                                        ( '&UNCOMMIT' )
-                                        ( '&DELETE' )
-                                        ( '&POST' )
-                                        ( '&CANCEL' )
-                                        ( '&PRINT' )  ).
+    zwft_common=>get_status_functions( EXPORTING program = 'SAPLZAFO' status = '200'
+    IMPORTING  functions = DATA(functions) ).
+    DELETE functions WHERE fcode+0(1) <> '&'.
+    LOOP AT functions INTO DATA(fun).
+      APPEND fun-fcode TO gui_status.
+    ENDLOOP.
   ENDMETHOD.
 
 
@@ -669,8 +670,5 @@ ENDMETHOD.
 
       ENDIF.
     ENDIF.
-
-
-
   ENDMETHOD.
 ENDCLASS.

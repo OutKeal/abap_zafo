@@ -9,6 +9,7 @@ TABLES: mkpf,ekko,mara,ekpo,makt,eket,zafo_head,zafo_item,
 TABLES:  sscrfields.
 TABLES:  zafo_shead.
 
+DATA:gt_list  TYPE  vrm_values.
 DATA:g_action TYPE zafo_action.
 DATA:g_werks_flag TYPE char1.
 DATA:gs_object TYPE zafo_object.

@@ -55,6 +55,7 @@ public section.
   data NO_COMMIT type ABAP_BOOL .
   data CALLED type ABAP_BOOL .
   data PRINT_RULE type ZAFO_TT_PRINT_RULE .
+  data DYNAMIC_SCREEN type ref to ZWFT_DYNAMIC_SCREEN .
 
   methods CONSTRUCTOR
     importing
@@ -94,6 +95,12 @@ public section.
       !IT_ITEM type ZAFO_TT_BAPI_ITEM
     returning
       value(R_CLASS) type ref to ZAFO_CLASS .
+  class-methods APPROVAL
+    importing
+      !AFONO type ZAFONO
+      !STATUS type ZAFO_STATUS
+    returning
+      value(ERROR) type BOOL .
   methods INIT_ALV
     importing
       value(C_FALV) type ref to ZWFT_FALV optional .
@@ -124,6 +131,13 @@ public section.
     importing
       value(C_FALV) type ref to ZWFT_FALV
       value(I_OBJECT) type ref to CL_ALV_EVENT_TOOLBAR_SET .
+  methods ONF4
+    importing
+      !C_FALV type ref to ZWFT_FALV
+      !C_EVENT_DATA type ref to CL_ALV_EVENT_DATA
+      !I_FIELDNAME type FIELDNAME
+      !I_INDEX type INDEX
+      !I_DISPLAY type ABAP_BOOL optional .
   methods USER_COMMAND_REF
     importing
       !C_FALV type ref to ZWFT_FALV
@@ -167,7 +181,14 @@ public section.
       !ALV_NAME type OBJECTNAME
     returning
       value(R_HANDLE) type SLIS_HANDL .
+  methods SET_DYNAMIC_SCREEN .
+  methods VALUE_FILTER_BY_DICT
+    importing
+      !FIELDNAME type CLIKE
+    changing
+      !TABLE type TABLE .
 protected section.
+private section.
 
   methods GET_NEXT_AFONR
     returning
@@ -183,26 +204,31 @@ protected section.
     changing
       !CS_ITEM type ZAFO_SITEM .
   methods HEAD_DOUBLE_CLICK .
-  methods COMMIT .
-  methods UNCOMMIT .
+  methods CHECK_HEAD .
+  methods CHECK_ITEM .
+  methods SAVE .
   methods POST .
   methods CANCEL .
   methods PRINT .
   methods DELETE .
+  methods COMMIT .
+  methods UNCOMMIT .
   methods UPDATE_HEAD_STATUS
     importing
       !STATUS type ZAFO_HEAD-STATUS .
-  methods CHECK_HEAD .
-  methods CHECK_ITEM .
   methods SET_STATUS
     importing
       !STATUS type ZAFO_HEAD-STATUS .
   methods DB_SAVE .
   methods PERPARE_SAVE .
   methods SAVE_DATA .
-  methods SAVE .
-private section.
-
+  methods SELECT_UNIQUE_REF
+    importing
+      !AFONO type ZAFONO
+      !SELECTED type CHAR1 .
+  methods REGISTER_F4
+    importing
+      !C_FALV type ref to ZWFT_FALV .
   methods ADD_GOS_RELATIONSHIP .
   methods GET_NEXT_AFONO
     returning
@@ -246,7 +272,7 @@ ENDCLASS.
 CLASS ZAFO_CLASS IMPLEMENTATION.
 
 
-  METHOD check_head.
+  METHOD CHECK_HEAD.
     head-werks = werks.
     DATA(screen_h) = zafo_basic=>get_bustyp_screen( bustyp = bustype-bustyp fieldalv = 'HEAD' ).
     DELETE screen_h WHERE rollname = '' AND requi = ''.
@@ -273,7 +299,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD check_item.
+  METHOD CHECK_ITEM.
     IF item IS INITIAL.
       message->add_single( msgty = 'E' msgid = 'ZAFO' msgno = '007' )."项目不能为空
       init_item( ).
@@ -303,7 +329,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD commit.
+  METHOD COMMIT.
 
     INCLUDE zafo_class_macro.
 
@@ -339,7 +365,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
     screen_ref = zafo_basic=>get_bustyp_screen( bustype_ref-bustyp )."获取参考屏幕控制
     act = zafo_basic=>get_bustyp_act( bustype-bustyp )."获取动作控制
     gui_status = zafo_basic=>init_gui_status( )."初始化默认GUI按钮清单
-    dict = zafo_basic=>get_bustyp_dict( bustyp )."获取字典配置
+    dict = zafo_basic=>get_bustyp_dict( EXPORTING BUSTYP = bustyp werks = werks )."获取字典配置
     print_rule = zafo_basic=>get_bustyp_print( bustyp )."获取打印规则配置
   ENDMETHOD.
 
@@ -389,6 +415,32 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
     LOOP AT cl_data_changed->mt_good_cells INTO DATA(ls_modi).
       READ TABLE <outtab> ASSIGNING FIELD-SYMBOL(<line>) INDEX ls_modi-row_id.
       CHECK sy-subrc EQ 0.
+      IF ls_modi-fieldname = 'SELECTED'.
+        IF bustype-busref = 'Y'.
+          select_unique_ref( EXPORTING afono = <line>-afono selected = <line>-selected ).
+        ELSE.
+          <line>-row_color = COND #( WHEN <line>-selected = 'X' THEN 'C500' ELSE '' ).
+        ENDIF.
+        cl_data_changed->modify_cell( i_row_id = ls_modi-row_id
+                                                        i_fieldname = ls_modi-fieldname
+                                                        i_value = <line>-matnr ).
+      ENDIF.
+      IF ls_modi-fieldname = 'MATNR'.
+        <line>-matnr = ls_modi-value.
+        set_material( CHANGING cs_item = <line> ).
+*        MODIFY_CELL( ).
+
+        cl_data_changed->modify_cell( i_row_id = ls_modi-row_id
+                                                        i_fieldname = ls_modi-fieldname
+                                                        i_value = <line>-matnr ).
+        cl_data_changed->modify_cell( i_row_id = ls_modi-row_id
+                                                          i_fieldname = 'MAKTX'
+                                                          i_value = <line>-maktx ).
+        cl_data_changed->modify_cell( i_row_id = ls_modi-row_id
+                                                          i_fieldname = 'MEINS'
+                                                          i_value = <line>-meins ).
+      ENDIF.
+
       READ TABLE screen_con INTO DATA(l_screen)  WITH KEY fieldname = ls_modi-fieldname.
       IF sy-subrc EQ 0 AND l_screen-check_menge IS NOT INITIAL.
         ASSIGN COMPONENT l_screen-check_menge OF STRUCTURE <line> TO FIELD-SYMBOL(<check_value>).
@@ -422,7 +474,11 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
       ASSIGN COMPONENT  ls_cell-fieldname OF STRUCTURE <line> TO FIELD-SYMBOL(<fs_value>).
       CASE ls_cell-fieldname.
         WHEN 'SELECTED'.
-          <line>-row_color = COND #( WHEN <line>-selected = 'X' THEN 'C500' ELSE '' ).
+          IF bustype-busref = 'Y'.
+            select_unique_ref( EXPORTING afono = <line>-afono selected = <line>-selected ).
+          ELSE.
+            <line>-row_color = COND #( WHEN <line>-selected = 'X' THEN 'C500' ELSE '' ).
+          ENDIF.
         WHEN 'MENGE_PLAN' OR 'MENGE'.
           IF c_falv = falv_ref .
             <line>-selected = COND char1( WHEN <fs_value> IS INITIAL THEN '' ELSE 'X'  ).
@@ -489,7 +545,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
       ASSIGN c_falv->outtab->* TO <outtab_head>.
       READ TABLE <outtab_head> INDEX i_row-index  ASSIGNING FIELD-SYMBOL(<line_head>).
       CHECK sy-subrc EQ 0.
-      CHECK zafo_basic=>call_transation_by_line( EXPORTING line = <line_head>"字段双击
+      CHECK zwft_common=>call_transation_by_line( EXPORTING line = <line_head>"字段双击
       fieldname = i_column-fieldname  ) EQ abap_false.
       CHECK item_all IS NOT INITIAL."显示明细行
       item_dis = VALUE #( FOR item IN item_all WHERE ( afono = <line_head>-afono ) ( item ) ).
@@ -498,7 +554,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
       ASSIGN c_falv->outtab->* TO <outtab_item>.
       READ TABLE <outtab_item> INDEX i_row-index  ASSIGNING FIELD-SYMBOL(<line_item>).
       CHECK sy-subrc EQ 0.
-      zafo_basic=>call_transation_by_line( EXPORTING line = <line_item>
+      zwft_common=>call_transation_by_line( EXPORTING line = <line_item>
       fieldname = i_column-fieldname  ).
     ENDIF.
   ENDMETHOD.
@@ -549,19 +605,14 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
 
     DATA:
           thead TYPE thead.
-
-
     DATA:tline TYPE TABLE OF tline.
 
     CHECK editor IS BOUND.
-
     CHECK head-afono IS NOT INITIAL.
 
-    CALL METHOD cl_gui_cfw=>flush.
-
-    editor->get_text_as_stream( IMPORTING text = text_lines ).
-
     CLEAR tline[].
+    CALL METHOD cl_gui_cfw=>flush.
+    editor->get_text_as_stream( IMPORTING text = text_lines ).
 
     CALL FUNCTION 'CONVERT_STREAM_TO_ITF_TEXT'
       EXPORTING
@@ -570,14 +621,13 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
         text_stream = text_lines
         itf_text    = tline.
 
-
-
     IF head-afono IS NOT INITIAL.
       thead-tdid = 'ZAFO'.
       thead-tdobject =  'ZAFO'.
       thead-tdspras = sy-langu.
       CONCATENATE head-afono thead-tdid INTO thead-tdname.
     ENDIF.
+
     CALL FUNCTION 'SAVE_TEXT'
       EXPORTING
         header          = thead
@@ -737,7 +787,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
     IF fieldname = 'AFONO'.
       gos_call( ).
     ELSE.
-      zafo_basic=>call_transation_by_line( line = head fieldname = fieldname ).
+      zwft_common=>call_transation_by_line( line = head fieldname = fieldname ).
     ENDIF.
 
   ENDMETHOD.
@@ -773,16 +823,16 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
         WHEN 'AFONO'.
           CHECK <line_item>-afono IS NOT INITIAL.
           zafo_class=>maintain( EXPORTING afono = <line_item>-afono ).
+          <head> = l_class->head.
           CALL FUNCTION 'ZAFO_GET_CLASS'
             EXPORTING
               i_class = me.
-
         WHEN OTHERS.
-          zafo_basic=>call_transation_by_line( EXPORTING line = <line_item>
+          zwft_common=>call_transation_by_line( EXPORTING line = <line_item>
                                                                                         fieldname = i_column-fieldname  ).
-
       ENDCASE.
     ENDIF.
+    c_falv->soft_refresh( ).
   ENDMETHOD.
 
 
@@ -812,6 +862,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
                                         CHANGING  fcat = c_falv->fcat ).
 
     register_edit_event( c_falv ).
+    register_f4( c_falv ).
 
     set_falv_layout( CHANGING falv = c_falv ).
     exclude_function( EXPORTING c_falv = c_falv ).
@@ -825,7 +876,8 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
   METHOD init_head.
     me->head-bustyp = me->bustype-bustyp.
     me->head-object = me->bustype-object.
-    me->head-execute_type = me->object-execute_type.
+    me->head-category = me->bustype-category.
+*    me->head-execute_type = me->object-execute_type.
 
     me->head-bldat = sy-datum.
     me->head-budat = sy-datum.
@@ -1083,7 +1135,6 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
         system_failure = 2
         OTHERS         = 3.
     IF sy-subrc <> 0.
-
       MESSAGE ID sy-msgid
       TYPE 'S'
       NUMBER sy-msgno
@@ -1106,6 +1157,12 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
     ELSE.
       i_bustyp = bustyp.
     ENDIF.
+
+    IF i_bustyp IS INITIAL.
+      MESSAGE e023."订单不存在
+      RETURN.
+    ENDIF.
+
     r_class = NEW zafo_class( bustyp = i_bustyp ).
 
     SELECT SINGLE * FROM zafo_head
@@ -1159,7 +1216,6 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
 
 
   METHOD register_edit_event.
-*    c_falv->register_edit_event( c_falv->mc_evt_enter ).
     c_falv->register_edit_event( c_falv->mc_evt_modified ).
   ENDMETHOD.
 
@@ -1178,7 +1234,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD save.
+  METHOD SAVE.
     perpare_save( ).
 
     check_head( ).
@@ -1205,17 +1261,13 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
 
     IF head-afono IS INITIAL.
       head-afono = get_next_afono( ).
-      LOOP AT item ASSIGNING FIELD-SYMBOL(<fs_item>).
-        <fs_item>-afono = head-afono.
-      ENDLOOP.
-      head-erdat = sy-datum.
-      head-erzet = sy-uzeit.
-      head-ernam = sy-uname.
+    ENDIF.
 
-      IF head-status = ''.
-        head-status = 'A'.
-      ENDIF.
-      set_status( head-status ).
+    IF action = 'CREATE'.
+      head-status = COND #( WHEN head-status = '' THEN 'A' ELSE head-status ).
+      head-erdat = COND #( WHEN head-erdat IS INITIAL THEN sy-datum ELSE head-erdat ).
+      head-erzet = COND #( WHEN head-erzet IS INITIAL THEN sy-uzeit ELSE head-erzet ).
+      head-ernam = COND #( WHEN head-ernam IS INITIAL THEN sy-uname ELSE head-ernam ).
       add_gos_relationship( ).
       lock( ) .
     ENDIF.
@@ -1224,8 +1276,10 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
     head-aedat = sy-datum.
     head-aetim = sy-uzeit .
     head-tcode = sy-tcode .
+    set_status( head-status ).
 
-    LOOP AT item  ASSIGNING <fs_item>.
+    LOOP AT item  ASSIGNING FIELD-SYMBOL(<fs_item>).
+      <fs_item>-afono = head-afono.
       IF <fs_item>-icon = icon_led_inactive.
         DELETE item.
         CONTINUE.
@@ -1293,7 +1347,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
 
 
   METHOD set_falv_layout.
-    falv->layout->set_cwidth_opt( abap_true ).
+    falv->layout->set_cwidth_opt( abap_false ).
     falv->layout->set_zebra( abap_true ).
     falv->layout->set_sel_mode( 'A' ).
     falv->layout->set_info_fname( 'ROW_COLOR' ).
@@ -1304,6 +1358,9 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
   METHOD set_fcat_from_screen.
 
     LOOP AT fcat ASSIGNING FIELD-SYMBOL(<fs_fcat>).
+      <fs_fcat>-no_init_ch = 'B'.
+      <fs_fcat>-key_sel = ''.
+      <fs_fcat>-row_pos = 1.
       CASE <fs_fcat>-fieldname.
         WHEN 'ICON'.
           <fs_fcat> = VALUE #( BASE <fs_fcat>
@@ -1313,6 +1370,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
                                               scrtext_s = TEXT-001
                                               col_pos = 1
                                               fix_column = abap_true
+                                              outputlen = 2
                                             ).
         WHEN 'TEXT'.
           <fs_fcat> = VALUE #( BASE <fs_fcat>
@@ -1322,6 +1380,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
                                               scrtext_s = TEXT-002
                                               col_pos = 2
                                               fix_column = abap_true
+                                              outputlen = 5
                                               ).
           CONTINUE.
         WHEN 'SELECTED'.
@@ -1351,6 +1410,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
                                                 col_pos = 4
                                                 hotspot = abap_true
                                                 fix_column = abap_true
+                                                outputlen = 10
                                                 ).
           ELSE .
             <fs_fcat>-tech = 'X'.
@@ -1364,8 +1424,8 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
                                               scrtext_m = TEXT-005
                                               scrtext_s = TEXT-005
                                               col_pos = 5
-                                              hotspot = abap_true
                                               fix_column = abap_true
+                                              outputlen = 2
                                               ).
           ELSE .
             <fs_fcat>-tech = 'X'.
@@ -1382,6 +1442,8 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
                                                 scrtext_l = ls_screen-coltext
                                                 scrtext_m = ls_screen-coltext
                                                 scrtext_s = ls_screen-coltext
+                                                outputlen = ls_screen-outputlen
+                                                no_zero = abap_true
                                                 tabname = 'ZAFO_SITEM'
                                                 ).
             IF ls_screen-edit = 'C' AND action <> 'CREATE'.
@@ -1423,7 +1485,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
           DELETE lt_act WHERE act <> '&SAVE'.
         ENDIF.
       WHEN 'B'.
-        DELETE lt_act .
+        DELETE lt_act WHERE act <> '&UNCOMMIT'.
       WHEN 'C'.
         DELETE lt_act WHERE act <> '&UNCOMMIT' AND act <> '&PRINT'.
       WHEN 'S'.
@@ -1695,7 +1757,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
     CLEAR me->item.
 
     LOOP AT item_ref ASSIGNING FIELD-SYMBOL(<line>) WHERE selected = 'X'.
-      IF <line>-item_status <> 'C'.
+      IF <line>-item_status <> 'C' AND <line>-item_status <> 'S'.
         message->add_single( EXPORTING msgty = 'E' msgid = 'ZAFO' msgno = '011'  )."只有已审核状态可引用
       ENDIF.
       APPEND <line> TO me->item.
@@ -1761,18 +1823,19 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
 
 
   METHOD uncommit.
-    CHECK head-status = 'C'.
+    CHECK head-status CA 'BC'.
     CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '02' bustyp = head-bustyp werks = werks ).
     CHECK zwft_common=>confirm( '确认取消提交么' ) = abap_true.
 
     act_run( '&UNCOMMIT' ).
     macro_error_return.
 
-    IF object-app_object IS INITIAL.
-      update_head_status( 'A' ).
-    ELSE.
-      MESSAGE e000 WITH '无法取消提交'.
-    ENDIF.
+    update_head_status( 'A' ).
+*    IF object-app_object IS INITIAL.
+*      update_head_status( 'A' ).
+*    ELSE.
+*      MESSAGE e000 WITH '无法取消提交'.
+*    ENDIF.
   ENDMETHOD.
 
 
@@ -1848,12 +1911,14 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
         IF lt_rows IS INITIAL.
           LOOP AT <outtab> ASSIGNING FIELD-SYMBOL(<line>).
             <line>-selected = 'X'.
+            <line>-row_color = 'C500'.
           ENDLOOP.
         ELSE.
           LOOP AT lt_rows INTO DATA(ls_rows).
             READ TABLE <outtab> INDEX ls_rows-index ASSIGNING <line>.
             IF sy-subrc EQ 0.
               <line>-selected = 'X'.
+              <line>-row_color = 'C500'.
             ENDIF.
           ENDLOOP.
         ENDIF.
@@ -1861,6 +1926,7 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
       WHEN '&SELECTCAN'.
         LOOP AT <outtab> ASSIGNING <line> WHERE selected = 'X'.
           <line>-selected = ''.
+          <line>-row_color = ''.
         ENDLOOP.
 
       WHEN '&SURE'.
@@ -1878,17 +1944,13 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
     IF sy-subrc NE 0.
       READ TABLE act INTO ls_cat WITH KEY act = fcode action = ''.
     ENDIF.
-
     CHECK ls_cat-rule_name IS NOT INITIAL.
     zafo_run=>run( rule_name = ls_cat-rule_name  head = head item = item )->call_bapi( IMPORTING ret = DATA(ret) ).
     message->add_table( ret-return ).
-*    IF message->get_error( ) = abap_false.
     IF ret-head IS NOT INITIAL.
       head = ret-head.
       item = ret-item.
     ENDIF.
-*    ENDIF.
-
   ENDMETHOD.
 
 
@@ -2133,13 +2195,168 @@ CLASS ZAFO_CLASS IMPLEMENTATION.
 
 
   METHOD set_material.
-    zwft_common=>search_material( EXPORTING werks = head-werks
+    DATA matnr TYPE matnr.
+    DATA range_mtart TYPE md_range_t_mtart.
+    range_mtart = VALUE #( FOR wa IN dict
+                                             WHERE ( fieldname = 'MTART' )
+                                             ( sign = 'I' option = 'EQ' low = wa-dict_value ) ) .
+    zwft_common=>search_material( EXPORTING werks = head-werks range_mtart = range_mtart
     CHANGING matnr = cs_item-matnr ).
     IF cs_item-matnr IS NOT INITIAL.
       SELECT SINGLE mara~matnr,meins,maktx FROM mara INNER JOIN makt
       ON mara~matnr = makt~matnr
       WHERE mara~matnr = @cs_item-matnr
       INTO CORRESPONDING FIELDS OF @cs_item.
+    ELSE.
+      CLEAR: cs_item-meins,cs_item-maktx.
     ENDIF.
+  ENDMETHOD.
+
+
+  METHOD onf4.
+    READ TABLE item INDEX i_index ASSIGNING FIELD-SYMBOL(<line>).
+    CASE i_fieldname.
+      WHEN 'MATNR' .
+        IF <line>-matnr IS INITIAL.
+          <line>-matnr = '*'.
+        ENDIF.
+        set_material( CHANGING cs_item = <line> ).
+        c_event_data->m_event_handled = abap_true.
+    ENDCASE.
+    c_falv->soft_refresh( ).
+  ENDMETHOD.
+
+
+  METHOD register_f4.
+    DATA f4 TYPE lvc_t_f4.
+
+    APPEND VALUE #( fieldname = 'MATNR'
+                                    register  = abap_true
+                                    getbefore  = abap_true
+                                    chngeafter = abap_true
+                                    internal   = space
+                                ) TO f4.
+*    READ TABLE c_falv->fcat WITH KEY fieldname = 'MATNR' ASSIGNING FIELD-SYMBOL(<fcat>).
+*    IF sy-subrc EQ 0.
+*      <fcat>-f4availabl = ''.
+*    ENDIF.
+
+    c_falv->register_f4_for_fields( f4 ).
+  ENDMETHOD.
+
+
+  METHOD select_unique_ref.
+    LOOP AT item_ref ASSIGNING FIELD-SYMBOL(<line>).
+      IF <line>-afono = afono.
+        <line>-selected = selected.
+      ELSE.
+        <line>-selected = COND #( WHEN selected = 'X' THEN '' ELSE 'X' ).
+      ENDIF.
+
+      <line>-row_color = COND #( WHEN <line>-selected = 'X' THEN 'C500' ELSE '' ).
+    ENDLOOP.
+  ENDMETHOD.
+
+
+  METHOD set_dynamic_screen.
+    DATA sturcname TYPE fieldname.
+    DATA fieldname TYPE fieldname.
+    DATA count TYPE i.
+    CHECK object-head_dynnr >= 9000.
+    CHECK dynamic_screen IS INITIAL.
+    DATA(screens) = VALUE zafo_tt_screen( FOR wa IN screen_con
+                                               WHERE ( fieldalv = 'HEAD' ) ( wa ) ).
+    DATA(fix_screens) = zwft_common=>get_dynnr_field( dynnr = '0400' progname = 'SAPLZAFO' ).
+    LOOP AT fix_screens INTO DATA(fix_screen).
+      REPLACE '->' IN fix_screen-fnam WITH '%%'.
+      SPLIT fix_screen-fnam AT '-' INTO sturcname fieldname.
+      READ TABLE screens WITH KEY fieldname = fieldname ASSIGNING FIELD-SYMBOL(<screen>).
+      IF sy-subrc EQ 0.
+        <screen>-fieldname = ''.
+      ENDIF.
+    ENDLOOP.
+    DELETE screens WHERE fieldname = ''.
+    DELETE screens WHERE fieldname CP '*_NAME'.
+
+    dynamic_screen = zWFT_dynamic_screen=>create( prog = 'SAPLZAFO' dynnr = object-head_dynnr type = 'I' ).
+    dynamic_screen->set_matchcode( ).
+    dynamic_screen->set_flow_logic( pbo = VALUE #( ( line = '  MODULE SCREEN_MOD_HEAD.' ) )
+                                                         pai = VALUE #( ( line = '  MODULE GET_CURSOR.' ) ) ).
+    DATA(half) = lines( screens ) / 2.
+    CLEAR count.
+    LOOP AT screens ASSIGNING <screen>.
+      ADD 1 TO count.
+      dynamic_screen->add_input_field( EXPORTING name = |<GS_TEXT>-{ <screen>-fieldname }| leng = 8 input = '' ).
+      dynamic_screen->add_input_field( EXPORTING name = |<IO_CLASS>->HEAD-{ <screen>-fieldname }| f4 = abap_true ).
+      dynamic_screen->add_flow_logic_chain( EXPORTING name = |<IO_CLASS>->HEAD-{ <screen>-fieldname }|
+                                                                                           code = |FIELD <IO_CLASS>->HEAD-{ <screen>-fieldname } MODULE HEAD-{ <screen>-fieldname } ON CHAIN-REQUEST.| ).
+      fieldname = |{ <screen>-fieldname }_NAME|.
+      ASSIGN COMPONENT fieldname OF STRUCTURE head TO FIELD-SYMBOL(<value>).
+      IF sy-subrc EQ 0.
+        dynamic_screen->add_input_field( EXPORTING name = |<IO_CLASS>->HEAD-{ fieldname }| ).
+      ENDIF.
+      dynamic_screen->move_right( dynamic_screen->default_text_shift ).
+      IF count = half.
+        dynamic_screen->move_down( 1 ) .
+      ENDIF.
+    ENDLOOP.
+    dynamic_screen->generate( ).
+  ENDMETHOD.
+
+
+  METHOD value_filter_by_dict.
+    DATA(lt_dict) = VALUE zafo_tt_dict( FOR wa IN me->dict
+                                  WHERE ( fieldname = fieldname
+                                                  AND ( werks = me->werks OR werks = '' ) ) ( wa ) ).
+    CHECK lt_dict IS NOT INITIAL.
+
+
+    LOOP AT table ASSIGNING FIELD-SYMBOL(<line>).
+      DATA(tabix) = sy-tabix.
+      ASSIGN COMPONENT fieldname OF STRUCTURE <line> TO FIELD-SYMBOL(<value>).
+      CHECK sy-subrc EQ 0.
+      READ TABLE lt_dict INTO DATA(ls_dict) WITH KEY dict_value = <value>.
+      IF sy-subrc NE 0.
+        DELETE table INDEX tabix.
+      ELSE.
+        IF ls_dict-dict_name IS NOT INITIAL.
+          ASSIGN COMPONENT 'NAME' OF STRUCTURE <line> TO FIELD-SYMBOL(<name>).
+          CHECK sy-subrc EQ 0.
+          <name> = ls_dict-dict_name.
+        ENDIF.
+      ENDIF.
+    ENDLOOP.
+
+  ENDMETHOD.
+
+
+  METHOD approval.
+    SELECT SINGLE bustyp INTO @DATA(i_bustyp)
+      FROM zafo_head
+      WHERE afono = @afono.
+    IF sy-subrc NE 0.
+      error = abap_true.
+      RETURN.
+    ENDIF.
+
+    DATA(r_class) = NEW zafo_class( bustyp = i_bustyp ).
+    r_class->lock( ).
+    IF r_class->locked EQ abap_true.
+      error = abap_true.
+      RETURN.
+    ENDIF.
+
+    SELECT SINGLE * FROM zafo_head
+      INTO CORRESPONDING FIELDS OF r_class->head
+      WHERE afono = afono .
+
+    IF ( r_class->head-status = 'B' AND status = 'C' )
+      OR (  r_class->head-status = 'C' AND status = 'B' ).
+    ELSE.
+      error = abap_true.
+      RETURN.
+    ENDIF.
+    r_class->update_head_status( status ).
+
   ENDMETHOD.
 ENDCLASS.

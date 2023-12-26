@@ -3,10 +3,13 @@
 *&---------------------------------------------------------------------*
 
 MODULE status_0100 OUTPUT.
-  SET PF-STATUS '100'.
+  DATA ex_code_100 TYPE TABLE OF sy-ucomm.
+  IF <io_class>->bustype-busref = 'Y'.
+    APPEND '&SELECTALL' TO ex_code_100.
+  ENDIF.
+  SET PF-STATUS '100' EXCLUDING ex_code_100.
   SET TITLEBAR '100' WITH <io_class>->bustype-bustyp '-' <io_class>->bustype-bustyp_name1.
 ENDMODULE.
-
 
 MODULE create_object_0100 OUTPUT.
   IF <io_class>->falv_ref IS INITIAL.
@@ -33,11 +36,8 @@ ENDMODULE.
 MODULE status_0200 OUTPUT.
   DATA(lt_fcodes) = <io_class>->set_gui_status_exclude( ).
   SET PF-STATUS '200' EXCLUDING lt_fcodes.
-  SET TITLEBAR '200' WITH <io_class>->bustype-bustyp '-' <io_class>->bustype-bustyp_name1 ' 申请人 ' <io_class>->head-ernam.
-ENDMODULE.
-
-MODULE set_f4_ref OUTPUT.
-  MOVE-CORRESPONDING <io_class>->head TO zafo_shead.
+  SET TITLEBAR '200' WITH <io_class>->bustype-bustyp '-' <io_class>->bustype-bustyp_name1 .
+  MOVE <io_class>->head TO zafo_shead.
 ENDMODULE.
 
 
@@ -55,7 +55,6 @@ MODULE create_object_0200 OUTPUT.
     CHANGING ct_table = <io_class>->item ) .
 
     <io_class>->init_alv( <io_class>->falv_item ).
-
     <io_class>->falv_item->display( ).
   ELSE.
     <io_class>->falv_item->soft_refresh( ).
@@ -72,7 +71,6 @@ MODULE tag0200_active_tab_set OUTPUT.
       g_tag0200-subscreen = '0220'.
     WHEN c_tag0200-tab3.
       g_tag0200-subscreen = '0230'.
-
   ENDCASE.
 ENDMODULE.
 
@@ -172,30 +170,55 @@ MODULE screen_mod_head OUTPUT.
   ENDLOOP.
 ENDMODULE.
 
-MODULE listbox_ekgrp OUTPUT.
-  TYPE-POOLS vrm.
-  DATA: vid    TYPE vrm_id VALUE '<IO_CLASS>->HEAD-EKGRP',
-        vlist  TYPE vrm_values,
-        values LIKE LINE OF vlist.
-  CHECK gt_t024 IS INITIAL.
-  SELECT * FROM t024
-    INTO TABLE @gt_t024.
-
-  LOOP AT gt_t024 INTO DATA(gs_t024).
-    MOVE gs_t024-ekgrp TO values-key.
-    MOVE gs_t024-eknam TO values-text.
-    APPEND values TO vlist.
-  ENDLOOP.
-  CALL FUNCTION 'VRM_SET_VALUES'
-    EXPORTING
-      id              = vid
-      values          = vlist
-    EXCEPTIONS
-      id_illegal_name = 1
-      OTHERS          = 2.
-  IF sy-subrc <> 0.
-  ENDIF.
-ENDMODULE.
+*MODULE listbox_ekgrp OUTPUT.
+*  TYPE-POOLS vrm.
+*  DATA: vid    TYPE vrm_id VALUE '<IO_CLASS>->HEAD-EKGRP',
+*        vlist  TYPE vrm_values,
+*        values LIKE LINE OF vlist.
+*  CHECK gt_t024 IS INITIAL.
+*  SELECT * FROM t024
+*    INTO TABLE @gt_t024.
+*
+*  LOOP AT gt_t024 INTO DATA(gs_t024).
+*    MOVE gs_t024-ekgrp TO values-key.
+*    MOVE gs_t024-eknam TO values-text.
+*    APPEND values TO vlist.
+*  ENDLOOP.
+*  CALL FUNCTION 'VRM_SET_VALUES'
+*    EXPORTING
+*      id              = vid
+*      values          = vlist
+*    EXCEPTIONS
+*      id_illegal_name = 1
+*      OTHERS          = 2.
+*  IF sy-subrc <> 0.
+*  ENDIF.
+*ENDMODULE.
+*
+*MODULE listbox_vtweg OUTPUT.
+*  TYPE-POOLS vrm.
+*  DATA: vid1    TYPE vrm_id VALUE '<IO_CLASS>->HEAD-VTWEG',
+*        vlist1  TYPE vrm_values,
+*        values1 LIKE LINE OF vlist.
+*  CHECK gt_tvtwt IS INITIAL.
+*  SELECT * FROM tvtwt
+*  INTO TABLE @gt_tvtwt
+*    WHERE spras = @sy-langu.
+*  vlist1 = CORRESPONDING #( gt_tvtwt
+*                                               MAPPING key = vtweg
+*                                                                 text = vtext
+*                                             ).
+*
+*  CALL FUNCTION 'VRM_SET_VALUES'
+*    EXPORTING
+*      id              = vid1
+*      values          = vlist1
+*    EXCEPTIONS
+*      id_illegal_name = 1
+*      OTHERS          = 2.
+*  IF sy-subrc <> 0.
+*  ENDIF.
+*ENDMODULE.
 
 MODULE set_editor OUTPUT.
   CHECK text_container IS INITIAL.
@@ -237,11 +260,15 @@ MODULE create_gos_service OUTPUT.
   CREATE OBJECT <io_class>->gos_manager
     EXPORTING
 *     IP_START_DIRECT      = 'X'
-*      it_service_selection = it_gos_sels
+*     it_service_selection = it_gos_sels
 *     ip_no_instance       = 'X'
-      is_object            = obj
+      is_object = obj
 *     ip_no_commit         = 'X'
     EXCEPTIONS
-      OTHERS               = 1.
+      OTHERS    = 1.
   cl_gui_cfw=>flush( ).
+ENDMODULE.
+
+MODULE set_dynamic_screen OUTPUT.
+  <io_class>->set_dynamic_screen( ).
 ENDMODULE.

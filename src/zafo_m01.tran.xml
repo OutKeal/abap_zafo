@@ -14,7 +14,7 @@
    <TSTCT>
     <SPRSL>1</SPRSL>
     <TCODE>ZAFO_M01</TCODE>
-    <TTEXT>仓库业务</TTEXT>
+    <TTEXT>生产报工</TTEXT>
    </TSTCT>
   </asx:values>
  </asx:abap>

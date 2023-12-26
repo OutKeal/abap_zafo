@@ -55,7 +55,20 @@ FORM frm_hotspot_click USING c_falv TYPE REF TO zwft_falv
       e_row TYPE lvc_s_row
       e_column TYPE lvc_s_col
       es_row_no TYPE lvc_s_roid .
-
   <io_class>->hotspot_click( EXPORTING c_falv = c_falv i_row = e_row i_column = e_column ).
+ENDFORM.
+
+FORM frm_onf4  USING c_falv TYPE REF TO zwft_falv
+      e_fieldname TYPE lvc_fname
+      e_fieldvalue TYPE lvc_value
+      es_row_no TYPE lvc_s_roid
+      er_event_data TYPE REF TO cl_alv_event_data
+      et_bad_cells TYPE lvc_t_modi
+      e_display TYPE char01.
+  <io_class>->onf4( EXPORTING c_falv = c_falv
+                                                    c_event_data = er_event_data
+                                                    i_fieldname = e_fieldname
+                                                    i_index = es_row_no-row_id
+                                                    i_display = e_display ).
 
 ENDFORM.

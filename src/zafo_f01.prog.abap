@@ -25,6 +25,8 @@
    PERFORM frm_set_werks_flag.
    PERFORM frm_set_action.
 
+   CHECK p_typ IS NOT INITIAL.
+
    LOOP AT SCREEN.
      LOOP AT lt_sel_screen INTO DATA(ls_sel_screen) WHERE fieldname IS NOT INITIAL AND action = ''  .
        IF screen-name CP '*' && ls_sel_screen-fieldname && '*'.
@@ -43,8 +45,6 @@
        EXIT.
      ENDIF.
    ENDLOOP.
-
-
 
    LOOP AT SCREEN.
 
@@ -199,6 +199,11 @@
 
    PERFORM frm_clear_select.
 
+   IF p_typ IS INITIAL.
+     READ TABLE gt_list INDEX 1 INTO DATA(l_list).
+     p_typ = l_list-key.
+   ENDIF.
+
    DATA(lt_value) = zafo_basic=>get_bustyp_sel_value( p_typ ) .
    CHECK lt_value IS NOT INITIAL.
 
@@ -234,7 +239,7 @@
          CHECK sy-subrc EQ 0.
          IF ls_value-fieldvalue = 'UNAME'.
            <txt_field> = sy-uname.
-         ELSEIF ls_value-fieldvalue+0(4) = 'DAY'.
+         ELSEIF ls_value-fieldvalue+0(3) = 'DAY'.
            ls_day = ls_value-fieldvalue+3(3).
            <txt_field> = sy-datum - ls_day.
            ASSIGN COMPONENT 'HIGH' OF STRUCTURE <dyn_wa> TO <txt_field>.
@@ -292,7 +297,7 @@
  ENDFORM.
 
  FORM frm_set_list.
-   DATA: lt_list  TYPE  vrm_values.
+
    DATA(lt_bustyp) = zafo_basic=>get_bustyp_by_tcode( sy-tcode ).
    SORT lt_bustyp BY bustyp.
    READ TABLE lt_bustyp INTO DATA(ls_bustyp) INDEX 1.
@@ -308,12 +313,12 @@
      ENDIF.
    ENDIF.
 
-   lt_list = CORRESPONDING #( lt_bustyp  MAPPING key = bustyp
+   gt_list = CORRESPONDING #( lt_bustyp  MAPPING key = bustyp
                                                                                      text =  bustyp_name1 ).
    CALL FUNCTION 'VRM_SET_VALUES'
      EXPORTING
        id     = 'P_TYP'
-       values = lt_list.
+       values = gt_list.
    IF sy-subrc EQ 0.
      MODIFY SCREEN.
    ENDIF.
@@ -346,7 +351,7 @@
 
        PERFORM frm_get_ref TABLES gt_item USING ls_bustyp-busref.
        IF gt_item[] IS INITIAL.
-         MESSAGE '无参考数据' TYPE 'S' DISPLAY LIKE 'E'.
+         MESSAGE TEXT-011 TYPE 'S' DISPLAY LIKE 'E'."无参考数据
          RETURN.
        ENDIF.
        zafo_class=>create_by_ref( EXPORTING bustyp = p_typ item = gt_item[] ).
@@ -457,7 +462,7 @@
  ENDFORM.
 
  FORM frm_auth_check.
-   IF gs_object-execute_type = 'PO' OR gs_object-execute_type = 'PRO'.
+   IF gs_bustyp-category = 'PO' .
      SELECT * FROM t024
        INTO TABLE @DATA(gt_t024)
        WHERE ekgrp IN @s_ekgrp.

@@ -218,6 +218,562 @@
       </RSFDO>
      </DOCUMENTATION>
     </item>
+    <item>
+     <FUNCNAME>ZAFO_SALESDOCUMENT_CREATE</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Creating a Sales and Distribution Document</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>CUSTOMER</PARAMETER>
+       <TYP>VBAK-KUNNR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SALESDOCUMENT</PARAMETER>
+       <DBFIELD>BAPIVBELN-VBELN</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SALES_HEADER_IN</PARAMETER>
+       <DBFIELD>BAPISDHD1</DBFIELD>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SALES_HEADER_INX</PARAMETER>
+       <DBFIELD>BAPISDHD1X</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SENDER</PARAMETER>
+       <DBFIELD>BDI_LOGSYS</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>BINARY_RELATIONSHIPTYPE</PARAMETER>
+       <DBFIELD>BRELTYP-RELTYPE</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INT_NUMBER_ASSIGNMENT</PARAMETER>
+       <DBFIELD>BAPIFLAG-BAPIFLAG</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>BEHAVE_WHEN_ERROR</PARAMETER>
+       <DBFIELD>BAPIFLAG-BAPIFLAG</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOGIC_SWITCH</PARAMETER>
+       <DBFIELD>BAPISDLS</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>BUSINESS_OBJECT</PARAMETER>
+       <DBFIELD>BAPIUSW01-OBJTYPE</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <DBFIELD>BAPIFLAG-BAPIFLAG</DBFIELD>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CONVERT_PARVW_AUART</PARAMETER>
+       <DBFIELD>BAPIFLAG-BAPIFLAG</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>STATUS_BUFFER_REFRESH</PARAMETER>
+       <DBFIELD>BAPIFLAG-BAPIFLAG</DBFIELD>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CALL_ACTIVE</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>CHAR4</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_WITHOUT_INIT</PARAMETER>
+       <DBFIELD>BAPIFLAG-BAPIFLAG</DBFIELD>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_REFRESH_V45I</PARAMETER>
+       <DEFAULT>&apos;X&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIFLAG-BAPIFLAG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_TESTRUN_EXTENDED</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPIFLAG-BAPIFLAG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SALESDOCUMENT_EX</PARAMETER>
+       <DBFIELD>BAPIVBELN-VBELN</DBFIELD>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>SALES_HEADER_OUT</PARAMETER>
+       <DBFIELD>BAPISDHD</DBFIELD>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>SALES_HEADER_STATUS</PARAMETER>
+       <DBFIELD>BAPISDHDST</DBFIELD>
+      </RSEXP>
+     </EXPORT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>RETURN</PARAMETER>
+       <DBSTRUCT>BAPIRET2</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_ITEMS_IN</PARAMETER>
+       <DBSTRUCT>BAPISDITM</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_ITEMS_INX</PARAMETER>
+       <DBSTRUCT>BAPISDITMX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_PARTNERS</PARAMETER>
+       <DBSTRUCT>BAPIPARNR</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_SCHEDULES_IN</PARAMETER>
+       <DBSTRUCT>BAPISCHDL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_SCHEDULES_INX</PARAMETER>
+       <DBSTRUCT>BAPISCHDLX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CONDITIONS_IN</PARAMETER>
+       <DBSTRUCT>BAPICOND</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CONDITIONS_INX</PARAMETER>
+       <DBSTRUCT>BAPICONDX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CFGS_REF</PARAMETER>
+       <DBSTRUCT>BAPICUCFG</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CFGS_INST</PARAMETER>
+       <DBSTRUCT>BAPICUINS</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CFGS_PART_OF</PARAMETER>
+       <DBSTRUCT>BAPICUPRT</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CFGS_VALUE</PARAMETER>
+       <DBSTRUCT>BAPICUVAL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CFGS_BLOB</PARAMETER>
+       <DBSTRUCT>BAPICUBLB</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CFGS_VK</PARAMETER>
+       <DBSTRUCT>BAPICUVK</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CFGS_REFINST</PARAMETER>
+       <DBSTRUCT>BAPICUREF</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CCARD</PARAMETER>
+       <DBSTRUCT>BAPICCARD</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_TEXT</PARAMETER>
+       <DBSTRUCT>BAPISDTEXT</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_KEYS</PARAMETER>
+       <DBSTRUCT>BAPISDKEY</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CONTRACT_IN</PARAMETER>
+       <DBSTRUCT>BAPICTR</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_CONTRACT_INX</PARAMETER>
+       <DBSTRUCT>BAPICTRX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>EXTENSIONIN</PARAMETER>
+       <DBSTRUCT>BAPIPAREX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>PARTNERADDRESSES</PARAMETER>
+       <DBSTRUCT>BAPIADDR1</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SALES_SCHED_CONF_IN</PARAMETER>
+       <DBSTRUCT>BAPISCHDL2</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>ITEMS_EX</PARAMETER>
+       <DBSTRUCT>BAPISDIT</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>SCHEDULE_EX</PARAMETER>
+       <DBSTRUCT>BAPISDHEDU</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BUSINESS_EX</PARAMETER>
+       <DBSTRUCT>BAPISDBUSI</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>INCOMPLETE_LOG</PARAMETER>
+       <DBSTRUCT>BAPIINCOMP</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>EXTENSIONEX</PARAMETER>
+       <DBSTRUCT>BAPIPAREX</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>CONDITIONS_EX</PARAMETER>
+       <DBSTRUCT>BAPICOND</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>PARTNERS_EX</PARAMETER>
+       <DBSTRUCT>BAPISDPART</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TEXTHEADERS_EX</PARAMETER>
+       <DBSTRUCT>BAPISDTEHD</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>TEXTLINES_EX</PARAMETER>
+       <DBSTRUCT>BAPITEXTLI</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>BATCH_CHARC</PARAMETER>
+       <DBSTRUCT>BAPIBTSEL</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+      <RSTBL>
+       <PARAMETER>CAMPAIGN_ASGN</PARAMETER>
+       <DBSTRUCT>BAPISDCA</DBSTRUCT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>CUSTOMER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>售达方</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALESDOCUMENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sales and Distribution Document Number</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_HEADER_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document Header Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_HEADER_INX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Header Data Checkboxes</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SENDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Logical System - Sender</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BINARY_RELATIONSHIPTYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Binary Relationship Type (Private)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INT_NUMBER_ASSIGNMENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Internal Item Number Assignment</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BEHAVE_WHEN_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Error Handling</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOGIC_SWITCH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Internal Control Parameter BAPISDLS</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BUSINESS_OBJECT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Business Object</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TESTRUN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Test Run</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONVERT_PARVW_AUART</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Conversion of Partner Function and Order Type</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS_BUFFER_REFRESH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Initialization of Status Buffer</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CALL_ACTIVE</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_WITHOUT_INIT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_REFRESH_V45I</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_TESTRUN_EXTENDED</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Execute also checks of SAVE routine</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALESDOCUMENT_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Number of Generated Document</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_HEADER_OUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Structure of VBAK with English Field Names</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_HEADER_STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Structure of VBUK with English Field Names</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RETURN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Return Messages</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_ITEMS_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Item Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_ITEMS_INX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Item Data Checkboxes</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_PARTNERS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Document Partner</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_SCHEDULES_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Schedule Line Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_SCHEDULES_INX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox Schedule Line Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CONDITIONS_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Conditions</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CONDITIONS_INX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Conditions Checkbox</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CFGS_REF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration: Reference Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CFGS_INST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration: Instances</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CFGS_PART_OF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration: Part-of Specifications</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CFGS_VALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration: Characteristic Values</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CFGS_BLOB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration: BLOB Internal Data (SCE)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CFGS_VK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration: Variant Condition Key</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CFGS_REFINST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration: Reference Item / Instance</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CCARD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Credit Card Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_TEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Texts</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_KEYS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Output Table of Reference Keys</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CONTRACT_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Contract Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_CONTRACT_INX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Checkbox: Contract Data</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXTENSIONIN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Customer Enhancment Import</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PARTNERADDRESSES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Reference Structure for Addresses (Org./Company)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SALES_SCHED_CONF_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Schedule Line Data Confirmation</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ITEMS_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Structure of VBAP with English Field Names</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SCHEDULE_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Struture of VBEP with English Field Names</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BUSINESS_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Structure of VBKD with English Field Names</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INCOMPLETE_LOG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Communication Fields: Incompletion</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXTENSIONEX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Reference Structure for BAPI Parameters ExtensionIn/ExtensionOut</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONDITIONS_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Communication Fields for Maintaining Conditions in the Order</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PARTNERS_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Structure of VBPA with English Field Names</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TEXTHEADERS_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Structure of THEAD with English Field Names</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TEXTLINES_EX</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Structure for STX_LINES Structure</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BATCH_CHARC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Transfer Structure Selection Data CRM -&gt; ERP</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CAMPAIGN_ASGN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>BAPI Structure for Table CMPB_ASGN</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
    </FUNCTIONS>
    <CUA>
     <ADM>
@@ -296,6 +852,1529 @@
      </RSMPE_ATRT>
     </DOC>
    </CUA>
+   <LONGTEXTS_ZAFO_SALESDOCUMENT_CREATE>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0022</VERSION>
+      <TXTLINES>00050</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00022</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Mit dieser Methode können Sie Vertriebsbelege mit Positionen,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Einteilungen und Positionskonditionen anlegen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Als Input-Parameter müssen dazu mindestens Auftragskopfdaten (über die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Struktur ORDER_HEADER_IN) sowie Partnerdaten (über die Tabelle</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>ORDER_PARTNERS) mitgegeben werden.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die Positionsdaten geben Sie über die Tabelle ORDER_ITEMS_IN mit. Die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Positionsnummernvergabe kann manuell , indem die entsprechenden Felder</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>gefüllt werden, oder maschinell, entsprechend dem Customizing, indem die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>entsprechenden Felder initial bleiben, erfolgen. Entscheiden Sie sich</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>für Positionsnummernvergabe durch mySAP ERP, können keine Einteilungen</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>und Konditionen mitgegeben werden, da diese nicht zur entsprechenden</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Position relationiert werden können.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Wenn es sich um konfigurierbare Positionen handelt, müssen Sie die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Konfigurationsdaten in den Tabellen ORDER_CFGS_REF, ORDER_CFGS_INST,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>ORDER_CFGS_PART_OF, ORDER_CFGS_VALUE und ORDER_CFGS_BLOB mitgeben.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Über die Struktur SALES_SCHEDULE_IN können die Einteilungsdaten</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>übergeben werden.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Über die Struktur SALES_CONDITIONS_IN  können Belegkonditionen zum</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Anlegen mitgegeben werden.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Über die Struktur SALES_CCARD können Kreditkartendaten übergeben werden,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>zum einen Daten zur Kartenidentifikation zum anderen Daten über eine in</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>einem externen System stattgefundene Authorisierung.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Nach erfolgreichem Anlegen des Vertriebsbeleges erhalten Sie die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Belegnummer (Feld SALESDOCUMENT_EX).</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Eventuell auftretende Fehler werden über den Parameter RETURN</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>bekanntgegeben.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Benutzung der Ankreuzleisten:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die einzelnen Komponenten eines Vertreibsbeleges können sowohl mit auch</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>als ohne Ankreuzleiste erzeugt werden. Entscheidet man sich für die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>erstere Möglichkeit, werden nur Felder übernommen, die ungleich SPACE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sind. Im zweiten Fall (Feld UPDATEFLAG der Leiste muß I sein) werden nur</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Felder übernommen, die in der Leiste ein &apos;X&apos; haben. Dadurch können</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Felder, die vom System mit Defaultwerten vorbelegt werden, wieder auf</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>SPACE gesetzt werden.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;EXAMPLE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;HINTS&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Sollen keine Objektreferenzen geschrieben werden, so sind die Felder</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>(Parameter) ,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      BINARY_RELATIONSHIPTYPE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      SALES_HEADER_IN-REFOBJECTTYPE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      SALES_HEADER_IN-REFOBJECTKEY</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      SALES_HEADER_IN-REFDOCTYPE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>zu initialisieren.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>Werden Positionskonditionen (SALES_CONDITIONS_IN) angegeben, dann ist es</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>empfehlenswert, eine Preisdatum im Kopf (SALES_HEADER_IN, PRICE_DATE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>anzugeben, da das BAPI nicht weiß, ob eine automatische</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Preisdatumsermittlung stattfindet. Für ein erfolgreiches Lesen der</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Konditionssätze, ist unter Umständen nämlich ein Datum erforderlich.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FURTHER_SOURCES_OF_INF&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0022</VERSION>
+      <MASTERLANG>X</MASTERLANG>
+      <TXTLINES>00043</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00022</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>You can use this method to create SD documents with items, schedule</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>lines, and item conditions.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>You must specify order header data (using structure ORDER_HEADER_IN) and</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>partner data (using table ORDER_PARTNERS) as input parameters.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Use table ORDER_ITEMS_IN to specify item data. You can carry out the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>item number assignment manually by filling the appropriate fields, or</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>the system executes it automatically based on the Customizing settings</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>if you leave the corresponding fields initial. If you decide to use</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>mySAP ERP for the item number assignment, no schedule lines or</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>conditions can be specified since there is no recognizable correlation</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>between them and the item.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>If the items are configurable, you must specify the configuration data</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>in tables ORDER_CFGS_REF, ORDER_CFGS_INST, ORDER_CFGS_PART_OF,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>ORDER_CFGS_VALUE and ORDER_CFGS_BLOB.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>You can use structure SALES_SCHEDULE_IN to transfer the schedule line</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>data.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>To specify document conditions for creation, you can use structure</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>SALES_CONDITIONS_IN.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>You can use structure SALES_CCARD to transfer credit card data,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>including both data for card identification and data on an authorization</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>that took place in an external system.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Once the SD document has been created successfully, you receive the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>document number (field SALESDOCUMENT_EX).</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The system uses the RETURN parameter to notify you of any errors that</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>occurred.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Using checkboxes:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Each component of an SD document can be created with or without</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>checkboxes. If you want to use checkboxes, the system only copies fields</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>with a value other than SPACE. If you do not want to use checkboxes (the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>UPDATEFLAG field must be I), the system only copies fields whose value</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>is &apos;X&apos;. This way, any fields that were assigned default values by the</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>system can be reset to SPACE.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;EXAMPLE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;HINTS&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>If you do not want object references to be written, you must initialize</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>the following fields (parameters):</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      BINARY_RELATIONSHIPTYPE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      SALES_HEADER_IN-REFOBJECTTYPE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      SALES_HEADER_IN-REFOBJECTKEY</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      SALES_HEADER_IN-REFDOCTYPE</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>N1</TDFORMAT>
+       <TDLINE>If item conditions are specified (SALES_CONDITIONS_IN), we recommend</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>specifying a price date in the header (SALES_HEADER_IN, PRICE_DATE),</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>since the BAPI does not know whether or not the price date will be</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>determined automatically. A date might be required so that the condition</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>records can be read successfully.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U4</TDFORMAT>
+       <TDLINE>&amp;FURTHER_SOURCES_OF_INF&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     BEHAVE_WHEN_ERROR</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     BEHAVE_WHEN_ERROR</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BEHAVE_WHEN_ERROR OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     BINARY_RELATIONSHIPTYPE</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     BINARY_RELATIONSHIPTYPE</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_BINRELTYPE   OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     BUSINESS_OBJECT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0006</VERSION>
+      <TXTLINES>00005</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     BUSINESS_OBJECT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00006</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;MEANING&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Der Parameter enthält das Business Objekt.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;RANGE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>- BUS2030 für Kundenanfragen</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>- BUS2031 für Kundenangebote</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>- BUS2032 für Kundenauträge</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>- BUS2034 für Kundenkontrakte</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;DEFAULT&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     CONVERT_PARVW_AUART</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     CONVERT_PARVW_AUART</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CONVERT_PARVW_AUART       OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     EXTENSIONIN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     EXTENSIONIN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_EXTENSIONIN OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     INT_NUMBER_ASSIGNMENT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     INT_NUMBER_ASSIGNMENT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_INTNUMASS    OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     LOGIC_SWITCH</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     LOGIC_SWITCH</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_LOGIC_SWITCH  OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     PARTNERADDRESSES</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     PARTNERADDRESSES</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_PARTNERADDRESSES OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     RETURN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     RETURN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE  SD_BAPI_RETURN                OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALESDOCUMENT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALESDOCUMENT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPIVBELN_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALESDOCUMENT_EX</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALESDOCUMENT_EX</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_SALESDOCUMENT_EX      OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CCARD</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0003</VERSION>
+      <TXTLINES>00004</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CCARD</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00003</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;MEANING&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die Tabelle enthält Kreditkartendaten, Daten zur Identifikation und</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Authorisierung.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Für eine währungsgerechte Konvertierung der Betragsfelder ist es</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>erforderlich, daß die Währung angegeben wird.</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_BLOB</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_BLOB</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CFGS_BLOB OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_INST</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_INST</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CFGS_INST OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_PART_OF</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_PART_OF</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CFGS_PART_OF OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_REF</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_REF</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CFGS_REF OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_REFINST</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_REFINST</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CFGS_REFINST OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_VALUE</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_VALUE</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CFGS_VALUE OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_VK</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CFGS_VK</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_CFGS_VK OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CONDITIONS_IN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0009</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CONDITIONS_IN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00009</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPICONDITION_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CONDITIONS_INX</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00012</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CONDITIONS_INX</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;MEANING&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Dieser Parameter dient den folgenden zwei Aufgaben:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>  Steuerung der Verarbeitungsfunktionalität durch den Wert im Feld</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>    UPDATEFLAG (Änderungskennzeichen).</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>    Dabei sind folgende Eingaben möglich:</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>      Space: Anlegen neuer Kreditkartendaten</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>      I:     Anlegen neuer Kreditkartendaten</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>      U:     Ändern existierenden Kreditkartendaten</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>      D:     Löschen existierenden Kreditkartendaten</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>  Steuerung der Feldeingabe durch Ankreuzfelder</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>    Ist das Feld UPDATEFLAG gesetzt, werden nur diejenigen Felder des</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>    Parameters SALES_CONDITIONS_IN übernommen, deren Ankreuzfeld mit</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>   &apos;X&apos; gefüllt ist.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;RANGE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;DEFAULT&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CONTRACT_IN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CONTRACT_IN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPICONTRACT_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_CONTRACT_INX</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_CONTRACT_INX</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPICONTRACTX_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_HEADER_IN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_HEADER_IN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;MEANING&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Dieser Parameter enthält die Daten des Verkaufsbelegkopfes.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;RANGE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;DEFAULT&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_HEADER_INX</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_HEADER_INX</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPISDHEADX1_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_ITEMS_IN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_ITEMS_IN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;MEANING&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Dieser Parameter enthält die Positionseingabedaten des Verkaufbeleges.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;RANGE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;DEFAULT&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_ITEMS_INX</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_ITEMS_INX</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPISDITEMX_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_KEYS</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_KEYS</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_KEYS OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_PARTNERS</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_PARTNERS</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPIPARTNR_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_SCHEDULES_IN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_SCHEDULES_IN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;MEANING&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Dieser Parameter enthält die Einteilungsdaten</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;RANGE&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>U1</TDFORMAT>
+       <TDLINE>&amp;DEFAULT&amp;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_SCHEDULES_INX</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_SCHEDULES_INX</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPISCHEDULEX_DOCU OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SALES_TEXT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SALES_TEXT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_TEXT OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     SENDER</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     SENDER</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_SENDER       OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>ZAFO_SALESDOCUMENT_CREATE     TESTRUN</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0002</VERSION>
+      <TXTLINES>00001</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>ZAFO_SALESDOCUMENT_CREATE     TESTRUN</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00002</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE SD_BAPI_TESTRUN  OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_ZAFO_SALESDOCUMENT_CREATE>
   </asx:values>
  </asx:abap>
 </abapGit>

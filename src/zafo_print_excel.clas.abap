@@ -50,8 +50,8 @@ public section.
   class-methods SHOW_EXCEL_BY_DATA
     importing
       !RULE_NAME type ZAFO_EPRINT_RULE
-      !I_HEAD type ZAFO_SHEAD
-      !I_ITEM type ZAFO_TT_SITEM
+      !I_HEAD type ANY
+      !I_ITEM type TABLE
     returning
       value(RV_EXCEL) type ref to ZAFO_PRINT_EXCEL .
   class-methods GET_XSTRING_FROM_BDS

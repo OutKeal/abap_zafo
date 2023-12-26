@@ -30,6 +30,7 @@ DATA: BEGIN OF g_tag0200,
 *DATA:g_ean TYPE char40.
 
 DATA:gt_t024 TYPE TABLE OF t024.
+DATA:gt_tvtwt TYPE TABLE OF tvtwt.
 DATA zafo_shead TYPE zafo_shead."f4参考
 
 DATA cursor TYPE fieldname.

@@ -39,7 +39,8 @@ MODULE exit_command INPUT.
 ENDMODULE.                 " EXIT_COMMAND  INPUT
 
 MODULE user_command_0100 INPUT.
-  <io_class>->user_command_ref( EXPORTING c_falv = <io_class>->falv_ref i_ucomm = sy-ucomm ).
+  <io_class>->user_command_ref( EXPORTING c_falv = <io_class>->falv_ref
+                                                                            i_ucomm = sy-ucomm ).
 ENDMODULE.
 
 MODULE user_command_0200 INPUT.
@@ -74,18 +75,39 @@ MODULE get_cursor INPUT.
   ENDIF.
 ENDMODULE.
 
-
 MODULE mwskz_list INPUT.
   PERFORM frm_mwskz_list.
 ENDMODULE.
-MODULE vtweg_list INPUT.ENDMODULE.
+
+MODULE vtweg_list INPUT.
+  PERFORM frm_vtweg_list.
+ENDMODULE.
+
+
 MODULE lfart_list INPUT.ENDMODULE.
+
 MODULE lgort_list INPUT.
   PERFORM frm_lgort_list.
 ENDMODULE.
 
 MODULE umlgo_list INPUT.
   PERFORM frm_umlgo_list.
+ENDMODULE.
+
+MODULE bukrs_list INPUT.
+  PERFORM frm_bukrs_list.
+ENDMODULE.
+
+MODULE kostl_list INPUT.
+  PERFORM frm_kostl_list.
+ENDMODULE.
+
+MODULE po_ekgrp_list INPUT.
+  PERFORM frm_po_ekgrp_list.
+ENDMODULE.
+
+MODULE po_bsart_list INPUT.
+  PERFORM frm_po_bsart_list.
 ENDMODULE.
 
 MODULE pr_bsart_list INPUT.
@@ -97,119 +119,50 @@ MODULE head-tmodel_list INPUT.
 ENDMODULE.
 
 MODULE head-lifnr INPUT.
-  SELECT SINGLE
-    name1 INTO <io_class>->head-lifnr_name
-    FROM lfa1
-    WHERE lifnr = <io_class>->head-lifnr.
+  PERFORM frm_head_lifnr.
+ENDMODULE.
 
-  SELECT SINGLE"绝大多数情况下供应商的币种唯一
-    waers INTO <io_class>->head-waers
-    FROM lfm1
-    WHERE lifnr = <io_class>->head-lifnr.
+MODULE head-lifnr_f4 INPUT.
+  PERFORM frm_head_lifnr_f4.
+ENDMODULE.
+
+MODULE head-kunnr INPUT.
+  PERFORM frm_head_kunnr.
+ENDMODULE.
+
+MODULE head-kunnr_f4 INPUT.
+  PERFORM frm_head_kunnr_f4.
 ENDMODULE.
 
 MODULE head-werks INPUT.
-  IF <io_class>->head-werks IS INITIAL.
-    CLEAR <io_class>->head-werks_name.
-    RETURN.
-  ELSE.
-    SELECT SINGLE name1 FROM t001w
-      WHERE werks = @<io_class>->head-werks
-      INTO @<io_class>->head-werks_name.
-    IF sy-subrc NE 0.
-      MESSAGE i045 .
-      CLEAR: <io_class>->head-werks,<io_class>->head-werks_name.
-    ENDIF.
-  ENDIF.
+  PERFORM frm_head_werks..
 ENDMODULE.
 
 MODULE head-lgort INPUT.
-  IF <io_class>->head-werks IS INITIAL.
-    MESSAGE i005."请输入工厂
-    CLEAR: <io_class>->head-lgort,<io_class>->head-lgort_name.
-    RETURN.
-  ENDIF.
-
-  IF <io_class>->head-lgort IS INITIAL.
-    CLEAR <io_class>->head-lgort_name.
-    RETURN.
-  ENDIF.
-
-  SELECT SINGLE lgobe
-    INTO <io_class>->head-lgort_name
-    FROM t001l
-    WHERE werks = <io_class>->head-werks
-    AND lgort = <io_class>->head-lgort.
-  IF sy-subrc NE 0.
-    MESSAGE i115 ."仓库不存在
-    CLEAR: <io_class>->head-lgort,<io_class>->head-lgort_name.
-  ENDIF.
+  PERFORM frm_head_lgort.
 ENDMODULE.
 
 MODULE head-umwrk INPUT.
-  IF <io_class>->head-umwrk IS INITIAL.
-    CLEAR <io_class>->head-umwrk_name.
-    RETURN.
-  ELSE.
-    SELECT SINGLE name1 FROM t001w
-    WHERE werks = @<io_class>->head-umwrk
-    INTO @<io_class>->head-umwrk_name.
-    IF sy-subrc NE 0.
-      MESSAGE i045 .
-      CLEAR: <io_class>->head-umwrk,<io_class>->head-umwrk_name.
-    ENDIF.
-  ENDIF.
+  PERFORM frm_head_umwrk.
+ENDMODULE.
+
+MODULE head-umlgo INPUT.
+  PERFORM frm_head_umlgo.
 ENDMODULE.
 
 
 MODULE head-bukrs INPUT.
-  IF <io_class>->head-bukrs IS INITIAL.
-    CLEAR <io_class>->head-bukrs_name.
-  ENDIF.
-
-  SELECT SINGLE butxt FROM t001
-  WHERE bukrs = @<io_class>->head-bukrs
-  INTO @<io_class>->head-bukrs_name.
-  IF sy-subrc NE 0.
-    CLEAR: <io_class>->head-bukrs,<io_class>->head-bukrs_name.
-  ENDIF.
+  perform frm_head_bukrs.
 ENDMODULE.
 
 MODULE head-kostl INPUT.
-  SELECT SINGLE ktext INTO <io_class>->head-kostl_name
-    FROM cskt
-    WHERE spras = sy-langu
-    AND kostl = <io_class>->head-kostl.
+  perform frm_head_kostl.
 ENDMODULE.
 
-MODULE head-umlgo INPUT.
-  IF <io_class>->head-umwrk IS INITIAL.
-    MESSAGE i005."请输入工厂
-    CLEAR: <io_class>->head-umlgo,<io_class>->head-umlgo_name.
-    RETURN.
-  ENDIF.
-
-  IF <io_class>->head-umlgo IS INITIAL.
-    CLEAR <io_class>->head-umlgo_name.
-    RETURN.
-  ENDIF.
-
-  SELECT SINGLE lgobe
-  INTO <io_class>->head-umlgo_name
-  FROM t001l
-  WHERE werks = <io_class>->head-umwrk
-  AND lgort = <io_class>->head-umlgo.
-  IF sy-subrc NE 0.
-    MESSAGE i115 ."仓库不存在
-    CLEAR: <io_class>->head-umlgo,<io_class>->head-umlgo_name.
-  ENDIF.
-ENDMODULE.
 
 MODULE head-ekorg INPUT.ENDMODULE.
 MODULE head-eeind INPUT.ENDMODULE.
 MODULE head-vkorg INPUT.ENDMODULE.
-MODULE head-kunnr INPUT.ENDMODULE.
-
 
 MODULE head-dict01 INPUT.
   PERFORM frm_set_dict USING '01'.

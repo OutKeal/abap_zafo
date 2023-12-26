@@ -407,7 +407,7 @@ CLASS ZAFO_RUN IMPLEMENTATION.
       TRY.
           CALL METHOD (class)=>routine_after_post
             EXPORTING
-              go   = me
+              run  = me
             CHANGING
               vars = vars.
         CATCH cx_root INTO DATA(exc) ##CATCH_ALL.
@@ -429,7 +429,7 @@ CLASS ZAFO_RUN IMPLEMENTATION.
       TRY.
           CALL METHOD (class)=>routine_before_post
             EXPORTING
-              go   = me
+              run   = me
             CHANGING
               vars = vars.
         CATCH cx_root INTO DATA(exc) ##CATCH_ALL.
@@ -450,7 +450,7 @@ CLASS ZAFO_RUN IMPLEMENTATION.
       TRY.
           CALL METHOD (class)=>(is_rule-routine_no)
             EXPORTING
-              go      = me
+              run     = me
               is_rule = is_rule
               i_line  = fline
               i_value = fvalue

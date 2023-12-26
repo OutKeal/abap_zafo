@@ -121,6 +121,12 @@
      <LENGTH>10</LENGTH>
     </item>
     <item>
+     <ID>I</ID>
+     <KEY>011</KEY>
+     <ENTRY>无参考数据</ENTRY>
+     <LENGTH>15</LENGTH>
+    </item>
+    <item>
      <ID>R</ID>
      <ENTRY>AFO功能程序</ENTRY>
      <LENGTH>7</LENGTH>

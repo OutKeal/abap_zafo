@@ -31,11 +31,7 @@ end_method.
 
 begin_method display changing container.
 
-
-CALL FUNCTION 'ZAFO_CALL_TRANSACTION'
- EXPORTING
-   AFONO         = object-key-afono
-          .
+ZAFO_CLASS=>maintain( object-key-afono ).
 
 *SELECT SINGLE
 *  bustyp

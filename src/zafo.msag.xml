@@ -145,6 +145,12 @@
      <MSGNR>022</MSGNR>
      <TEXT>字段赋值失败,请联系管理员</TEXT>
     </T100>
+    <T100>
+     <SPRSL>1</SPRSL>
+     <ARBGB>ZAFO</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>订单不存在</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

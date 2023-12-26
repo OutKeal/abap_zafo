@@ -315,8 +315,8 @@
     <TOJTT>
      <NAME>ZAFO</NAME>
      <LANGUAGE>1</LANGUAGE>
-     <NTEXT>AFO单据</NTEXT>
-     <STEXT>ZAFO</STEXT>
+     <NTEXT>动态单据</NTEXT>
+     <STEXT>动态单据</STEXT>
     </TOJTT>
    </TOJTT>
   </asx:values>

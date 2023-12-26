@@ -21,6 +21,7 @@ FORM frm_ref_a TABLES ct_item STRUCTURE zafo_sitem. "采购订单收货参考
     k~ebeln,
     k~lifnr,
     k~waers,
+    k~frgrl,
     p~ebelp,
     p~matnr,
     p~idnlf,
@@ -82,14 +83,20 @@ FORM frm_ref_a TABLES ct_item STRUCTURE zafo_sitem. "采购订单收货参考
     IF ct_item-menge_plan <= 0.
       zafo_basic=>set_icon( EXPORTING status = 'S'
          IMPORTING icon = ct_item-icon text = ct_item-text ).
+      ct_item-item_status = 'S'.
     ELSE.
       ct_item-item_status = 'C'.
       zafo_basic=>set_icon( EXPORTING status = 'C'
          IMPORTING icon = ct_item-icon text = ct_item-text ).
     ENDIF.
+    IF ct_item-frgrl = 'X'.
+      zafo_basic=>set_icon( EXPORTING status = 'B'
+        IMPORTING icon = ct_item-icon text = ct_item-text ).
+      ct_item-item_status = 'B'.
+    ENDIF.
+
 
     MODIFY ct_item.
-
   ENDLOOP.
 
   IF p_fin = ''.
@@ -141,6 +148,7 @@ FORM frm_ref_c TABLES ct_item STRUCTURE zafo_sitem. "E库存参考+普通库存
   SELECT
   k~vbeln AS kdauf,
   k~posnr AS kdpos,
+  p~pmatn AS satnr,
   k~sobkz,
   k~matnr,
   k~werks,
@@ -151,6 +159,7 @@ FORM frm_ref_c TABLES ct_item STRUCTURE zafo_sitem. "E库存参考+普通库存
   w~name1 AS werks_name,
   l~lgobe AS lgort_name
   FROM mska AS k
+  LEFT JOIN vbap AS p ON k~vbeln = p~vbeln AND k~posnr = p~posnr
   INNER JOIN marc AS c
   ON k~matnr = c~matnr AND k~werks = c~werks
   INNER JOIN mara AS a
@@ -554,60 +563,7 @@ ENDFORM.
 
 FORM frm_ref_y TABLES ct_item STRUCTURE zafo_sitem. "过账单据引用
 
-
-
-  CHECK gs_bustyp-bustyp_ref IS NOT INITIAL.
-
-  DATA:ls_item TYPE zafo_sitem.
-
-  SELECT
-    h~status AS icon,
-    i~*
-    FROM zafo_head AS h INNER JOIN zafo_item AS i
-    ON h~afono =  i~afono
-    INTO CORRESPONDING FIELDS OF TABLE @ct_item
-    WHERE bustyp = @gs_bustyp-bustyp_ref
-    AND h~afono IN @s_afono
-    AND h~ernam IN @s_ernam
-    AND i~umcha IN @s_charg"on 20220322.
-    AND h~erdat IN @s_erdat
-    AND h~budat IN @s_budat
-    AND h~status IN @s_status
-    AND i~del_flag = ''
-    .
-
-  LOOP AT ct_item.
-
-    ls_item = ct_item.
-    IF ct_item-umwrk IS NOT INITIAL.
-      ct_item-bukrs = ct_item-umwrk.
-    ENDIF.
-
-    CLEAR ct_item-umcha .
-    ct_item-umcha = ls_item-charg.
-
-    ct_item-menge_ref = ct_item-menge.
-
-    CASE ct_item-icon.
-
-      WHEN 'S'.
-        PERFORM frm_set_icon IN PROGRAM saplzafo IF FOUND
-         USING 'S'  CHANGING ct_item-icon ct_item-text .
-      WHEN 'T'.
-        PERFORM frm_set_icon IN PROGRAM saplzafo IF FOUND
-         USING 'T'  CHANGING ct_item-icon ct_item-text .
-      WHEN OTHERS.
-        PERFORM frm_set_icon IN PROGRAM saplzafo IF FOUND
-         USING 'E'  CHANGING ct_item-icon ct_item-text .
-    ENDCASE.
-
-
-    MODIFY ct_item.
-  ENDLOOP.
-
-  IF p_fin IS INITIAL.
-    DELETE ct_item WHERE icon <> icon_complete.
-  ENDIF.
+  PERFORM frm_ref_z TABLES ct_item.
 
 ENDFORM.
 

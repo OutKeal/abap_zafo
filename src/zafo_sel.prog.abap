@@ -83,46 +83,125 @@ SELECTION-SCREEN BEGIN OF BLOCK b40 WITH FRAME TITLE TEXT-009.
 SELECTION-SCREEN END OF BLOCK b40.
 
 
-FORM frm_vendor_search.
-  READ TABLE s_lifnr ASSIGNING FIELD-SYMBOL(<f_lifnr>) INDEX 1.
-  CHECK sy-subrc EQ 0.
-  zwft_common=>search_vendor( CHANGING lifnr = <f_lifnr>-low ).
+AT SELECTION-SCREEN ON s_lifnr.
+  PERFORM frm_vendor_search USING ''.
+
+AT SELECTION-SCREEN ON s_kunnr.
+  PERFORM frm_customer_search USING ''.
+
+AT SELECTION-SCREEN ON s_matnr.
+  PERFORM frm_material_search USING ''.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_kunnr-low.
+  PERFORM frm_customer_search USING 'F4'.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_lifnr-low.
+  PERFORM frm_vendor_search USING 'F4'.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_matnr-low.
+  PERFORM frm_material_search USING 'F4'.
+
+
+
+FORM frm_vendor_search USING act.
+  DATA l_werks TYPE werks_d.
+  IF act = 'F4'.
+    CLEAR s_lifnr[].
+    INSERT INITIAL LINE INTO s_lifnr INDEX 1 ASSIGNING FIELD-SYMBOL(<line>).
+    <line>-sign = 'I'.
+    <line>-option = 'EQ'.
+    <line>-low = '%'.
+  ELSE.
+    READ TABLE s_lifnr ASSIGNING <line> INDEX 1.
+    CHECK sy-subrc EQ 0.
+    FIND '*' IN <line>-low.
+    CHECK sy-subrc NE 0.
+  ENDIF.
+  PERFORM frm_get_werks CHANGING l_werks.
+  zwft_common=>search_vendor( EXPORTING werks = l_werks CHANGING lifnr = <line>-low ).
+  PERFORM frm_set_dynp_value USING 'S_LIFNR-LOW' <line>-low.
   DELETE s_lifnr WHERE low = '' AND high = ''.
 ENDFORM.
 
-FORM frm_customer_search.
-  READ TABLE s_kunnr ASSIGNING FIELD-SYMBOL(<f_kunnr>) INDEX 1.
-  CHECK sy-subrc EQ 0.
-  zwft_common=>search_customer( CHANGING kunnr = <f_kunnr>-low ).
+FORM frm_customer_search USING act.
+  DATA l_werks TYPE werks_d.
+  IF act = 'F4'.
+    CLEAR s_kunnr[].
+    INSERT INITIAL LINE INTO s_kunnr INDEX 1 ASSIGNING FIELD-SYMBOL(<line>).
+    <line>-sign = 'I'.
+    <line>-option = 'EQ'.
+    <line>-low = '%'.
+  ELSE.
+    READ TABLE s_kunnr ASSIGNING <line> INDEX 1.
+    CHECK sy-subrc EQ 0.
+    FIND '*' IN <line>-low.
+    CHECK sy-subrc NE 0.
+  ENDIF.
+  PERFORM frm_get_werks CHANGING l_werks.
+  zwft_common=>search_customer( EXPORTING werks = l_werks CHANGING kunnr = <line>-low ).
+  PERFORM frm_set_dynp_value USING 'S_KUNNR-LOW' <line>-low.
   DELETE s_kunnr WHERE low = '' AND high = ''.
 ENDFORM.
 
-FORM frm_material_search.
-  READ TABLE s_matnr ASSIGNING FIELD-SYMBOL(<f_matnr>) INDEX 1.
-  CHECK sy-subrc EQ 0.
-  zwft_common=>search_material( EXPORTING werks = p_werks CHANGING matnr = <f_matnr>-low ).
+FORM frm_material_search USING act.
+  DATA l_werks TYPE werks_d.
+  IF act = 'F4'.
+    CLEAR s_matnr.
+    INSERT INITIAL LINE INTO s_matnr INDEX 1 ASSIGNING FIELD-SYMBOL(<line>).
+    <line>-sign = 'I'.
+    <line>-option = 'EQ'.
+    <line>-low = '%'.
+  ELSE.
+    READ TABLE s_matnr ASSIGNING <line> INDEX 1.
+    CHECK sy-subrc EQ 0.
+    FIND '*' IN <line>-low.
+    CHECK sy-subrc NE 0.
+  ENDIF.
+  PERFORM frm_get_werks CHANGING l_werks.
+  zwft_common=>search_material( EXPORTING werks = l_werks CHANGING matnr = <line>-low ).
+  PERFORM frm_set_dynp_value USING 'S_MATNR-LOW' <line>-low.
   DELETE s_matnr WHERE low = '' AND high = ''.
 ENDFORM.
 
-FORM frm_clear_select.
-  CLEAR: s_lgort[],
-         s_charg[],
-         s_auart[],
-         s_kunnr[],
-         s_eeind[],
-         s_bsart[],
-         s_ekgrp[],
-         s_ebeln[],
-         s_lifnr[],
-         s_matnr[],
-         s_maktx[],
-         s_mtart[],
-         s_aufnr[],
-         s_afono[],
-         s_status[],
-         s_ernam[],
-         s_erdat[],
-         s_vbeln[],
-         s_budat[].
+FORM frm_get_werks CHANGING werks.
+  IF p_werks IS INITIAL AND s_werks[] IS NOT INITIAL.
+    werks = s_werks[ 1 ]-low.
+  ELSEIF p_werks IS NOT INITIAL.
+    werks = p_werks.
+  ELSE.
+    CALL FUNCTION 'GET_DYNP_VALUE'
+      EXPORTING
+        i_field = 'S_WERKS-LOW'
+        i_repid = sy-repid
+        i_dynnr = sy-dynnr
+      CHANGING
+        o_value = werks.
+  ENDIF.
+ENDFORM.
 
+FORM frm_clear_select.
+  zwft_common=>get_select_dynnr_field( EXPORTING program = sy-repid
+                                                                                      dynnr = '1000'
+                                                                IMPORTING  global_sscr = DATA(lt_rsscr) ).
+  LOOP AT lt_rsscr INTO DATA(ls_rsscr) WHERE kind = 'S'.
+    CHECK ls_rsscr-name <> 'S_WERKS'.
+    DATA(tabname) = ls_rsscr-name && '[]'.
+    ASSIGN (tabname) TO FIELD-SYMBOL(<table>).
+    CHECK sy-subrc EQ 0.
+    CLEAR <table>.
+  ENDLOOP.
+ENDFORM.
+
+FORM frm_set_dynp_value USING i_field
+      i_value .
+  DATA field TYPE dynpread-fieldname.
+  DATA value TYPE dynpread-fieldvalue.
+  field = i_field.
+  value = |{ i_value ALPHA = OUT }|.
+  CALL FUNCTION 'SET_DYNP_VALUE'
+    EXPORTING
+      i_field = field
+      i_repid = sy-repid
+      i_dynnr = sy-dynnr
+      i_value = value.
 ENDFORM.
