@@ -127,6 +127,12 @@
      <LENGTH>15</LENGTH>
     </item>
     <item>
+     <ID>I</ID>
+     <KEY>012</KEY>
+     <ENTRY>确认选择</ENTRY>
+     <LENGTH>14</LENGTH>
+    </item>
+    <item>
      <ID>R</ID>
      <ENTRY>AFO功能程序</ENTRY>
      <LENGTH>7</LENGTH>
@@ -272,7 +278,13 @@
     <item>
      <ID>S</ID>
      <KEY>S_EXORD</KEY>
-     <ENTRY>参考单号</ENTRY>
+     <ENTRY>品牌DN单号</ENTRY>
+     <LENGTH>14</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>S_KDMAT</KEY>
+     <ENTRY>客户物料</ENTRY>
      <LENGTH>12</LENGTH>
     </item>
     <item>
@@ -404,119 +416,11 @@
        <ID>I</ID>
        <KEY>010</KEY>
        <ENTRY>initial</ENTRY>
-       <LENGTH>12</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>011</KEY>
-       <ENTRY>Business unconfirmed</ENTRY>
-       <LENGTH>20</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>012</KEY>
-       <ENTRY>completed</ENTRY>
-       <LENGTH>13</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>013</KEY>
-       <ENTRY>Number of changes</ENTRY>
-       <LENGTH>17</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>014</KEY>
-       <ENTRY>Add row</ENTRY>
-       <LENGTH>13</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>016</KEY>
-       <ENTRY>BOM deleted</ENTRY>
-       <LENGTH>16</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>017</KEY>
-       <ENTRY>The big bill does not exist</ENTRY>
-       <LENGTH>27</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>018</KEY>
-       <ENTRY>Cross-company business companies cannot be consistent</ENTRY>
-       <LENGTH>53</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>019</KEY>
-       <ENTRY>Cross-company business companies cannot be consistent</ENTRY>
-       <LENGTH>53</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>020</KEY>
-       <ENTRY>operating</ENTRY>
        <LENGTH>10</LENGTH>
       </item>
       <item>
        <ID>I</ID>
-       <KEY>021</KEY>
-       <ENTRY>The issuing company must be consistent</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>022</KEY>
-       <ENTRY>No qualified quantity</ENTRY>
-       <LENGTH>21</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>023</KEY>
-       <ENTRY>Follow-up completed</ENTRY>
-       <LENGTH>19</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>024</KEY>
-       <ENTRY>Audited</ENTRY>
-       <LENGTH>13</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>025</KEY>
-       <ENTRY>Under test</ENTRY>
-       <LENGTH>13</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>030</KEY>
-       <ENTRY>Download template</ENTRY>
-       <LENGTH>17</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>040</KEY>
-       <ENTRY>Upload path</ENTRY>
-       <LENGTH>11</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>100</KEY>
-       <ENTRY>Not approved</ENTRY>
-       <LENGTH>13</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>101</KEY>
-       <ENTRY>initial</ENTRY>
-       <LENGTH>12</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>102</KEY>
+       <KEY>011</KEY>
        <ENTRY>Business unconfirmed</ENTRY>
        <LENGTH>20</LENGTH>
       </item>
@@ -569,6 +473,12 @@
       </item>
       <item>
        <ID>S</ID>
+       <KEY>P_REF</KEY>
+       <ENTRY>Reference creation</ENTRY>
+       <LENGTH>38</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
        <KEY>P_ROW</KEY>
        <ENTRY>Template start line</ENTRY>
        <LENGTH>38</LENGTH>
@@ -593,6 +503,18 @@
       </item>
       <item>
        <ID>S</ID>
+       <KEY>S_AUART</KEY>
+       <ENTRY>Order type</ENTRY>
+       <LENGTH>38</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
+       <KEY>S_AUFNR</KEY>
+       <ENTRY>Production orders</ENTRY>
+       <LENGTH>38</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
        <KEY>S_BSART</KEY>
        <ENTRY>Purchase type</ENTRY>
        <LENGTH>38</LENGTH>
@@ -605,14 +527,8 @@
       </item>
       <item>
        <ID>S</ID>
-       <KEY>S_CATE1</KEY>
-       <ENTRY>Big category</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_CATE2</KEY>
-       <ENTRY>Middle class</ENTRY>
+       <KEY>S_CHARG</KEY>
+       <ENTRY>batch</ENTRY>
        <LENGTH>38</LENGTH>
       </item>
       <item>
@@ -623,8 +539,20 @@
       </item>
       <item>
        <ID>S</ID>
+       <KEY>S_EEIND</KEY>
+       <ENTRY>Delivery date</ENTRY>
+       <LENGTH>38</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
        <KEY>S_EKGRP</KEY>
        <ENTRY>Purchasing Group</ENTRY>
+       <LENGTH>38</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
+       <KEY>S_EKORG</KEY>
+       <ENTRY>Purchasing organization</ENTRY>
        <LENGTH>38</LENGTH>
       </item>
       <item>
@@ -641,8 +569,8 @@
       </item>
       <item>
        <ID>S</ID>
-       <KEY>S_IDNLF</KEY>
-       <ENTRY>Factory model number</ENTRY>
+       <KEY>S_EXORD</KEY>
+       <ENTRY>Reference number</ENTRY>
        <LENGTH>38</LENGTH>
       </item>
       <item>
@@ -671,6 +599,12 @@
       </item>
       <item>
        <ID>S</ID>
+       <KEY>S_MATKL</KEY>
+       <ENTRY>Material Group</ENTRY>
+       <LENGTH>38</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
        <KEY>S_MATNR</KEY>
        <ENTRY>Item number</ENTRY>
        <LENGTH>38</LENGTH>
@@ -683,14 +617,8 @@
       </item>
       <item>
        <ID>S</ID>
-       <KEY>S_POTEXT</KEY>
-       <ENTRY>Purchase number</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_QCNO</KEY>
-       <ENTRY>QC No.</ENTRY>
+       <KEY>S_SATNR</KEY>
+       <ENTRY>Style number</ENTRY>
        <LENGTH>38</LENGTH>
       </item>
       <item>
@@ -701,32 +629,14 @@
       </item>
       <item>
        <ID>S</ID>
+       <KEY>S_VBELN</KEY>
+       <ENTRY>Sales orders</ENTRY>
+       <LENGTH>38</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
        <KEY>S_WERKS</KEY>
        <ENTRY>factory</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ZNAME1</KEY>
-       <ENTRY>Supplier name</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ZPPDHD</KEY>
-       <ENTRY>Bulk cargo notification number</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ZZPINO</KEY>
-       <ENTRY>Sales Contract</ENTRY>
-       <LENGTH>38</LENGTH>
-      </item>
-      <item>
-       <ID>S</ID>
-       <KEY>S_ZZWLLY</KEY>
-       <ENTRY>Material source</ENTRY>
        <LENGTH>38</LENGTH>
       </item>
      </TEXTPOOL>

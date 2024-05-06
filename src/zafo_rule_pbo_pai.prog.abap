@@ -53,6 +53,9 @@ MODULE user_command_0100 INPUT.
       PERFORM frm_routine.
     WHEN 'DELETE'.
       PERFORM frm_delete.
+    WHEN 'HTML'.
+      PERFORM frm_init_html.
+*        CALL SCREEN '300'.
   ENDCASE.
   CLEAR ok_code.
 
@@ -95,4 +98,15 @@ MODULE status_0200 OUTPUT.
   SET PF-STATUS '200'.
   SET TITLEBAR  '200' WITH l_text.
 
+ENDMODULE.
+*&---------------------------------------------------------------------*
+*& Module STATUS_0300 OUTPUT
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+MODULE status_0300 OUTPUT.
+  SET PF-STATUS '300'.
+  SET TITLEBAR '300'.
+
+  PERFORM frm_init_html.
 ENDMODULE.

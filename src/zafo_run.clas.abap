@@ -198,7 +198,6 @@ CLASS ZAFO_RUN IMPLEMENTATION.
 
   METHOD constructor.
 
-    INCLUDE zafo_class_macro."引入返回的宏
 
     SELECT SINGLE * FROM zafo_rule INTO rule
     WHERE rule_name = rule_name."获取配置规则
@@ -578,6 +577,7 @@ CLASS ZAFO_RUN IMPLEMENTATION.
       CASE <vars>-bapi_kind.
         WHEN cl_abap_typedescr=>typekind_char
               OR cl_abap_typedescr=>typekind_int
+              OR cl_abap_typedescr=>typekind_date
               OR cl_abap_typedescr=>typekind_packed."'C' OR 'I' OR 'P'.
           ASSIGN <vars>-bapi_variable->* TO <to_f>.
           LOOP AT GROUP l_rule INTO DATA(ls_rule).

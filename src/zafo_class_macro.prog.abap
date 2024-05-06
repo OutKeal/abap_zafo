@@ -6,7 +6,7 @@ DEFINE macro_error_return.
     IF called = abap_true.
       RETURN.
     ENDIF.
-    message->pop_msg( 'X' ).
+    message->pop_msg( ABAP_TRUE ).
     RETURN.
   ENDIF.
 END-OF-DEFINITION.
@@ -16,7 +16,7 @@ DEFINE macro_static_error_return.
     IF r_class->called = abap_true.
       RETURN.
     ENDIF.
-    r_class->message->pop_msg( 'X' ).
+    r_class->message->pop_msg( ABAP_TRUE ).
     RETURN.
   ENDIF.
 END-OF-DEFINITION.

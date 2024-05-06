@@ -17,7 +17,7 @@ FUNCTION zafo_idoc_output.
 *"--------------------------------------------------------------------
 *----------------------------------------------------------------------*
 *  this function module is generated                                   *
-*          never change it manually, please!        2023.10.25         *
+*          never change it manually, please!        2024.03.25         *
 *----------------------------------------------------------------------*
 
   DATA: idoc_control  LIKE bdicontrol,

@@ -10,6 +10,7 @@ FUNCTION conversion_exit_price_input.
 *"----------------------------------------------------------------------
 
   TRY.
+      REPLACE ALL OCCURRENCES OF ',' IN input WITH space.
       output = input.
     CATCH cx_root.
       output = ''.

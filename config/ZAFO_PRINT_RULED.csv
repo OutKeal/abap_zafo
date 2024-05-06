@@ -1,17 +1,32 @@
-120	PO_TEST   	000001	BUKRS_NAME          	BUKRS_BP_INFO       	NAME                          	
-120	PO_TEST   	000002	BUKRS_NAME1         	BUKRS_BP_INFO       	NAME                          	
-120	PO_TEST   	000003	BUKRS_ADDRESS       	BUKRS_BP_INFO       	ADDRESS                       	
-120	PO_TEST   	000004	BUKRS_TEL           	BUKRS_BP_INFO       	TEL                           	
-120	PO_TEST   	000010	LIFNR_NAME          	LIFNR_BP_INFO       	NAME                          	
-120	PO_TEST   	000011	LIFNR_NAME1         	LIFNR_BP_INFO       	NAME                          	
-120	PO_TEST   	000012	LIFNR_ADDRESS       	LIFNR_BP_INFO       	ADDRESS                       	
-120	PO_TEST   	000013	LIFNR_TEL           	LIFNR_BP_INFO       	TEL                           	
-120	PO_TEST   	000021	TABLE1              	ITEM                	MATNR                         	
-120	PO_TEST   	000022	TABLE1              	ITEM                	MAKTX                         	
-120	PO_TEST   	000026	TABLE1              	ITEM                	MENGE                         	
-120	PO_TEST   	000027	TABLE1              	ITEM                	PRICE                         	
-120	PO_TEST   	000028	TABLE1              	ITEM                	AMOUNT                        	
-120	PO_TEST   	000029	TABLE1              	ITEM                	EEIND                         	
-120	PO_TEST   	000023	TABLE1              	                    	COL01                         	成分规格
-120	PO_TEST   	000024	TABLE1              	                    	COL02                         	45CM
-120	PO_TEST   	000025	TABLE1              	                    	COL03                         	红色
+200	PO_TEST1  	000001	BUKRS_NAME          	BUKRS_BP_INFO       	NAME                          	                              	
+200	PO_TEST1  	000002	BUKRS_NAME1         	BUKRS_BP_INFO       	NAME                          	                              	
+200	PO_TEST1  	000003	BUKRS_ADDRESS       	BUKRS_BP_INFO       	ADDRESS                       	                              	
+200	PO_TEST1  	000004	BUKRS_TEL           	BUKRS_BP_INFO       	TEL                           	                              	
+200	PO_TEST1  	000010	LIFNR_NAME          	LIFNR_BP_INFO       	NAME                          	                              	
+200	PO_TEST1  	000011	LIFNR_NAME1         	LIFNR_BP_INFO       	NAME                          	                              	
+200	PO_TEST1  	000012	LIFNR_ADDRESS       	LIFNR_BP_INFO       	ADDRESS                       	                              	
+200	PO_TEST1  	000013	LIFNR_TEL           	LIFNR_BP_INFO       	TEL                           	                              	
+200	PO_TEST1  	000014	SUM_MENGE           	HEAD                	MENGE                         	                              	
+200	PO_TEST1  	000015	SUM_AMOUNT          	HEAD                	AMOUNT                        	                              	
+200	PO_TEST1  	000017	BUKRS_NAME_CO       	BUKRS_BP_INFO       	NAME_CO                       	                              	
+200	PO_TEST1  	000018	LIFNR_NAME_CO       	LIFNR_BP_INFO       	NAME_CO                       	                              	
+200	PO_TEST1  	000019	DICT01              	HEAD                	DICT01                        	                              	
+200	PO_TEST1  	000021	BUKRS_BANK_NUM      	BUKRS_BP_INFO       	BANK_NUM                      	                              	
+200	PO_TEST1  	000022	BUKRS_BANK_NAME     	BUKRS_BP_INFO       	BANK_NAME                     	                              	
+200	PO_TEST1  	000023	BUKRS_TAX_NUM       	BUKRS_BP_INFO       	TAX_NUM                       	                              	
+200	PO_TEST1  	000024	LIFNR_BANK_NUM      	LIFNR_BP_INFO       	BANK_NUM                      	                              	
+200	PO_TEST1  	000025	LIFNR_BANK_NAME     	LIFNR_BP_INFO       	BANK_NAME                     	                              	
+200	PO_TEST1  	000026	LIFNR_TAX_NUM       	LIFNR_BP_INFO       	TAX_NUM                       	                              	
+200	PO_TEST1  	000027	DATE                	HEAD                	BUDAT                         	                              	CNDAT
+200	PO_TEST1  	000100	TABLE1              	ITEM                	SATNR                         	                              	
+200	PO_TEST1  	000101	TABLE1              	ITEM                	MAKTX                         	                              	
+200	PO_TEST1  	000102	TABLE1              	ITEM                	MAIN_INGR                     	                              	
+200	PO_TEST1  	000103	TABLE1              	MAT_INFO            	WIDTH                         	                              	
+200	PO_TEST1  	000104	TABLE1              	MAT_INFO            	COLOR_TEXT                    	                              	
+200	PO_TEST1  	000105	TABLE1              	ITEM                	MENGE                         	                              	
+200	PO_TEST1  	000106	TABLE1              	ITEM                	PRICE_LONG                    	                              	
+200	PO_TEST1  	000107	TABLE1              	ITEM                	AMOUNT                        	                              	
+200	PO_TEST1  	000108	TABLE1              	ITEM                	EEIND                         	                              	CNDAT
+200	PO_TEST1  	000030	AMOUNT_CHINESE      	HEAD                	AMOUNT                        	                              	CNNUM
+200	PO_TEST1  	000031	AMOUNT_CHINESE      	HEAD                	AMOUNT                        	                              	
+200	PO_TEST1  	000032	DATE1               	HEAD                	BUDAT                         	                              	CNDAT

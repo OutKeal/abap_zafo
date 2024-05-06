@@ -1,33 +1,33 @@
-120	          	001	HEAD      	AFONO                         	1	µ¥ºÅ
-120	          	002	HEAD      	BLDAT                         	1	Æ¾Ö¤ÈÕÆÚ
-120	          	003	HEAD      	STATUS                        	1	×´Ì¬
-120	          	004	HEAD      	MENGE                         	1	×ÜÊýÁ¿
-120	          	005	HEAD      	ERNAM                         	1	´´½¨ÈË
-120	          	006	HEAD      	ERDAT                         	1	´´½¨ÈÕÆÚ
-120	          	007	HEAD      	ERZET                         	1	´´½¨Ê±¼ä
-120	          	009	HEAD      	BUDAT                         	1	¹ýÕËÈÕÆÚ
-120	          	010	HEAD      	APP_STATUS                    	1	ÉóÅú×´Ì¬
-120	          	011	HEAD      	AMOUNT                        	1	×Ü½ð¶î
-120	          	012	HEAD      	AFNAM                         	1	ÉêÇëÈË
-120	          	013	HEAD      	LIFNR                         	1	¹©Ó¦ÉÌ
-120	          	014	HEAD      	BUKRS                         	1	¹«Ë¾´úÂë
-120	          	015	HEAD      	REMARK2                       	1	ÎÄ±¾±¸×¢2
-120	          	016	HEAD      	REMARK1                       	1	ÎÄ±¾±¸×¢
-120	          	017	HEAD      	WAERS                         	1	±ÒÖÖ
-120	          	019	HEAD      	KOSTL                         	1	³É±¾ÖÐÐÄ
-120	          	020	HEAD      	LGORT                         	1	¿â´æµØµã
-120	          	021	HEAD      	WERKS                         	1	¹¤³Ì
-120	          	022	HEAD      	UMLGO                         	1	ÊÕ»õ¿â´æµØµã
-120	          	023	HEAD      	EBELN                         	1	²É¹º¶©µ¥
-120	          	024	HEAD      	BSART                         	1	²É¹ºÀàÐÍ
-120	          	025	HEAD      	MWSKZ                         	1	Ë°Âë
-120	          	026	HEAD      	EEIND                         	1	½»»õÈÕÆÚ
-120	          	027	HEAD      	EKORG                         	1	²É¹º×éÖ¯
-120	          	028	HEAD      	COST_AMOUNT                   	1	·ÑÓÃ½ð¶î
-120	          	029	HEAD      	EKGRP                         	1	²É¹º×é
-120	          	031	HEAD      	NTGEW                         	1	×Ü¾»ÖØ
-120	          	032	HEAD      	BRGEW                         	1	×ÜÃ«ÖØ
-120	          	035	HEAD      	UMWRK                         	1	ÊÕ»õ¹¤³§
-120	          	036	HEAD      	BANFN                         	1	²É¹ºÉêÇë
-120	          	038	HEAD      	MBLNR                         	1	ÎïÁÏÆ¾Ö¤
-120	          	039	HEAD      	NENAM                         	1	Í¨ÖªÈË
+200	          	001	HEAD      	AFONO                         	1	å•å·
+200	          	002	HEAD      	BLDAT                         	1	å‡­è¯æ—¥æœŸ
+200	          	003	HEAD      	STATUS                        	1	çŠ¶æ€
+200	          	004	HEAD      	MENGE                         	1	æ€»æ•°é‡
+200	          	005	HEAD      	ERNAM                         	1	åˆ›å»ºäºº
+200	          	006	HEAD      	ERDAT                         	1	åˆ›å»ºæ—¥æœŸ
+200	          	007	HEAD      	ERZET                         	1	åˆ›å»ºæ—¶é—´
+200	          	009	HEAD      	BUDAT                         	1	è¿‡è´¦æ—¥æœŸ
+200	          	010	HEAD      	APP_STATUS                    	1	å®¡æ‰¹çŠ¶æ€
+200	          	011	HEAD      	AMOUNT                        	1	æ€»é‡‘é¢
+200	          	012	HEAD      	AFNAM                         	1	ç”³è¯·äºº
+200	          	013	HEAD      	LIFNR                         	1	ä¾›åº”å•†
+200	          	014	HEAD      	BUKRS                         	1	å…¬å¸ä»£ç 
+200	          	015	HEAD      	REMARK2                       	1	æ–‡æœ¬å¤‡æ³¨2
+200	          	016	HEAD      	REMARK1                       	1	æ–‡æœ¬å¤‡æ³¨
+200	          	017	HEAD      	WAERS                         	1	å¸ç§
+200	          	019	HEAD      	KOSTL                         	1	æˆæœ¬ä¸­å¿ƒ
+200	          	020	HEAD      	LGORT                         	1	åº“å­˜åœ°ç‚¹
+200	          	021	HEAD      	WERKS                         	1	å·¥ç¨‹
+200	          	022	HEAD      	UMLGO                         	1	æ”¶è´§åº“å­˜åœ°ç‚¹
+200	          	023	HEAD      	EBELN                         	1	é‡‡è´­è®¢å•
+200	          	024	HEAD      	BSART                         	1	é‡‡è´­ç±»åž‹
+200	          	025	HEAD      	MWSKZ                         	1	ç¨Žç 
+200	          	026	HEAD      	EEIND                         	1	äº¤è´§æ—¥æœŸ
+200	          	027	HEAD      	EKORG                         	1	é‡‡è´­ç»„ç»‡
+200	          	028	HEAD      	COST_AMOUNT                   	1	è´¹ç”¨é‡‘é¢
+200	          	029	HEAD      	EKGRP                         	1	é‡‡è´­ç»„
+200	          	031	HEAD      	NTGEW                         	1	æ€»å‡€é‡
+200	          	032	HEAD      	BRGEW                         	1	æ€»æ¯›é‡
+200	          	035	HEAD      	UMWRK                         	1	æ”¶è´§å·¥åŽ‚
+200	          	036	HEAD      	BANFN                         	1	é‡‡è´­ç”³è¯·
+200	          	038	HEAD      	MBLNR                         	1	ç‰©æ–™å‡­è¯
+200	          	039	HEAD      	NENAM                         	1	é€šçŸ¥äºº

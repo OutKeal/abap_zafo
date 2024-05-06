@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZAFO_EMENGE</ROLLNAME>
+    <DDLANGUAGE>1</DDLANGUAGE>
+    <DOMNAME>MENGE</DOMNAME>
+    <HEADLEN>17</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>上线数量</DDTEXT>
+    <REPTEXT>上线数量</REPTEXT>
+    <SCRTEXT_S>上线数量</SCRTEXT_S>
+    <SCRTEXT_M>上线数量</SCRTEXT_M>
+    <SCRTEXT_L>上线数量</SCRTEXT_L>
+    <DTELMASTER>1</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Online quantity</DDTEXT>
+     <REPTEXT>Online quantity</REPTEXT>
+     <SCRTEXT_S>Online qua</SCRTEXT_S>
+     <SCRTEXT_M>Online quantity</SCRTEXT_M>
+     <SCRTEXT_L>Online quantity</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

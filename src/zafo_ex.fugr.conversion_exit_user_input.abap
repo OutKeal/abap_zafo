@@ -7,14 +7,20 @@ FUNCTION conversion_exit_user_input.
 *"     VALUE(OUTPUT)
 *"----------------------------------------------------------------------
 
-  DATA:l_user TYPE char40.
+  LOOP AT gt_user WHERE name_textc = input OR bname = input.
+    output = gt_user-bname.
+    RETURN.
+  ENDLOOP.
+
+
   SELECT SINGLE
-    bname INTO l_user
+    bname,name_textc INTO @gt_user
     FROM user_addr
-    WHERE name_textc = input
-    OR bname = input.
+    WHERE name_textc = @input
+    OR bname = @input.
   IF sy-subrc EQ 0.
-    output = l_user.
+    output = gt_user-bname.
+    APPEND gt_user.
   ELSE.
     output = input.
   ENDIF.

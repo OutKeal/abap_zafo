@@ -9,6 +9,7 @@ ekko
 inner join ekpo on ekko.ebeln = ekpo.ebeln 
 inner join ekbe on ekbe.ebeln = ekko.ebeln and ekbe.ebelp = ekpo.ebelp
 and ( ekbe.vgabe = '1' or ekbe.vgabe = '2' ) and ekbe.lfbnr is not initial
+left outer join ekkn on ekpo.ebeln = ekkn.ebeln and ekpo.ebelp = ekkn.ebelp and ekkn.zekkn = '01' 
  
 { 
 key ekko.mandt, 
@@ -38,6 +39,9 @@ ekpo.matnr,
 @EndUserText.label: '物料名称'
 ekpo.txz01,
 ekpo.retpo,
+ekpo.bednr,
+ekpo.externalreferenceid as IHREZ,
+ekkn.aufnr,
 
 @EndUserText.label: '采购总数量'
 case ekpo.retpo
@@ -141,7 +145,10 @@ ekpo.mwskz,
 ekpo.matnr,
 ekpo.txz01,
 ekpo.retpo,
+ekpo.bednr,
+ekpo.externalreferenceid,
 ekpo.menge,
 ekpo.meins,
 ekpo.kzwi1,
-ekpo.netwr
+ekpo.netwr,
+ekkn.aufnr

@@ -51,6 +51,8 @@ h.repos,
 h.matnr,
 h.txz01,
 h.retpo,
+h.bednr,
+h.IHREZ,
 @Semantics.quantity.unitOfMeasure:'meins'
 h.menge,
 h.meins,
@@ -58,6 +60,7 @@ h.price,
 h.brtwr,
 h.netwr,
 h.mwskz,
+h.aufnr,
 
  @Semantics.quantity.unitOfMeasure:'meins'
 cast(h.quantity_gr as lqua_einme) as quantity_gr,

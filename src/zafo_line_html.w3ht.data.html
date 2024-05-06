@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style type='text/css'>
+    .container {
+        display: flex;
+    }
+
+    .list {
+        list-style-type: none;
+        padding: 5;
+        margin: 0;
+        flex: 1;
+    }
+
+    .head_close,
+    .head_open {
+        cursor: pointer;
+    }
+
+    .head_open::before {
+        content: "➖︎ ";
+        display: inline;
+    }
+
+    .head_close::before {
+        content: "➕︎ ";
+        display: inline;
+    }
+
+    .head_open:hover .head_close:hover {
+        color: red;
+    }
+
+    .head_open li {
+        display: block;
+    }
+
+    .head_close li {
+        display: none;
+    }
+
+    .panel_left::before,
+    .panel_right::before {
+        content: " ";
+    }
+
+    .panel_left,
+    .panel_right {
+        padding: 5px;
+        width: 50px;
+    }
+
+    .panel_left:hover,
+    .panel_right:hover {
+        color: rgb(42, 0, 254)
+    }
+
+    #menu {
+        margin: 5px 0;
+        display: none;
+        flex: 1;
+        position: absolute;
+        width: 100px;
+        border: 2px solid #ccc;
+        background: #eee;
+    }
+
+    #menu div {
+        height: 30px;
+        margin: 5px;
+        line-height: 30px;
+        color: #21232E;
+        font-size: 14px;
+        text-align: left;
+        cursor: default;
+        list-style-type: none;
+        border-bottom: 1px dashed #cecece;
+    }
+
+    #menu div:hover {
+        background-color: #cccccc;
+    }
+</style>
+
+
+<body>
+    <button onclick="form_submit()">提交变量</button>
+
+    <div class="container">
+        <div class="list">
+            <ul id="h1" class="head_open">LIST
+                <li class="panel_left" id="1">列表 1</li>
+                <li class="panel_left" id="2">列表 2</li>
+                <li class="panel_left" id="3">列表 3</li>
+                <li class="panel_left" id="4">列表 4</li>
+                <li class="panel_left" id="5">列表 5</li>
+                <li class="panel_left" id="6">列表 6</li>
+                <li class="panel_left" id="7">列表 7</li>
+            </ul>
+            <ul id="h2" class="head_open">LIST
+                <li class="panel_left" id="8">列表 1</li>
+                <li class="panel_left" id="9">列表 2</li>
+                <li class="panel_left" id="10">列表 3</li>
+                <li class="panel_left" id="11">列表 4</li>
+                <li class="panel_left" id="12">列表 5</li>
+                <li class="panel_left" id="13">列表 6</li>
+                <li class="panel_left" id="14">列表 7</li>
+            </ul>
+        </div>
+        <div class="list">
+            <ul id="h3" class="head_open">BAPI
+                <li class="panel_right" id="A">列表 A</li>
+                <li class="panel_right" id="B">列表 B</li>
+                <li class="panel_right" id="C">列表 C</li>
+                <li class="panel_right" id="D">列表 D</li>
+                <li class="panel_right" id="E">列表 E</li>
+                <li class="panel_right" id="F">列表 F</li>
+                <li class="panel_right" id="G">列表 G</li>
+            </ul>
+            <ul id="h4" class="head_open">BAPI
+                <li class="panel_right" id="H">列表 A</li>
+                <li class="panel_right" id="I">列表 B</li>
+                <li class="panel_right" id="J">列表 C</li>
+                <li class="panel_right" id="K">列表 D</li>
+                <li class="panel_right" id="L">列表 E</li>
+                <li class="panel_right" id="M">列表 F</li>
+                <li class="panel_right" id="N">列表 G</li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu" id="menu">
+        <div onclick="menuClick('del')">清除</div>
+        <div onclick="menuClick('default')">默认值</div>
+    </div>
+</body>
+
+<script src="line_init.js"></script>
+<script src="line.js"></script>
+
+</html>

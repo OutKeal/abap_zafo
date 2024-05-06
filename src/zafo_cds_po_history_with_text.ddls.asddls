@@ -28,7 +28,6 @@ h.aedat,
 h.bukrs, 
 @EndUserText.label: '公司名称'
 b.butxt as bukrs_name,
-h.zhttext,
 h.lifnr,
 @EndUserText.label: '供应商名称'
 a.name1 as lifnr_name,
@@ -47,6 +46,9 @@ h.lgort,
 d.lgobe as LGORT_NAME,
 h.wepos,
 h.repos,
+h.elikz,
+h.bednr,
+h.IHREZ,
 h.matnr,
 h.txz01,
 h.retpo,
@@ -62,7 +64,7 @@ h.MWSKZ_AMOUNT,
  @Semantics.quantity.unitOfMeasure:'meins'
 cast(h.quantity_gr as lqua_einme) as quantity_gr,
  @Semantics.quantity.unitOfMeasure:'meins'
-cast( h.menge - h.quantity_gr as obmng) as OBMNG,
+cast( case when h.menge > h.quantity_gr then h.menge - h.quantity_gr else 0 end as obmng) as OBMNG,
 cast( h.amount_gr as mm_a_gramount) as amount_gr,
  @Semantics.quantity.unitOfMeasure:'meins'
 cast( h.quantity_ir as remng ) as quantity_ir ,

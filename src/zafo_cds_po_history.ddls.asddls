@@ -19,7 +19,6 @@ ekko.ekgrp,
 ekko.bukrs,
 ekko.ernam,
 ekko.aedat,
-ekko.zhttext,
 case 
 when ekko.lifnr = '' then ekko.reswk
 else ekko.lifnr 
@@ -35,6 +34,9 @@ ekpo.lgort,
 ekpo.wepos,
 @EndUserText.label: '需发票'
 ekpo.repos,
+ekpo.elikz,
+ekpo.bednr,
+ekpo.externalreferenceid as IHREZ,
 ekpo.matnr,
 @EndUserText.label: '物料名称'
 ekpo.txz01,
@@ -118,7 +120,6 @@ ekko.ernam,
 ekko.aedat,
 ekko.ekgrp,
 ekko.bukrs,
-ekko.zhttext,
 ekko.lifnr,
 ekko.reswk,
 ekko.bsart,
@@ -133,8 +134,10 @@ ekpo.lgort,
 
 ekpo.wepos,
 ekpo.repos,
+ekpo.elikz,
 ekpo.mwskz,
-
+ekpo.bednr,
+ekpo.externalreferenceid ,
 ekpo.matnr,
 ekpo.txz01,
 ekpo.retpo,

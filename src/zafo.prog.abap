@@ -13,16 +13,20 @@ INCLUDE zafo_f01.
 
 INCLUDE zafo_f02.
 
+INCLUDE zafo_f03.
+
 INITIALIZATION.
   "页面初始化
+
   PERFORM frm_init.
 
-AT SELECTION-SCREEN.
+AT SELECTION-SCREEN .
 
   PERFORM frm_at_screen CHANGING sscrfields-ucomm.
 
 AT SELECTION-SCREEN OUTPUT.
 
+  PERFORM frm_set_ref_in.
   PERFORM frm_set_sel_screen.
 
 AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_file.

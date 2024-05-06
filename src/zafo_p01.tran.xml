@@ -16,6 +16,12 @@
     <TCODE>ZAFO_P01</TCODE>
     <TTEXT>采购业务</TTEXT>
    </TSTCT>
+   <I18N_TPOOL>
+    <TSTCT>
+     <SPRSL>E</SPRSL>
+     <TTEXT>Procurement business</TTEXT>
+    </TSTCT>
+   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

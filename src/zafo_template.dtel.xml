@@ -15,9 +15,24 @@
     <SCRTEXT_S>打印模板</SCRTEXT_S>
     <SCRTEXT_M>打印模板</SCRTEXT_M>
     <SCRTEXT_L>打印模板</SCRTEXT_L>
+    <ACTFLAG>I</ACTFLAG>
     <DTELMASTER>1</DTELMASTER>
+    <RESERVEDTE>JB</RESERVEDTE>
     <REFKIND>D</REFKIND>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Print Template</DDTEXT>
+     <REPTEXT>Print Template</REPTEXT>
+     <SCRTEXT_S>Print Temp</SCRTEXT_S>
+     <SCRTEXT_M>Print Template</SCRTEXT_M>
+     <SCRTEXT_L>Print Template</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

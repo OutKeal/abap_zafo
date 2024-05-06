@@ -8,16 +8,16 @@ FUNCTION zafo_create .
 *"  EXPORTING
 *"     VALUE(E_AFONO) TYPE  ZAFO_SHEAD-AFONO
 *"     VALUE(ES_HEAD) TYPE  ZAFO_SHEAD
+*"     VALUE(ET_ITEM) TYPE  ZAFO_TT_SITEM
 *"  TABLES
 *"      IT_ITEM STRUCTURE  ZAFO_BAPI_ITEM
-*"      ET_ITEM STRUCTURE  ZAFO_SITEM OPTIONAL
 *"      ET_RETURN STRUCTURE  BAPIRET2 OPTIONAL
 *"----------------------------------------------------------------------
   DATA(afo_class) = zafo_class=>create_by_data( i_bustyp = is_head-bustyp
-                                                                                        i_werks = is_head-werks
-                                                                                        is_head = is_head
-                                                                                        it_item = it_item[]
-                                                                                        ).
+        i_werks = is_head-werks
+        is_head = is_head
+        it_item = it_item[]
+        ).
   et_return[] = afo_class->message->get_return( ).
   IF afo_class->message->get_error( ) = abap_true.
     RETURN.

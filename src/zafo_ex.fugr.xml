@@ -67,6 +67,7 @@
       <RSFDO>
        <PARAMETER>OUTPUT</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>单价</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LENGTH_ERROR</PARAMETER>
@@ -123,6 +124,194 @@
        <PARAMETER>OUTPUT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>External INPUT display, C field</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>CONVERSION_EXIT_ZMATK_INPUT</FUNCNAME>
+     <SHORT_TEXT>Conversion exit for commercial (3-char) measurement unit INPUT</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>INPUT</PARAMETER>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <DBFIELD>SY-LANGU</DBFIELD>
+       <DEFAULT>SY-LANGU</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>OUTPUT</PARAMETER>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>UNIT_NOT_FOUND</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>INPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>external display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language key (default: logon language)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>OUTPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>internal display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UNIT_NOT_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Unit of measurement not found</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>CONVERSION_EXIT_ZMATK_OUTPUT</FUNCNAME>
+     <SHORT_TEXT>Conversion exit for commercial (3-char) measurement unit OUTPUT</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>INPUT</PARAMETER>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <DBFIELD>SY-LANGU</DBFIELD>
+       <DEFAULT>SY-LANGU</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>OUTPUT</PARAMETER>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>UNIT_NOT_FOUND</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>INPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>internal display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language key (default: logon language)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>OUTPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>external display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UNIT_NOT_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Unit of measurement not found</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>CONVERSION_EXIT_ZMEIN_INPUT</FUNCNAME>
+     <SHORT_TEXT>Conversion exit for commercial (3-char) measurement unit INPUT</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>INPUT</PARAMETER>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <DBFIELD>SY-LANGU</DBFIELD>
+       <DEFAULT>SY-LANGU</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>OUTPUT</PARAMETER>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>UNIT_NOT_FOUND</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>INPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>external display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language key (default: logon language)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>OUTPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>internal display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UNIT_NOT_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Unit of measurement not found</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>CONVERSION_EXIT_ZMEIN_OUTPUT</FUNCNAME>
+     <SHORT_TEXT>Conversion exit for commercial (3-char) measurement unit OUTPUT</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>INPUT</PARAMETER>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <DBFIELD>SY-LANGU</DBFIELD>
+       <DEFAULT>SY-LANGU</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>OUTPUT</PARAMETER>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>UNIT_NOT_FOUND</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>INPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>internal display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language key (default: logon language)</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>OUTPUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>external display of unit of measurement</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UNIT_NOT_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Unit of measurement not found</STEXT>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -852,6 +1041,1098 @@
      </RSMPE_ATRT>
     </DOC>
    </CUA>
+   <LONGTEXTS_CONVERSION_EXIT_ZMATK_INPUT>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMATK_INPUT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00019</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMATK_INPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Funktionalität</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Der Funktionsbaustein bestimmt zu einer kaufmännischen Maßeinheit</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>(3-stellige externe Maßeinheit) die zugehörige interne Maßeinheit.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Beispiel</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_INPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Hinweise</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>Dieser Baustein wird bei der Eingabe von Maßeinheiten auf dem Dynpro</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>automatisch aufgerufen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMATK_INPUT</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00019</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMATK_INPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Functionality</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The function module determines the internal measurement unit for a</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>business measurement unit (3-character external measurement unit).</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Example</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_INPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Notes</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>This module is called automatically when measurement units are entered</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>on the screen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMATK_INPUT>
+   <LONGTEXTS_CONVERSION_EXIT_ZMATK_INPUT___EXC>
+    <item>
+     <DOKIL>
+      <ID>FX</ID>
+      <OBJECT>CONVERSION_EXIT_ZMATK_INPUT   UNIT_NOT_FOUND</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0001</VERSION>
+      <TXTLINES>00003</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMATK_INPUT   UNIT_NOT_FOUND</TDNAME>
+      <TDID>FX</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>In der Sprache LANGUAGE ist die kaufmännische Maßeinheit INPUT nicht</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>gepflegt.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_MESSAGE_RAISING&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FX</ID>
+      <OBJECT>CONVERSION_EXIT_ZMATK_INPUT   UNIT_NOT_FOUND</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0001</VERSION>
+      <TXTLINES>00003</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMATK_INPUT   UNIT_NOT_FOUND</TDNAME>
+      <TDID>FX</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The business measurement unit INPUT is not maintained in the language</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>LANGUAGE.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_MESSAGE_RAISING&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMATK_INPUT___EXC>
+   <LONGTEXTS_CONVERSION_EXIT_ZMATK_OUTPUT>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMATK_OUTPUT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0003</VERSION>
+      <TXTLINES>00024</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMATK_OUTPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00003</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Funktionalität</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Der Funktionsbaustein bestimmt zu einer internen Maßeinheit die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sprachabhängige kaufmännische Maßeinheit (3-stellige externe</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Maßeinheit) sowie den zugehörigen Kurztext und Langtext.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Beispiel</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_SHORT(10) TYPE C,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_LONG(30)  TYPE C.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_OUTPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LONG_TEXT      = TEXT_LONG</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          SHORT_TEXT     = TEXT_SHORT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Hinweise</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>Dieser Baustein wird bei der Ausgabe von Maßeinheiten auf dem Dynpro</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sowie beim WRITE-Befehl automatisch aufgerufen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMATK_OUTPUT</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0003</VERSION>
+      <TXTLINES>00024</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMATK_OUTPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00003</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Functionality</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The function module determines the language-dependent business</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>measurement unit (3-character external measurement unit) and its short</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>and long text, for an internal measurement unit.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Example</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_SHORT(10) TYPE C,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_LONG(30)  TYPE C.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_OUTPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LONG_TEXT      = TEXT_LONG</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          SHORT_TEXT     = TEXT_SHORT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Notes</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>This module is called automatically when measurement units are output</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>on the screen, and at the WRITE command.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMATK_OUTPUT>
+   <LONGTEXTS_CONVERSION_EXIT_ZMATK_OUTPUT___EXC>
+    <item>
+     <DOKIL>
+      <ID>FX</ID>
+      <OBJECT>CONVERSION_EXIT_ZMATK_OUTPUT  UNIT_NOT_FOUND</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0001</VERSION>
+      <TXTLINES>00004</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMATK_OUTPUT  UNIT_NOT_FOUND</TDNAME>
+      <TDID>FX</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die interne Maßeinheit INPUT ist in der Sprache LANGUAGE nicht gepflegt</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>oder für die interne Maßeinheit INPUT ist in der Sprache LANGUAGE keine</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sprachabhängige kaufmännische Maßeinheit gepflegt.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die Ausnahme wird mit MESSAGE S... RAISING erzeugt.</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMATK_OUTPUT___EXC>
+   <LONGTEXTS_CONVERSION_EXIT_ZMEIN_INPUT>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMEIN_INPUT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00019</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMEIN_INPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Funktionalität</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Der Funktionsbaustein bestimmt zu einer kaufmännischen Maßeinheit</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>(3-stellige externe Maßeinheit) die zugehörige interne Maßeinheit.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Beispiel</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_INPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Hinweise</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>Dieser Baustein wird bei der Eingabe von Maßeinheiten auf dem Dynpro</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>automatisch aufgerufen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMEIN_INPUT</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0004</VERSION>
+      <TXTLINES>00019</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMEIN_INPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00004</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Functionality</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The function module determines the internal measurement unit for a</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>business measurement unit (3-character external measurement unit).</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Example</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_INPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Notes</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>This module is called automatically when measurement units are entered</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>on the screen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMEIN_INPUT>
+   <LONGTEXTS_CONVERSION_EXIT_ZMEIN_INPUT___EXC>
+    <item>
+     <DOKIL>
+      <ID>FX</ID>
+      <OBJECT>CONVERSION_EXIT_ZMEIN_INPUT   UNIT_NOT_FOUND</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0001</VERSION>
+      <TXTLINES>00003</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMEIN_INPUT   UNIT_NOT_FOUND</TDNAME>
+      <TDID>FX</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>In der Sprache LANGUAGE ist die kaufmännische Maßeinheit INPUT nicht</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>gepflegt.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_MESSAGE_RAISING&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FX</ID>
+      <OBJECT>CONVERSION_EXIT_ZMEIN_INPUT   UNIT_NOT_FOUND</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0001</VERSION>
+      <TXTLINES>00003</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMEIN_INPUT   UNIT_NOT_FOUND</TDNAME>
+      <TDID>FX</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The business measurement unit INPUT is not maintained in the language</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>LANGUAGE.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_MESSAGE_RAISING&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMEIN_INPUT___EXC>
+   <LONGTEXTS_CONVERSION_EXIT_ZMEIN_OUTPUT>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMEIN_OUTPUT</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0003</VERSION>
+      <TXTLINES>00024</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMEIN_OUTPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00003</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE/>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Funktionalität</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Der Funktionsbaustein bestimmt zu einer internen Maßeinheit die</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sprachabhängige kaufmännische Maßeinheit (3-stellige externe</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>Maßeinheit) sowie den zugehörigen Kurztext und Langtext.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Beispiel</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_SHORT(10) TYPE C,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_LONG(30)  TYPE C.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_OUTPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LONG_TEXT      = TEXT_LONG</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          SHORT_TEXT     = TEXT_SHORT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Hinweise</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>Dieser Baustein wird bei der Ausgabe von Maßeinheiten auf dem Dynpro</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sowie beim WRITE-Befehl automatisch aufgerufen.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+    <item>
+     <DOKIL>
+      <ID>FU</ID>
+      <OBJECT>CONVERSION_EXIT_ZMEIN_OUTPUT</OBJECT>
+      <LANGU>E</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0003</VERSION>
+      <TXTLINES>00024</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMEIN_OUTPUT</TDNAME>
+      <TDID>FU</TDID>
+      <TDSPRAS>E</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00003</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Functionality</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>The function module determines the language-dependent business</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>measurement unit (3-character external measurement unit) and its short</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>and long text, for an internal measurement unit.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Example</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>PE</TDFORMAT>
+       <TDLINE>DATA: UNIT_EXT LIKE T006-MSEH3,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      UNIT_INT LIKE T006-MSEHI,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_SHORT(10) TYPE C,</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>      TEXT_LONG(30)  TYPE C.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>...</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>CALL FUNCTION &apos;CONVERSION_EXIT_CUNIT_OUTPUT&apos;</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          INPUT          = UNIT_INT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LANGUAGE       = SY-LANGU</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     IMPORTING</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          LONG_TEXT      = TEXT_LONG</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          OUTPUT         = UNIT_EXT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          SHORT_TEXT     = TEXT_SHORT</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>     EXCEPTIONS</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/</TDFORMAT>
+       <TDLINE>          UNIT_NOT_FOUND = 01.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>HU</TDFORMAT>
+       <TDLINE>Notes</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>B1</TDFORMAT>
+       <TDLINE>This module is called automatically when measurement units are output</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>on the screen, and at the WRITE command.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>/:</TDFORMAT>
+       <TDLINE>INCLUDE &apos;FU_INF_BUF_SCVU&apos; OBJECT DOKU ID TX</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMEIN_OUTPUT>
+   <LONGTEXTS_CONVERSION_EXIT_ZMEIN_OUTPUT___EXC>
+    <item>
+     <DOKIL>
+      <ID>FX</ID>
+      <OBJECT>CONVERSION_EXIT_ZMEIN_OUTPUT  UNIT_NOT_FOUND</OBJECT>
+      <LANGU>D</LANGU>
+      <TYP>T</TYP>
+      <VERSION>0001</VERSION>
+      <TXTLINES>00004</TXTLINES>
+      <DOKSTATE>A</DOKSTATE>
+     </DOKIL>
+     <HEAD>
+      <TDOBJECT>DOKU</TDOBJECT>
+      <TDNAME>CONVERSION_EXIT_ZMEIN_OUTPUT  UNIT_NOT_FOUND</TDNAME>
+      <TDID>FX</TDID>
+      <TDSPRAS>D</TDSPRAS>
+      <TDFORM>S_DOCU_SHOW</TDFORM>
+      <TDSTYLE>S_DOCUS1</TDSTYLE>
+      <TDVERSION>00001</TDVERSION>
+      <TDLINESIZE>072</TDLINESIZE>
+     </HEAD>
+     <LINES>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die interne Maßeinheit INPUT ist in der Sprache LANGUAGE nicht gepflegt</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>oder für die interne Maßeinheit INPUT ist in der Sprache LANGUAGE keine</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDLINE>sprachabhängige kaufmännische Maßeinheit gepflegt.</TDLINE>
+      </TLINE>
+      <TLINE>
+       <TDFORMAT>AS</TDFORMAT>
+       <TDLINE>Die Ausnahme wird mit MESSAGE S... RAISING erzeugt.</TDLINE>
+      </TLINE>
+     </LINES>
+    </item>
+   </LONGTEXTS_CONVERSION_EXIT_ZMEIN_OUTPUT___EXC>
    <LONGTEXTS_ZAFO_SALESDOCUMENT_CREATE>
     <item>
      <DOKIL>
@@ -1082,8 +2363,7 @@
       <LANGU>E</LANGU>
       <TYP>T</TYP>
       <VERSION>0022</VERSION>
-      <MASTERLANG>X</MASTERLANG>
-      <TXTLINES>00043</TXTLINES>
+      <TXTLINES>00047</TXTLINES>
       <DOKSTATE>A</DOKSTATE>
      </DOKIL>
      <HEAD>

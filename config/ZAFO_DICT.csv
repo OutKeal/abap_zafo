@@ -1,41 +1,45 @@
-120	AT        	    	DICT01                        	A01                           	≤‚ ‘1
-120	AT        	    	DICT01                        	A02                           	≤‚ ‘2
-120	AT        	    	DICT02                        	B01                           	≤‚ ‘3
-120	AT        	    	DICT02                        	B02                           	≤‚ ‘4
-120	PO2       	    	MTART                         	Z003                          	
-120	MB_MO_GI  	    	DICT01                        	A01                           	≤‚ ‘1
-120	MB_MO_GI  	    	DICT01                        	A02                           	≤‚ ‘2
-120	MB_MO_GI  	    	DICT02                        	B01                           	≤‚ ‘3
-120	MB_MO_GI  	    	DICT02                        	B02                           	≤‚ ‘4
-120	MB_MO_GR  	    	DICT01                        	A01                           	≤‚ ‘1
-120	MB_MO_GR  	    	DICT01                        	A02                           	≤‚ ‘2
-120	MB_MO_GR  	    	DICT02                        	B01                           	≤‚ ‘3
-120	MB_MO_GR  	    	DICT02                        	B02                           	≤‚ ‘4
-120	PO        	    	DICT01                        	A01                           	≤‚ ‘1
-120	PO        	    	DICT01                        	A02                           	≤‚ ‘2
-120	PO        	    	DICT02                        	B01                           	≤‚ ‘3
-120	PO        	    	DICT02                        	B02                           	≤‚ ‘4
-120	PO1       	    	DICT01                        	A01                           	≤‚ ‘1
-120	PO1       	    	DICT01                        	A02                           	≤‚ ‘2
-120	PO1       	    	DICT02                        	B01                           	≤‚ ‘3
-120	PO1       	    	DICT02                        	B02                           	≤‚ ‘4
-120	PO2       	    	DICT01                        	A01                           	≤‚ ‘1
-120	PO2       	    	DICT01                        	A02                           	≤‚ ‘2
-120	PO2       	    	DICT02                        	B01                           	≤‚ ‘3
-120	PO2       	    	DICT02                        	B02                           	≤‚ ‘4
-120	PO3       	    	DICT01                        	A01                           	≤‚ ‘1
-120	PO3       	    	DICT01                        	A02                           	≤‚ ‘2
-120	PO3       	    	DICT02                        	B01                           	≤‚ ‘3
-120	PO3       	    	DICT02                        	B02                           	≤‚ ‘4
-120	PR        	    	DICT01                        	A01                           	≤‚ ‘1
-120	PR        	    	DICT01                        	A02                           	≤‚ ‘2
-120	PR        	    	DICT02                        	B01                           	≤‚ ‘3
-120	PR        	    	DICT02                        	B02                           	≤‚ ‘4
-120	PO2       	    	BSART                         	ZC01                          	
-120	PO2       	    	EKGRP                         	602                           	
-120	PO2       	    	EKGRP                         	603                           	
-120	PO2       	    	EKGRP                         	604                           	
-120	PO2       	    	EKGRP                         	605                           	
-120	PO2       	    	EKGRP                         	606                           	
-120	PO2       	    	EKGRP                         	607                           	
-120	PO2       	    	EKGRP                         	601                           	
+200	AT        	    	DICT01                        	P05                           	Ê≤ôËéé
+200	PO31      	W500	KOSTL                         	5000E001                      	
+200	PO31      	W521	KOSTL                         	5210E001                      	
+200	AT        	    	MATKL                         	1YW                           	
+200	WF21      	    	MTART                         	Z008                          	
+200	WF22      	    	MTART                         	Z008                          	
+200	WF31      	    	MTART                         	Z008                          	
+200	WA12      	    	MTART                         	Z008                          	
+200	WA11      	    	MTART                         	Z004                          	
+200	PO31      	    	MATKL                         	4EE                           	
+200	PO02      	    	EKGRP                         	601                           	
+200	PO02      	    	EKGRP                         	602                           	
+200	PO02      	    	EKGRP                         	603                           	
+200	PO02      	    	LGORT                         	1001                          	
+200	PO02      	    	LGORT                         	1002                          	
+200	PO02      	    	LGORT                         	1003                          	
+200	PO02      	    	MTART                         	Z002                          	
+200	PO02      	    	MTART                         	Z003                          	
+200	PO03      	    	EKGRP                         	601                           	
+200	PO03      	    	EKGRP                         	602                           	
+200	PO03      	    	EKGRP                         	603                           	
+200	PO11      	    	MTART                         	Z005                          	
+200	PO12      	    	MTART                         	Z005                          	
+200	PO31      	    	EKGRP                         	601                           	
+200	PO31      	    	EKGRP                         	602                           	
+200	PR        	    	DICT01                        	A01                           	ÊµãËØï1
+200	PR        	    	DICT01                        	A02                           	ÊµãËØï2
+200	PR        	    	DICT02                        	B01                           	ÊµãËØï3
+200	PR        	    	DICT02                        	B02                           	ÊµãËØï4
+200	PO31      	    	EKGRP                         	603                           	
+200	PO31      	    	EKGRP                         	604                           	
+200	PO31      	    	EKGRP                         	605                           	
+200	PO31      	    	EKGRP                         	606                           	
+200	PO31      	    	EKGRP                         	607                           	
+200	WE03      	    	LGORT                         	1001                          	
+200	WE03      	    	LGORT                         	1002                          	
+200	WE03      	    	LGORT                         	1003                          	
+200	WE02      	    	LGORT                         	1001                          	
+200	WE02      	    	LGORT                         	1002                          	
+200	WE02      	    	LGORT                         	1003                          	
+200	WE11      	    	LGORT                         	1004                          	
+200	WE12      	    	LGORT                         	1004                          	
+200	WA13      	    	KTOKK                         	Z008                          	
+200	WA01      	    	KOSTL                         	5000E001                      	
+200	WA01      	    	KOSTL                         	5210E001                      	

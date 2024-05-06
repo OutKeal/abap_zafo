@@ -16,6 +16,22 @@ public section.
         tech      TYPE lvc_tech,
         hidde     TYPE lvc_tech,
       END OF ty_fcat .
+  types:
+    BEGIN OF ty_list ,
+        afono TYPE zafono,
+      END OF ty_list .
+  types:
+    tt_lists TYPE TABLE OF ty_list .
+  types:
+    BEGIN OF t_class ,
+        afono TYPE zafono,
+        class TYPE REF TO zafo_class,
+      END OF t_class .
+  types:
+    tt_class TYPE TABLE OF t_class .
+
+  class-data TAB_CLASS type TT_CLASS .
+  class-data LISTS type TT_LISTS .
 
   class-methods GET_BUSTYP
     importing
@@ -66,7 +82,7 @@ public section.
   class-methods GET_BUSTYP_DICT
     importing
       !BUSTYP type ZAFO_BUSTYP
-      !WERKS type WERKS_D
+      !WERKS type WERKS_D optional
     returning
       value(RT_DICT) type ZAFO_TT_DICT .
   class-methods SET_ICON
@@ -105,6 +121,19 @@ public section.
   class-methods INIT_GUI_STATUS
     returning
       value(GUI_STATUS) type TT_FCODES .
+  class-methods GET_PUBLIC_SCREEN
+    returning
+      value(RT_SCREEN) type ZAFO_TT_SCREEN .
+  class-methods SET_LISTS
+    importing
+      !I_FNAME type FIELDNAME default 'AFONO'
+      !I_DATA type TABLE .
+  class-methods GET_CLASS
+    importing
+      !BUSTYP type ZAFO_BUSTYP optional
+      !AFONO type ZAFONO optional
+    returning
+      value(R_CLASS) type ref to ZAFO_CLASS .
 protected section.
 
   class-data GT_BUSTYP type ZAFO_TT_BUSTYPE .
@@ -131,7 +160,7 @@ CLASS ZAFO_BASIC IMPLEMENTATION.
     ID 'ZAFO_BUSTY' FIELD bustyp
     ID 'ACTVT' FIELD actvt.
     IF sy-subrc NE 0 .
-      MESSAGE s030 DISPLAY LIKE 'E'.
+      MESSAGE s034 DISPLAY LIKE 'E'.
       RETURN.
     ENDIF.
 
@@ -139,7 +168,7 @@ CLASS ZAFO_BASIC IMPLEMENTATION.
     ID 'WERKS' FIELD werks
     ID 'ACTVT' FIELD actvt.
     IF sy-subrc NE 0 .
-      MESSAGE s031 DISPLAY LIKE 'E'.
+      MESSAGE s035 DISPLAY LIKE 'E'.
       RETURN.
     ENDIF.
 
@@ -467,7 +496,7 @@ ENDMETHOD.
     CHECK ls_bustyp-bustyp IS NOT INITIAL.
 
     rt_dict = VALUE #( FOR wa IN gt_dict
-    WHERE ( bustyp = ls_bustyp  and ( werks = werks or werks = '' ) ) ( wa ) ) .
+    WHERE ( bustyp = ls_bustyp ) ( wa ) ) .
 
     IF rt_dict IS INITIAL.
       SELECT * FROM zafo_dict
@@ -476,7 +505,7 @@ ENDMETHOD.
       APPENDING TABLE @gt_dict.
       IF sy-subrc EQ 0.
         rt_dict = VALUE #( FOR wa IN gt_dict
-        WHERE ( bustyp = ls_bustyp-bustyp and ( werks = werks or werks = '' ) ) ( wa ) ) .
+        WHERE ( bustyp = ls_bustyp-bustyp ) ( wa ) ) .
       ELSE.
         APPEND VALUE #( bustyp = ls_bustyp-bustyp
         ) TO gt_dict.
@@ -670,5 +699,48 @@ ENDMETHOD.
 
       ENDIF.
     ENDIF.
+  ENDMETHOD.
+
+
+  METHOD get_class.
+    IF NOT line_exists( tab_class[ afono = afono ] ).
+      r_class = NEW zafo_class( bustyp ).
+      INSERT VALUE #( afono = afono
+      class = r_class ) INTO TABLE tab_class.
+    ELSE.
+      r_class = tab_class[ afono = afono ]-class.
+    ENDIF.
+  ENDMETHOD.
+
+
+  METHOD get_public_screen.
+    rt_screen = VALUE #( FOR wa IN gt_screen
+                                         WHERE ( object = 'REPORT' OR object = 'ITEM'  ) ( wa ) ) .
+
+    IF rt_screen IS INITIAL.
+      SELECT * FROM zafo_screen
+      WHERE object = 'REPORT' OR object = 'ITEM'
+      APPENDING TABLE @gt_screen.
+      IF sy-subrc EQ 0.
+        rt_screen = VALUE #( FOR wa IN gt_screen
+        WHERE ( object = 'REPORT' OR object = 'ITEM' ) ( wa ) ) .
+      ELSE.
+        APPEND VALUE #( object = 'REPORT'
+        ) TO gt_screen.
+      ENDIF.
+    ENDIF.
+
+
+  ENDMETHOD.
+
+
+  METHOD set_lists.
+    CLEAR lists.
+    LOOP AT i_data ASSIGNING FIELD-SYMBOL(<line>).
+      ASSIGN COMPONENT i_fname OF STRUCTURE <line> TO FIELD-SYMBOL(<value>).
+      CHECK sy-subrc EQ 0.
+      APPEND INITIAL LINE TO lists ASSIGNING FIELD-SYMBOL(<list>).
+      <list>-afono = <value>.
+    ENDLOOP.
   ENDMETHOD.
 ENDCLASS.

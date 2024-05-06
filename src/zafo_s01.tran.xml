@@ -16,6 +16,12 @@
     <TCODE>ZAFO_S01</TCODE>
     <TTEXT>仓库业务</TTEXT>
    </TSTCT>
+   <I18N_TPOOL>
+    <TSTCT>
+     <SPRSL>E</SPRSL>
+     <TTEXT>Warehouse business</TTEXT>
+    </TSTCT>
+   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

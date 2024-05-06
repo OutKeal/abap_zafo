@@ -1,36 +1,161 @@
-120	PO1       	000001	REF       	DIS                           	                              	 	
-120	MB_MOVE_T 	000001	REF       	MB                            	                              	 	
-120	MB_MOVE_T 	000002	REF       	MAT                           	                              	 	
-120	AT        	000001	REF       	AUF                           	                              	 	
-120	AT        	000002	REF       	MAT                           	                              	 	
-120	MB_MOVE_GI	000001	REF       	MB                            	                              	 	
-120	MB_MOVE_GI	000002	REF       	MAT                           	                              	 	
-120	MB_MOVE_GR	000001	REF       	MB                            	                              	 	
-120	MB_MOVE_GR	000002	REF       	MAT                           	                              	 	
-120	MB_PD     	000001	REF       	MB                            	                              	 	
-120	MB_PD     	000002	REF       	MAT                           	                              	 	
-120	CONF      	000001	REF       	AUF                           	                              	 	
-120	CONF      	000002	REF       	MAT                           	                              	 	
-120	MB_BIN    	000001	REF       	MB                            	                              	 	
-120	MB_BIN    	000002	REF       	MAT                           	                              	 	
-120	MB_MOVE   	000001	REF       	MB                            	                              	 	
-120	MB_MOVE   	000002	REF       	MAT                           	                              	 	
-120	MB_MO_GI  	000001	REF       	AUF                           	                              	 	
-120	MB_MO_GI  	000002	REF       	MAT                           	                              	 	
-120	MB_MO_GR  	000001	REF       	AUF                           	                              	 	
-120	MB_MO_GR  	000002	REF       	MAT                           	                              	 	
-120	MB_PO_GR  	000001	REF       	PO                            	                              	 	
-120	MB_PO_GR  	000002	REF       	MAT                           	                              	 	
-120	MB_PO_GR  	000003	REF       	AUF                           	                              	 	
-120	MB_REL    	000001	REF       	MB                            	                              	 	
-120	MB_REL    	000002	REF       	MAT                           	                              	 	
-120	MB_REQ    	000001	REF       	MB                            	                              	 	
-120	MB_REQ    	000002	REF       	MAT                           	                              	 	
-120	PO        	000001	REF       	AUF                           	                              	 	
-120	PO        	000002	REF       	MAT                           	                              	 	
-120	PO1       	000002	REF       	MAT                           	                              	 	
-120	PO2       	000001	REF       	AUF                           	                              	 	
-120	PO2       	000002	REF       	MAT                           	                              	 	
-120	PO3       	000001	REF       	AUF                           	                              	 	
-120	PO3       	000002	REF       	MAT                           	                              	 	
-120	PR        	000001	DIS       	ME                            	                              	 	
+200	PO01      	000020	DIS       	MAT                           	                              	 	
+200	WA14      	000003	REF       	                              	S_LGORT                       	 	X
+200	WA21      	000001	REF       	MB                            	                              	 	
+200	PO03      	000070	REF       	                              	S_LGORT                       	 	X
+200	AT        	000001	DIS       	                              	S_KUNNR                       	 	
+200	WA21      	000002	REF       	MAT                           	                              	 	
+200	WA22      	000001	REF       	MB                            	                              	 	
+200	WA22      	000002	REF       	MAT                           	                              	 	
+200	WA32      	000001	REF       	MB                            	                              	 	
+200	WA32      	000002	REF       	MAT                           	                              	 	
+200	WA33      	000001	REF       	MB                            	                              	 	
+200	CONF      	000001	REF       	AUF                           	                              	 	
+200	CONF      	000002	REF       	MAT                           	                              	 	
+200	WA33      	000002	REF       	MAT                           	                              	 	
+200	WA31      	000001	REF       	MB                            	                              	 	
+200	MB_MOVE   	000001	REF       	MB                            	                              	 	
+200	MB_MOVE   	000002	REF       	MAT                           	                              	 	
+200	WA31      	000002	REF       	MAT                           	                              	 	
+200	PO02      	000010	DIS       	PO                            	                              	 	
+200	PO02      	000020	DIS       	MAT                           	                              	 	
+200	PO02      	000030	REF       	                              	S_SATNR                       	 	
+200	AT        	000003	DIS       	                              	S_LIFNR                       	 	
+200	PO02      	000050	REF       	                              	S_VBELN                       	 	
+200	PO02      	000060	REF       	MAT                           	                              	 	
+200	PO03      	000010	DIS       	PO                            	                              	 	
+200	PR        	000001	DIS       	ME                            	                              	 	
+200	PO03      	000020	DIS       	MAT                           	                              	 	
+200	PO01      	000010	DIS       	PO                            	                              	 	
+200	PO03      	000030	REF       	                              	S_SATNR                       	 	
+200	WA13      	000003	REF       	                              	S_LGORT                       	 	X
+200	PO03      	000050	REF       	                              	S_VBELN                       	 	
+200	PO03      	000060	REF       	MAT                           	                              	 	
+200	WA13      	000006	DIS       	                              	S_LGORT                       	 	X
+200	PO11      	000010	DIS       	PO                            	                              	 	
+200	PO11      	000020	DIS       	MAT                           	                              	 	
+200	PO12      	000010	DIS       	PO                            	                              	 	
+200	PO12      	000020	DIS       	MAT                           	                              	 	
+200	PO12      	000030	REF       	MAT                           	                              	 	
+200	PO12      	000040	REF       	                              	S_LGORT                       	 	X
+200	PO21      	000010	DIS       	PO                            	                              	 	
+200	PO21      	000030	DIS       	                              	S_AUFNR                       	 	
+200	PO21      	000020	DIS       	                              	S_SATNR                       	 	
+200	PO21      	000040	REF       	                              	S_SATNR                       	 	
+200	PO21      	000050	REF       	                              	S_AUFNR                       	 	
+200	PO31      	000010	DIS       	PO                            	                              	 	
+200	WE01      	000001	REF       	PO                            	                              	 	
+200	WE01      	000002	REF       	MAT                           	                              	 	
+200	WA12      	000004	REF       	                              	S_LGORT                       	 	X
+200	WE01      	000004	REF       	                              	S_BSART                       	 	X
+200	WE01      	000005	REF       	                              	S_EKGRP                       	 	X
+200	WE01      	000006	DIS       	PO                            	                              	 	
+200	WE01      	000007	DIS       	MAT                           	                              	 	
+200	WE03      	000001	REF       	PO                            	                              	 	
+200	WE03      	000002	REF       	MAT                           	                              	 	
+200	WA12      	000005	DIS       	                              	S_LGORT                       	 	X
+200	WE03      	000004	REF       	                              	S_BSART                       	 	X
+200	WE03      	000005	REF       	                              	S_EKGRP                       	 	X
+200	WE03      	000006	DIS       	PO                            	                              	 	
+200	WE03      	000007	DIS       	MAT                           	                              	 	
+200	WE02      	000001	REF       	PO                            	                              	 	
+200	WE02      	000002	REF       	MAT                           	                              	 	
+200	WA31      	000003	REF       	                              	S_LGORT                       	 	X
+200	WE02      	000004	REF       	                              	S_BSART                       	 	X
+200	WE02      	000005	REF       	                              	S_EKGRP                       	 	X
+200	WE02      	000006	DIS       	PO                            	                              	 	
+200	WE02      	000007	DIS       	MAT                           	                              	 	
+200	WE11      	000001	REF       	PO                            	                              	 	
+200	WE11      	000002	REF       	MAT                           	                              	 	
+200	WA32      	000003	REF       	                              	S_LGORT                       	 	X
+200	WE11      	000004	REF       	                              	S_BSART                       	 	X
+200	WE11      	000005	REF       	                              	S_EKGRP                       	 	X
+200	WE11      	000006	DIS       	PO                            	                              	 	
+200	WE11      	000007	DIS       	MAT                           	                              	 	
+200	WE12      	000001	REF       	PO                            	                              	 	
+200	WE12      	000002	REF       	MAT                           	                              	 	
+200	WA33      	000003	REF       	                              	S_LGORT                       	 	X
+200	WE12      	000004	REF       	                              	S_BSART                       	 	X
+200	WE12      	000005	REF       	                              	S_EKGRP                       	 	X
+200	WE12      	000006	DIS       	PO                            	                              	 	
+200	WE12      	000007	DIS       	MAT                           	                              	 	
+200	WE21      	000001	REF       	PO                            	                              	 	
+200	WE21      	000002	REF       	MAT                           	                              	 	
+200	WE21      	000003	REF       	AUF                           	                              	 	
+200	WE21      	000004	REF       	                              	S_BSART                       	 	X
+200	WE21      	000005	REF       	                              	S_EKGRP                       	 	X
+200	WE21      	000006	DIS       	PO                            	                              	 	
+200	WE21      	000007	DIS       	MAT                           	                              	 	
+200	WE31      	000001	REF       	PO                            	                              	 	
+200	WE31      	000004	REF       	                              	S_BSART                       	 	X
+200	WE31      	000006	DIS       	PO                            	                              	 	
+200	WE31      	000005	REF       	                              	S_EKGRP                       	 	
+200	WI01      	000002	REF       	MAT                           	                              	 	
+200	WI01      	000001	REF       	                              	S_LGORT                       	 	
+200	WF01      	000001	REF       	AUF                           	                              	 	
+200	WF01      	000002	REF       	MAT                           	                              	 	
+200	WF01      	000003	REF       	                              	S_LGORT                       	 	
+200	WF01      	000004	DIS       	AUF                           	                              	 	
+200	WF01      	000005	DIS       	MAT                           	                              	 	
+200	WF01      	000006	DIS       	                              	S_LGORT                       	 	
+200	WF02      	000001	REF       	AUF                           	                              	 	
+200	WF02      	000002	REF       	MAT                           	                              	 	
+200	WF02      	000003	REF       	                              	S_LGORT                       	 	
+200	WF02      	000004	DIS       	AUF                           	                              	 	
+200	WF02      	000005	DIS       	MAT                           	                              	 	
+200	WF02      	000006	DIS       	                              	S_LGORT                       	 	
+200	WF03      	000002	REF       	MAT                           	                              	 	
+200	WF03      	000003	REF       	                              	S_LGORT                       	 	
+200	WF03      	000005	DIS       	MAT                           	                              	 	
+200	WF03      	000006	DIS       	                              	S_LGORT                       	 	
+200	WA01      	000001	REF       	MB                            	                              	 	
+200	WA01      	000002	REF       	MAT                           	                              	 	
+200	WA02      	000001	REF       	MB                            	                              	 	
+200	WA02      	000002	REF       	MAT                           	                              	 	
+200	WA03      	000001	REF       	MB                            	                              	 	
+200	WA03      	000002	REF       	MAT                           	                              	 	
+200	WA04      	000001	REF       	MB                            	                              	 	
+200	WA04      	000002	REF       	MAT                           	                              	 	
+200	WF11      	000001	REF       	AUF                           	                              	 	
+200	WF11      	000002	REF       	MAT                           	                              	 	
+200	WF21      	000001	REF       	MB                            	                              	 	
+200	WF21      	000002	REF       	MAT                           	                              	 	
+200	WF22      	000001	REF       	MB                            	                              	 	
+200	WF22      	000002	REF       	MAT                           	                              	 	
+200	WF22      	000003	REF       	                              	S_MTART                       	 	X
+200	WF23      	000002	REF       	MAT                           	                              	 	
+200	WF23      	000003	REF       	                              	S_LGORT                       	 	
+200	WF23      	000005	DIS       	MAT                           	                              	 	
+200	WF23      	000006	DIS       	                              	S_LGORT                       	 	
+200	WF02      	000007	REF       	                              	S_MTART                       	 	X
+200	WF24      	000001	REF       	AUF                           	                              	 	
+200	WF24      	000002	REF       	MAT                           	                              	 	
+200	WF24      	000003	REF       	                              	S_LGORT                       	 	
+200	WF24      	000004	DIS       	AUF                           	                              	 	
+200	WF24      	000005	DIS       	MAT                           	                              	 	
+200	WF24      	000006	DIS       	                              	S_LGORT                       	 	
+200	WF24      	000007	REF       	                              	S_MTART                       	 	X
+200	WF31      	000001	REF       	MB                            	                              	 	
+200	WF31      	000002	REF       	MAT                           	                              	 	
+200	WF32      	000001	REF       	MB                            	                              	 	
+200	WF32      	000002	REF       	MAT                           	                              	 	
+200	WF32      	000003	REF       	                              	S_MTART                       	 	X
+200	WA11      	000001	REF       	MB                            	                              	 	
+200	WA11      	000002	REF       	MAT                           	                              	 	
+200	WA12      	000001	REF       	MB                            	                              	 	
+200	WA12      	000002	REF       	MAT                           	                              	 	
+200	WA12      	000003	REF       	                              	S_MTART                       	 	X
+200	WA13      	000002	REF       	MAT                           	                              	 	
+200	WA33      	000004	DIS       	MAT                           	                              	 	
+200	WA13      	000005	DIS       	MAT                           	                              	 	
+200	WF11      	000003	REF       	                              	S_EXORD                       	 	
+200	WA14      	000002	REF       	MAT                           	                              	 	
+200	WA14      	000005	DIS       	MAT                           	                              	 	
+200	WA14      	000006	DIS       	                              	S_LGORT                       	 	
+200	WA14      	000007	REF       	                              	S_MTART                       	 	X
+200	WF11      	000004	REF       	                              	S_KDMAT                       	 	
+200	PO01      	000500	REF_IN    	                              	S_LGORT                       	 	
+200	PO01      	000510	REF_IN    	MAT                           	                              	 	
+200	WF01      	000010	REF_IN    	                              	S_LGORT                       	 	
+200	WF01      	000011	REF_IN    	MAT                           	                              	 	
+200	PO01      	000505	REF_IN    	                              	S_EBELN                       	 	
+200	PO01      	000520	REF_IN    	                              	S_AFONO                       	 	

@@ -8,8 +8,12 @@ FUNCTION zafo_ui .
     EXPORTING
       i_class = i_class.
   CHECK <io_class>->werks IS NOT INITIAL.
+  ASSIGN <io_class>->head TO <head>.
   DATA(ob_text) = <io_class>->set_screen_text( ).
-  ASSIGN ob_text->* TO <gs_text>.
-  CALL SCREEN '200'.
+  ASSIGN ob_text->* TO <text>.
+  IF sy-dynnr NE '0200' .
+    CALL SCREEN '200'.
+  ENDIF.
+
 
 ENDFUNCTION.

@@ -20,7 +20,7 @@ FUNCTION zafo_idoc_input.
 *"--------------------------------------------------------------------
 *----------------------------------------------------------------------*
 *  this function module is generated                                   *
-*          never change it manually, please!        2023.10.25         *
+*          never change it manually, please!        2024.03.25         *
 *----------------------------------------------------------------------*
 
   DATA:
@@ -32,6 +32,8 @@ FUNCTION zafo_idoc_input.
         zafo_shead-afono,
       es_head LIKE
         zafo_shead,
+      et_item TYPE
+        zafo_tt_sitem,
       is_head LIKE
         zafo_bapi_head,
       i_post LIKE
@@ -147,6 +149,7 @@ FUNCTION zafo_idoc_input.
        IMPORTING
         e_afono = e_afono
         es_head = es_head
+        et_item = et_item
        TABLES
         it_item = it_item
         et_return = et_return

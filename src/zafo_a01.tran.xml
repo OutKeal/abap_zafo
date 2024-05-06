@@ -14,14 +14,8 @@
    <TSTCT>
     <SPRSL>1</SPRSL>
     <TCODE>ZAFO_A01</TCODE>
-    <TTEXT>指令单申请业务</TTEXT>
+    <TTEXT>zafo测试</TTEXT>
    </TSTCT>
-   <I18N_TPOOL>
-    <TSTCT>
-     <SPRSL>E</SPRSL>
-     <TTEXT>Equipment office supplies applicatio</TTEXT>
-    </TSTCT>
-   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

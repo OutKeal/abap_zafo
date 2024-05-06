@@ -11,7 +11,7 @@
     <item>
      <FUNCNAME>ZAFO_CREATE</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>ZAFO调用创建</SHORT_TEXT>
+     <SHORT_TEXT>ZAFO创建接口</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_HEAD</PARAMETER>
@@ -37,16 +37,15 @@
        <PARAMETER>ES_HEAD</PARAMETER>
        <TYP>ZAFO_SHEAD</TYP>
       </RSEXP>
+      <RSEXP>
+       <PARAMETER>ET_ITEM</PARAMETER>
+       <TYP>ZAFO_TT_SITEM</TYP>
+      </RSEXP>
      </EXPORT>
      <TABLES>
       <RSTBL>
        <PARAMETER>IT_ITEM</PARAMETER>
        <DBSTRUCT>ZAFO_BAPI_ITEM</DBSTRUCT>
-      </RSTBL>
-      <RSTBL>
-       <PARAMETER>ET_ITEM</PARAMETER>
-       <DBSTRUCT>ZAFO_SITEM</DBSTRUCT>
-       <OPTIONAL>X</OPTIONAL>
       </RSTBL>
       <RSTBL>
        <PARAMETER>ET_RETURN</PARAMETER>
@@ -81,14 +80,14 @@
        <STEXT>抬头结构</STEXT>
       </RSFDO>
       <RSFDO>
+       <PARAMETER>ET_ITEM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ZAFO_SITEM</STEXT>
+      </RSFDO>
+      <RSFDO>
        <PARAMETER>IT_ITEM</PARAMETER>
        <KIND>P</KIND>
        <STEXT>BAPI调用项目</STEXT>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ET_ITEM</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>平台行结构</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RETURN</PARAMETER>
@@ -383,6 +382,19 @@
      </DOCUMENTATION>
     </item>
    </FUNCTIONS>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>E</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>001</KEY>
+       <ENTRY>factory</ENTRY>
+       <LENGTH>12</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
    <DYNPROS>
     <item>
      <HEADER>
@@ -443,6 +455,242 @@
     <item>
      <HEADER>
       <PROGRAM>SAPLZAFO</PROGRAM>
+      <SCREEN>0110</SCREEN>
+      <LANGUAGE>1</LANGUAGE>
+      <DESCRIPT>屏幕</DESCRIPT>
+      <TYPE>N</TYPE>
+      <NEXTSCREEN>0110</NEXTSCREEN>
+      <LINES>200</LINES>
+      <COLUMNS>255</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>SUBSCREEN</TYPE>
+       <NAME>SEL</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>001</LINE>
+       <COLUMN>006</COLUMN>
+       <LENGTH>250</LENGTH>
+       <HEIGHT>037</HEIGHT>
+       <C_RESIZE_H>X</C_RESIZE_H>
+       <C_COLN_MIN>001</C_COLN_MIN>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>SUBSCREEN</TYPE>
+       <NAME>ALV</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>038</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>254</LENGTH>
+       <HEIGHT>163</HEIGHT>
+       <C_RESIZE_H>X</C_RESIZE_H>
+       <C_COLN_MIN>010</C_COLN_MIN>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>PUSH_TMPL</TYPE>
+       <NAME>REF_IN_SWITCH</NAME>
+       <TEXT>____</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>004</LENGTH>
+       <VISLENGTH>004</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <PUSH_FCODE>&amp;SWITCH</PUSH_FCODE>
+       <FORMAT>CHAR</FORMAT>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+     <FLOW_LOGIC>
+      <RPY_DYFLOW>
+       <LINE>PROCESS BEFORE OUTPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  MODULE status_0100.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  MODULE set_call_screen.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sel INCLUDING ref_in_call_report ref_in_call_subsrceen.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN alv INCLUDING sy-repid &apos;0112&apos;.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>*  MODULE create_object_0110.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN sel.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN alv.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  MODULE exit_command AT EXIT-COMMAND.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  MODULE user_command_0110.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  MODULE user_command_0100.</LINE>
+      </RPY_DYFLOW>
+     </FLOW_LOGIC>
+    </item>
+    <item>
+     <HEADER>
+      <PROGRAM>SAPLZAFO</PROGRAM>
+      <SCREEN>0111</SCREEN>
+      <LANGUAGE>1</LANGUAGE>
+      <DESCRIPT>空白子屏幕</DESCRIPT>
+      <TYPE>I</TYPE>
+      <NEXTSCREEN>0111</NEXTSCREEN>
+      <LINES>027</LINES>
+      <COLUMNS>120</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>LABEL</NAME>
+       <TEXT>选择条件____</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>008</LENGTH>
+       <VISLENGTH>008</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+     <FLOW_LOGIC>
+      <RPY_DYFLOW>
+       <LINE>PROCESS BEFORE OUTPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>* MODULE STATUS_0111.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>*</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>* MODULE USER_COMMAND_0111.</LINE>
+      </RPY_DYFLOW>
+     </FLOW_LOGIC>
+    </item>
+    <item>
+     <HEADER>
+      <PROGRAM>SAPLZAFO</PROGRAM>
+      <SCREEN>0112</SCREEN>
+      <LANGUAGE>1</LANGUAGE>
+      <DESCRIPT>alv屏幕</DESCRIPT>
+      <TYPE>I</TYPE>
+      <NEXTSCREEN>0112</NEXTSCREEN>
+      <LINES>200</LINES>
+      <COLUMNS>255</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>CUST_CTRL</TYPE>
+       <NAME>ALV</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>255</LENGTH>
+       <HEIGHT>200</HEIGHT>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+     <FLOW_LOGIC>
+      <RPY_DYFLOW>
+       <LINE>PROCESS BEFORE OUTPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>* MODULE STATUS_0112.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  MODULE create_object_0110.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>* MODULE USER_COMMAND_0112.</LINE>
+      </RPY_DYFLOW>
+     </FLOW_LOGIC>
+    </item>
+    <item>
+     <HEADER>
+      <PROGRAM>SAPLZAFO</PROGRAM>
       <SCREEN>0200</SCREEN>
       <LANGUAGE>1</LANGUAGE>
       <DESCRIPT>单据主屏幕</DESCRIPT>
@@ -462,7 +710,7 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>003</COLUMN>
-       <LENGTH>209</LENGTH>
+       <LENGTH>253</LENGTH>
        <HEIGHT>008</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -476,7 +724,7 @@
        <ELEMENT_OF>TAG0200</ELEMENT_OF>
        <LINE>003</LINE>
        <COLUMN>004</COLUMN>
-       <LENGTH>207</LENGTH>
+       <LENGTH>251</LENGTH>
        <HEIGHT>005</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -491,7 +739,7 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>009</LINE>
        <COLUMN>003</COLUMN>
-       <LENGTH>209</LENGTH>
+       <LENGTH>253</LENGTH>
        <HEIGHT>029</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -722,7 +970,7 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>104</LENGTH>
+       <LENGTH>080</LENGTH>
        <HEIGHT>006</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -734,46 +982,45 @@
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEXT</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-TMODEL</NAME>
-       <TEXT>条款__</TEXT>
+       <TYPE>PUSH</TYPE>
+       <NAME>TEXT_CHOISE_MODEL</NAME>
+       <TEXT>选择模板____</TEXT>
        <LINE>001</LINE>
-       <COLUMN>106</COLUMN>
-       <LENGTH>004</LENGTH>
-       <VISLENGTH>004</VISLENGTH>
+       <COLUMN>083</COLUMN>
+       <LENGTH>008</LENGTH>
+       <VISLENGTH>008</VISLENGTH>
        <HEIGHT>001</HEIGHT>
+       <PUSH_FCODE>&amp;TEXT_CHOISE_MODEL</PUSH_FCODE>
        <FORMAT>CHAR</FORMAT>
        <REQU_ENTRY>N</REQU_ENTRY>
-       <LABELLEFT>X</LABELLEFT>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-TMODEL</NAME>
-       <TEXT>_______________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>112</COLUMN>
-       <LENGTH>015</LENGTH>
-       <VISLENGTH>015</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <INPUT_FLD>X</INPUT_FLD>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <POSS_ENTRY>1</POSS_ENTRY>
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>PUSH</TYPE>
-       <NAME>ZOOMIN</NAME>
+       <NAME>TEXT_DISPLAY_ALL</NAME>
        <TEXT>全部显示____</TEXT>
-       <LINE>003</LINE>
-       <COLUMN>106</COLUMN>
+       <LINE>002</LINE>
+       <COLUMN>083</COLUMN>
        <LENGTH>008</LENGTH>
        <VISLENGTH>008</VISLENGTH>
        <HEIGHT>001</HEIGHT>
-       <PUSH_FCODE>&amp;ZOOMIN</PUSH_FCODE>
+       <PUSH_FCODE>&amp;TEXT_DISPLAY_ALL</PUSH_FCODE>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>PUSH</TYPE>
+       <NAME>HTML_EDITOR_DISPLAY</NAME>
+       <TEXT>富文本编辑_____</TEXT>
+       <LINE>003</LINE>
+       <COLUMN>083</COLUMN>
+       <LENGTH>010</LENGTH>
+       <VISLENGTH>010</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <PUSH_FCODE>&amp;HTML_EDITOR_DISPLAY</PUSH_FCODE>
        <FORMAT>CHAR</FORMAT>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
@@ -808,26 +1055,9 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
-      <RPY_DYFLOW>
-       <LINE>  CHAIN.</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-tmodel</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>    MODULE set_editor_text ON CHAIN-REQUEST.</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW/>
-      <RPY_DYFLOW>
-       <LINE>  ENDCHAIN.</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW/>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-tmodel MODULE head-tmodel_list.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -867,7 +1097,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT01</NAME>
+       <NAME>&lt;TEXT&gt;-DICT01</NAME>
        <TEXT>_____________</TEXT>
        <LINE>002</LINE>
        <COLUMN>004</COLUMN>
@@ -884,7 +1114,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT01</NAME>
+       <NAME>&lt;HEAD&gt;-DICT01</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -903,7 +1133,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT02</NAME>
+       <NAME>&lt;TEXT&gt;-DICT02</NAME>
        <TEXT>_____________</TEXT>
        <LINE>002</LINE>
        <COLUMN>056</COLUMN>
@@ -921,7 +1151,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT02</NAME>
+       <NAME>&lt;HEAD&gt;-DICT02</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -940,7 +1170,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT03</NAME>
+       <NAME>&lt;TEXT&gt;-DICT03</NAME>
        <TEXT>_____________</TEXT>
        <LINE>003</LINE>
        <COLUMN>004</COLUMN>
@@ -958,7 +1188,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT03</NAME>
+       <NAME>&lt;HEAD&gt;-DICT03</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>003</LINE>
@@ -977,7 +1207,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT04</NAME>
+       <NAME>&lt;TEXT&gt;-DICT04</NAME>
        <TEXT>_____________</TEXT>
        <LINE>003</LINE>
        <COLUMN>056</COLUMN>
@@ -995,7 +1225,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT04</NAME>
+       <NAME>&lt;HEAD&gt;-DICT04</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>003</LINE>
@@ -1014,7 +1244,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT05</NAME>
+       <NAME>&lt;TEXT&gt;-DICT05</NAME>
        <TEXT>_____________</TEXT>
        <LINE>004</LINE>
        <COLUMN>004</COLUMN>
@@ -1032,7 +1262,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT05</NAME>
+       <NAME>&lt;HEAD&gt;-DICT05</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>004</LINE>
@@ -1051,7 +1281,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT06</NAME>
+       <NAME>&lt;TEXT&gt;-DICT06</NAME>
        <TEXT>_____________</TEXT>
        <LINE>004</LINE>
        <COLUMN>056</COLUMN>
@@ -1069,7 +1299,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT06</NAME>
+       <NAME>&lt;HEAD&gt;-DICT06</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>004</LINE>
@@ -1088,7 +1318,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT07</NAME>
+       <NAME>&lt;TEXT&gt;-DICT07</NAME>
        <TEXT>_____________</TEXT>
        <LINE>005</LINE>
        <COLUMN>004</COLUMN>
@@ -1106,7 +1336,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT07</NAME>
+       <NAME>&lt;HEAD&gt;-DICT07</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>005</LINE>
@@ -1125,7 +1355,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT08</NAME>
+       <NAME>&lt;TEXT&gt;-DICT08</NAME>
        <TEXT>_____________</TEXT>
        <LINE>005</LINE>
        <COLUMN>056</COLUMN>
@@ -1143,7 +1373,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT08</NAME>
+       <NAME>&lt;HEAD&gt;-DICT08</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>005</LINE>
@@ -1162,7 +1392,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT09</NAME>
+       <NAME>&lt;TEXT&gt;-DICT09</NAME>
        <TEXT>_____________</TEXT>
        <LINE>006</LINE>
        <COLUMN>004</COLUMN>
@@ -1180,7 +1410,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT09</NAME>
+       <NAME>&lt;HEAD&gt;-DICT09</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>006</LINE>
@@ -1199,7 +1429,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-DICT10</NAME>
+       <NAME>&lt;TEXT&gt;-DICT10</NAME>
        <TEXT>_____________</TEXT>
        <LINE>006</LINE>
        <COLUMN>056</COLUMN>
@@ -1217,7 +1447,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-DICT10</NAME>
+       <NAME>&lt;HEAD&gt;-DICT10</NAME>
        <TEXT>__________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>006</LINE>
@@ -1257,40 +1487,38 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
-      <RPY_DYFLOW/>
-      <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict01 MODULE head-dict01.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict01 MODULE head-dict01.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict02 MODULE head-dict02.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict02 MODULE head-dict02.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict03 MODULE head-dict03.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict03 MODULE head-dict03.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict04 MODULE head-dict04.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict04 MODULE head-dict04.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict05 MODULE head-dict05.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict05 MODULE head-dict05.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict06 MODULE head-dict06.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict06 MODULE head-dict06.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict07 MODULE head-dict07.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict07 MODULE head-dict07.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict08 MODULE head-dict08.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict08 MODULE head-dict08.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict09 MODULE head-dict09.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict09 MODULE head-dict09.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-dict10 MODULE head-dict10.</LINE>
+       <LINE>  FIELD &lt;head&gt;-dict10 MODULE head-dict10.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -1372,7 +1600,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-AFONO</NAME>
+       <NAME>&lt;TEXT&gt;-AFONO</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -1388,7 +1616,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-AFONO</NAME>
+       <NAME>&lt;HEAD&gt;-AFONO</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>010</COLUMN>
@@ -1405,7 +1633,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-STATUS</NAME>
+       <NAME>&lt;TEXT&gt;-STATUS</NAME>
        <TEXT>_______</TEXT>
        <LINE>001</LINE>
        <COLUMN>023</COLUMN>
@@ -1422,41 +1650,10 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-TEXT</NAME>
-       <TEXT>_______</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>031</COLUMN>
-       <LENGTH>007</LENGTH>
-       <VISLENGTH>007</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <CONV_EXIT>ALPHA</CONV_EXIT>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <REQU_ENTRY>N</REQU_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-ICON</NAME>
-       <TEXT>____</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>039</COLUMN>
-       <LENGTH>004</LENGTH>
-       <VISLENGTH>004</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <REQU_ENTRY>N</REQU_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-STATUS</NAME>
+       <NAME>&lt;HEAD&gt;-STATUS</NAME>
        <TEXT>_</TEXT>
        <LINE>001</LINE>
-       <COLUMN>044</COLUMN>
+       <COLUMN>031</COLUMN>
        <LENGTH>001</LENGTH>
        <VISLENGTH>001</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -1469,7 +1666,38 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BLDAT</NAME>
+       <NAME>&lt;HEAD&gt;-TEXT</NAME>
+       <TEXT>_______</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>033</COLUMN>
+       <LENGTH>007</LENGTH>
+       <VISLENGTH>007</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <CONV_EXIT>ALPHA</CONV_EXIT>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>&lt;HEAD&gt;-ICON</NAME>
+       <TEXT>____</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>041</COLUMN>
+       <LENGTH>004</LENGTH>
+       <VISLENGTH>004</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>&lt;TEXT&gt;-BLDAT</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>046</COLUMN>
@@ -1486,7 +1714,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BLDAT</NAME>
+       <NAME>&lt;HEAD&gt;-BLDAT</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>056</COLUMN>
@@ -1501,7 +1729,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-MENGE</NAME>
+       <NAME>&lt;TEXT&gt;-MENGE</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>067</COLUMN>
@@ -1518,7 +1746,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-MENGE</NAME>
+       <NAME>&lt;HEAD&gt;-MENGE</NAME>
        <TEXT>________________V</TEXT>
        <LINE>001</LINE>
        <COLUMN>077</COLUMN>
@@ -1533,7 +1761,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-ERNAM</NAME>
+       <NAME>&lt;TEXT&gt;-ERNAM</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>095</COLUMN>
@@ -1550,7 +1778,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-ERNAM</NAME>
+       <NAME>&lt;HEAD&gt;-ERNAM</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>104</COLUMN>
@@ -1566,7 +1794,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-APP_STATUS</NAME>
+       <NAME>&lt;TEXT&gt;-APP_STATUS</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>115</COLUMN>
@@ -1583,7 +1811,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-APP_STATUS</NAME>
+       <NAME>&lt;HEAD&gt;-APP_STATUS</NAME>
        <TEXT>_</TEXT>
        <LINE>001</LINE>
        <COLUMN>125</COLUMN>
@@ -1598,7 +1826,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-REMARK1</NAME>
+       <NAME>&lt;TEXT&gt;-REMARK1</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -1615,7 +1843,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-REMARK1</NAME>
+       <NAME>&lt;HEAD&gt;-REMARK1</NAME>
        <TEXT>___________________________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>010</COLUMN>
@@ -1625,12 +1853,13 @@
        <FORMAT>CHAR</FORMAT>
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
+       <PROPERTIES>&lt;CustomProperty color=&quot;BULE&quot; backgroup-color=&quot;RED&quot;/&gt;</PROPERTIES>
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUDAT</NAME>
+       <NAME>&lt;TEXT&gt;-BUDAT</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>046</COLUMN>
@@ -1647,7 +1876,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUDAT</NAME>
+       <NAME>&lt;HEAD&gt;-BUDAT</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>056</COLUMN>
@@ -1663,7 +1892,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-AMOUNT</NAME>
+       <NAME>&lt;TEXT&gt;-AMOUNT</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>067</COLUMN>
@@ -1680,7 +1909,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-AMOUNT</NAME>
+       <NAME>&lt;HEAD&gt;-AMOUNT</NAME>
        <TEXT>________________V</TEXT>
        <LINE>002</LINE>
        <COLUMN>077</COLUMN>
@@ -1695,7 +1924,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-ERDAT</NAME>
+       <NAME>&lt;TEXT&gt;-ERDAT</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>095</COLUMN>
@@ -1712,7 +1941,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-ERDAT</NAME>
+       <NAME>&lt;HEAD&gt;-ERDAT</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>104</COLUMN>
@@ -1727,7 +1956,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-ERZET</NAME>
+       <NAME>&lt;HEAD&gt;-ERZET</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>115</COLUMN>
@@ -1736,6 +1965,22 @@
        <HEIGHT>001</HEIGHT>
        <FORMAT>TIMS</FORMAT>
        <OUTPUT_FLD>X</OUTPUT_FLD>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>PUSH</TYPE>
+       <NAME>&amp;HISTORY</NAME>
+       <ICON_NAME>ICON_HISTORY</ICON_NAME>
+       <WITH_ICON>X</WITH_ICON>
+       <LINE>002</LINE>
+       <COLUMN>125</COLUMN>
+       <LENGTH>004</LENGTH>
+       <VISLENGTH>002</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <PUSH_FCODE>&amp;HISTORY</PUSH_FCODE>
+       <FORMAT>CHAR</FORMAT>
        <REQU_ENTRY>N</REQU_ENTRY>
       </RPY_DYFATC>
       <RPY_DYFATC>
@@ -1795,7 +2040,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -1812,7 +2057,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
        <TEXT>______________________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -1830,7 +2075,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LIFNR</NAME>
+       <NAME>&lt;TEXT&gt;-LIFNR</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -1847,7 +2092,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>011</COLUMN>
@@ -1865,7 +2110,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -1881,7 +2126,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>051</COLUMN>
@@ -1898,7 +2143,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
        <TEXT>_______________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -1945,16 +2190,16 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>*    FIELD &lt;io_class&gt;-&gt;head-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
+       <LINE>*    FIELD &lt;HEAD&gt;-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -1964,13 +2209,13 @@
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE bukrs_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lifnr MODULE head-lifnr_f4.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -1996,7 +2241,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -2013,7 +2258,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
        <TEXT>____</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -2029,7 +2274,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KOSTL</NAME>
+       <NAME>&lt;TEXT&gt;-KOSTL</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -2046,7 +2291,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL</NAME>
+       <NAME>&lt;HEAD&gt;-KOSTL</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -2063,7 +2308,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
        <TEXT>________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -2080,7 +2325,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
        <TEXT>____</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -2126,13 +2371,13 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-kostl MODULE head-kostl ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-kostl MODULE head-kostl ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -2142,13 +2387,13 @@
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE bukrs_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-kostl MODULE kostl_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-kostl MODULE kostl_list.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -2174,7 +2419,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WERKS</NAME>
+       <NAME>&lt;TEXT&gt;-WERKS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -2191,7 +2436,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>010</COLUMN>
@@ -2207,7 +2452,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS_NAME</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>015</COLUMN>
@@ -2222,7 +2467,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-UMWRK</NAME>
+       <NAME>&lt;TEXT&gt;-UMWRK</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>054</COLUMN>
@@ -2239,7 +2484,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-UMWRK</NAME>
+       <NAME>&lt;HEAD&gt;-UMWRK</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>063</COLUMN>
@@ -2255,7 +2500,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-UMWRK_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-UMWRK_NAME</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>068</COLUMN>
@@ -2270,7 +2515,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -2287,7 +2532,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
        <TEXT>____</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -2304,7 +2549,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-UMLGO</NAME>
+       <NAME>&lt;TEXT&gt;-UMLGO</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>054</COLUMN>
@@ -2321,7 +2566,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-UMLGO</NAME>
+       <NAME>&lt;HEAD&gt;-UMLGO</NAME>
        <TEXT>____</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -2367,16 +2612,16 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-umwrk MODULE head-umwrk ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-umwrk MODULE head-umwrk ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-umlgo MODULE head-umlgo ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-umlgo MODULE head-umlgo ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -2386,10 +2631,10 @@
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-umlgo MODULE umlgo_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-umlgo MODULE umlgo_list.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -2415,7 +2660,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BSART</NAME>
+       <NAME>&lt;TEXT&gt;-BSART</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -2432,7 +2677,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BSART</NAME>
+       <NAME>&lt;HEAD&gt;-BSART</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -2448,7 +2693,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WAERS</NAME>
+       <NAME>&lt;HEAD&gt;-WAERS</NAME>
        <TEXT>_____</TEXT>
        <LINE>001</LINE>
        <COLUMN>033</COLUMN>
@@ -2464,29 +2709,29 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-MWSKZ</NAME>
-       <TEXT>_______</TEXT>
+       <NAME>&lt;TEXT&gt;-MWSKZ</NAME>
+       <TEXT>____</TEXT>
        <LINE>001</LINE>
-       <COLUMN>040</COLUMN>
-       <LENGTH>007</LENGTH>
-       <VISLENGTH>007</VISLENGTH>
+       <COLUMN>039</COLUMN>
+       <LENGTH>004</LENGTH>
+       <VISLENGTH>004</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <OUTPUTONLY>X</OUTPUTONLY>
        <REQU_ENTRY>N</REQU_ENTRY>
-       <LABELLEFT>X</LABELLEFT>
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-MWSKZ</NAME>
+       <NAME>&lt;HEAD&gt;-MWSKZ</NAME>
        <TEXT>_____</TEXT>
+       <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
-       <COLUMN>048</COLUMN>
+       <COLUMN>044</COLUMN>
        <LENGTH>005</LENGTH>
-       <VISLENGTH>005</VISLENGTH>
+       <VISLENGTH>009</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <OUTPUT_FLD>X</OUTPUT_FLD>
@@ -2497,7 +2742,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>054</COLUMN>
@@ -2514,7 +2759,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -2532,7 +2777,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>089</COLUMN>
@@ -2549,7 +2794,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -2565,7 +2810,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LIFNR</NAME>
+       <NAME>&lt;TEXT&gt;-LIFNR</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -2582,7 +2827,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>011</COLUMN>
@@ -2601,7 +2846,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -2617,7 +2862,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-EKGRP</NAME>
+       <NAME>&lt;TEXT&gt;-EKGRP</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>054</COLUMN>
@@ -2634,7 +2879,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-EKGRP</NAME>
+       <NAME>&lt;HEAD&gt;-EKGRP</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -2650,7 +2895,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KOSTL</NAME>
+       <NAME>&lt;TEXT&gt;-KOSTL</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>089</COLUMN>
@@ -2667,7 +2912,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL</NAME>
+       <NAME>&lt;HEAD&gt;-KOSTL</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -2683,7 +2928,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-EEIND</NAME>
+       <NAME>&lt;TEXT&gt;-EEIND</NAME>
        <TEXT>_______</TEXT>
        <LINE>002</LINE>
        <COLUMN>117</COLUMN>
@@ -2700,7 +2945,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-EEIND</NAME>
+       <NAME>&lt;HEAD&gt;-EEIND</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>125</COLUMN>
@@ -2751,22 +2996,22 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>*    FIELD &lt;io_class&gt;-&gt;head-ekorg MODULE head-ekorg ON CHAIN-REQUEST.</LINE>
+       <LINE>*    FIELD &lt;HEAD&gt;-ekorg MODULE head-ekorg ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-waers.</LINE>
+       <LINE>    FIELD &lt;head&gt;-waers.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -2777,25 +3022,25 @@
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE bukrs_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-KOSTL MODULE KOSTL_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-kostl MODULE kostl_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-ekgrp MODULE po_ekgrp_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-ekgrp MODULE po_ekgrp_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bsart MODULE po_bsart_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bsart MODULE po_bsart_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-mwskz MODULE mwskz_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-mwskz MODULE mwskz_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lifnr MODULE head-lifnr_f4.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -2821,7 +3066,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-AUART</NAME>
+       <NAME>&lt;TEXT&gt;-AUART</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -2838,7 +3083,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-AUART</NAME>
+       <NAME>&lt;HEAD&gt;-AUART</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -2855,7 +3100,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WAERS</NAME>
+       <NAME>&lt;TEXT&gt;-WAERS</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>042</COLUMN>
@@ -2872,7 +3117,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WAERS</NAME>
+       <NAME>&lt;HEAD&gt;-WAERS</NAME>
        <TEXT>_____</TEXT>
        <LINE>001</LINE>
        <COLUMN>047</COLUMN>
@@ -2888,7 +3133,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-VKORG</NAME>
+       <NAME>&lt;TEXT&gt;-VKORG</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>053</COLUMN>
@@ -2905,7 +3150,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-VKORG</NAME>
+       <NAME>&lt;HEAD&gt;-VKORG</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -2923,7 +3168,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>090</COLUMN>
@@ -2940,7 +3185,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
        <TEXT>________________________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -2956,7 +3201,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KUNNR</NAME>
+       <NAME>&lt;TEXT&gt;-KUNNR</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -2973,7 +3218,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KUNNR</NAME>
+       <NAME>&lt;HEAD&gt;-KUNNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>011</COLUMN>
@@ -2991,7 +3236,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KUNNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-KUNNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -3007,7 +3252,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-VTWEG</NAME>
+       <NAME>&lt;TEXT&gt;-VTWEG</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>053</COLUMN>
@@ -3024,7 +3269,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-VTWEG</NAME>
+       <NAME>&lt;HEAD&gt;-VTWEG</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -3041,7 +3286,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-EEIND</NAME>
+       <NAME>&lt;TEXT&gt;-EEIND</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>090</COLUMN>
@@ -3058,7 +3303,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-EEIND</NAME>
+       <NAME>&lt;HEAD&gt;-EEIND</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>099</COLUMN>
@@ -3108,19 +3353,19 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-vkorg MODULE head-vkorg ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-vkorg MODULE head-vkorg ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-kunnr MODULE head-kunnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-kunnr MODULE head-kunnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-waers.</LINE>
+       <LINE>    FIELD &lt;head&gt;-waers.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -3133,10 +3378,10 @@
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-kunnr MODULE head-kunnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-kunnr MODULE head-kunnr_f4.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE head-bukrs_list.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -3162,7 +3407,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-VBELN_VL</NAME>
+       <NAME>&lt;TEXT&gt;-VBELN_VL</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -3179,7 +3424,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-VBELN_VL</NAME>
+       <NAME>&lt;HEAD&gt;-VBELN_VL</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>011</COLUMN>
@@ -3197,7 +3442,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LFART</NAME>
+       <NAME>&lt;TEXT&gt;-LFART</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>022</COLUMN>
@@ -3214,7 +3459,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LFART</NAME>
+       <NAME>&lt;HEAD&gt;-LFART</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -3231,7 +3476,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WERKS</NAME>
+       <NAME>&lt;TEXT&gt;-WERKS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>049</COLUMN>
@@ -3248,7 +3493,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>058</COLUMN>
@@ -3265,7 +3510,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>001</LINE>
@@ -3281,7 +3526,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-EEIND</NAME>
+       <NAME>&lt;TEXT&gt;-EEIND</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>083</COLUMN>
@@ -3298,7 +3543,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-EEIND</NAME>
+       <NAME>&lt;HEAD&gt;-EEIND</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>092</COLUMN>
@@ -3314,7 +3559,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WAERS</NAME>
+       <NAME>&lt;TEXT&gt;-WAERS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>103</COLUMN>
@@ -3331,7 +3576,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WAERS</NAME>
+       <NAME>&lt;HEAD&gt;-WAERS</NAME>
        <TEXT>_____</TEXT>
        <LINE>001</LINE>
        <COLUMN>112</COLUMN>
@@ -3347,7 +3592,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KUNNR</NAME>
+       <NAME>&lt;TEXT&gt;-KUNNR</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -3364,7 +3609,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KUNNR</NAME>
+       <NAME>&lt;HEAD&gt;-KUNNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>011</COLUMN>
@@ -3382,7 +3627,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KUNNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-KUNNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -3398,7 +3643,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>049</COLUMN>
@@ -3415,7 +3660,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
        <TEXT>____</TEXT>
        <LINE>002</LINE>
        <COLUMN>058</COLUMN>
@@ -3432,7 +3677,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -3448,7 +3693,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-REMARK_DATE</NAME>
+       <NAME>&lt;TEXT&gt;-REMARK_DATE</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>083</COLUMN>
@@ -3465,7 +3710,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-REMARK_DATE</NAME>
+       <NAME>&lt;HEAD&gt;-REMARK_DATE</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>092</COLUMN>
@@ -3514,10 +3759,10 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-werks ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-werks ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-kunnr MODULE head-kunnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-kunnr MODULE head-kunnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -3528,13 +3773,13 @@
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-kunnr MODULE head-kunnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-kunnr MODULE head-kunnr_f4.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lfart MODULE lfart_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lfart MODULE lfart_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -3560,7 +3805,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WERKS</NAME>
+       <NAME>&lt;TEXT&gt;-WERKS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -3577,7 +3822,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>010</COLUMN>
@@ -3593,7 +3838,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS_NAME</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>016</COLUMN>
@@ -3608,7 +3853,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-UMWRK</NAME>
+       <NAME>&lt;TEXT&gt;-UMWRK</NAME>
        <TEXT>____________</TEXT>
        <LINE>001</LINE>
        <COLUMN>050</COLUMN>
@@ -3625,7 +3870,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-UMWRK</NAME>
+       <NAME>&lt;HEAD&gt;-UMWRK</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>063</COLUMN>
@@ -3641,7 +3886,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-UMWRK_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-UMWRK_NAME</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>069</COLUMN>
@@ -3656,7 +3901,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -3673,7 +3918,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
        <TEXT>____</TEXT>
        <LINE>002</LINE>
        <COLUMN>010</COLUMN>
@@ -3689,7 +3934,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT_NAME</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>016</COLUMN>
@@ -3704,7 +3949,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-UMLGO</NAME>
+       <NAME>&lt;TEXT&gt;-UMLGO</NAME>
        <TEXT>____________</TEXT>
        <LINE>002</LINE>
        <COLUMN>050</COLUMN>
@@ -3721,7 +3966,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-UMLGO</NAME>
+       <NAME>&lt;HEAD&gt;-UMLGO</NAME>
        <TEXT>____</TEXT>
        <LINE>002</LINE>
        <COLUMN>063</COLUMN>
@@ -3737,7 +3982,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-UMLGO_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-UMLGO_NAME</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>069</COLUMN>
@@ -3781,16 +4026,16 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-umwrk MODULE head-umwrk ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-umwrk MODULE head-umwrk ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-umlgo MODULE head-umlgo ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-umlgo MODULE head-umlgo ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -3823,7 +4068,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LIFNR</NAME>
+       <NAME>&lt;TEXT&gt;-LIFNR</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -3840,7 +4085,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>011</COLUMN>
@@ -3858,7 +4103,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>001</LINE>
@@ -3874,7 +4119,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>057</COLUMN>
@@ -3891,7 +4136,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>067</COLUMN>
@@ -3907,7 +4152,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS_NAME</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>073</COLUMN>
@@ -3923,7 +4168,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KOSTL</NAME>
+       <NAME>&lt;TEXT&gt;-KOSTL</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -3940,7 +4185,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL</NAME>
+       <NAME>&lt;HEAD&gt;-KOSTL</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>011</COLUMN>
@@ -3957,7 +4202,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-KOSTL_NAME</NAME>
        <TEXT>_________________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>022</COLUMN>
@@ -3973,7 +4218,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-MWSKZ</NAME>
+       <NAME>&lt;TEXT&gt;-MWSKZ</NAME>
        <TEXT>_________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -3991,7 +4236,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-MWSKZ</NAME>
+       <NAME>&lt;HEAD&gt;-MWSKZ</NAME>
        <TEXT>_______</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -4008,7 +4253,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WAERS</NAME>
+       <NAME>&lt;TEXT&gt;-WAERS</NAME>
        <TEXT>____</TEXT>
        <LINE>002</LINE>
        <COLUMN>093</COLUMN>
@@ -4025,7 +4270,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WAERS</NAME>
+       <NAME>&lt;HEAD&gt;-WAERS</NAME>
        <TEXT>_____</TEXT>
        <LINE>002</LINE>
        <COLUMN>098</COLUMN>
@@ -4070,16 +4315,16 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-kostl MODULE head-kostl ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-kostl MODULE head-kostl ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-waers .</LINE>
+       <LINE>    FIELD &lt;head&gt;-waers .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -4089,19 +4334,19 @@
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE bukrs_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-kostl MODULE kostl_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-kostl MODULE kostl_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-mwskz MODULE mwskz_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-mwskz MODULE mwskz_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
+       <LINE>*  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lifnr MODULE head-lifnr_f4.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -4127,7 +4372,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BANFN</NAME>
+       <NAME>&lt;TEXT&gt;-BANFN</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -4144,7 +4389,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BANFN</NAME>
+       <NAME>&lt;HEAD&gt;-BANFN</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>012</COLUMN>
@@ -4162,7 +4407,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BSART</NAME>
+       <NAME>&lt;TEXT&gt;-BSART</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>023</COLUMN>
@@ -4179,7 +4424,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BSART</NAME>
+       <NAME>&lt;HEAD&gt;-BSART</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -4196,7 +4441,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WERKS</NAME>
+       <NAME>&lt;TEXT&gt;-WERKS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>049</COLUMN>
@@ -4213,7 +4458,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS</NAME>
        <TEXT>____</TEXT>
        <LINE>001</LINE>
        <COLUMN>058</COLUMN>
@@ -4228,7 +4473,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WERKS_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-WERKS_NAME</NAME>
        <TEXT>___________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>063</COLUMN>
@@ -4243,7 +4488,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LIFNR</NAME>
+       <NAME>&lt;TEXT&gt;-LIFNR</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>083</COLUMN>
@@ -4261,7 +4506,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>092</COLUMN>
@@ -4280,7 +4525,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>001</LINE>
@@ -4298,7 +4543,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-WAERS</NAME>
+       <NAME>&lt;TEXT&gt;-WAERS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>124</COLUMN>
@@ -4316,7 +4561,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WAERS</NAME>
+       <NAME>&lt;HEAD&gt;-WAERS</NAME>
        <TEXT>_____</TEXT>
        <LINE>001</LINE>
        <COLUMN>133</COLUMN>
@@ -4333,7 +4578,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-EEIND</NAME>
+       <NAME>&lt;TEXT&gt;-EEIND</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -4350,7 +4595,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-EEIND</NAME>
+       <NAME>&lt;HEAD&gt;-EEIND</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>012</COLUMN>
@@ -4366,7 +4611,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-EKGRP</NAME>
+       <NAME>&lt;TEXT&gt;-EKGRP</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>023</COLUMN>
@@ -4383,7 +4628,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-EKGRP</NAME>
+       <NAME>&lt;HEAD&gt;-EKGRP</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -4399,7 +4644,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>049</COLUMN>
@@ -4416,7 +4661,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
        <TEXT>____</TEXT>
        <LINE>002</LINE>
        <COLUMN>058</COLUMN>
@@ -4431,7 +4676,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LGORT_NAME</NAME>
        <TEXT>___________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>063</COLUMN>
@@ -4446,7 +4691,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KOSTL</NAME>
+       <NAME>&lt;TEXT&gt;-KOSTL</NAME>
        <TEXT>___________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -4465,7 +4710,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL</NAME>
+       <NAME>&lt;HEAD&gt;-KOSTL</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>092</COLUMN>
@@ -4484,7 +4729,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-KOSTL_NAME</NAME>
        <TEXT>____________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>103</COLUMN>
@@ -4501,7 +4746,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>124</COLUMN>
@@ -4519,7 +4764,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
        <TEXT>____</TEXT>
        <LINE>002</LINE>
        <COLUMN>133</COLUMN>
@@ -4536,7 +4781,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS_NAME</NAME>
        <TEXT>______________________</TEXT>
        <LINE>002</LINE>
        <COLUMN>138</COLUMN>
@@ -4571,7 +4816,7 @@
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>  MODULE listbox_ekgrp.</LINE>
+       <LINE>*  MODULE listbox_ekgrp.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>*</LINE>
@@ -4588,22 +4833,22 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-kostl MODULE head-kostl ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-kostl MODULE head-kostl ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -4612,21 +4857,23 @@
       <RPY_DYFLOW>
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
-      <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bsart MODULE pr_bsart_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-ekgrp MODULE po_ekgrp_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bsart MODULE pr_bsart_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE bukrs_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-kostl MODULE kostl_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-kostl MODULE kostl_list.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>  FIELD &lt;head&gt;-lifnr MODULE head-lifnr_f4.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -4635,11 +4882,11 @@
       <PROGRAM>SAPLZAFO</PROGRAM>
       <SCREEN>0410</SCREEN>
       <LANGUAGE>1</LANGUAGE>
-      <DESCRIPT>领用单一般屏幕</DESCRIPT>
+      <DESCRIPT>财务供应商一般抬头屏幕</DESCRIPT>
       <TYPE>I</TYPE>
       <NEXTSCREEN>0410</NEXTSCREEN>
-      <LINES>004</LINES>
-      <COLUMNS>131</COLUMNS>
+      <LINES>002</LINES>
+      <COLUMNS>178</COLUMNS>
      </HEADER>
      <CONTAINERS>
       <RPY_DYCATT>
@@ -4652,12 +4899,12 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
-       <TEXT>________</TEXT>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
+       <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>008</LENGTH>
-       <VISLENGTH>008</VISLENGTH>
+       <LENGTH>009</LENGTH>
+       <VISLENGTH>009</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <OUTPUT_FLD>X</OUTPUT_FLD>
@@ -4669,140 +4916,30 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
-       <TEXT>____</TEXT>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
+       <TEXT>______________________________________</TEXT>
+       <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
-       <COLUMN>010</COLUMN>
-       <LENGTH>004</LENGTH>
-       <VISLENGTH>004</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <INPUT_FLD>X</INPUT_FLD>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <POSS_ENTRY>1</POSS_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS_NAME</NAME>
-       <TEXT>______________________________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>016</COLUMN>
-       <LENGTH>030</LENGTH>
-       <VISLENGTH>030</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <REQU_ENTRY>N</REQU_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LGORT</NAME>
-       <TEXT>________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>058</COLUMN>
-       <LENGTH>008</LENGTH>
-       <VISLENGTH>008</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <OUTPUTONLY>X</OUTPUTONLY>
-       <REQU_ENTRY>N</REQU_ENTRY>
-       <LABELLEFT>X</LABELLEFT>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT</NAME>
-       <TEXT>____</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>067</COLUMN>
-       <LENGTH>004</LENGTH>
-       <VISLENGTH>004</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <INPUT_FLD>X</INPUT_FLD>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <POSS_ENTRY>1</POSS_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LGORT_NAME</NAME>
-       <TEXT>________________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>078</COLUMN>
-       <LENGTH>016</LENGTH>
-       <VISLENGTH>016</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <REQU_ENTRY>N</REQU_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KOSTL</NAME>
-       <TEXT>________</TEXT>
-       <LINE>002</LINE>
-       <COLUMN>001</COLUMN>
-       <LENGTH>008</LENGTH>
-       <VISLENGTH>008</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <OUTPUTONLY>X</OUTPUTONLY>
-       <REQU_ENTRY>N</REQU_ENTRY>
-       <LABELLEFT>X</LABELLEFT>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL</NAME>
-       <TEXT>__________</TEXT>
-       <LINE>002</LINE>
-       <COLUMN>010</COLUMN>
-       <LENGTH>010</LENGTH>
-       <VISLENGTH>010</VISLENGTH>
+       <COLUMN>011</COLUMN>
+       <LENGTH>038</LENGTH>
+       <VISLENGTH>038</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <CONV_EXIT>ALPHA</CONV_EXIT>
+       <PARAM_ID>LIF</PARAM_ID>
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
-       <POSS_ENTRY>1</POSS_ENTRY>
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KOSTL_NAME</NAME>
-       <TEXT>______________________________</TEXT>
+       <NAME>&lt;TEXT&gt;-LIFNR</NAME>
+       <TEXT>_________</TEXT>
        <LINE>002</LINE>
-       <COLUMN>021</COLUMN>
-       <LENGTH>030</LENGTH>
-       <VISLENGTH>030</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <REQU_ENTRY>N</REQU_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LIFNR</NAME>
-       <TEXT>________</TEXT>
-       <LINE>002</LINE>
-       <COLUMN>058</COLUMN>
-       <LENGTH>008</LENGTH>
-       <VISLENGTH>008</VISLENGTH>
+       <COLUMN>001</COLUMN>
+       <LENGTH>009</LENGTH>
+       <VISLENGTH>009</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <OUTPUT_FLD>X</OUTPUT_FLD>
@@ -4814,10 +4951,10 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
-       <COLUMN>067</COLUMN>
+       <COLUMN>011</COLUMN>
        <LENGTH>010</LENGTH>
        <VISLENGTH>010</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -4832,17 +4969,51 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
-       <COLUMN>078</COLUMN>
+       <COLUMN>022</COLUMN>
        <LENGTH>100</LENGTH>
-       <VISLENGTH>030</VISLENGTH>
+       <VISLENGTH>027</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>&lt;TEXT&gt;-LGORT</NAME>
+       <TEXT>_________</TEXT>
+       <LINE>002</LINE>
+       <COLUMN>051</COLUMN>
+       <LENGTH>009</LENGTH>
+       <VISLENGTH>009</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <OUTPUTONLY>X</OUTPUTONLY>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>&lt;HEAD&gt;-LGORT</NAME>
+       <TEXT>_______________________</TEXT>
+       <DROPDOWN>K</DROPDOWN>
+       <LINE>002</LINE>
+       <COLUMN>061</COLUMN>
+       <LENGTH>023</LENGTH>
+       <VISLENGTH>023</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <POSS_ENTRY>1</POSS_ENTRY>
       </RPY_DYFATC>
       <RPY_DYFATC>
        <CONT_TYPE>SCREEN</CONT_TYPE>
@@ -4873,20 +5044,21 @@
       <RPY_DYFLOW>
        <LINE>  MODULE get_cursor.</LINE>
       </RPY_DYFLOW>
+      <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lifnr MODULE head-lifnr_bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-kostl MODULE head-kostl ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lgort MODULE head-werks ON CHAIN-REQUEST.</LINE>
+       <LINE>*    FIELD &lt;HEAD&gt;-werks MODULE head-werks ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lgort MODULE head-lgort ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -4896,16 +5068,13 @@
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE bukrs_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-kostl MODULE kostl_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lgort MODULE lgort_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lgort MODULE lgort_list.</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lifnr MODULE head-lifnr_f4_bukrs.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -4931,7 +5100,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-LIFNR</NAME>
+       <NAME>&lt;TEXT&gt;-LIFNR</NAME>
        <TEXT>_________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
@@ -4948,7 +5117,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>001</LINE>
        <COLUMN>011</COLUMN>
@@ -4966,7 +5135,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-LIFNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-LIFNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>001</LINE>
@@ -4982,7 +5151,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-BUKRS</NAME>
+       <NAME>&lt;TEXT&gt;-BUKRS</NAME>
        <TEXT>________</TEXT>
        <LINE>001</LINE>
        <COLUMN>054</COLUMN>
@@ -4999,7 +5168,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-BUKRS</NAME>
+       <NAME>&lt;HEAD&gt;-BUKRS</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>001</LINE>
@@ -5017,7 +5186,39 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-KUNNR</NAME>
+       <NAME>&lt;TEXT&gt;-NETWR</NAME>
+       <TEXT>________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>092</COLUMN>
+       <LENGTH>008</LENGTH>
+       <VISLENGTH>008</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <OUTPUTONLY>X</OUTPUTONLY>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>&lt;HEAD&gt;-NETWR</NAME>
+       <TEXT>__________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>101</COLUMN>
+       <LENGTH>010</LENGTH>
+       <VISLENGTH>010</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>DEC</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>&lt;TEXT&gt;-KUNNR</NAME>
        <TEXT>_________</TEXT>
        <LINE>002</LINE>
        <COLUMN>001</COLUMN>
@@ -5034,7 +5235,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KUNNR</NAME>
+       <NAME>&lt;HEAD&gt;-KUNNR</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>011</COLUMN>
@@ -5052,7 +5253,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-KUNNR_NAME</NAME>
+       <NAME>&lt;HEAD&gt;-KUNNR_NAME</NAME>
        <TEXT>____________________________________________________________________________________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>002</LINE>
@@ -5068,7 +5269,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-AUART</NAME>
+       <NAME>&lt;TEXT&gt;-AUART</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>054</COLUMN>
@@ -5085,7 +5286,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-AUART</NAME>
+       <NAME>&lt;HEAD&gt;-AUART</NAME>
        <TEXT>__________</TEXT>
        <DROPDOWN>K</DROPDOWN>
        <LINE>002</LINE>
@@ -5102,7 +5303,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-WAERS</NAME>
+       <NAME>&lt;HEAD&gt;-WAERS</NAME>
        <TEXT>_____</TEXT>
        <LINE>002</LINE>
        <COLUMN>085</COLUMN>
@@ -5118,7 +5319,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;GS_TEXT&gt;-EEIND</NAME>
+       <NAME>&lt;TEXT&gt;-EEIND</NAME>
        <TEXT>________</TEXT>
        <LINE>002</LINE>
        <COLUMN>092</COLUMN>
@@ -5135,7 +5336,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>&lt;IO_CLASS&gt;-&gt;HEAD-EEIND</NAME>
+       <NAME>&lt;HEAD&gt;-EEIND</NAME>
        <TEXT>__________</TEXT>
        <LINE>002</LINE>
        <COLUMN>101</COLUMN>
@@ -5185,19 +5386,19 @@
        <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-bukrs MODULE head-bukrs ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-lifnr MODULE head-lifnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-kunnr MODULE head-kunnr ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-kunnr MODULE head-kunnr ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
+       <LINE>    FIELD &lt;head&gt;-eeind MODULE head-eeind ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>    FIELD &lt;io_class&gt;-&gt;head-waers.</LINE>
+       <LINE>    FIELD &lt;head&gt;-waers.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>  ENDCHAIN.</LINE>
@@ -5207,13 +5408,13 @@
        <LINE>PROCESS ON VALUE-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-bukrs MODULE bukrs_list.</LINE>
+       <LINE>  FIELD &lt;head&gt;-bukrs MODULE bukrs_list.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-lifnr MODULE head-lifnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-lifnr MODULE head-lifnr_f4.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>  FIELD &lt;io_class&gt;-&gt;head-kunnr MODULE head-kunnr_f4.</LINE>
+       <LINE>  FIELD &lt;head&gt;-kunnr MODULE head-kunnr_f4.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
     </item>
@@ -5250,6 +5451,47 @@
      </RSMPE_STAT>
     </STA>
     <FUN>
+     <RSMPE_FUNT>
+      <CODE>%FIRST</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_FIRST_PAGE</TEXT_NAME>
+      <ICON_ID>@2Y@</ICON_ID>
+      <FUN_TEXT>第一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>%LAST</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_LAST_PAGE</TEXT_NAME>
+      <ICON_ID>@31@</ICON_ID>
+      <FUN_TEXT>最后一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>%NEXT</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_NEXT_PAGE</TEXT_NAME>
+      <ICON_ID>@30@</ICON_ID>
+      <FUN_TEXT>下一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>%PREV</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_PREVIOUS_PAGE</TEXT_NAME>
+      <ICON_ID>@2Z@</ICON_ID>
+      <FUN_TEXT>上一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>&amp;APPROVE</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_BOOKING_OK</TEXT_NAME>
+      <ICON_ID>@B1@</ICON_ID>
+      <FUN_TEXT>审批</FUN_TEXT>
+      <ICON_TEXT>审批</ICON_TEXT>
+     </RSMPE_FUNT>
      <RSMPE_FUNT>
       <CODE>&amp;CANCEL</CODE>
       <TEXTNO>001</TEXTNO>
@@ -5301,6 +5543,14 @@
       <TEXTNO>001</TEXTNO>
       <TEXT_TYPE>S</TEXT_TYPE>
       <FUN_TEXT>选择</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>&amp;HTML</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_PRINT</TEXT_NAME>
+      <ICON_ID>@0X@</ICON_ID>
+      <FUN_TEXT>打印</FUN_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
       <CODE>&amp;POST</CODE>
@@ -5367,6 +5617,15 @@
       <ICON_TEXT>确认选择</ICON_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
+      <CODE>&amp;UNAPPROVE</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_BOOKING_STOP</TEXT_NAME>
+      <ICON_ID>@B2@</ICON_ID>
+      <FUN_TEXT>取消审批</FUN_TEXT>
+      <ICON_TEXT>取消审批</ICON_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
       <CODE>&amp;UNCOMMIT</CODE>
       <TEXTNO>001</TEXTNO>
       <TEXT_TYPE>S</TEXT_TYPE>
@@ -5390,6 +5649,12 @@
       <FUN_TEXT>退出</FUN_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
+      <CODE>ENTR</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <FUN_TEXT>选择</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
       <CODE>EXIT</CODE>
       <TEXTNO>001</TEXTNO>
       <TYPE>E</TYPE>
@@ -5397,6 +5662,54 @@
       <TEXT_NAME>ICON_CANCEL</TEXT_NAME>
       <ICON_ID>@0W@</ICON_ID>
       <FUN_TEXT>取消</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>FIRST</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_FIRST_PAGE</TEXT_NAME>
+      <ICON_ID>@2Y@</ICON_ID>
+      <FUN_TEXT>第一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>HTML</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_PRINT</TEXT_NAME>
+      <ICON_ID>@0X@</ICON_ID>
+      <FUN_TEXT>打印</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>LAST</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_LAST_PAGE</TEXT_NAME>
+      <ICON_ID>@31@</ICON_ID>
+      <FUN_TEXT>最后一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>NEXT</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_NEXT_PAGE</TEXT_NAME>
+      <ICON_ID>@30@</ICON_ID>
+      <FUN_TEXT>下一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>PREV</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_PREVIOUS_PAGE</TEXT_NAME>
+      <ICON_ID>@2Z@</ICON_ID>
+      <FUN_TEXT>上一页</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>PRINT</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_PRINT</TEXT_NAME>
+      <ICON_ID>@0X@</ICON_ID>
+      <FUN_TEXT>打印</FUN_TEXT>
      </RSMPE_FUNT>
     </FUN>
     <BUT>
@@ -5470,6 +5783,18 @@
       <PFK_CODE>000002</PFK_CODE>
       <CODE>0001</CODE>
       <NO>08</NO>
+      <PFNO>25</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000002</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>09</NO>
+      <PFNO>26</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000002</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>10</NO>
       <PFNO>19</PFNO>
      </RSMPE_BUT>
      <RSMPE_BUT>
@@ -5525,13 +5850,13 @@
      <RSMPE_PFK>
       <CODE>000002</CODE>
       <PFNO>00</PFNO>
-      <FUNCODE>&amp;ENTR</FUNCODE>
+      <FUNCODE>ENTR</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
       <CODE>000002</CODE>
       <PFNO>02</PFNO>
-      <FUNCODE>&amp;ENTR</FUNCODE>
+      <FUNCODE>ENTR</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
@@ -5601,6 +5926,48 @@
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>25</PFNO>
+      <FUNCODE>&amp;APPROVE</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>26</PFNO>
+      <FUNCODE>&amp;UNAPPROVE</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>80</PFNO>
+      <FUNCODE>%FIRST</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>81</PFNO>
+      <FUNCODE>%PREV</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>82</PFNO>
+      <FUNCODE>%NEXT</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>83</PFNO>
+      <FUNCODE>%LAST</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>86</PFNO>
+      <FUNCODE>&amp;HTML</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
       <CODE>000003</CODE>
       <PFNO>03</PFNO>
       <FUNCODE>BACK</FUNCODE>
@@ -5622,6 +5989,12 @@
       <CODE>000003</CODE>
       <PFNO>15</PFNO>
       <FUNCODE>CANCEL</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>86</PFNO>
+      <FUNCODE>PRINT</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
     </PFK>
@@ -5656,6 +6029,26 @@
      </RSMPE_STAF>
      <RSMPE_STAF>
       <STATUS>200</STATUS>
+      <FUNCTION>%FIRST</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>%LAST</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>%NEXT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>%PREV</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>&amp;APPROVE</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
       <FUNCTION>&amp;CANCEL</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
@@ -5676,6 +6069,10 @@
      </RSMPE_STAF>
      <RSMPE_STAF>
       <STATUS>200</STATUS>
+      <FUNCTION>&amp;HTML</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
       <FUNCTION>&amp;POST</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
@@ -5685,6 +6082,10 @@
      <RSMPE_STAF>
       <STATUS>200</STATUS>
       <FUNCTION>&amp;SAVE</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>&amp;UNAPPROVE</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
       <STATUS>200</STATUS>
@@ -5700,7 +6101,35 @@
      </RSMPE_STAF>
      <RSMPE_STAF>
       <STATUS>200</STATUS>
+      <FUNCTION>ENTR</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
       <FUNCTION>EXIT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>FIRST</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>HTML</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>LAST</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>NEXT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>PREV</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>200</STATUS>
+      <FUNCTION>PRINT</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
       <STATUS>300</STATUS>
@@ -5717,6 +6146,10 @@
      <RSMPE_STAF>
       <STATUS>300</STATUS>
       <FUNCTION>EXIT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>300</STATUS>
+      <FUNCTION>PRINT</FUNCTION>
      </RSMPE_STAF>
     </SET>
     <DOC>

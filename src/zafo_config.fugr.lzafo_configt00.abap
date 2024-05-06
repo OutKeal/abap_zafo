@@ -97,6 +97,12 @@ DATA:  BEGIN OF STATUS_ZAFO_SEL_VALUE                .   "state vector
 DATA:  END OF STATUS_ZAFO_SEL_VALUE                .
 CONTROLS: TCTRL_ZAFO_SEL_VALUE
             TYPE TABLEVIEW USING SCREEN '0006'.
+*...processing: ZAFO_UEB_GROUP..................................*
+DATA:  BEGIN OF STATUS_ZAFO_UEB_GROUP                .   "state vector
+         INCLUDE STRUCTURE VIMSTATUS.
+DATA:  END OF STATUS_ZAFO_UEB_GROUP                .
+CONTROLS: TCTRL_ZAFO_UEB_GROUP
+            TYPE TABLEVIEW USING SCREEN '0017'.
 *.........table declarations:.................................*
 TABLES: *ZAFO_BUSTYPE                  .
 TABLES: *ZAFO_DICT                     .
@@ -114,6 +120,7 @@ TABLES: *ZAFO_SCREEN                   .
 TABLES: *ZAFO_SCREEN_TEXT              .
 TABLES: *ZAFO_SEL_SCREEN               .
 TABLES: *ZAFO_SEL_VALUE                .
+TABLES: *ZAFO_UEB_GROUP                .
 TABLES: ZAFO_BUSTYPE                   .
 TABLES: ZAFO_DICT                      .
 TABLES: ZAFO_NOTES                     .
@@ -130,6 +137,7 @@ TABLES: ZAFO_SCREEN                    .
 TABLES: ZAFO_SCREEN_TEXT               .
 TABLES: ZAFO_SEL_SCREEN                .
 TABLES: ZAFO_SEL_VALUE                 .
+TABLES: ZAFO_UEB_GROUP                 .
 
 * general table data declarations..............
   INCLUDE LSVIMTDT                                .

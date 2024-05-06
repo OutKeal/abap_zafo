@@ -15,9 +15,24 @@
     <SCRTEXT_S>外部行号</SCRTEXT_S>
     <SCRTEXT_M>外部行号</SCRTEXT_M>
     <SCRTEXT_L>外部行号</SCRTEXT_L>
+    <ACTFLAG>I</ACTFLAG>
     <DTELMASTER>1</DTELMASTER>
+    <RESERVEDTE>JB</RESERVEDTE>
     <REFKIND>D</REFKIND>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>External line number</DDTEXT>
+     <REPTEXT>External line number</REPTEXT>
+     <SCRTEXT_S>External l</SCRTEXT_S>
+     <SCRTEXT_M>External line number</SCRTEXT_M>
+     <SCRTEXT_L>External line number</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

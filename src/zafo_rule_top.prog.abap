@@ -50,4 +50,6 @@ DATA:gt_func TYPE TABLE OF ty_tree .
 DATA:gt_tree_func TYPE TABLE OF ty_tree .
 
 DATA:g_action LIKE zafo_rule_code-action.
+
+DATA ob_html TYPE REF TO zwft_html.
 SELECT-OPTIONS: s_rule FOR zafo_rule-rule_name .

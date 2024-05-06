@@ -1,81 +1,315 @@
-120	PO_RELEASE          	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  1 	DATA:LT_ITEM TYPE TABLE OF BAPI2017_GM_ITEM_CREATE.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  2 	DATA:IS_ITEM TYPE  BAPI2017_GM_ITEM_CREATE.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  3 	DATA:LS_ITEM TYPE  BAPI2017_GM_ITEM_CREATE.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  4 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  5 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'GOODSMVT_ITEM'.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  6 	CHECK SY-SUBRC EQ 0.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  7 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  8 	CHECK SY-SUBRC EQ 0.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	  9 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 10 	CHECK SY-SUBRC EQ 0.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 11 	
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 12 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 13 	  MOVE-CORRESPONDING <LINE> TO IS_ITEM.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 14 	  LS_ITEM-MATERIAL = IS_ITEM-MATERIAL.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 15 	  LS_ITEM-SPEC_STOCK = IS_ITEM-SPEC_STOCK.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 16 	  LS_ITEM-ORDERID = IS_ITEM-ORDERID.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 17 	  LS_ITEM-PLANT = IS_ITEM-PLANT.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 18 	  LS_ITEM-STGE_LOC = IS_ITEM-STGE_LOC.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 19 	  LS_ITEM-ENTRY_QNT = IS_ITEM-ENTRY_QNT.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 20 	  LS_ITEM-S_ORD_ITEM = IS_ITEM-VAL_S_ORD_ITEM.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 21 	  LS_ITEM-SALES_ORD = IS_ITEM-VAL_SALES_ORD.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 22 	  LS_ITEM-MOVE_TYPE = '101'.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 23 	  LS_ITEM-MVT_IND = 'F'.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 24 	  COLLECT LS_ITEM INTO LT_ITEM.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 25 	  CLEAR LS_ITEM.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 26 	ENDLOOP.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 27 	
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 28 	LOOP AT LT_ITEM INTO LS_ITEM.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 29 	  INSERT INITIAL LINE INTO <TABLE> ASSIGNING <LINE> INDEX SY-TABIX.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 30 	  MOVE LS_ITEM TO <LINE>.
-120	MB_MO_GR_413        	BEFORE_POST         	                              	                              	 31 	ENDLOOP.
-120	PO_RESET_RELEASE    	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  1 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  2 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'TIMETICKETS'.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  3 	CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  4 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
-120	MO_CONF             	BEFORE_POST         	                              	                              	  5 	CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  6 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  7 	CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  8 	DATA INDEX TYPE I.
-120	MO_CONF             	BEFORE_POST         	                              	                              	  9 	
-120	MO_CONF             	BEFORE_POST         	                              	                              	 10 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
-120	MO_CONF             	BEFORE_POST         	                              	                              	 11 	  ASSIGN COMPONENT 'CONF_NO' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_NO>).
-120	MO_CONF             	BEFORE_POST         	                              	                              	 12 	  CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 13 	
-120	MO_CONF             	BEFORE_POST         	                              	                              	 14 	  SELECT SINGLE * FROM ZAFO_MO_CONF INTO @DATA(CONF) WHERE RUECK = @<CONF_NO>.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 15 	  CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 16 	
-120	MO_CONF             	BEFORE_POST         	                              	                              	 17 	  DO 6 TIMES.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 18 	    INDEX = SY-INDEX.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 19 	    ASSIGN COMPONENT |VGW0{ INDEX }| OF STRUCTURE CONF TO FIELD-SYMBOL(<FROM_VALUE>).
-120	MO_CONF             	BEFORE_POST         	                              	                              	 20 	    CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 21 	    ASSIGN COMPONENT |CONF_ACTIVITY{ INDEX }| OF STRUCTURE <LINE> TO FIELD-SYMBOL(<TO_VALUE>).
-120	MO_CONF             	BEFORE_POST         	                              	                              	 22 	    CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 23 	    ASSIGN COMPONENT |YIELD| OF STRUCTURE <LINE> TO FIELD-SYMBOL(<SL>).
-120	MO_CONF             	BEFORE_POST         	                              	                              	 24 	    CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 25 	    <TO_VALUE> = <FROM_VALUE> * <SL>.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 26 	  ENDDO.
-120	MO_CONF             	BEFORE_POST         	                              	                              	 27 	ENDLOOP.
-120	MO_CONF             	AFTER_POST          	                              	                              	  1 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
-120	MO_CONF             	AFTER_POST          	                              	                              	  2 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'DETAIL_RETURN'.
-120	MO_CONF             	AFTER_POST          	                              	                              	  3 	CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	AFTER_POST          	                              	                              	  4 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
-120	MO_CONF             	AFTER_POST          	                              	                              	  5 	CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	AFTER_POST          	                              	                              	  6 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
-120	MO_CONF             	AFTER_POST          	                              	                              	  7 	CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	AFTER_POST          	                              	                              	  8 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
-120	MO_CONF             	AFTER_POST          	                              	                              	  9 	  ASSIGN COMPONENT 'CONF_NO' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_NO>).
-120	MO_CONF             	AFTER_POST          	                              	                              	 10 	  CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	AFTER_POST          	                              	                              	 11 	  ASSIGN COMPONENT 'CONF_CNT' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_CNT>).
-120	MO_CONF             	AFTER_POST          	                              	                              	 12 	  CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	AFTER_POST          	                              	                              	 13 	READ TABLE RUN->ITEM ASSIGNING FIELD-SYMBOL(<ITEM>) WITH KEY RUECK = <CONF_NO>.
-120	MO_CONF             	AFTER_POST          	                              	                              	 14 	  CHECK SY-SUBRC EQ 0.
-120	MO_CONF             	AFTER_POST          	                              	                              	 15 	  <ITEM>-RMZHL = <CONF_CNT>.
-120	MO_CONF             	AFTER_POST          	                              	                              	 16 	  <ITEM>-DOCNR = |{ <CONF_NO> }{ <CONF_CNT> }|.
-120	MO_CONF             	AFTER_POST          	                              	                              	 17 	ENDLOOP.
-120	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	ENTRY_QNT                     	  1 	c_value = COND menge_d( WHEN i_value < 0 THEN - i_value ELSE  i_value ).
-120	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	MOVE_TYPE                     	  1 	C_VALUE = COND #( WHEN I_VALUE < 0 THEN '702' ELSE '701' ).
-120	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	MOVE_TYPE                     	  2 	BREAK-POINT.
-120	PO_CHANGE           	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+200	PO_RELEASE          	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+200	PO_CHANGE           	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  1 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  2 	DATA l_update TYPE char1.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  3 	DATA:po_condy TYPE TABLE OF  bapimepocond .
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  4 	CALL FUNCTION 'BAPI_PO_GETDETAIL1'
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  5 	  EXPORTING
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  6 	    purchaseorder = run->head-ebeln
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  7 	  TABLES
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  8 	    pocond        = po_condy.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	  9 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 10 	FIELD-SYMBOLS <table> TYPE STANDARD TABLE.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 11 	FIELD-SYMBOLS <tablex> TYPE STANDARD TABLE.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 12 	READ TABLE vars ASSIGNING FIELD-SYMBOL(<var>) WITH KEY bapi_parameter = 'POCOND'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 13 	CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 14 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <var> TO FIELD-SYMBOL(<bapi_variable>).
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 15 	CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 16 	ASSIGN <bapi_variable>->* TO <table>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 17 	CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 18 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 19 	READ TABLE vars ASSIGNING FIELD-SYMBOL(<varx>) WITH KEY bapi_parameter = 'POCONDX'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 20 	CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 21 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <varx> TO FIELD-SYMBOL(<bapi_variablex>).
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 22 	CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 23 	ASSIGN <bapi_variablex>->* TO <tablex>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 24 	CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 25 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 26 	LOOP AT run->item ASSIGNING FIELD-SYMBOL(<item>) .
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 27 	  CLEAR l_update.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 28 	  IF <item>-cost_amount IS INITIAL.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 29 	    READ TABLE po_condy TRANSPORTING NO FIELDS WITH KEY itm_number = <item>-afonr cond_type = 'ZB00'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 30 	    IF sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 31 	      l_update = 'D'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 32 	    ENDIF.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 33 	  ELSE.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 34 	    READ TABLE po_condy TRANSPORTING NO FIELDS WITH KEY itm_number = <item>-afonr cond_type = 'ZB00'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 35 	    IF sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 36 	      l_update = 'U'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 37 	    ELSE.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 38 	      l_update = 'I'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 39 	    ENDIF.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 40 	  ENDIF.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 41 	  CHECK l_update IS NOT INITIAL.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 42 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 43 	  APPEND INITIAL LINE TO <table> ASSIGNING FIELD-SYMBOL(<line>).
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 44 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 45 	  APPEND INITIAL LINE TO <tablex> ASSIGNING FIELD-SYMBOL(<linex>).
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 46 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 47 	  ASSIGN COMPONENT 'ITM_NUMBER' OF STRUCTURE <line> TO FIELD-SYMBOL(<value>).
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 48 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 49 	  <value> = <item>-afonr.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 50 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 51 	  ASSIGN COMPONENT 'ITM_NUMBER' OF STRUCTURE <linex> TO FIELD-SYMBOL(<valuex>).
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 52 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 53 	  <valuex> = <item>-afonr.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 54 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 55 	  ASSIGN COMPONENT 'CURRENCY' OF STRUCTURE <line> TO <value>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 56 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 57 	  <value> = run->head-waers.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 58 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 59 	  ASSIGN COMPONENT 'CURRENCY' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 60 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 61 	  <valuex> = abap_true.
+200	PO_RESET_RELEASE    	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  1 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  2 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'TIMETICKETS'.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  3 	CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  4 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
+200	MO_CONF             	BEFORE_POST         	                              	                              	  5 	CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  6 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  7 	CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  8 	DATA INDEX TYPE I.
+200	MO_CONF             	BEFORE_POST         	                              	                              	  9 	
+200	MO_CONF             	BEFORE_POST         	                              	                              	 10 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
+200	MO_CONF             	BEFORE_POST         	                              	                              	 11 	  ASSIGN COMPONENT 'CONF_NO' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_NO>).
+200	MO_CONF             	BEFORE_POST         	                              	                              	 12 	  CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 13 	
+200	MO_CONF             	BEFORE_POST         	                              	                              	 14 	  SELECT SINGLE * FROM ZAFO_MO_CONF INTO @DATA(CONF) WHERE RUECK = @<CONF_NO>.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 15 	  CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 16 	
+200	MO_CONF             	BEFORE_POST         	                              	                              	 17 	  DO 6 TIMES.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 18 	    INDEX = SY-INDEX.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 19 	    ASSIGN COMPONENT |VGW0{ INDEX }| OF STRUCTURE CONF TO FIELD-SYMBOL(<FROM_VALUE>).
+200	MO_CONF             	BEFORE_POST         	                              	                              	 20 	    CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 21 	    ASSIGN COMPONENT |CONF_ACTIVITY{ INDEX }| OF STRUCTURE <LINE> TO FIELD-SYMBOL(<TO_VALUE>).
+200	MO_CONF             	BEFORE_POST         	                              	                              	 22 	    CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 23 	    ASSIGN COMPONENT |YIELD| OF STRUCTURE <LINE> TO FIELD-SYMBOL(<SL>).
+200	MO_CONF             	BEFORE_POST         	                              	                              	 24 	    CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 25 	    <TO_VALUE> = <FROM_VALUE> * <SL>.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 26 	  ENDDO.
+200	MO_CONF             	BEFORE_POST         	                              	                              	 27 	ENDLOOP.
+200	MO_CONF             	AFTER_POST          	                              	                              	  1 	FIELD-SYMBOLS <TABLE> TYPE STANDARD TABLE.
+200	MO_CONF             	AFTER_POST          	                              	                              	  2 	READ TABLE VARS ASSIGNING FIELD-SYMBOL(<VAR>) WITH KEY BAPI_PARAMETER = 'DETAIL_RETURN'.
+200	MO_CONF             	AFTER_POST          	                              	                              	  3 	CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	AFTER_POST          	                              	                              	  4 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <VAR> TO FIELD-SYMBOL(<BAPI_VARIABLE>).
+200	MO_CONF             	AFTER_POST          	                              	                              	  5 	CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	AFTER_POST          	                              	                              	  6 	ASSIGN <BAPI_VARIABLE>->* TO <TABLE>.
+200	MO_CONF             	AFTER_POST          	                              	                              	  7 	CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	AFTER_POST          	                              	                              	  8 	LOOP AT <TABLE> ASSIGNING FIELD-SYMBOL(<LINE>).
+200	MO_CONF             	AFTER_POST          	                              	                              	  9 	  ASSIGN COMPONENT 'CONF_NO' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_NO>).
+200	MO_CONF             	AFTER_POST          	                              	                              	 10 	  CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	AFTER_POST          	                              	                              	 11 	  ASSIGN COMPONENT 'CONF_CNT' OF STRUCTURE <LINE> TO FIELD-SYMBOL(<CONF_CNT>).
+200	MO_CONF             	AFTER_POST          	                              	                              	 12 	  CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	AFTER_POST          	                              	                              	 13 	READ TABLE RUN->ITEM ASSIGNING FIELD-SYMBOL(<ITEM>) WITH KEY RUECK = <CONF_NO>.
+200	MO_CONF             	AFTER_POST          	                              	                              	 14 	  CHECK SY-SUBRC EQ 0.
+200	MO_CONF             	AFTER_POST          	                              	                              	 15 	  <ITEM>-RMZHL = <CONF_CNT>.
+200	MO_CONF             	AFTER_POST          	                              	                              	 16 	  <ITEM>-DOCNR = |{ <CONF_NO> }{ <CONF_CNT> }|.
+200	MO_CONF             	AFTER_POST          	                              	                              	 17 	ENDLOOP.
+200	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	ENTRY_QNT                     	  1 	c_value = COND menge_d( WHEN i_value < 0 THEN - i_value ELSE  i_value ).
+200	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	MOVE_TYPE                     	  1 	C_VALUE = COND #( WHEN I_VALUE < 0 THEN '702' ELSE '701' ).
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 62 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 63 	  ASSIGN COMPONENT 'COND_P_UNT' OF STRUCTURE <line> TO <value>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 64 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 65 	  <value> = 1.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 66 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 67 	  ASSIGN COMPONENT 'COND_P_UNT' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 68 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 69 	  <valuex> = abap_true.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 70 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 71 	  ASSIGN COMPONENT 'COND_VALUE' OF STRUCTURE <line> TO <value>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 72 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 73 	  <value> = <item>-cost_amount.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 74 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 75 	  ASSIGN COMPONENT 'COND_VALUE' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 76 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 77 	  <valuex> = abap_true.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 78 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 79 	  ASSIGN COMPONENT 'CHANGE_ID' OF STRUCTURE <line> TO <value>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 80 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 81 	  <value> = l_update.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 82 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 83 	  ASSIGN COMPONENT 'CHANGE_ID' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 84 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 85 	  <valuex> = abap_true.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 86 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 87 	  ASSIGN COMPONENT 'COND_TYPE' OF STRUCTURE <line> TO <value>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 88 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 89 	  <value> = 'ZB00'.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 90 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 91 	  ASSIGN COMPONENT 'COND_TYPE' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 92 	  CHECK sy-subrc EQ 0.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 93 	  <valuex> = abap_true.
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 94 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 95 	
+200	PO_CHANGE           	BEFORE_POST         	                              	                              	 96 	ENDLOOP.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  1 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  2 	LOOP AT run->item ASSIGNING FIELD-SYMBOL(<item>) WHERE cost_amount IS NOT INITIAL.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  3 	  EXIT.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  4 	ENDLOOP.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  5 	CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  6 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  7 	FIELD-SYMBOLS <table> TYPE STANDARD TABLE.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  8 	FIELD-SYMBOLS <tablex> TYPE STANDARD TABLE.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	  9 	READ TABLE vars ASSIGNING FIELD-SYMBOL(<var>) WITH KEY bapi_parameter = 'POCOND'.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 10 	CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 11 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <var> TO FIELD-SYMBOL(<bapi_variable>).
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 12 	CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 13 	ASSIGN <bapi_variable>->* TO <table>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 14 	CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 15 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 16 	READ TABLE vars ASSIGNING FIELD-SYMBOL(<varx>) WITH KEY bapi_parameter = 'POCONDX'.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 17 	CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 18 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <varx> TO FIELD-SYMBOL(<bapi_variablex>).
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 19 	CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 20 	ASSIGN <bapi_variablex>->* TO <tablex>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 21 	CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 22 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 23 	LOOP AT run->item ASSIGNING <item> WHERE cost_amount IS NOT INITIAL.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 24 	  APPEND INITIAL LINE TO <table> ASSIGNING FIELD-SYMBOL(<line>).
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 25 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 26 	  APPEND INITIAL LINE TO <tablex> ASSIGNING FIELD-SYMBOL(<linex>).
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 27 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 28 	  ASSIGN COMPONENT 'ITM_NUMBER' OF STRUCTURE <line> TO FIELD-SYMBOL(<value>).
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 29 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 30 	  <value> = <item>-afonr.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 31 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 32 	  ASSIGN COMPONENT 'ITM_NUMBER' OF STRUCTURE <linex> TO FIELD-SYMBOL(<valuex>).
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 33 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 34 	  <valuex> = <item>-afonr.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 35 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 36 	  ASSIGN COMPONENT 'CURRENCY' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 37 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 38 	  <value> = run->head-waers.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 39 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 40 	  ASSIGN COMPONENT 'CURRENCY' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 41 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 42 	  <valuex> = abap_true.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 43 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 44 	  ASSIGN COMPONENT 'COND_P_UNT' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 45 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 46 	  <value> = 1.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 47 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 48 	  ASSIGN COMPONENT 'COND_P_UNT' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 49 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 50 	  <valuex> = abap_true.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 51 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 52 	  ASSIGN COMPONENT 'COND_VALUE' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 53 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 54 	  <value> = <item>-cost_amount.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 55 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 56 	  ASSIGN COMPONENT 'COND_VALUE' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 57 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 58 	  <valuex> = abap_true.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 59 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 60 	  ASSIGN COMPONENT 'CHANGE_ID' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 61 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 62 	  <value> = 'I'.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 63 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 64 	  ASSIGN COMPONENT 'CHANGE_ID' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 65 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 66 	  <valuex> = abap_true.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 67 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 68 	  ASSIGN COMPONENT 'COND_TYPE' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 69 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 70 	  <value> = 'ZB00'.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 71 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 72 	  ASSIGN COMPONENT 'COND_TYPE' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 73 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 74 	  <valuex> = abap_true.
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 75 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 76 	
+200	PO_CREATE           	BEFORE_POST         	                              	                              	 77 	ENDLOOP.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  1 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  2 	LOOP AT RUN->item ASSIGNING FIELD-SYMBOL(<item>) WHERE cost_amount IS NOT INITIAL.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  3 	  EXIT.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  4 	ENDLOOP.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  5 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  6 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  7 	FIELD-SYMBOLS <table> TYPE STANDARD TABLE.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  8 	FIELD-SYMBOLS <tablex> TYPE STANDARD TABLE.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	  9 	READ TABLE vars ASSIGNING FIELD-SYMBOL(<var>) WITH KEY bapi_parameter = 'POCOND'.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 10 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 11 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <var> TO FIELD-SYMBOL(<bapi_variable>).
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 12 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 13 	ASSIGN <bapi_variable>->* TO <table>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 14 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 15 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 16 	READ TABLE vars ASSIGNING FIELD-SYMBOL(<varx>) WITH KEY bapi_parameter = 'POCONDX'.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 17 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 18 	ASSIGN COMPONENT 'BAPI_VARIABLE' OF STRUCTURE <varx> TO FIELD-SYMBOL(<bapi_variablex>).
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 19 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 20 	ASSIGN <bapi_variablex>->* TO <tablex>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 21 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 22 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 23 	LOOP AT RUN->item ASSIGNING <item> WHERE cost_amount IS NOT INITIAL.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 24 	  APPEND INITIAL LINE TO <table> ASSIGNING FIELD-SYMBOL(<line>).
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 25 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 26 	  APPEND INITIAL LINE TO <tablex> ASSIGNING FIELD-SYMBOL(<linex>).
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 27 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 28 	  ASSIGN COMPONENT 'ITM_NUMBER' OF STRUCTURE <line> TO FIELD-SYMBOL(<value>).
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 29 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 30 	  <value> = <item>-afonr.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 31 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 32 	  ASSIGN COMPONENT 'ITM_NUMBER' OF STRUCTURE <linex> TO FIELD-SYMBOL(<valuex>).
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 33 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 34 	  <valuex> = <item>-afonr.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 35 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 36 	  ASSIGN COMPONENT 'CURRENCY' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 37 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 38 	  <value> = RUN->head-waers.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 39 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 40 	  ASSIGN COMPONENT 'CURRENCY' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 41 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 42 	  <valuex> = abap_true.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 43 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 44 	  ASSIGN COMPONENT 'COND_P_UNT' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 45 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 46 	  <value> = 1.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 47 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 48 	  ASSIGN COMPONENT 'COND_P_UNT' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 49 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 50 	  <valuex> = abap_true.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 51 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 52 	  ASSIGN COMPONENT 'COND_VALUE' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 53 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 54 	  <value> = <item>-cost_amount.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 55 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 56 	  ASSIGN COMPONENT 'COND_VALUE' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 57 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 58 	  <valuex> = abap_true.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 59 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 60 	  ASSIGN COMPONENT 'CHANGE_ID' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 61 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 62 	  <value> = 'I'.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 63 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 64 	  ASSIGN COMPONENT 'CHANGE_ID' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 65 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 66 	  <valuex> = abap_true.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 67 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 68 	  ASSIGN COMPONENT 'COND_TYPE' OF STRUCTURE <line> TO <value>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 69 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 70 	  <value> = 'ZB00'.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 71 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 72 	  ASSIGN COMPONENT 'COND_TYPE' OF STRUCTURE <linex> TO <valuex>.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 73 	  CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 74 	  <valuex> = abap_true.
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 75 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 76 	
+200	PO_CREATE1          	BEFORE_POST         	                              	                              	 77 	ENDLOOP.
+200	MB_PD               	MOVE_VALUE          	GOODSMVT_ITEM                 	SPEC_STOCK                    	  1 	C_VALUE = COND #( WHEN I_VALUE IS NOT INITIAL THEN 'E' ELSE '' ).
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  1 	ASSIGN COMPONENT 'KOSTL' OF STRUCTURE i_line TO FIELD-SYMBOL(<kostl>).
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  2 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  3 	ASSIGN COMPONENT 'AUFNR' OF STRUCTURE i_line TO FIELD-SYMBOL(<aufnr>).
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  4 	CHECK sy-subrc EQ 0.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  5 	IF <kostl> IS NOT INITIAL AND <aufnr> IS INITIAL.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  6 	  SELECT SINGLE aufnr INTO @DATA(l_aufnr)
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  7 	    FROM ztmm153 WHERE kostl = @<kostl>.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  8 	
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	  9 	  c_value = l_aufnr.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	 10 	ELSE.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	 11 	  c_value = i_value.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	 12 	ENDIF.
+200	PO_RELEASE_SURE     	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+200	PO_RESET_RELEASE_SUR	MOVE_VALUE          	POCOND                        	COND_VALUE                    	  1 	C_VALUE = I_VALUE / 10.
+200	PO_CREATE1          	MOVE_VALUE          	POACCOUNT                     	ORDERID                       	 13 	

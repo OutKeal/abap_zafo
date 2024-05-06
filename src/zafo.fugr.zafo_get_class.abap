@@ -1,13 +1,13 @@
-FUNCTION ZAFO_GET_CLASS .
-*"--------------------------------------------------------------------
-*"*"局部接口：
+FUNCTION zafo_get_class .
+*"----------------------------------------------------------------------
+*"*"本地接口：
 *"  IMPORTING
-*"     REFERENCE(I_CLASS) TYPE REF TO ZAFO_CLASS
-*"--------------------------------------------------------------------
-  IF NOT line_exists( tab_class[ table_line = i_class ] ).
-    INSERT i_class INTO TABLE tab_class.
+*"     REFERENCE(I_CLASS) TYPE REF TO  ZAFO_CLASS
+*"----------------------------------------------------------------------
+  IF NOT line_exists( zafo_basic=>tab_class[ afono = i_class->head-afono ] ).
+    INSERT VALUE #( afono = i_class->head-afono
+                                  class = i_class ) INTO TABLE zafo_basic=>tab_class.
   ENDIF.
-  ASSIGN tab_class[ table_line = i_class ] TO <io_class>.
-
+  ASSIGN zafo_basic=>tab_class[ class = i_class ]-class TO <io_class>.
 
 ENDFUNCTION.

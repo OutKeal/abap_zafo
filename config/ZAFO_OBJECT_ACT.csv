@@ -1,100 +1,267 @@
-120	PO        	004	&COMMIT             	          	PO_RELEASE
-120	PO        	007	&PRINT              	          	
-120	PO        	005	&UNCOMMIT           	          	PO_RESET_RELEASE
-120	PO1       	004	&COMMIT             	          	PO_RELEASE
-120	PO1       	005	&UNCOMMIT           	          	PO_RESET_RELEASE
-120	PO1       	007	&PRINT              	          	
-120	PO2       	004	&COMMIT             	          	PO_RELEASE
-120	PO2       	005	&UNCOMMIT           	          	PO_RESET_RELEASE
-120	PO2       	007	&PRINT              	          	
-120	PO3       	004	&COMMIT             	          	PO_RELEASE
-120	PO3       	005	&UNCOMMIT           	          	PO_RESET_RELEASE
-120	PO3       	007	&PRINT              	          	
-120	PO3       	003	&SAVE               	CHANGE    	PO_PO_CHANGE
-120	MB_MOVE_T 	001	&EDIT               	          	
-120	MB_MOVE_T 	002	&SAVE               	CREATE    	
-120	MB_MOVE_T 	003	&SAVE               	CHANGE    	
-120	MB_MOVE_T 	004	&POST               	          	MB_MOVE
-120	MB_MOVE_T 	005	&CANCEL             	          	MB_CANCEL
-120	AT        	001	&EDIT               	          	
-120	AT        	002	&SAVE               	CREATE    	
-120	AT        	003	&SAVE               	CHANGE    	
-120	AT        	006	&DELETE             	DELETE    	
-120	AT        	007	&POST               	          	AT_CREATE
-120	MB_MOVE_GR	001	&EDIT               	          	
-120	MB_MOVE_GR	002	&SAVE               	CREATE    	
-120	MB_MOVE_GR	003	&SAVE               	CHANGE    	
-120	MB_MOVE_GI	004	&POST               	          	MB_MOVE_GI
-120	MB_MOVE_GR	005	&CANCEL             	          	MB_CANCEL
-120	MB_MOVE_GI	001	&EDIT               	          	
-120	MB_MOVE_GI	002	&SAVE               	CREATE    	
-120	MB_MOVE_GI	003	&SAVE               	CHANGE    	
-120	MB_MOVE_GR	004	&POST               	          	MB_MOVE_GR
-120	MB_MOVE_GI	005	&CANCEL             	          	MB_CANCEL
-120	MB_PD     	001	&EDIT               	          	
-120	MB_PD     	002	&SAVE               	CREATE    	
-120	MB_PD     	003	&SAVE               	CHANGE    	
-120	MB_PD     	005	&CANCEL             	          	MB_CANCEL
-120	MB_PD     	004	&POST               	          	MB_PD
-120	CONF      	001	&EDIT               	          	
-120	CONF      	002	&SAVE               	CREATE    	
-120	CONF      	003	&SAVE               	CHANGE    	
-120	CONF      	006	&DELETE             	DELETE    	MO_CONF
-120	CONF      	010	&POST               	          	MO_CONF
-120	MB_BIN    	001	&EDIT               	          	
-120	MB_BIN    	002	&SAVE               	CREATE    	
-120	MB_BIN    	003	&SAVE               	CHANGE    	
-120	MB_BIN    	004	&POST               	          	MB_BIN
-120	MB_BIN    	005	&CANCEL             	          	MB_CANCEL
-120	MB_MOVE   	001	&EDIT               	          	
-120	MB_MOVE   	002	&SAVE               	CREATE    	
-120	MB_MOVE   	003	&SAVE               	CHANGE    	
-120	MB_MOVE   	004	&POST               	          	MB_MOVE
-120	MB_MOVE   	005	&CANCEL             	          	MB_CANCEL
-120	MB_MO_GI  	001	&EDIT               	          	
-120	MB_MO_GI  	002	&SAVE               	CREATE    	
-120	MB_MO_GI  	003	&SAVE               	CHANGE    	
-120	MB_MO_GI  	006	&DELETE             	          	
-120	MB_MO_GI  	007	&POST               	          	MB_MO_GI
-120	MB_MO_GR  	001	&EDIT               	          	
-120	MB_MO_GR  	002	&SAVE               	CREATE    	
-120	MB_MO_GR  	003	&SAVE               	CHANGE    	
-120	MB_MO_GR  	006	&DELETE             	          	
-120	MB_MO_GR  	007	&POST               	          	MB_MO_GR
-120	MB_MO_GR  	008	&CANCEL             	          	MB_CANCEL
-120	MB_PO_GR  	001	&EDIT               	          	
-120	MB_PO_GR  	002	&SAVE               	CREATE    	
-120	MB_PO_GR  	003	&SAVE               	CHANGE    	
-120	MB_PO_GR  	004	&POST               	          	MB_PO_GR
-120	MB_PO_GR  	005	&CANCEL             	          	MB_CANCEL
-120	MB_REL    	001	&EDIT               	          	
-120	MB_REL    	002	&SAVE               	CREATE    	
-120	MB_REL    	003	&SAVE               	CHANGE    	
-120	MB_REL    	004	&POST               	          	MB_REL
-120	MB_REL    	005	&CANCEL             	          	MB_CANCEL
-120	MB_REQ    	001	&EDIT               	          	
-120	MB_REQ    	002	&SAVE               	CREATE    	
-120	MB_REQ    	003	&SAVE               	CHANGE    	
-120	MB_REQ    	004	&POST               	          	MB_REQ
-120	MB_REQ    	005	&CANCEL             	          	MB_CANCEL
-120	PO        	001	&EDIT               	          	
-120	PO        	002	&SAVE               	CREATE    	PO_CREATE
-120	PO        	003	&SAVE               	CHANGE    	PO_CHANGE
-120	PO        	006	&DELETE             	          	PO_DELETE
-120	PO1       	001	&EDIT               	          	
-120	PO1       	002	&SAVE               	CREATE    	PO_CREATE
-120	PO1       	003	&SAVE               	CHANGE    	PO_CHANGE
-120	PO1       	006	&DELETE             	          	PO_DELETE
-120	PO2       	001	&EDIT               	          	
-120	PO2       	002	&SAVE               	CREATE    	PO_CREATE
-120	PO2       	003	&SAVE               	CHANGE    	PO_CHANGE
-120	PO2       	006	&DELETE             	          	PO_DELETE
-120	PO3       	001	&EDIT               	          	
-120	PO3       	002	&SAVE               	CREATE    	PO_CREATE1
-120	PO3       	006	&DELETE             	          	PO_DELETE
-120	PR        	001	&EDIT               	          	
-120	PR        	002	&SAVE               	CREATE    	PR_CREATE
-120	PR        	003	&SAVE               	CHANGE    	PR_CHANGE
-120	PR        	004	&COMMIT             	COMMIT    	
-120	PR        	005	&UNCOMMIT           	COMMIT    	
-120	PR        	006	&DELETE             	DELETE    	PR_DELETE
+200	PO01      	002	&SAVE               	CREATE    	PO_CREATE
+200	PO01      	003	&SAVE               	CHANGE    	PO_CHANGE
+200	PO01      	006	&DELETE             	          	PO_DELETE
+200	PO02      	001	&EDIT               	          	
+200	PO02      	002	&SAVE               	CREATE    	PO_CREATE
+200	PO02      	003	&SAVE               	CHANGE    	PO_CHANGE
+200	PO02      	004	&COMMIT             	          	PO_RELEASE
+200	PO02      	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+200	PO02      	006	&DELETE             	          	PO_DELETE
+200	PO02      	007	&PRINT              	          	
+200	PO03      	001	&EDIT               	          	
+200	WA01      	007	&POST               	          	MB_USE
+200	WA02      	007	&POST               	          	MB_USE
+200	WA03      	007	&POST               	          	MB_USE
+200	WA04      	007	&POST               	          	MB_USE
+200	WA11      	007	&POST               	          	MB_USE
+200	AT        	001	&EDIT               	          	
+200	AT        	002	&SAVE               	CREATE    	
+200	AT        	003	&SAVE               	CHANGE    	
+200	AT        	006	&DELETE             	DELETE    	
+200	AT        	011	&POST               	          	AT_CREATE
+200	WA12      	007	&POST               	          	MB_USE
+200	WA32      	004	&POST               	          	MB_MOVE_E
+200	WA33      	004	&POST               	          	MB_MOVE_E
+200	WA13      	007	&POST               	          	MB_MOVE_O
+200	WA14      	007	&POST               	          	MB_MOVE_O
+200	WA31      	001	&EDIT               	          	
+200	WA31      	002	&SAVE               	CREATE    	
+200	WA31      	003	&SAVE               	CHANGE    	
+200	WA31      	004	&POST               	          	MB_MOVE_E
+200	WA31      	005	&CANCEL             	          	MB_CANCEL
+200	WA32      	006	&DELETE             	          	
+200	WA31      	006	&DELETE             	          	
+200	WA33      	006	&DELETE             	          	
+200	WF02      	007	&POST               	          	MB_MO_GI
+200	WF21      	007	&POST               	          	MB_USE
+200	CONF      	001	&EDIT               	          	
+200	CONF      	002	&SAVE               	CREATE    	
+200	CONF      	003	&SAVE               	CHANGE    	
+200	CONF      	006	&DELETE             	DELETE    	MO_CONF
+200	CONF      	010	&POST               	          	MO_CONF
+200	WF22      	007	&POST               	          	MB_USE
+200	WF24      	007	&POST               	          	MB_MO_GI
+200	WF32      	007	&POST               	          	MB_USE
+200	AT        	012	&CANCEL             	          	AT_CANCEL
+200	MB_MOVE   	001	&EDIT               	          	
+200	MB_MOVE   	002	&SAVE               	CREATE    	
+200	MB_MOVE   	003	&SAVE               	CHANGE    	
+200	MB_MOVE   	004	&POST               	          	MB_MOVE
+200	MB_MOVE   	005	&CANCEL             	          	MB_CANCEL
+200	WF03      	001	&EDIT               	          	
+200	WF03      	002	&SAVE               	CREATE    	
+200	WF03      	003	&SAVE               	CHANGE    	
+200	WF03      	006	&DELETE             	          	
+200	WF03      	007	&POST               	          	MB_MO_GI
+200	PO03      	002	&SAVE               	CREATE    	PO_CREATE
+200	PO03      	003	&SAVE               	CHANGE    	PO_CHANGE
+200	PO03      	006	&DELETE             	          	PO_DELETE
+200	PO03      	007	&PRINT              	          	
+200	PO11      	001	&EDIT               	          	
+200	PO11      	002	&SAVE               	CREATE    	PO_CREATE
+200	PO11      	003	&SAVE               	CHANGE    	PO_CHANGE
+200	PO11      	004	&COMMIT             	          	PO_RELEASE
+200	PO11      	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+200	PO11      	006	&DELETE             	          	PO_DELETE
+200	PO11      	007	&PRINT              	          	
+200	PO12      	001	&EDIT               	          	
+200	PO12      	002	&SAVE               	CREATE    	PO_CREATE
+200	PO12      	003	&SAVE               	CHANGE    	PO_CHANGE
+200	PO12      	006	&DELETE             	          	PO_DELETE
+200	PR        	001	&EDIT               	          	
+200	PR        	002	&SAVE               	CREATE    	PR_CREATE
+200	PR        	003	&SAVE               	CHANGE    	PR_CHANGE
+200	PR        	004	&COMMIT             	COMMIT    	
+200	PR        	005	&UNCOMMIT           	COMMIT    	
+200	PR        	006	&DELETE             	DELETE    	PR_DELETE
+200	PO01      	001	&EDIT               	          	
+200	PO12      	007	&PRINT              	          	
+200	PO21      	001	&EDIT               	          	
+200	PO21      	002	&SAVE               	CREATE    	PO_CREATE1
+200	PO21      	003	&SAVE               	CHANGE    	PO_CHANGE
+200	PO21      	004	&COMMIT             	          	PO_RELEASE
+200	PO01      	007	&PRINT              	          	
+200	PO21      	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+200	PO21      	006	&DELETE             	          	PO_DELETE
+200	PO21      	007	&PRINT              	          	
+200	PO31      	001	&EDIT               	          	
+200	PO31      	003	&SAVE               	CHANGE    	PO_CHANGE
+200	PO31      	004	&COMMIT             	          	PO_RELEASE
+200	PO31      	005	&UNCOMMIT           	          	PO_RESET_RELEASE
+200	PO31      	006	&DELETE             	          	PO_DELETE
+200	PO31      	007	&PRINT              	          	
+200	PO31      	002	&SAVE               	CREATE    	PO_CREATE1
+200	PO03      	004	&COMMIT             	          	
+200	PO03      	005	&UNCOMMIT           	          	
+200	PO12      	004	&COMMIT             	          	
+200	PO12      	005	&UNCOMMIT           	          	
+200	WE01      	001	&EDIT               	          	
+200	WE01      	002	&SAVE               	CREATE    	
+200	WE01      	003	&SAVE               	CHANGE    	
+200	WE01      	004	&POST               	          	MB_PO_GR
+200	WE01      	005	&CANCEL             	          	MB_CANCEL
+200	WE03      	001	&EDIT               	          	
+200	WE03      	002	&SAVE               	CREATE    	
+200	WE03      	003	&SAVE               	CHANGE    	
+200	WE03      	004	&POST               	          	MB_PO_GR
+200	WE03      	005	&CANCEL             	          	MB_CANCEL
+200	WE02      	001	&EDIT               	          	
+200	WE02      	002	&SAVE               	CREATE    	
+200	WE02      	003	&SAVE               	CHANGE    	
+200	WE02      	004	&POST               	          	MB_PO_GR
+200	WE02      	005	&CANCEL             	          	MB_CANCEL
+200	WE11      	001	&EDIT               	          	
+200	WE11      	002	&SAVE               	CREATE    	
+200	WE11      	003	&SAVE               	CHANGE    	
+200	WE11      	004	&POST               	          	MB_PO_GR
+200	WE11      	005	&CANCEL             	          	MB_CANCEL
+200	WE12      	001	&EDIT               	          	
+200	WE12      	002	&SAVE               	CREATE    	
+200	WE12      	003	&SAVE               	CHANGE    	
+200	WE12      	004	&POST               	          	MB_PO_GR
+200	WE12      	005	&CANCEL             	          	MB_CANCEL
+200	WE21      	001	&EDIT               	          	
+200	WE21      	002	&SAVE               	CREATE    	
+200	WE21      	003	&SAVE               	CHANGE    	
+200	WE21      	004	&POST               	          	MB_PO_GR
+200	WE21      	005	&CANCEL             	          	MB_CANCEL
+200	WE31      	001	&EDIT               	          	
+200	WE31      	002	&SAVE               	CREATE    	
+200	WE31      	003	&SAVE               	CHANGE    	
+200	WE31      	004	&POST               	          	MB_PO_GR
+200	WE31      	005	&CANCEL             	          	MB_CANCEL
+200	WI01      	001	&EDIT               	          	
+200	WI01      	002	&SAVE               	CREATE    	
+200	WI01      	003	&SAVE               	CHANGE    	
+200	WI01      	004	&POST               	          	MB_PD
+200	WF31      	007	&POST               	          	MB_MO_GI
+200	WF01      	001	&EDIT               	          	
+200	WF01      	002	&SAVE               	CREATE    	
+200	WF01      	003	&SAVE               	CHANGE    	
+200	WF01      	006	&DELETE             	          	
+200	WF01      	007	&POST               	          	MB_MO_GI
+200	WF01      	008	&CANCEL             	          	MB_CANCEL
+200	WF02      	001	&EDIT               	          	
+200	WF02      	002	&SAVE               	CREATE    	
+200	WF02      	003	&SAVE               	CHANGE    	
+200	WF02      	006	&DELETE             	          	
+200	WF02      	008	&CANCEL             	          	MB_CANCEL
+200	WF03      	008	&CANCEL             	          	MB_CANCEL
+200	WA01      	001	&EDIT               	          	
+200	WA01      	002	&SAVE               	CREATE    	
+200	WA01      	003	&SAVE               	CHANGE    	
+200	WA01      	006	&DELETE             	          	
+200	WA01      	008	&CANCEL             	          	MB_CANCEL
+200	WA02      	001	&EDIT               	          	
+200	WA02      	002	&SAVE               	CREATE    	
+200	WA02      	003	&SAVE               	CHANGE    	
+200	WA02      	006	&DELETE             	          	
+200	WA02      	008	&CANCEL             	          	MB_CANCEL
+200	WA03      	001	&EDIT               	          	
+200	WA03      	002	&SAVE               	CREATE    	
+200	WA03      	003	&SAVE               	CHANGE    	
+200	WA03      	006	&DELETE             	          	
+200	WA03      	008	&CANCEL             	          	MB_CANCEL
+200	WA04      	001	&EDIT               	          	
+200	WA04      	002	&SAVE               	CREATE    	
+200	WA04      	003	&SAVE               	CHANGE    	
+200	WA04      	006	&DELETE             	          	
+200	WA04      	008	&CANCEL             	          	MB_CANCEL
+200	WF11      	001	&EDIT               	          	
+200	WF11      	002	&SAVE               	CREATE    	
+200	WF11      	003	&SAVE               	CHANGE    	
+200	WF11      	006	&DELETE             	          	
+200	WF11      	007	&POST               	          	MB_MO_GR
+200	WF11      	008	&CANCEL             	          	MB_CANCEL
+200	WF21      	001	&EDIT               	          	
+200	WF21      	002	&SAVE               	CREATE    	
+200	WF21      	003	&SAVE               	CHANGE    	
+200	WF21      	006	&DELETE             	          	
+200	WF21      	008	&CANCEL             	          	MB_CANCEL
+200	WF22      	001	&EDIT               	          	
+200	WF22      	002	&SAVE               	CREATE    	
+200	WF22      	003	&SAVE               	CHANGE    	
+200	WF22      	006	&DELETE             	          	
+200	WF22      	008	&CANCEL             	          	MB_CANCEL
+200	WF23      	001	&EDIT               	          	
+200	WF23      	002	&SAVE               	CREATE    	
+200	WF23      	003	&SAVE               	CHANGE    	
+200	WF23      	006	&DELETE             	          	
+200	WF23      	007	&POST               	          	MB_MO_GI
+200	WF23      	008	&CANCEL             	          	MB_CANCEL
+200	WF24      	001	&EDIT               	          	
+200	WF24      	002	&SAVE               	CREATE    	
+200	WF24      	003	&SAVE               	CHANGE    	
+200	WF24      	006	&DELETE             	          	
+200	WF24      	008	&CANCEL             	          	MB_CANCEL
+200	WA11      	001	&EDIT               	          	
+200	WA11      	002	&SAVE               	CREATE    	
+200	WA11      	003	&SAVE               	CHANGE    	
+200	WA11      	006	&DELETE             	          	
+200	WA11      	008	&CANCEL             	          	MB_CANCEL
+200	WA12      	001	&EDIT               	          	
+200	WA12      	002	&SAVE               	CREATE    	
+200	WA12      	003	&SAVE               	CHANGE    	
+200	WA12      	006	&DELETE             	          	
+200	WA12      	008	&CANCEL             	          	MB_CANCEL
+200	WA13      	001	&EDIT               	          	
+200	WA13      	002	&SAVE               	CREATE    	
+200	WA13      	003	&SAVE               	CHANGE    	
+200	WA13      	006	&DELETE             	          	
+200	WA13      	008	&CANCEL             	          	MB_CANCEL
+200	WA14      	001	&EDIT               	          	
+200	WA14      	002	&SAVE               	CREATE    	
+200	WA14      	003	&SAVE               	CHANGE    	
+200	WA14      	006	&DELETE             	          	
+200	WA14      	008	&CANCEL             	          	MB_CANCEL
+200	WF31      	001	&EDIT               	          	
+200	WF31      	002	&SAVE               	CREATE    	
+200	WF31      	003	&SAVE               	CHANGE    	
+200	WF31      	006	&DELETE             	          	
+200	WF31      	008	&CANCEL             	          	MB_CANCEL
+200	WF32      	001	&EDIT               	          	
+200	WF32      	002	&SAVE               	CREATE    	
+200	WF32      	003	&SAVE               	CHANGE    	
+200	WF32      	006	&DELETE             	          	
+200	WF32      	008	&CANCEL             	          	MB_CANCEL
+200	WA21      	001	&EDIT               	          	
+200	WA21      	002	&SAVE               	CREATE    	
+200	WA21      	003	&SAVE               	CHANGE    	
+200	WA21      	004	&POST               	          	MB_MOVE_GI
+200	WA21      	005	&CANCEL             	          	MB_CANCEL
+200	WA22      	001	&EDIT               	          	
+200	WA22      	002	&SAVE               	CREATE    	
+200	WA22      	003	&SAVE               	CHANGE    	
+200	WA22      	004	&POST               	          	MB_MOVE_GR
+200	WA22      	005	&CANCEL             	          	MB_CANCEL
+200	WA32      	001	&EDIT               	          	
+200	WA32      	002	&SAVE               	CREATE    	
+200	WA32      	003	&SAVE               	CHANGE    	
+200	WA32      	005	&CANCEL             	          	MB_CANCEL
+200	WA33      	001	&EDIT               	          	
+200	WA33      	002	&SAVE               	CREATE    	
+200	WA33      	003	&SAVE               	CHANGE    	
+200	WA33      	005	&CANCEL             	          	MB_CANCEL
+200	AT        	007	&COMMIT             	          	
+200	PO21      	008	&APPROVE            	          	PO_RELEASE_SURE
+200	PO02      	008	&APPROVE            	          	PO_RELEASE_SURE
+200	PO02      	009	&UNAPPROVE          	          	PO_RESET_RELEASE_SUR
+200	PO11      	008	&APPROVE            	          	PO_RELEASE_SURE
+200	PO11      	009	&UNAPPROVE          	          	PO_RESET_RELEASE_SUR
+200	PO21      	009	&UNAPPROVE          	          	PO_RESET_RELEASE_SUR
+200	PO31      	008	&APPROVE            	          	PO_RELEASE_SURE
+200	PO31      	009	&UNAPPROVE          	          	PO_RESET_RELEASE_SUR
+200	AT        	008	&UNCOMMIT           	          	
+200	AT        	009	&APPROVE            	          	
+200	AT        	010	&UNAPPROVE          	          	
+200	WE21      	006	&DELETE             	          	
+200	WE03      	006	&DELETE             	DELETE    	
+200	WE02      	006	&DELETE             	DELETE    	
+200	WE11      	006	&DELETE             	DELETE    	
+200	WE12      	006	&DELETE             	DELETE    	
+200	WE31      	006	&DELETE             	DELETE    	
+200	WI01      	005	&DELETE             	DELETE    	
+200	PO01      	004	&COMMIT             	          	
+200	PO01      	005	&UNCOMMIT           	          	
+200	PO01      	008	&APPROVE            	          	
+200	PO01      	009	&UNAPPROVE          	          	

@@ -16,6 +16,12 @@
     <TCODE>ZAFO_M01</TCODE>
     <TTEXT>生产报工</TTEXT>
    </TSTCT>
+   <I18N_TPOOL>
+    <TSTCT>
+     <SPRSL>E</SPRSL>
+     <TTEXT>Production reporting</TTEXT>
+    </TSTCT>
+   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

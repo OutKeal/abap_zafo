@@ -14,12 +14,27 @@
     <SCRTEXT_S>费用金额</SCRTEXT_S>
     <SCRTEXT_M>费用金额</SCRTEXT_M>
     <SCRTEXT_L>费用金额</SCRTEXT_L>
+    <ACTFLAG>I</ACTFLAG>
     <DTELMASTER>1</DTELMASTER>
+    <RESERVEDTE>JB</RESERVEDTE>
     <DATATYPE>CURR</DATATYPE>
     <LENG>000015</LENG>
     <DECIMALS>000002</DECIMALS>
     <OUTPUTLEN>000020</OUTPUTLEN>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Cost amount</DDTEXT>
+     <REPTEXT>Cost amount</REPTEXT>
+     <SCRTEXT_S>Cost amoun</SCRTEXT_S>
+     <SCRTEXT_M>Cost amount</SCRTEXT_M>
+     <SCRTEXT_L>Cost amount</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

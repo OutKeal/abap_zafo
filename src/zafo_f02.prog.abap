@@ -1,20 +1,22 @@
 
-FORM frm_ref TABLES ct_item STRUCTURE zafo_sitem.
-  PERFORM frm_ref_a TABLES ct_item."采购订单收货参考
-  PERFORM frm_ref_b TABLES ct_item."一般库存参考
-  PERFORM frm_ref_c TABLES ct_item."一般库存+E库存参考
-  PERFORM frm_ref_d TABLES ct_item."获取RESB数据生成采购
-  PERFORM frm_ref_e TABLES ct_item."E库存参考
-  PERFORM frm_ref_f TABLES ct_item."生产报工
-  PERFORM frm_ref_g TABLES ct_item."采购订单原单退货
-  PERFORM frm_ref_h TABLES ct_item."生产发料
-  PERFORM frm_ref_i TABLES ct_item."生产退料
-  PERFORM frm_ref_j TABLES ct_item."生产收货
-  PERFORM frm_ref_k TABLES ct_item."参考工序外协加工
-  PERFORM frm_ref_z TABLES ct_item."前序参考
+FORM frm_ref CHANGING ct_item TYPE zafo_tt_sitem."仅做索引 不调用
+  PERFORM frm_ref_a CHANGING ct_item."采购订单收货参考
+  PERFORM frm_ref_b CHANGING ct_item."一般库存参考
+  PERFORM frm_ref_c CHANGING ct_item."一般库存+E库存参考
+  PERFORM frm_ref_d CHANGING ct_item."获取RESB数据生成采购
+  PERFORM frm_ref_e CHANGING ct_item."E库存参考
+  PERFORM frm_ref_f CHANGING ct_item."生产报工
+  PERFORM frm_ref_g CHANGING ct_item."采购订单原单退货
+  PERFORM frm_ref_h CHANGING ct_item."生产发料
+  PERFORM frm_ref_i CHANGING ct_item."生产退料
+  PERFORM frm_ref_j CHANGING ct_item."生产收货
+  PERFORM frm_ref_k CHANGING ct_item."参考工序外协加工
+  PERFORM frm_ref_l CHANGING ct_item."生产订单抬头信息
+  PERFORM frm_ref_o CHANGING ct_item."O库存参考
+  PERFORM frm_ref_z CHANGING ct_item."前序参考
 ENDFORM.
 
-FORM frm_ref_a TABLES ct_item STRUCTURE zafo_sitem. "采购订单收货参考
+FORM frm_ref_a CHANGING ct_item TYPE zafo_tt_sitem. "采购订单收货参考
 
   SELECT
     k~bukrs,
@@ -22,14 +24,19 @@ FORM frm_ref_a TABLES ct_item STRUCTURE zafo_sitem. "采购订单收货参考
     k~lifnr,
     k~waers,
     k~frgrl,
+    k~ekorg,
+    k~ekgrp,
+    k~bsart,
     p~ebelp,
     p~matnr,
+    p~matkl,
     p~idnlf,
     p~txz01  AS maktx,
     p~meins,
     p~bprme,
     p~werks,
     p~lgort,
+    p~elikz,
     p~peinh AS peinh,
     p~brtwr AS amount,
     t~charg,
@@ -40,6 +47,7 @@ FORM frm_ref_a TABLES ct_item STRUCTURE zafo_sitem. "采购订单收货参考
     a~name1 AS lifnr_name,
     b~name1 AS werks_name,
     p~bednr AS satnr,
+    p~externalreferenceid AS ihrez,
     p~labnr AS aufnr,
     c~lgobe   AS lgort_name
     INTO CORRESPONDING FIELDS OF TABLE @ct_item
@@ -56,55 +64,55 @@ FORM frm_ref_a TABLES ct_item STRUCTURE zafo_sitem. "采购订单收货参考
     AND p~matnr IN @s_matnr
     AND p~mtart IN @s_mtart
     AND p~matkl IN @s_matkl
+    AND p~txz01 IN @s_maktx
+    AND k~ekorg IN @s_ekorg
     AND k~ebeln IN @s_ebeln
     AND k~bsart IN @s_bsart
     AND k~ekgrp IN @s_ekgrp
     AND k~lifnr IN @s_lifnr
     AND k~aedat IN @s_erdat
+    AND k~ernam IN @s_ernam
     AND k~bsart IN @s_bsart
     AND p~labnr IN @s_aufnr
     AND p~bednr IN @s_satnr
     AND t~menge > 0
-    AND p~loekz = '  '.
+    AND p~loekz = ''.
 
-  CHECK ct_item[] IS NOT INITIAL.
+  CHECK ct_item IS NOT INITIAL.
 
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
 
-  LOOP AT ct_item.
-
-    IF ct_item-peinh IS NOT INITIAL.
-      ct_item-netpr = ct_item-netpr / ct_item-peinh.
-      ct_item-netwr = ct_item-netwr .
+    IF <item>-peinh IS NOT INITIAL.
+      <item>-netpr = <item>-netpr / <item>-peinh.
+      <item>-netwr = <item>-netwr .
     ENDIF.
 
-    ct_item-price = ct_item-amount / ct_item-menge_ref * ct_item-peinh.
-    ct_item-price_long = ct_item-amount / ct_item-menge_ref.
+    <item>-price = <item>-amount / <item>-menge_ref * <item>-peinh.
+    <item>-price_long = <item>-amount / <item>-menge_ref.
 
-    IF ct_item-menge_plan <= 0.
+    IF <item>-menge_plan <= 0.
       zafo_basic=>set_icon( EXPORTING status = 'S'
-         IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'S'.
+         IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'S'.
     ELSE.
-      ct_item-item_status = 'C'.
+      <item>-item_status = 'C'.
       zafo_basic=>set_icon( EXPORTING status = 'C'
-         IMPORTING icon = ct_item-icon text = ct_item-text ).
+         IMPORTING icon = <item>-icon text = <item>-text ).
     ENDIF.
-    IF ct_item-frgrl = 'X'.
+    IF <item>-frgrl = 'X'.
       zafo_basic=>set_icon( EXPORTING status = 'B'
-        IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'B'.
+        IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'B'.
     ENDIF.
 
-
-    MODIFY ct_item.
   ENDLOOP.
 
   IF p_fin = ''.
-    DELETE ct_item WHERE menge_plan <= 0 .
+    DELETE ct_item WHERE elikz = 'X'.
   ENDIF.
 ENDFORM.
 
-FORM frm_ref_b TABLES ct_item STRUCTURE zafo_sitem. "一般库存
+FORM frm_ref_b CHANGING ct_item TYPE zafo_tt_sitem. "一般库存
   SELECT
   d~matnr,
   d~werks,
@@ -121,44 +129,49 @@ FORM frm_ref_b TABLES ct_item STRUCTURE zafo_sitem. "一般库存
   ON c~matnr =  a~matnr
   LEFT JOIN makt AS t ON c~matnr = t~matnr AND t~spras = @sy-langu
   INNER JOIN t001w AS w ON d~werks = w~werks
-  INNER JOIN t001l AS l   ON d~werks = l~werks AND d~lgort = l~lgort
+  INNER JOIN t001l AS l ON d~werks = l~werks AND d~lgort = l~lgort
   INTO CORRESPONDING FIELDS OF TABLE @ct_item
   WHERE a~matnr IN @s_matnr
   AND a~mtart IN @s_mtart
   AND d~werks IN @s_werks
   AND d~lgort IN @s_lgort
   AND a~matkl IN @s_matkl
+  AND t~maktx IN @s_maktx
   AND labst <> 0
    AND c~xchar = ''.
 
 
-  LOOP AT ct_item.
-    ct_item-umwrk = ct_item-werks.
-    ct_item-umwrk_name = ct_item-werks_name.
-    IF ct_item-menge_stock IS NOT INITIAL.
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+    <item>-umwrk = <item>-werks.
+    <item>-umwrk_name = <item>-werks_name.
+    IF <item>-menge_stock IS NOT INITIAL.
       zafo_basic=>set_icon( EXPORTING status = 'A'
-         IMPORTING icon = ct_item-icon text = ct_item-text ).
+         IMPORTING icon = <item>-icon text = <item>-text ).
     ENDIF.
-    ct_item-item_status = 'C'.
-    MODIFY ct_item.
+    <item>-item_status = 'C'.
   ENDLOOP.
 ENDFORM.
 
-FORM frm_ref_c TABLES ct_item STRUCTURE zafo_sitem. "E库存参考+普通库存
+FORM frm_ref_c CHANGING ct_item TYPE zafo_tt_sitem. "E库存参考+普通库存
   SELECT
   k~vbeln AS kdauf,
   k~posnr AS kdpos,
-  p~pmatn AS satnr,
+  k~satnr,
+  vbak~ihrez ,
+  p~aufnr,
   k~sobkz,
   k~matnr,
   k~werks,
   k~lgort,
-  k~kalab AS menge_stock,
+  k~labst AS menge_stock,
   t~maktx,
   a~meins,
   w~name1 AS werks_name,
-  l~lgobe AS lgort_name
-  FROM mska AS k
+  l~lgobe AS lgort_name,
+  CASE WHEN k~sobkz = 'E' THEN 'M'
+    ELSE ' ' END AS knttp
+  FROM zafo_wh_stock AS k
+  LEFT JOIN vbak ON k~vbeln = vbak~vbeln
   LEFT JOIN vbap AS p ON k~vbeln = p~vbeln AND k~posnr = p~posnr
   INNER JOIN marc AS c
   ON k~matnr = c~matnr AND k~werks = c~werks
@@ -166,120 +179,45 @@ FORM frm_ref_c TABLES ct_item STRUCTURE zafo_sitem. "E库存参考+普通库存
   ON c~matnr =  a~matnr
   LEFT JOIN makt AS t ON c~matnr = t~matnr AND t~spras = @sy-langu
   INNER JOIN t001w AS w ON k~werks = w~werks
-  INNER JOIN t001l AS l   ON k~werks = l~werks AND k~lgort = l~lgort
+  INNER JOIN t001l AS l ON k~werks = l~werks AND k~lgort = l~lgort
   INTO CORRESPONDING FIELDS OF TABLE @ct_item
   WHERE a~matnr IN @s_matnr
   AND a~mtart IN @s_mtart
+  AND k~satnr IN @s_satnr
   AND k~werks IN @s_werks
   AND k~lgort IN @s_lgort
   AND a~matkl IN @s_matkl
-  AND k~kalab <> 0
-  AND c~xchar = ''.
-
-  SELECT
-  d~matnr,
-  d~werks,
-  d~lgort,
-  d~labst AS menge_stock,
-  t~maktx,
-  a~meins,
-  w~name1 AS werks_name,
-  l~lgobe AS lgort_name
-  FROM mard AS d
-  INNER JOIN marc AS c
-  ON d~matnr = c~matnr AND d~werks = c~werks
-  INNER JOIN mara AS a
-  ON c~matnr =  a~matnr
-  LEFT JOIN makt AS t ON c~matnr = t~matnr AND t~spras = @sy-langu
-  INNER JOIN t001w AS w ON d~werks = w~werks
-  INNER JOIN t001l AS l   ON d~werks = l~werks AND d~lgort = l~lgort
-  APPENDING CORRESPONDING FIELDS OF TABLE @ct_item
-  WHERE a~matnr IN @s_matnr
-  AND a~mtart IN @s_mtart
-  AND d~werks IN @s_werks
-  AND d~lgort IN @s_lgort
-  AND a~matkl IN @s_matkl
-  AND labst <> 0
+  AND t~maktx IN @s_maktx
+  AND p~pmatn IN @s_satnr
+  AND k~vbeln IN @s_vbeln
+  AND t~maktx IN @s_maktx
+  AND k~labst <> 0
   AND c~xchar = ''.
 
 
-  LOOP AT ct_item.
-    ct_item-umwrk = ct_item-werks.
-    ct_item-umwrk_name = ct_item-werks_name.
-    IF ct_item-menge_stock IS NOT INITIAL.
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>)..
+    <item>-umwrk = <item>-werks.
+    <item>-umwrk_name = <item>-werks_name.
+    IF <item>-menge_stock IS NOT INITIAL.
       zafo_basic=>set_icon( EXPORTING status = 'A'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
+      IMPORTING icon = <item>-icon text = <item>-text ).
     ENDIF.
-    ct_item-item_status = 'C'.
-    MODIFY ct_item.
+    <item>-item_status = 'C'.
   ENDLOOP.
 ENDFORM.
 
 
-FORM frm_ref_d TABLES ct_item STRUCTURE zafo_sitem. "获取RESB数据采购
-  SELECT
-  a~rsnum,
-  a~rspos,
-  a~matnr,
-  a~werks,
-  a~aufnr,
-  a~lgort,
-  a~sobkz,
-  a~bdmng AS menge_ref,
-  a~meins,
-  m~satnr,
-  a~kdauf,
-  a~kdpos,
-  a~knttp,
-  t1~matkl,
-  t1~mtart,
-  a~bdter AS eeind,
-  w~name1 AS werks_name,
-  b~menge_done,
-  t1~maktx
-  INTO CORRESPONDING FIELDS OF TABLE @ct_item
-  FROM resb AS a
-  LEFT JOIN zafo_v_mara AS m ON  a~baugr = m~matnr AND m~spras = @sy-langu
-  LEFT JOIN zafo_po_sum AS b ON a~rsnum = b~rsnum AND a~rspos = b~rspos AND b~bustyp = @p_typ
-  LEFT JOIN t001w AS w ON a~werks = w~werks
-  LEFT JOIN zafo_v_mara AS t1 ON a~matnr = t1~matnr AND t1~spras = @sy-langu
-  WHERE a~werks IN @s_werks
-  AND a~aufnr IN @s_aufnr
-  AND a~matnr IN @s_matnr
-  AND t1~mtart IN @s_mtart
-  AND t1~matkl IN @s_matkl
-  AND m~satnr IN @s_satnr
-  AND a~kdauf IN @s_vbeln
-  AND t1~maktx IN @s_maktx
-  AND a~xwaok = 'X'
-  AND a~bdart = 'AR'.
+FORM frm_ref_d CHANGING ct_item TYPE zafo_tt_sitem. "获取RESB数据采购
 
-  LOOP AT ct_item.
-    ct_item-menge_plan = ct_item-menge_ref - ct_item-menge_done.
-    ct_item-menge = COND #( WHEN ct_item-menge_plan > 0 THEN ct_item-menge_plan ELSE 0 ).
-    IF ct_item-menge > 0.
-      zafo_basic=>set_icon( EXPORTING status = 'A'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'C'.
-    ELSE.
-      zafo_basic=>set_icon( EXPORTING status = 'S'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'S'.
-    ENDIF.
-    ct_item-menge = COND #( WHEN ct_item-menge_plan >= 0 THEN ct_item-menge_plan ELSE 0 ).
-    MODIFY ct_item.
-  ENDLOOP.
-
-  IF p_fin = ''.
-    DELETE ct_item WHERE menge <= 0.
-  ENDIF.
 
 ENDFORM.
 
-FORM frm_ref_e TABLES ct_item STRUCTURE zafo_sitem. "E库存参考
+FORM frm_ref_e CHANGING ct_item TYPE zafo_tt_sitem. "E库存参考
   SELECT
   k~vbeln AS kdauf,
   k~posnr AS kdpos,
+  p~pmatn AS satnr,
+  vbak~ihrez,
   k~sobkz,
   k~matnr,
   k~werks,
@@ -290,42 +228,129 @@ FORM frm_ref_e TABLES ct_item STRUCTURE zafo_sitem. "E库存参考
   w~name1 AS werks_name,
   l~lgobe AS lgort_name
   FROM mska AS k
-  INNER JOIN marc AS c
-  ON k~matnr = c~matnr AND k~werks = c~werks
+  LEFT JOIN vbak ON k~vbeln = vbak~ihrez
+  LEFT JOIN vbap AS p ON k~vbeln = p~vbeln AND k~posnr = p~posnr
+*  INNER JOIN marc AS c
+*  ON k~matnr = c~matnr AND k~werks = c~werks
   INNER JOIN mara AS a
-  ON c~matnr =  a~matnr
-  LEFT JOIN makt AS t ON c~matnr = t~matnr AND t~spras = @sy-langu
+  ON k~matnr =  a~matnr
+  LEFT JOIN makt AS t ON k~matnr = t~matnr AND t~spras = @sy-langu
   INNER JOIN t001w AS w ON k~werks = w~werks
   INNER JOIN t001l AS l   ON k~werks = l~werks AND k~lgort = l~lgort
   INTO CORRESPONDING FIELDS OF TABLE @ct_item
   WHERE a~matnr IN @s_matnr
+  AND p~pmatn IN @s_satnr
   AND a~mtart IN @s_mtart
   AND k~werks IN @s_werks
   AND k~lgort IN @s_lgort
   AND a~matkl IN @s_matkl
-  AND k~kalab <> 0
-  AND c~xchar = ''.
+  AND t~maktx IN @s_maktx
+  AND k~vbeln IN @s_vbeln
+  AND k~kalab <> 0.
 
 
-  LOOP AT ct_item.
-    ct_item-umwrk = ct_item-werks.
-    ct_item-umwrk_name = ct_item-werks_name.
-    IF ct_item-menge_stock IS NOT INITIAL.
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+
+
+    <item>-umwrk = <item>-werks.
+    <item>-umwrk_name = <item>-werks_name.
+    IF <item>-menge_stock IS NOT INITIAL.
       zafo_basic=>set_icon( EXPORTING status = 'A'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
+      IMPORTING icon = <item>-icon text = <item>-text ).
     ENDIF.
-    ct_item-item_status = 'C'.
-    MODIFY ct_item.
+    <item>-item_status = 'C'.
   ENDLOOP.
 
 ENDFORM.
 
-FORM frm_ref_g TABLES ct_item STRUCTURE zafo_sitem."采购订单原单退货
+FORM frm_ref_g CHANGING ct_item TYPE zafo_tt_sitem."采购订单原单退货
+  SELECT
+  k~bukrs,
+  k~ebeln,
+  k~lifnr,
+  k~waers,
+  k~frgrl,
+  p~ebelp,
+  p~matnr,
+  p~matkl,
+  p~idnlf,
+  p~txz01  AS maktx,
+  p~meins,
+  p~bprme,
+  p~werks,
+  p~lgort,
+  p~peinh AS peinh,
+  p~brtwr AS amount,
+  t~charg,
+  t~menge AS menge_ref,
+  t~wemng AS menge_plan,
+  t~wemng AS menge,
+  a~name1 AS lifnr_name,
+  b~name1 AS werks_name,
+  p~bednr AS satnr,
+  p~externalreferenceid AS ihrez,
+  p~labnr AS aufnr,
+  c~lgobe   AS lgort_name
+  INTO CORRESPONDING FIELDS OF TABLE @ct_item
+  FROM ekko AS k
+  INNER JOIN ekpo AS p
+  ON k~ebeln = p~ebeln
+  INNER JOIN eket AS t
+  ON p~ebeln = t~ebeln AND p~ebelp = t~ebelp
+  LEFT JOIN lfa1 AS a ON k~lifnr = a~lifnr
+  LEFT JOIN t001w AS b ON p~werks = b~werks
+  LEFT JOIN t001l AS c ON p~werks = c~werks AND p~lgort = c~lgort
+  WHERE  p~werks IN @s_werks
+  AND p~lgort   IN @s_lgort
+  AND p~matnr IN @s_matnr
+  AND p~mtart IN @s_mtart
+  AND p~matkl IN @s_matkl
+  AND k~ebeln IN @s_ebeln
+  AND k~bsart IN @s_bsart
+  AND k~ekgrp IN @s_ekgrp
+  AND k~lifnr IN @s_lifnr
+  AND k~aedat IN @s_erdat
+  AND k~bsart IN @s_bsart
+  AND p~labnr IN @s_aufnr
+  AND p~bednr IN @s_satnr
+  AND p~retpo = ''
+  AND t~wemng > 0
+  AND p~loekz = '  '.
 
+  CHECK ct_item IS NOT INITIAL.
+
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>)..
+
+    IF <item>-peinh IS NOT INITIAL.
+      <item>-netpr = <item>-netpr / <item>-peinh.
+      <item>-netwr = <item>-netwr .
+    ENDIF.
+
+    <item>-price = <item>-amount / <item>-menge_ref * <item>-peinh.
+    <item>-price_long = <item>-amount / <item>-menge_ref.
+
+    IF <item>-menge_plan <= 0.
+      zafo_basic=>set_icon( EXPORTING status = 'S'
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'S'.
+    ELSE.
+      <item>-item_status = 'C'.
+      zafo_basic=>set_icon( EXPORTING status = 'C'
+      IMPORTING icon = <item>-icon text = <item>-text ).
+    ENDIF.
+    IF <item>-frgrl = 'X'.
+      zafo_basic=>set_icon( EXPORTING status = 'B'
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'B'.
+    ENDIF.
+
+  ENDLOOP.
 ENDFORM.
-FORM frm_ref_f TABLES ct_item STRUCTURE zafo_sitem."生产报工
+
+FORM frm_ref_f CHANGING ct_item TYPE zafo_tt_sitem."生产报工
   SELECT
   a~aufnr,
+  a~ihrez,
   a~vornr,
   a~werks,
   a~arbpl,
@@ -343,21 +368,22 @@ FORM frm_ref_f TABLES ct_item STRUCTURE zafo_sitem."生产报工
   WHERE a~werks IN @s_werks
   AND aufnr IN @s_aufnr
   AND matnr IN @s_matnr
+  AND satnr IN @s_satnr
   AND arbpl <> ''
   ORDER BY aufnr ,vornr.
 
-  LOOP AT ct_item.
-    IF ct_item-menge_plan > 0.
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>)..
+    IF <item>-menge_plan > 0.
       zafo_basic=>set_icon( EXPORTING status = 'A'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'C'.
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'C'.
     ELSE.
       zafo_basic=>set_icon( EXPORTING status = 'S'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'S'.
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'S'.
     ENDIF.
-    ct_item-menge = COND #( WHEN ct_item-menge_plan >= 0 THEN ct_item-menge_plan ELSE 0 ).
-    MODIFY ct_item.
+    <item>-menge = COND #( WHEN <item>-menge_plan >= 0 THEN <item>-menge_plan ELSE 0 ).
+
   ENDLOOP.
 
   IF p_fin = ''.
@@ -366,7 +392,7 @@ FORM frm_ref_f TABLES ct_item STRUCTURE zafo_sitem."生产报工
 ENDFORM.
 
 
-FORM frm_ref_h TABLES ct_item STRUCTURE zafo_sitem. "生产发料
+FORM frm_ref_h CHANGING ct_item TYPE zafo_tt_sitem. "生产发料
   SELECT
   a~rsnum,
   a~rspos,
@@ -376,7 +402,8 @@ FORM frm_ref_h TABLES ct_item STRUCTURE zafo_sitem. "生产发料
   a~bdmng AS menge_ref,
   a~enmng AS menge_done,
   a~meins,
-  m~satnr,
+  h~satnr,
+  h~ihrez,
   a~kdauf,
   a~kdpos,
   a~aufnr,
@@ -387,56 +414,122 @@ FORM frm_ref_h TABLES ct_item STRUCTURE zafo_sitem. "生产发料
   w~name1 AS werks_name,
   k~labst AS menge_stock,
   k~lgort,
-  l~lgobe AS lgort_name
+  l~lgobe AS lgort_name,
+  h~status AS item_status,
+  h~status_text AS text
   INTO CORRESPONDING FIELDS OF TABLE @ct_item
   FROM resb AS a
+  INNER JOIN zafo_mo_head AS h ON a~aufnr = h~aufnr
   INNER JOIN t001w AS w ON a~werks = w~werks
   LEFT JOIN makt AS t1 ON a~matnr = t1~matnr AND t1~spras = @sy-langu
-  LEFT JOIN mara AS m ON a~baugr = m~matnr
   LEFT JOIN zafo_wh_stock AS k ON a~matnr = k~matnr
                                                  AND a~werks = k~werks
                                                  AND a~kdauf = k~vbeln
                                                  AND a~kdpos = k~posnr
    LEFT JOIN t001l AS l ON k~werks = l~werks AND k~lgort = l~lgort
-*                                                  AND a~sobkz = k~sobkz
+                                                  AND a~sobkz = k~sobkz
   WHERE a~werks IN @s_werks
   AND a~aufnr IN @s_aufnr
   AND a~matnr IN @s_matnr
-  AND a~baugr IN @s_satnr
-  AND a~xwaok = 'X'
-  AND a~bdart = 'AR'.
+  AND h~satnr IN @s_satnr
+  AND k~lgort IN @s_lgort
+  AND a~bwart = '261'
+  AND a~bdart = 'AR'
+  AND a~xloek = ''.
+
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
 
 
-  LOOP AT ct_item.
-    ct_item-menge_plan = ct_item-menge_ref - ct_item-menge_done.
-    ct_item-menge = COND #( WHEN ct_item-menge_plan > ct_item-menge_stock THEN ct_item-menge_stock
-                                              ELSE ct_item-menge_plan ).
-    IF ct_item-menge > 0.
-      zafo_basic=>set_icon( EXPORTING status = 'A'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'C'.
-    ELSEIF ct_item-menge_plan = 0.
-      zafo_basic=>set_icon( EXPORTING status = 'S'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'S'.
-    ELSE.
-      zafo_basic=>set_icon( EXPORTING status = ''
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = ''.
+    <item>-move_satnr = <item>-satnr.
+    <item>-menge_plan = <item>-menge_ref - <item>-menge_done.
+    <item>-menge = COND #( WHEN <item>-menge_plan > <item>-menge_stock THEN <item>-menge_stock
+                                              ELSE <item>-menge_plan ).
+    zafo_basic=>set_icon( EXPORTING status = <item>-item_status
+    IMPORTING icon = <item>-icon  ).
+    IF <item>-item_status = 'S'.
+      <item>-item_status = 'A'.
     ENDIF.
-    MODIFY ct_item.
   ENDLOOP.
+
   IF p_fin = ''.
     DELETE ct_item WHERE menge <= 0.
   ENDIF.
 
 ENDFORM.
 
-FORM frm_ref_i TABLES ct_item STRUCTURE zafo_sitem. "生产退料
+FORM frm_ref_i CHANGING ct_item TYPE zafo_tt_sitem. "生产退料,RESB取值无计划外发料
+  SELECT
+  a~aufnr,
+  a~rsnum,
+  a~rspos,
+  s~matnr AS matnr_mo,
+  s~satnr,
+  vbak~ihrez,
+  a~matnr,
+  a~werks,
+  a~sobkz,
+  a~meins,
+  a~kdauf,
+  a~kdpos,
+  m~matkl,
+  a~sobkz,
+  m~maktx,
+  w~name1 AS werks_name,
+  SUM( CASE a~shkzg WHEN 'H' THEN a~menge WHEN 'S' THEN - a~menge END )  AS menge_plan
+  INTO CORRESPONDING FIELDS OF TABLE @ct_item
+  FROM aufm AS a
+  INNER JOIN aufk AS u ON a~aufnr = u~aufnr
+  INNER JOIN afko AS k ON a~aufnr = k~aufnr
+  INNER JOIN mara AS s ON k~plnbez = s~matnr
+  INNER JOIN t001w AS w ON a~werks = w~werks
+  INNER JOIN zafo_v_mara AS m ON a~matnr = m~matnr
+  LEFT JOIN vbak  ON vbak~vbeln = a~kdauf
+*                                                  AND a~sobkz = k~sobkz
+  WHERE a~werks IN @s_werks
+  AND a~aufnr IN @s_aufnr
+  AND s~satnr IN @s_satnr
+  AND a~matnr IN @s_matnr
+  AND m~matkl IN @s_matkl
+  AND m~mtart IN @s_mtart
+  AND m~maktx IN @s_maktx
+  AND bwart IN ( '261' , '262' )
+  GROUP BY a~aufnr,
+  a~rsnum,
+  a~rspos,
+  s~satnr,
+  vbak~ihrez,
+  a~matnr,
+  a~werks,
+  a~sobkz,
+  a~meins,
+  a~kdauf,
+  a~kdpos,
+  m~matkl,
+  a~sobkz,
+  m~maktx,
+  w~name1,
+  s~matnr.
 
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+    <item>-retpo = 'X'.
+    <item>-menge = COND #( WHEN <item>-menge_plan > 0 THEN <item>-menge_plan
+    ELSE 0 ).
+    IF <item>-menge > 0.
+      zafo_basic=>set_icon( EXPORTING status = 'A'
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'C'.
+    ELSE .
+      zafo_basic=>set_icon( EXPORTING status = 'S'
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'S'.
+    ENDIF.
+  ENDLOOP.
+  IF p_fin = ''.
+    DELETE ct_item WHERE menge <= 0.
+  ENDIF.
 ENDFORM.
 
-FORM frm_ref_j TABLES ct_item STRUCTURE zafo_sitem.
+FORM frm_ref_j CHANGING ct_item TYPE zafo_tt_sitem.
   SELECT * FROM zafo_mo_gr
     INTO CORRESPONDING FIELDS OF TABLE ct_item
     WHERE aufnr IN s_aufnr
@@ -444,22 +537,17 @@ FORM frm_ref_j TABLES ct_item STRUCTURE zafo_sitem.
     AND satnr IN s_satnr
     AND werks IN s_werks.
 
-  LOOP AT ct_item.
-    ct_item-menge_plan = ct_item-menge_ref - ct_item-menge_done.
-    ct_item-menge = COND #( WHEN ct_item-menge_plan > 0 THEN ct_item-menge_plan
-                                              ELSE 0 ).
+  DELETE ADJACENT DUPLICATES FROM ct_item COMPARING aufnr posnr_mo.
 
-    IF ct_item-menge_plan > 0.
-      zafo_basic=>set_icon( EXPORTING status = 'A'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'C'.
-    ELSE.
-      zafo_basic=>set_icon( EXPORTING status = 'S'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'S'.
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+    <item>-menge_plan = <item>-menge_ref - <item>-menge_done.
+*    <item>-menge = COND #( WHEN <item>-menge_plan > 0 THEN <item>-menge_plan
+*                                              ELSE 0 ).
+    zafo_basic=>set_icon( EXPORTING status = <item>-item_status
+    IMPORTING icon = <item>-icon  ).
+    IF <item>-item_status = 'S'.
+      <item>-item_status = 'A'.
     ENDIF.
-
-    MODIFY ct_item.
   ENDLOOP.
 
   IF p_fin = ''.
@@ -467,16 +555,19 @@ FORM frm_ref_j TABLES ct_item STRUCTURE zafo_sitem.
   ENDIF.
 ENDFORM.
 
-FORM frm_ref_k TABLES ct_item STRUCTURE zafo_sitem."参考工序外协加工
+FORM frm_ref_k CHANGING ct_item TYPE zafo_tt_sitem."参考工序外协加工
   SELECT
   a~aufnr,
   a~vornr,
   a~werks,
   a~meins,
   a~matnr AS satnr,
+  a~ihrez ,
   a~rueck,
   a~ltxa1 AS maktx,
-  a~mgvrg AS menge_plan,
+  a~mgvrg AS menge_ref,
+  d~menge AS menge_done,
+*  ( a~mgvrg - d~menge ) AS menge_plan,
   a~price,
   a~peinh,
   a~waers,
@@ -484,33 +575,39 @@ FORM frm_ref_k TABLES ct_item STRUCTURE zafo_sitem."参考工序外协加工
   a~ekgrp,
   a~lifnr,
   a~matkl,
+  a~aufpl,
+  a~aplzl,
   'F' AS knttp,
+   v~name1 AS lifnr_name,
   w~name1 AS werks_name
   INTO CORRESPONDING FIELDS OF TABLE @ct_item
   FROM zafo_mo_conf AS a
+  LEFT JOIN zafo_done_sum AS d ON d~bustyp = @p_typ AND a~aufnr =  d~aufnr AND a~vornr = d~vornr
   INNER JOIN t001w AS w ON a~werks = w~werks
+  LEFT JOIN lfa1 AS v ON a~lifnr = v~lifnr
   WHERE a~werks IN @s_werks
-  AND aufnr IN @s_aufnr
-  AND matnr IN @s_matnr
-    AND steus = 'PP02'
-  ORDER BY aufnr ,vornr.
+  AND a~aufnr IN @s_aufnr
+  AND a~matnr IN @s_matnr
+  AND a~satnr IN @s_satnr
+  AND steus = 'PP02'
+  ORDER BY a~aufnr ,a~vornr.
 
-  LOOP AT ct_item.
-    ct_item-menge = COND #( WHEN ct_item-menge_plan > 0 THEN ct_item-menge_plan ELSE 0 ).
-    ct_item-price_long = ct_item-price / ct_item-peinh.
-    ct_item-amount = ct_item-menge * ct_item-price / ct_item-peinh.
-    IF ct_item-menge_plan > 0.
+
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+    <item>-menge_plan = <item>-menge_ref - <item>-menge_done.
+    <item>-menge = COND #( WHEN <item>-menge_plan > 0 THEN <item>-menge_plan ELSE 0 ).
+    <item>-price_long = <item>-price / <item>-peinh.
+    <item>-amount = <item>-menge * <item>-price / <item>-peinh.
+    IF <item>-menge_plan > 0.
       zafo_basic=>set_icon( EXPORTING status = 'A'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'C'.
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'C'.
     ELSE.
       zafo_basic=>set_icon( EXPORTING status = 'S'
-      IMPORTING icon = ct_item-icon text = ct_item-text ).
-      ct_item-item_status = 'S'.
+      IMPORTING icon = <item>-icon text = <item>-text ).
+      <item>-item_status = 'S'.
     ENDIF.
-    MODIFY ct_item.
   ENDLOOP.
-
 
   IF p_fin = ''.
     DELETE ct_item WHERE menge <= 0.
@@ -519,7 +616,40 @@ FORM frm_ref_k TABLES ct_item STRUCTURE zafo_sitem."参考工序外协加工
 
 ENDFORM.
 
-FORM frm_ref_o TABLES ct_item STRUCTURE zafo_sitem. "O库存参考
+FORM frm_ref_l CHANGING ct_item TYPE zafo_tt_sitem."生产订单抬头信息
+
+  SELECT
+    h~aufnr,
+    h~werks,
+    h~satnr,
+    h~ihrez,
+    h~maktx AS satnr_name,
+    menge AS menge_ref,
+*    meins,
+    kdauf AS vbeln_va,
+    kdpos AS posnr_va,
+    status AS item_status,
+    status_text AS text
+    FROM zafo_mo_head AS h
+    INTO CORRESPONDING FIELDS OF TABLE @ct_item
+    WHERE aufnr IN @s_aufnr
+    AND satnr IN @s_satnr
+    AND werks IN @s_werks
+    AND kdauf IN @s_vbeln
+    AND mtart IN @s_mtart
+    AND matkl IN @s_matkl.
+
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+    zafo_basic=>set_icon( EXPORTING status = <item>-item_status
+    IMPORTING icon = <item>-icon   ).
+    IF <item>-item_status = 'S'.
+      <item>-item_status = 'A'.
+    ENDIF.
+  ENDLOOP.
+
+ENDFORM.
+
+FORM frm_ref_o CHANGING ct_item TYPE zafo_tt_sitem. "O库存参考
 
   SELECT
   c~matnr,
@@ -530,10 +660,12 @@ FORM frm_ref_o TABLES ct_item STRUCTURE zafo_sitem. "O库存参考
   lblab AS menge_stock,
   t~maktx,
   a~meins,
-  l~name1 AS lifnr_name
+  l~name1 AS lifnr_name,
+  w~name1 AS werks_name
   FROM mslb AS c
      INNER JOIN mara AS a
        ON c~matnr =  a~matnr
+    LEFT JOIN t001w AS w ON c~werks = w~werks
      LEFT JOIN makt AS t ON c~matnr = t~matnr AND t~spras = @sy-langu
      LEFT JOIN lfa1 AS l ON c~lifnr = l~lifnr
      INTO CORRESPONDING FIELDS OF TABLE @ct_item
@@ -545,29 +677,23 @@ FORM frm_ref_o TABLES ct_item STRUCTURE zafo_sitem. "O库存参考
          AND lblab <> 0.
 
 
-  LOOP AT ct_item.
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+    zafo_basic=>set_icon( EXPORTING status = 'A'
+    IMPORTING icon = <item>-icon text = <item>-text ).
+    <item>-item_status = 'C'.
 
-    IF ct_item-menge_stock IS NOT INITIAL.
-      PERFORM frm_set_icon IN PROGRAM saplzafo IF FOUND
-          USING '' CHANGING ct_item-icon ct_item-text .
-    ELSE.
-      PERFORM frm_set_icon IN PROGRAM saplzafo IF FOUND
-       USING 'E' CHANGING ct_item-icon ct_item-text .
-    ENDIF.
-
-    MODIFY ct_item.
   ENDLOOP.
 
 ENDFORM.
 
 
-FORM frm_ref_y TABLES ct_item STRUCTURE zafo_sitem. "过账单据引用
+FORM frm_ref_y CHANGING ct_item TYPE zafo_tt_sitem. "过账单据引用
 
-  PERFORM frm_ref_z TABLES ct_item.
+  PERFORM frm_ref_z CHANGING ct_item.
 
 ENDFORM.
 
-FORM frm_ref_z TABLES ct_item STRUCTURE zafo_sitem. "申请单引用
+FORM frm_ref_z CHANGING ct_item TYPE zafo_tt_sitem. "申请单引用
 
   DATA(r_bustyp) = zafo_basic=>get_bustyp_ref( p_typ ).
 
@@ -592,14 +718,13 @@ FORM frm_ref_z TABLES ct_item STRUCTURE zafo_sitem. "申请单引用
 .
 
 
-  LOOP AT ct_item.
-    IF ct_item-item_status IS NOT INITIAL.
-      ct_item-icon = ct_item-item_status.
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<item>).
+    IF <item>-item_status IS NOT INITIAL.
+      <item>-icon = <item>-item_status.
     ENDIF.
-    zafo_basic=>set_icon( EXPORTING status = ct_item-item_status
-                                        IMPORTING icon = ct_item-icon text = ct_item-text ).
-    ct_item-menge_ref = ct_item-menge.
-    MODIFY ct_item.
+    zafo_basic=>set_icon( EXPORTING status = <item>-item_status
+                                        IMPORTING icon = <item>-icon text = <item>-text ).
+    <item>-menge_ref = <item>-menge.
   ENDLOOP.
 
 

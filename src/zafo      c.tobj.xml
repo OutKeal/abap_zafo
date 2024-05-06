@@ -113,6 +113,12 @@
      <TABNAME>ZAFO_SEL_VALUE</TABNAME>
      <DDIC>X</DDIC>
     </OBJS>
+    <OBJS>
+     <OBJECTNAME>ZAFO</OBJECTNAME>
+     <OBJECTTYPE>C</OBJECTTYPE>
+     <TABNAME>ZAFO_UEB_GROUP</TABNAME>
+     <DDIC>X</DDIC>
+    </OBJS>
    </OBJS>
   </asx:values>
  </asx:abap>

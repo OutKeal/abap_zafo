@@ -1,377 +1,387 @@
-120	PO_RELEASE          	001	G	PO_REL_CODE                   	                              	          	                              	P0
-120	PO_RELEASE          	002	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
-120	PO_RELEASE          	003	R	RETURN                        	                              	RET       	                              	
-120	PO_RESET_RELEASE    	001	G	PO_REL_CODE                   	                              	          	                              	P0
-120	PO_RESET_RELEASE    	003	R	RETURN                        	                              	RET       	                              	
-120	PO_RESET_RELEASE    	002	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
-120	PO_CREATE           	001	H	POHEADER                      	ITEM_INTVL                    	          	                              	0
-120	AT_CREATE           	001	H	IS_HEAD                       	EXORD                         	HEAD      	AFONO                         	
-120	AT_CREATE           	002	H	IS_HEAD                       	TYPE                          	          	                              	AT100
-120	AT_CREATE           	003	H	IS_HEAD                       	BUDAT                         	HEAD      	BUDAT                         	
-120	AT_CREATE           	004	H	IS_HEAD                       	KUNNR                         	HEAD      	KUNNR                         	
-120	AT_CREATE           	005	H	IS_HEAD                       	LIFNR                         	HEAD      	LIFNR                         	
-120	AT_CREATE           	006	H	IS_HEAD                       	EKORG                         	HEAD      	EKORG                         	
-120	AT_CREATE           	007	H	IS_HEAD                       	EKGRP                         	          	                              	501
-120	AT_CREATE           	008	H	IS_HEAD                       	BUKRS                         	HEAD      	BUKRS                         	
-120	AT_CREATE           	009	H	IS_HEAD                       	VKORG                         	HEAD      	VKORG                         	
-120	AT_CREATE           	010	H	IS_HEAD                       	VTWEG                         	HEAD      	VTWEG                         	
-120	AT_CREATE           	011	H	IS_HEAD                       	SPART                         	HEAD      	SPART                         	
-120	AT_CREATE           	012	H	IS_HEAD                       	WERKS                         	HEAD      	WERKS                         	
-120	AT_CREATE           	013	H	IS_HEAD                       	LGORT                         	HEAD      	LGORT                         	
-120	AT_CREATE           	014	I	IT_ITEM                       	EXNR                          	ITEM      	AFONR                         	
-120	AT_CREATE           	015	I	IT_ITEM                       	MATNR                         	ITEM      	MATNR                         	
-120	AT_CREATE           	016	I	IT_ITEM                       	MENGE                         	ITEM      	MENGE                         	
-120	AT_CREATE           	017	I	IT_ITEM                       	MEINS                         	ITEM      	MEINS                         	
-120	AT_CREATE           	018	I	IT_ITEM                       	PRICE                         	ITEM      	PRICE                         	
-120	AT_CREATE           	019	I	IT_ITEM                       	AMOUNT                        	ITEM      	AMOUNT                        	
-120	AT_CREATE           	020	I	IT_ITEM                       	WAERS                         	ITEM      	WAERS                         	
-120	AT_CREATE           	021	I	IT_ITEM                       	SGTXT                         	ITEM      	NETPR                         	
-120	AT_CREATE           	022	R	ET_RETURN                     	                              	RET       	                              	
-120	AT_CREATE           	023	R	E_ATNO                        	                              	HEAD      	DOCNR                         	
-120	MB_MOVE_GR          	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
-120	MB_MOVE_GR          	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_MOVE_GR          	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_MOVE_GR          	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_MOVE_GR          	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_MOVE_GR          	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	UMWRK                         	
-120	MB_MOVE_GR          	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	UMLGO                         	
-120	MB_MOVE_GR          	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_MOVE_GR          	009	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	315
-120	MB_MOVE_GR          	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_MOVE_GR          	011	I	GOODSMVT_ITEM                 	MOVE_STLOC                    	ITEM      	UMLGO                         	
-120	MB_MOVE_GR          	012	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
-120	MB_MOVE_GR          	013	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
-120	MB_MOVE_GR          	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_MOVE_GR          	015	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
-120	MB_MOVE_GR          	016	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
-120	MB_MOVE_GR          	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_MOVE_GR          	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_MOVE_GR          	019	R	RETURN                        	                              	RET       	                              	
-120	MB_MOVE_GI          	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
-120	MB_MOVE_GI          	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_MOVE_GI          	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_MOVE_GI          	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_MOVE_GI          	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_MOVE_GI          	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_MOVE_GI          	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_MOVE_GI          	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_PD               	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
-120	MB_MOVE_GI          	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_MOVE_GI          	011	I	GOODSMVT_ITEM                 	MOVE_STLOC                    	ITEM      	UMLGO                         	
-120	MB_MOVE_GI          	012	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
-120	MB_MOVE_GI          	013	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
-120	MB_MOVE_GI          	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_MOVE_GI          	015	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
-120	MB_MOVE_GI          	016	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
-120	MB_MOVE_GI          	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_MOVE_GI          	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_MOVE_GI          	019	R	RETURN                        	                              	RET       	                              	
-120	MB_MOVE_GI          	009	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	313
-120	MB_PD               	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_PD               	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_PD               	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_PD               	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_PD               	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_PD               	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_PD               	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_PD               	009	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_PD               	010	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
-120	MB_PD               	011	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
-120	MB_PD               	012	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_PD               	013	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
-120	MB_PD               	014	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
-120	MB_PD               	015	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	ITEM      	MENGE                         	
-120	MB_PD               	016	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_PD               	017	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_PD               	018	R	RETURN                        	                              	RET       	                              	
-120	MB_BIN              	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
-120	MB_BIN              	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_BIN              	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_BIN              	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_BIN              	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_BIN              	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_BIN              	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_BIN              	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_BIN              	009	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	413
-120	MB_BIN              	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_BIN              	012	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
-120	MB_BIN              	013	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
-120	MB_BIN              	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	          	                              	
-120	MB_BIN              	015	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
-120	MB_BIN              	016	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
-120	MB_BIN              	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_BIN              	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_BIN              	019	R	RETURN                        	                              	RET       	                              	
-120	MB_CANCEL           	001	G	GOODSMVT_PSTNG_DATE           	                              	HEAD      	BUDAT                         	
-120	MB_CANCEL           	002	G	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_CANCEL           	003	G	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_CANCEL           	004	R	GOODSMVT_HEADRET              	MAT_DOC                       	HEAD      	MBLNR_RE                      	
-120	MB_CANCEL           	005	R	GOODSMVT_HEADRET              	DOC_YEAR                      	HEAD      	MJAHR_RE                      	
-120	MB_CANCEL           	006	R	RETURN                        	                              	RET       	                              	
-120	MB_MOVE             	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
-120	MB_MOVE             	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_MOVE             	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_MOVE             	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_MOVE             	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_MOVE             	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_MOVE             	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_MOVE             	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_MOVE             	009	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	311
-120	MB_MOVE             	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_MOVE             	011	I	GOODSMVT_ITEM                 	MOVE_STLOC                    	ITEM      	UMLGO                         	
-120	MB_MOVE             	012	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
-120	MB_MOVE             	013	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
-120	MB_MOVE             	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_MOVE             	015	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
-120	MB_MOVE             	016	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
-120	MB_MOVE             	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_MOVE             	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_MOVE             	019	R	RETURN                        	                              	RET       	                              	
-120	MB_MO_GI            	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	03
-120	MB_MO_GI            	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_MO_GI            	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_MO_GI            	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_MO_GI            	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_MO_GI            	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_MO_GI            	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_MO_GI            	008	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	261
-120	MB_MO_GI            	009	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_MO_GI            	010	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_MO_GI            	011	I	GOODSMVT_ITEM                 	MVT_IND                       	          	                              	
-120	MB_MO_GI            	012	I	GOODSMVT_ITEM                 	ORDERID                       	ITEM      	AUFNR                         	
-120	MB_MO_GI            	013	I	GOODSMVT_ITEM                 	RESERV_NO                     	ITEM      	RSNUM                         	
-120	MB_MO_GI            	014	I	GOODSMVT_ITEM                 	RES_ITEM                      	ITEM      	RSPOS                         	
-120	MB_MO_GI            	015	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_MO_GI            	016	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_MO_GI            	017	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_MO_GI            	018	R	RETURN                        	                              	RET       	                              	
-120	MB_MO_GR            	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	02
-120	MB_MO_GR            	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_MO_GR            	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_MO_GR            	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_MO_GR            	005	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_MO_GR            	006	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_MO_GR            	007	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_MO_GR            	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_MO_GR            	009	I	GOODSMVT_ITEM                 	MVT_IND                       	          	                              	F
-120	MB_MO_GR            	010	I	GOODSMVT_ITEM                 	ORDERID                       	ITEM      	AUFNR                         	
-120	MB_MO_GR            	011	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_MO_GR            	012	I	GOODSMVT_ITEM                 	MOVE_MAT                      	ITEM      	MATNR                         	
-120	MB_MO_GR            	013	I	GOODSMVT_ITEM                 	ORDER_ITNO                    	ITEM      	POSNR_MO                      	
-120	MB_MO_GR            	018	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	101
-120	MB_MO_GR            	020	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_MO_GR            	021	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_MO_GR            	022	R	RETURN                        	                              	RET       	                              	
-120	MB_MO_GR_413        	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	02
-120	MB_MO_GR_413        	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_MO_GR_413        	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_MO_GR_413        	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_MO_GR_413        	005	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_MO_GR_413        	006	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_MO_GR_413        	007	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_MO_GR_413        	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_MO_GR_413        	009	I	GOODSMVT_ITEM                 	MVT_IND                       	          	                              	
-120	MB_MO_GR_413        	010	I	GOODSMVT_ITEM                 	ORDERID                       	ITEM      	AUFNR                         	
-120	MB_MO_GR_413        	011	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_MO_GR_413        	012	I	GOODSMVT_ITEM                 	MOVE_MAT                      	ITEM      	MATNR                         	
-120	MB_MO_GR_413        	013	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR_MO                      	
-120	MB_MO_GR_413        	014	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
-120	MB_MO_GR_413        	015	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
-120	MB_MO_GR_413        	016	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS_MO                      	
-120	MB_MO_GR_413        	017	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
-120	MB_MO_GR_413        	018	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	413
-120	MB_MO_GR_413        	019	I	GOODSMVT_ITEM                 	STCK_TYPE                     	          	                              	F
-120	MB_MO_GR_413        	020	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_MO_GR_413        	021	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_MO_GR_413        	022	R	RETURN                        	                              	RET       	                              	
-120	MB_PO_GR            	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	01
-120	MB_PO_GR            	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_PO_GR            	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_PO_GR            	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_PO_GR            	006	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	101
-120	MB_PO_GR            	007	I	GOODSMVT_ITEM                 	PO_NUMBER                     	ITEM      	EBELN                         	
-120	MB_PO_GR            	008	I	GOODSMVT_ITEM                 	PO_ITEM                       	ITEM      	EBELP                         	
-120	MB_PO_GR            	011	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_PO_GR            	014	I	GOODSMVT_ITEM                 	ORDERID                       	ITEM      	AUFNR                         	
-120	MB_PO_GR            	015	I	GOODSMVT_ITEM                 	MVT_IND                       	          	                              	B
-120	MB_PO_GR            	016	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_PO_GR            	017	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_PO_GR            	018	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_PO_GR            	019	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_PO_GR            	020	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_PO_GR            	021	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_PO_GR            	022	R	RETURN                        	                              	RET       	                              	
-120	MB_REL              	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
-120	MB_REL              	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_REL              	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_REL              	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_REL              	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_REL              	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_REL              	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_REL              	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_REL              	009	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	411
-120	MB_REL              	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_REL              	012	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
-120	MB_REL              	013	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
-120	MB_REL              	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
-120	MB_REL              	015	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
-120	MB_REL              	016	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
-120	MB_REL              	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_REL              	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_REL              	019	R	RETURN                        	                              	RET       	                              	
-120	MB_REQ              	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
-120	MB_REQ              	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
-120	MB_REQ              	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
-120	MB_REQ              	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
-120	MB_REQ              	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
-120	MB_REQ              	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
-120	MB_REQ              	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
-120	MB_REQ              	008	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	Z01
-120	MB_REQ              	009	I	GOODSMVT_ITEM                 	COSTCENTER                    	ITEM      	KOSTL                         	
-120	MB_REQ              	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
-120	MB_REQ              	012	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
-120	MB_REQ              	014	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
-120	MB_REQ              	015	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
-120	MB_REQ              	016	R	RETURN                        	                              	RET       	                              	
-120	MO_CONF             	001	I	TIMETICKETS                   	CONF_NO                       	ITEM      	RUECK                         	
-120	MO_CONF             	002	I	TIMETICKETS                   	YIELD                         	ITEM      	MENGE                         	
-120	MO_CONF             	003	I	TIMETICKETS                   	POSTG_DATE                    	HEAD      	BUDAT                         	
-120	MO_CONF             	004	R	DETAIL_RETURN                 	                              	RET       	                              	
-120	MO_CONF             	005	R	RETURN                        	                              	RET       	                              	
-120	PO_CHANGE           	001	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
-120	PO_CHANGE           	002	I	POCOND                        	ITM_NUMBER                    	ITEM      	AFONR                         	
-120	PO_CHANGE           	003	I	POCOND                        	COND_TYPE                     	          	                              	ZPB0
-120	PO_CHANGE           	004	I	POCOND                        	COND_VALUE                    	ITEM      	PRICE                         	
-120	PO_CHANGE           	005	I	POCOND                        	CHANGE_ID                     	          	                              	U
-120	PO_CHANGE           	006	I	POCOND                        	COND_P_UNT                    	ITEM      	PEINH                         	
-120	PO_CHANGE           	007	I	POITEM                        	PO_ITEM                       	ITEM      	AFONR                         	
-120	PO_CHANGE           	008	I	POITEM                        	MATERIAL                      	ITEM      	MATNR                         	
-120	PO_CHANGE           	009	I	POITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
-120	PO_CHANGE           	010	I	POITEM                        	PLANT                         	ITEM      	WERKS                         	
-120	PO_CHANGE           	011	I	POITEM                        	STGE_LOC                      	HEAD      	LGORT                         	
-120	PO_CHANGE           	012	I	POITEM                        	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CHANGE           	013	I	POITEM                        	PO_UNIT                       	ITEM      	MEINS                         	
-120	PO_CHANGE           	014	I	POITEM                        	DELETE_IND                    	ITEM      	DEL_FLAG                      	
-120	PO_CHANGE           	015	I	POITEM                        	TRACKINGNO                    	ITEM      	SATNR                         	
-120	PO_CHANGE           	016	I	POITEM                        	ACKNOWL_NO                    	ITEM      	AUFNR                         	
-120	PO_CHANGE           	017	I	POSCHEDULE                    	PO_ITEM                       	ITEM      	AFONO                         	
-120	PO_CHANGE           	018	I	POSCHEDULE                    	SCHED_LINE                    	          	                              	1
-120	PO_CHANGE           	019	I	POSCHEDULE                    	DELIVERY_DATE                 	HEAD      	EEIND                         	
-120	PO_CHANGE           	020	I	POSCHEDULE                    	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CHANGE           	021	R	RETURN                        	                              	RET       	                              	
-120	PO_CREATE           	002	H	POHEADER                      	COMP_CODE                     	HEAD      	BUKRS                         	
-120	PO_CREATE           	003	H	POHEADER                      	VENDOR                        	HEAD      	LIFNR                         	
-120	PO_CREATE           	004	H	POHEADER                      	PURCH_ORG                     	HEAD      	EKORG                         	
-120	PO_CREATE           	005	H	POHEADER                      	PUR_GROUP                     	HEAD      	EKGRP                         	
-120	PO_CREATE           	006	H	POHEADER                      	DOC_TYPE                      	HEAD      	BSART                         	
-120	PO_CREATE           	007	I	POACCOUNT                     	ITM_NUMBER                    	ITEM      	KDPOS                         	
-120	PO_CREATE           	008	I	POACCOUNT                     	SD_DOC                        	ITEM      	KDAUF                         	
-120	PO_CREATE           	009	I	POACCOUNT                     	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CREATE           	010	I	POACCOUNT                     	PO_ITEM                       	ITEM      	AFONR                         	
-120	PO_CREATE           	011	I	POCOND                        	COND_TYPE                     	          	                              	ZPB0
-120	PO_CREATE           	012	I	POCOND                        	CHANGE_ID                     	          	                              	U
-120	PO_CREATE           	013	I	POCOND                        	COND_P_UNT                    	ITEM      	PEINH                         	
-120	PO_CREATE           	014	I	POCOND                        	CURRENCY                      	HEAD      	WAERS                         	
-120	PO_CREATE           	015	I	POCOND                        	ITM_NUMBER                    	ITEM      	AFONR                         	
-120	PO_CREATE           	016	I	POCOND                        	COND_VALUE                    	ITEM      	PRICE                         	
-120	PO_CREATE           	017	I	POITEM                        	TRACKINGNO                    	ITEM      	SATNR                         	
-120	PO_CREATE           	018	I	POITEM                        	MATL_GROUP                    	ITEM      	MATKL                         	
-120	PO_CREATE           	019	I	POITEM                        	ACCTASSCAT                    	ITEM      	KNTTP                         	
-120	PO_CREATE           	020	I	POITEM                        	PLANT                         	HEAD      	WERKS                         	
-120	PO_CREATE           	021	I	POITEM                        	PREQ_ITEM                     	ITEM      	BNFPO                         	
-120	PO_CREATE           	022	I	POITEM                        	PO_ITEM                       	ITEM      	AFONR                         	
-120	PO_CREATE           	023	I	POITEM                        	MATERIAL                      	ITEM      	MATNR                         	
-120	PO_CREATE           	024	I	POITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
-120	PO_CREATE           	025	I	POITEM                        	PLANT                         	ITEM      	WERKS                         	
-120	PO_CREATE           	026	I	POITEM                        	STGE_LOC                      	HEAD      	LGORT                         	
-120	PO_CREATE           	027	I	POITEM                        	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CREATE           	028	I	POITEM                        	PO_UNIT                       	ITEM      	MEINS                         	
-120	PO_CREATE           	029	I	POITEM                        	PREQ_NO                       	ITEM      	BANFN                         	
-120	PO_CREATE           	030	I	POITEM                        	ACKNOWL_NO                    	ITEM      	AUFNR                         	
-120	PO_CREATE           	031	I	POSCHEDULE                    	PO_ITEM                       	ITEM      	AFONR                         	
-120	PO_CREATE           	032	I	POSCHEDULE                    	SCHED_LINE                    	          	                              	1
-120	PO_CREATE           	033	I	POSCHEDULE                    	DELIVERY_DATE                 	HEAD      	EEIND                         	
-120	PO_CREATE           	034	I	POSCHEDULE                    	DEL_DATCAT_EXT                	          	                              	D
-120	PO_CREATE           	035	I	POSCHEDULE                    	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CREATE           	036	R	EXPPURCHASEORDER              	                              	HEAD      	EBELN                         	
-120	PO_CREATE           	037	R	EXPPURCHASEORDER              	                              	HEAD      	DOCNR                         	
-120	PO_CREATE           	038	R	EXPPURCHASEORDER              	                              	HEAD      	AFONO                         	
-120	PO_CREATE           	039	R	RETURN                        	                              	RET       	                              	
-120	PO_CREATE1          	001	H	POHEADER                      	COMP_CODE                     	HEAD      	BUKRS                         	
-120	PO_CREATE1          	002	H	POHEADER                      	VENDOR                        	HEAD      	LIFNR                         	
-120	PO_CREATE1          	003	H	POHEADER                      	PURCH_ORG                     	HEAD      	EKORG                         	
-120	PO_CREATE1          	004	H	POHEADER                      	PUR_GROUP                     	HEAD      	EKGRP                         	
-120	PO_CREATE1          	005	H	POHEADER                      	DOC_TYPE                      	HEAD      	BSART                         	
-120	PO_CREATE1          	006	H	POHEADER                      	ITEM_INTVL                    	          	                              	1
-120	PO_CREATE1          	007	I	POACCOUNT                     	ITM_NUMBER                    	ITEM      	KDPOS                         	
-120	PO_CREATE1          	008	I	POACCOUNT                     	SD_DOC                        	ITEM      	KDAUF                         	
-120	PO_CREATE1          	009	I	POACCOUNT                     	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CREATE1          	010	I	POACCOUNT                     	PO_ITEM                       	ITEM      	AFONR                         	
-120	PO_CREATE1          	011	I	POACCOUNT                     	ORDERID                       	ITEM      	AUFNR                         	
-120	PO_CREATE1          	012	I	POCOND                        	COND_TYPE                     	          	                              	ZPB0
-120	PO_CREATE1          	013	I	POCOND                        	CHANGE_ID                     	          	                              	U
-120	PO_CREATE1          	014	I	POCOND                        	COND_P_UNT                    	ITEM      	PEINH                         	
-120	PO_CREATE1          	015	I	POCOND                        	CURRENCY                      	HEAD      	WAERS                         	
-120	PO_CREATE1          	016	I	POCOND                        	ITM_NUMBER                    	ITEM      	AFONR                         	
-120	PO_CREATE1          	017	I	POCOND                        	COND_VALUE                    	ITEM      	PRICE                         	
-120	PO_CREATE1          	018	I	POITEM                        	MATL_GROUP                    	ITEM      	MATKL                         	
-120	PO_CREATE1          	019	I	POITEM                        	ACCTASSCAT                    	ITEM      	KNTTP                         	
-120	PO_CREATE1          	020	I	POITEM                        	PLANT                         	HEAD      	WERKS                         	
-120	PO_CREATE1          	021	I	POITEM                        	PREQ_ITEM                     	ITEM      	BNFPO                         	
-120	PO_CREATE1          	022	I	POITEM                        	PO_ITEM                       	ITEM      	AFONR                         	
-120	PO_CREATE1          	023	I	POITEM                        	MATERIAL                      	ITEM      	MATNR                         	
-120	PO_CREATE1          	024	I	POITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
-120	PO_CREATE1          	025	I	POITEM                        	PLANT                         	ITEM      	WERKS                         	
-120	PO_CREATE1          	026	I	POITEM                        	STGE_LOC                      	ITEM      	LGORT                         	
-120	PO_CREATE1          	027	I	POITEM                        	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CREATE1          	028	I	POITEM                        	PO_UNIT                       	ITEM      	MEINS                         	
-120	PO_CREATE1          	029	I	POITEM                        	PREQ_NO                       	ITEM      	BANFN                         	
-120	PO_CREATE1          	030	I	POSCHEDULE                    	PO_ITEM                       	ITEM      	AFONR                         	
-120	PO_CREATE1          	031	I	POSCHEDULE                    	SCHED_LINE                    	          	                              	1
-120	PO_CREATE1          	032	I	POSCHEDULE                    	DELIVERY_DATE                 	HEAD      	EEIND                         	
-120	PO_CREATE1          	033	I	POSCHEDULE                    	DEL_DATCAT_EXT                	          	                              	D
-120	PO_CREATE1          	034	I	POSCHEDULE                    	QUANTITY                      	ITEM      	MENGE                         	
-120	PO_CREATE1          	035	R	EXPPURCHASEORDER              	                              	HEAD      	EBELN                         	
-120	PO_CREATE1          	036	R	EXPPURCHASEORDER              	                              	HEAD      	DOCNR                         	
-120	PO_DELETE           	001	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
-120	PO_DELETE           	002	H	POHEADER                      	PO_NUMBER                     	HEAD      	EBELN                         	
-120	PO_DELETE           	003	H	POHEADER                      	DELETE_IND                    	          	                              	L
-120	PO_DELETE           	004	R	RETURN                        	                              	RET       	                              	
-120	PR_CHANGE           	001	G	NUMBER                        	                              	HEAD      	BANFN                         	
-120	PR_CHANGE           	002	H	PRHEADER                      	PR_TYPE                       	HEAD      	BSART                         	
-120	PR_CHANGE           	003	I	PRITEM                        	PREQ_ITEM                     	ITEM      	AFONR                         	
-120	PR_CHANGE           	004	I	PRITEM                        	PUR_GROUP                     	HEAD      	EKGRP                         	
-120	PR_CHANGE           	005	I	PRITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
-120	PR_CHANGE           	006	I	PRITEM                        	MATERIAL                      	ITEM      	MATNR                         	
-120	PR_CHANGE           	007	I	PRITEM                        	PLANT                         	ITEM      	WERKS                         	
-120	PR_CHANGE           	008	I	PRITEM                        	STORE_LOC                     	ITEM      	LGORT                         	
-120	PR_CHANGE           	009	I	PRITEM                        	QUANTITY                      	ITEM      	MENGE                         	
-120	PR_CHANGE           	010	I	PRITEM                        	UNIT                          	ITEM      	MEINS                         	
-120	PR_CHANGE           	011	I	PRITEM                        	DELETE_IND                    	ITEM      	DEL_FLAG                      	
-120	PR_CHANGE           	012	R	RETURN                        	                              	RET       	                              	
-120	PR_CREATE           	001	H	PRHEADER                      	PR_TYPE                       	HEAD      	BSART                         	
-120	PR_CREATE           	002	I	PRITEM                        	PREQ_ITEM                     	ITEM      	AFONR                         	
-120	PR_CREATE           	003	I	PRITEM                        	MATERIAL                      	ITEM      	MATNR                         	
-120	PR_CREATE           	004	I	PRITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
-120	PR_CREATE           	005	I	PRITEM                        	PLANT                         	ITEM      	WERKS                         	
-120	PR_CREATE           	006	I	PRITEM                        	STORE_LOC                     	ITEM      	LGORT                         	
-120	PR_CREATE           	007	I	PRITEM                        	QUANTITY                      	ITEM      	MENGE                         	
-120	PR_CREATE           	008	I	PRITEM                        	UNIT                          	ITEM      	MEINS                         	
-120	PR_CREATE           	011	I	PRITEM                        	PUR_GROUP                     	HEAD      	EKGRP                         	
-120	PR_CREATE           	100	R	NUMBER                        	                              	HEAD      	DOCNR                         	
-120	PR_CREATE           	101	R	RETURN                        	                              	RET       	                              	
-120	PR_CREATE           	102	R	NUMBER                        	                              	HEAD      	BANFN                         	
-120	PR_DELETE           	001	G	NUMBER                        	                              	HEAD      	BANFN                         	
-120	PR_DELETE           	002	H	PRHEADER                      	PR_TYPE                       	HEAD      	BSART                         	
-120	PR_DELETE           	003	I	PRITEM                        	PREQ_ITEM                     	ITEM      	AFONR                         	
-120	PR_DELETE           	004	I	PRITEM                        	PUR_GROUP                     	HEAD      	EKGRP                         	
-120	PR_DELETE           	005	I	PRITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
-120	PR_DELETE           	006	I	PRITEM                        	MATERIAL                      	ITEM      	MATNR                         	
-120	PR_DELETE           	007	I	PRITEM                        	PLANT                         	ITEM      	WERKS                         	
-120	PR_DELETE           	008	I	PRITEM                        	STORE_LOC                     	ITEM      	LGORT                         	
-120	PR_DELETE           	009	I	PRITEM                        	QUANTITY                      	ITEM      	MENGE                         	
-120	PR_DELETE           	010	I	PRITEM                        	UNIT                          	ITEM      	MEINS                         	
-120	PR_DELETE           	011	I	PRITEM                        	DELETE_IND                    	          	                              	X
-120	PR_DELETE           	012	R	RETURN                        	                              	RET       	                              	
-120	PO_CREATE1          	037	R	EXPPURCHASEORDER              	                              	HEAD      	AFONO                         	
-120	PO_CREATE1          	038	R	RETURN                        	                              	RET       	                              	
+200	PO_RELEASE          	001	G	PO_REL_CODE                   	                              	          	                              	P0
+200	PO_RELEASE          	002	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
+200	PO_RELEASE          	003	R	RETURN                        	                              	RET       	                              	
+200	PO_RESET_RELEASE    	001	G	PO_REL_CODE                   	                              	          	                              	P0
+200	PO_RESET_RELEASE    	003	R	RETURN                        	                              	RET       	                              	
+200	PO_RESET_RELEASE    	002	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
+200	MB_MO_GI            	008	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	ITEM      	BWART                         	
+200	AT_CREATE           	001	H	IS_HEAD                       	EXORD                         	HEAD      	AFONO                         	
+200	AT_CREATE           	002	H	IS_HEAD                       	TYPE                          	          	                              	AT100
+200	AT_CREATE           	003	H	IS_HEAD                       	BUDAT                         	HEAD      	BUDAT                         	
+200	AT_CREATE           	004	H	IS_HEAD                       	KUNNR                         	HEAD      	KUNNR                         	
+200	AT_CREATE           	005	H	IS_HEAD                       	LIFNR                         	HEAD      	LIFNR                         	
+200	AT_CREATE           	006	H	IS_HEAD                       	EKORG                         	HEAD      	EKORG                         	
+200	AT_CREATE           	007	H	IS_HEAD                       	EKGRP                         	          	                              	501
+200	AT_CREATE           	008	H	IS_HEAD                       	BUKRS                         	HEAD      	BUKRS                         	
+200	AT_CREATE           	009	H	IS_HEAD                       	VKORG                         	HEAD      	VKORG                         	
+200	AT_CREATE           	010	H	IS_HEAD                       	VTWEG                         	HEAD      	VTWEG                         	
+200	AT_CREATE           	011	H	IS_HEAD                       	SPART                         	HEAD      	SPART                         	
+200	AT_CREATE           	012	H	IS_HEAD                       	WERKS                         	HEAD      	WERKS                         	
+200	AT_CREATE           	013	H	IS_HEAD                       	LGORT                         	HEAD      	LGORT                         	
+200	AT_CREATE           	014	I	IT_ITEM                       	EXNR                          	ITEM      	AFONR                         	
+200	AT_CREATE           	015	I	IT_ITEM                       	MATNR                         	ITEM      	MATNR                         	
+200	AT_CREATE           	016	I	IT_ITEM                       	MENGE                         	ITEM      	MENGE                         	
+200	AT_CREATE           	017	I	IT_ITEM                       	MEINS                         	ITEM      	MEINS                         	
+200	AT_CREATE           	018	I	IT_ITEM                       	PRICE                         	ITEM      	PRICE                         	
+200	AT_CREATE           	019	I	IT_ITEM                       	AMOUNT                        	ITEM      	AMOUNT                        	
+200	AT_CREATE           	020	I	IT_ITEM                       	WAERS                         	ITEM      	WAERS                         	
+200	AT_CREATE           	021	I	IT_ITEM                       	SGTXT                         	ITEM      	NETPR                         	
+200	AT_CREATE           	022	R	ET_RETURN                     	                              	RET       	                              	
+200	AT_CREATE           	023	R	E_ATNO                        	                              	HEAD      	DOCNR                         	
+200	MB_CANCEL           	001	G	GOODSMVT_PSTNG_DATE           	                              	HEAD      	BUDAT                         	
+200	MB_CANCEL           	002	G	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_CANCEL           	003	G	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_CANCEL           	004	R	GOODSMVT_HEADRET              	MAT_DOC                       	HEAD      	MBLNR_RE                      	
+200	MB_CANCEL           	005	R	GOODSMVT_HEADRET              	DOC_YEAR                      	HEAD      	MJAHR_RE                      	
+200	MB_CANCEL           	006	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE_GI          	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
+200	MB_MOVE_GI          	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_MOVE_GI          	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_MOVE_GI          	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MOVE_GI          	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_MOVE_GI          	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_MOVE_GI          	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_MOVE_GI          	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_MOVE_GI          	009	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_MOVE_GI          	010	I	GOODSMVT_ITEM                 	MOVE_STLOC                    	ITEM      	UMLGO                         	
+200	MB_MOVE_GI          	011	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
+200	MB_MOVE_GI          	012	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
+200	MB_MOVE_GI          	013	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_MOVE_GI          	014	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
+200	MB_MOVE_GI          	015	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
+200	MB_MOVE_GI          	016	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	313
+200	MB_MOVE_GI          	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_MOVE_GI          	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_MOVE_GI          	019	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE_GR          	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
+200	MB_MOVE_GR          	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_MOVE_GR          	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_MOVE_GR          	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MOVE_GR          	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_MOVE_GR          	006	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_MOVE_GR          	007	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	314
+200	MB_MOVE_GR          	008	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_MOVE_GR          	009	I	GOODSMVT_ITEM                 	MOVE_STLOC                    	ITEM      	UMLGO                         	
+200	MB_MOVE_GR          	010	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
+200	MB_MOVE_GR          	011	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
+200	MB_MOVE_GR          	012	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_MOVE_GR          	013	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
+200	MB_MOVE_GR          	014	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
+200	MB_MOVE_GR          	015	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	UMWRK                         	
+200	MB_MOVE_GR          	016	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	UMLGO                         	
+200	MB_MOVE_GR          	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_MOVE_GR          	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_MOVE_GR          	019	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE             	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
+200	MB_MOVE             	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_MOVE             	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_MOVE             	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MOVE             	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_MOVE             	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_MOVE             	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_MOVE             	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_MOVE             	009	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	311
+200	MB_MOVE             	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_MOVE             	011	I	GOODSMVT_ITEM                 	MOVE_STLOC                    	ITEM      	UMLGO                         	
+200	MB_MOVE             	012	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
+200	MB_MOVE             	013	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
+200	MB_MOVE             	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_MOVE             	015	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
+200	MB_MOVE             	016	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
+200	MB_MOVE             	017	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_MOVE             	018	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_MOVE             	019	R	RETURN                        	                              	RET       	                              	
+200	MB_PD               	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
+200	MB_PD               	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_PD               	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_PD               	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_PD               	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_PD               	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_PD               	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_PD               	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_PD               	009	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_PD               	010	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
+200	MB_PD               	011	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
+200	MB_PD               	013	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
+200	MB_PD               	014	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
+200	MB_PD               	015	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	ITEM      	MENGE                         	
+200	MB_PD               	016	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_PD               	017	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_PD               	018	R	RETURN                        	                              	RET       	                              	
+200	MB_PD               	012	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	KDAUF                         	
+200	MB_USE              	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
+200	MB_USE              	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_USE              	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_USE              	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_USE              	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_USE              	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_USE              	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_USE              	008	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	ITEM      	BWART                         	
+200	MB_USE              	009	I	GOODSMVT_ITEM                 	COSTCENTER                    	ITEM      	KOSTL                         	
+200	MB_USE              	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_USE              	011	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_USE              	012	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
+200	MB_USE              	013	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
+200	MB_USE              	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_USE              	015	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_USE              	016	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_USE              	017	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE_O           	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
+200	MB_MO_GI            	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	03
+200	MB_MO_GI            	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_MO_GI            	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_MO_GI            	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MO_GI            	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_MO_GI            	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_MO_GI            	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_MO_GI            	021	I	GOODSMVT_ITEM                 	XSTOB                         	ITEM      	RETPO                         	
+200	MB_MO_GI            	009	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_MO_GI            	010	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_MO_GI            	011	I	GOODSMVT_ITEM                 	MVT_IND                       	          	                              	
+200	MB_MO_GI            	012	I	GOODSMVT_ITEM                 	ORDERID                       	ITEM      	AUFNR                         	
+200	MB_MO_GI            	013	I	GOODSMVT_ITEM                 	RESERV_NO                     	ITEM      	RSNUM                         	
+200	MB_MO_GI            	014	I	GOODSMVT_ITEM                 	RES_ITEM                      	ITEM      	RSPOS                         	
+200	MB_MO_GI            	015	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_MO_GI            	016	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_MO_GI            	017	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_MO_GI            	018	R	RETURN                        	                              	RET       	                              	
+200	MB_MO_GR            	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	02
+200	MB_MO_GR            	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_MO_GR            	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_MO_GR            	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MO_GR            	005	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_MO_GR            	006	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_MO_GR            	007	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_MO_GR            	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_MO_GR            	009	I	GOODSMVT_ITEM                 	MVT_IND                       	          	                              	F
+200	MB_MO_GR            	010	I	GOODSMVT_ITEM                 	ORDERID                       	ITEM      	AUFNR                         	
+200	MB_MO_GR            	011	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_MO_GR            	012	I	GOODSMVT_ITEM                 	MOVE_MAT                      	ITEM      	MATNR                         	
+200	MB_MO_GR            	013	I	GOODSMVT_ITEM                 	ORDER_ITNO                    	ITEM      	POSNR_MO                      	
+200	MB_MO_GR            	018	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	          	                              	101
+200	MB_MO_GR            	020	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_MO_GR            	021	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_MO_GR            	022	R	RETURN                        	                              	RET       	                              	
+200	MB_PO_GR            	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	01
+200	MB_PO_GR            	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_PO_GR            	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_PO_GR            	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MOVE_O           	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_PO_GR            	007	I	GOODSMVT_ITEM                 	PO_NUMBER                     	ITEM      	EBELN                         	
+200	MB_PO_GR            	008	I	GOODSMVT_ITEM                 	PO_ITEM                       	ITEM      	EBELP                         	
+200	MB_PO_GR            	011	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_PO_GR            	014	I	GOODSMVT_ITEM                 	ORDERID                       	ITEM      	AUFNR                         	
+200	MB_PO_GR            	015	I	GOODSMVT_ITEM                 	MVT_IND                       	          	                              	B
+200	MB_PO_GR            	016	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_PO_GR            	017	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_PO_GR            	018	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_PO_GR            	019	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_PO_GR            	020	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_PO_GR            	021	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_PO_GR            	022	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE_O           	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_MOVE_O           	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MOVE_O           	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_MOVE_O           	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_MOVE_O           	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_MOVE_O           	008	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	ITEM      	BWART                         	
+200	MB_MOVE_O           	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_MOVE_O           	011	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_MOVE_O           	012	I	GOODSMVT_ITEM                 	VENDOR                        	HEAD      	LIFNR                         	
+200	MB_MOVE_O           	014	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_MOVE_O           	015	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_MOVE_O           	016	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_MOVE_O           	017	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE_E           	001	H	GOODSMVT_CODE                 	GM_CODE                       	          	                              	06
+200	MB_MOVE_E           	002	H	GOODSMVT_HEADER               	PSTNG_DATE                    	HEAD      	BUDAT                         	
+200	MB_MOVE_E           	003	H	GOODSMVT_HEADER               	REF_DOC_NO                    	HEAD      	AFONO                         	
+200	MB_MOVE_E           	004	H	GOODSMVT_HEADER               	HEADER_TXT                    	HEAD      	REMARK1                       	
+200	MB_MOVE_E           	005	I	GOODSMVT_ITEM                 	MATERIAL                      	ITEM      	MATNR                         	
+200	MB_MOVE_E           	006	I	GOODSMVT_ITEM                 	PLANT                         	ITEM      	WERKS                         	
+200	MB_MOVE_E           	007	I	GOODSMVT_ITEM                 	STGE_LOC                      	ITEM      	LGORT                         	
+200	MB_MOVE_E           	008	I	GOODSMVT_ITEM                 	LINE_ID                       	ITEM      	AFONR                         	
+200	MB_MOVE_E           	010	I	GOODSMVT_ITEM                 	ENTRY_QNT                     	ITEM      	MENGE                         	
+200	MB_MOVE_E           	011	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	KDAUF                         	
+200	MB_MOVE_E           	012	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	KDPOS                         	
+200	MB_MOVE_E           	014	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
+200	MB_MOVE_E           	015	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
+200	MB_MOVE_E           	036	R	MATDOCUMENTYEAR               	                              	HEAD      	MJAHR                         	
+200	MB_MOVE_E           	037	R	MATERIALDOCUMENT              	                              	HEAD      	MBLNR                         	
+200	MB_MOVE_E           	038	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE_E           	016	I	GOODSMVT_ITEM                 	SALES_ORD                     	ITEM      	MOVE_KDAUF                    	
+200	MB_MOVE_E           	017	I	GOODSMVT_ITEM                 	S_ORD_ITEM                    	ITEM      	MOVE_KDPOS                    	
+200	MB_MOVE_E           	009	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	ITEM      	BWART                         	
+200	MO_CONF             	001	I	TIMETICKETS                   	CONF_NO                       	ITEM      	RUECK                         	
+200	MO_CONF             	002	I	TIMETICKETS                   	YIELD                         	ITEM      	MENGE                         	
+200	MO_CONF             	003	I	TIMETICKETS                   	POSTG_DATE                    	HEAD      	BUDAT                         	
+200	MO_CONF             	004	R	DETAIL_RETURN                 	                              	RET       	                              	
+200	MO_CONF             	005	R	RETURN                        	                              	RET       	                              	
+200	PO_CREATE           	001	H	POHEADER                      	ITEM_INTVL                    	          	                              	0
+200	PO_CREATE           	002	H	POHEADER                      	COMP_CODE                     	HEAD      	BUKRS                         	
+200	PO_CREATE           	003	H	POHEADER                      	VENDOR                        	HEAD      	LIFNR                         	
+200	PO_CREATE           	004	H	POHEADER                      	PURCH_ORG                     	HEAD      	EKORG                         	
+200	PO_CREATE           	005	H	POHEADER                      	PUR_GROUP                     	HEAD      	EKGRP                         	
+200	PO_CREATE           	006	H	POHEADER                      	DOC_TYPE                      	HEAD      	BSART                         	
+200	PO_CREATE           	007	I	POACCOUNT                     	ITM_NUMBER                    	ITEM      	KDPOS                         	
+200	PO_CREATE           	008	I	POACCOUNT                     	SD_DOC                        	ITEM      	KDAUF                         	
+200	PO_CREATE           	009	I	POACCOUNT                     	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CREATE           	010	I	POACCOUNT                     	PO_ITEM                       	ITEM      	AFONR                         	
+200	PO_CREATE           	011	I	POACCOUNT                     	COSTCENTER                    	HEAD      	KOSTL                         	
+200	PO_CREATE           	014	I	POCOND                        	COND_P_UNT                    	ITEM      	PEINH                         	
+200	PO_CREATE           	015	I	POCOND                        	CURRENCY                      	HEAD      	WAERS                         	
+200	PO_CREATE           	016	I	POCOND                        	ITM_NUMBER                    	ITEM      	AFONR                         	
+200	PO_CREATE           	017	I	POCOND                        	COND_VALUE                    	ITEM      	PRICE                         	
+200	PO_CREATE           	018	I	POITEM                        	TRACKINGNO                    	ITEM      	SATNR                         	
+200	PO_CREATE           	019	I	POITEM                        	MATL_GROUP                    	ITEM      	MATKL                         	
+200	PO_CREATE           	020	I	POITEM                        	ACCTASSCAT                    	ITEM      	KNTTP                         	
+200	PO_CREATE           	021	I	POITEM                        	PLANT                         	HEAD      	WERKS                         	
+200	PO_CREATE           	022	I	POITEM                        	PREQ_ITEM                     	ITEM      	BNFPO                         	
+200	PO_CREATE           	023	I	POITEM                        	PO_ITEM                       	ITEM      	AFONR                         	
+200	PO_CREATE           	024	I	POITEM                        	MATERIAL                      	ITEM      	MATNR                         	
+200	PO_CREATE           	025	I	POITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
+200	PO_CREATE           	026	I	POITEM                        	STGE_LOC                      	HEAD      	LGORT                         	
+200	PO_CREATE           	027	I	POITEM                        	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CREATE           	028	I	POITEM                        	PO_UNIT                       	ITEM      	MEINS                         	
+200	PO_CREATE           	029	I	POITEM                        	PREQ_NO                       	ITEM      	BANFN                         	
+200	PO_CREATE           	030	I	POITEM                        	ACKNOWL_NO                    	ITEM      	AUFNR                         	
+200	PO_CREATE           	031	I	POITEM                        	RET_ITEM                      	HEAD      	RETPO                         	
+200	PO_CREATE           	032	I	POITEM                        	OVER_DLV_TOL                  	ITEM      	UEBTO                         	
+200	PO_CREATE           	033	I	POITEM                        	UNDER_DLV_TOL                 	ITEM      	UNTTO                         	
+200	PO_CREATE           	034	I	POITEM                        	UNLIMITED_DLV                 	ITEM      	UEBTK                         	
+200	PO_CREATE           	035	I	POITEM                        	TAX_CODE                      	HEAD      	MWSKZ                         	
+200	PO_CREATE           	036	I	POITEM                        	EXT_REF                       	ITEM      	IHREZ                         	
+200	PO_CREATE           	037	I	POSCHEDULE                    	PO_ITEM                       	ITEM      	AFONR                         	
+200	PO_CREATE           	038	I	POSCHEDULE                    	SCHED_LINE                    	          	                              	1
+200	PO_CREATE           	039	I	POSCHEDULE                    	DELIVERY_DATE                 	HEAD      	EEIND                         	
+200	PO_CREATE           	040	I	POSCHEDULE                    	DEL_DATCAT_EXT                	          	                              	D
+200	PO_CREATE           	041	I	POSCHEDULE                    	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CREATE           	042	R	EXPPURCHASEORDER              	                              	HEAD      	EBELN                         	
+200	PO_CREATE           	043	R	EXPPURCHASEORDER              	                              	HEAD      	DOCNR                         	
+200	PO_CREATE           	044	R	EXPPURCHASEORDER              	                              	HEAD      	AFONO                         	
+200	PO_CHANGE           	001	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
+200	PO_CHANGE           	002	I	POCOND                        	ITM_NUMBER                    	ITEM      	AFONR                         	
+200	PO_CHANGE           	003	I	POCOND                        	COND_TYPE                     	          	                              	ZPB0
+200	PO_CHANGE           	004	I	POCOND                        	COND_VALUE                    	ITEM      	PRICE                         	
+200	PO_CHANGE           	005	I	POCOND                        	CHANGE_ID                     	          	                              	U
+200	PO_CHANGE           	006	I	POCOND                        	COND_P_UNT                    	ITEM      	PEINH                         	
+200	PO_CHANGE           	007	I	POITEM                        	PO_ITEM                       	ITEM      	AFONR                         	
+200	PO_CHANGE           	008	I	POITEM                        	MATERIAL                      	ITEM      	MATNR                         	
+200	PO_CHANGE           	009	I	POITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
+200	PO_CHANGE           	010	I	POITEM                        	PLANT                         	ITEM      	WERKS                         	
+200	PO_CHANGE           	011	I	POITEM                        	STGE_LOC                      	HEAD      	LGORT                         	
+200	PO_CHANGE           	012	I	POITEM                        	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CHANGE           	013	I	POITEM                        	PO_UNIT                       	ITEM      	MEINS                         	
+200	PO_CHANGE           	014	I	POITEM                        	DELETE_IND                    	ITEM      	DEL_FLAG                      	
+200	PO_CHANGE           	015	I	POITEM                        	TRACKINGNO                    	ITEM      	SATNR                         	
+200	PO_CHANGE           	016	I	POITEM                        	ACKNOWL_NO                    	ITEM      	AUFNR                         	
+200	PO_CHANGE           	017	I	POITEM                        	OVER_DLV_TOL                  	ITEM      	UEBTO                         	
+200	PO_CHANGE           	018	I	POITEM                        	UNDER_DLV_TOL                 	ITEM      	UNTTO                         	
+200	PO_CHANGE           	019	I	POITEM                        	UNLIMITED_DLV                 	ITEM      	UEBTK                         	
+200	PO_CHANGE           	020	I	POITEM                        	TAX_CODE                      	HEAD      	MWSKZ                         	
+200	PO_CHANGE           	021	I	POSCHEDULE                    	PO_ITEM                       	ITEM      	AFONO                         	
+200	PO_CHANGE           	022	I	POSCHEDULE                    	SCHED_LINE                    	          	                              	1
+200	PO_CHANGE           	023	I	POSCHEDULE                    	DELIVERY_DATE                 	HEAD      	EEIND                         	
+200	PO_CHANGE           	024	I	POSCHEDULE                    	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CHANGE           	025	R	RETURN                        	                              	RET       	                              	
+200	PO_CREATE1          	001	H	POHEADER                      	COMP_CODE                     	HEAD      	BUKRS                         	
+200	PO_CREATE1          	002	H	POHEADER                      	VENDOR                        	HEAD      	LIFNR                         	
+200	PO_CREATE1          	003	H	POHEADER                      	PURCH_ORG                     	HEAD      	EKORG                         	
+200	PO_CREATE1          	004	H	POHEADER                      	PUR_GROUP                     	HEAD      	EKGRP                         	
+200	PO_CREATE1          	005	H	POHEADER                      	DOC_TYPE                      	HEAD      	BSART                         	
+200	PO_CREATE1          	006	H	POHEADER                      	ITEM_INTVL                    	          	                              	1
+200	PO_CREATE1          	007	I	POACCOUNT                     	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CREATE1          	008	I	POACCOUNT                     	PO_ITEM                       	ITEM      	AFONR                         	
+200	PO_CREATE1          	009	I	POACCOUNT                     	ORDERID                       	ITEM      	AUFNR                         	
+200	PO_CREATE1          	010	I	POACCOUNT                     	ACTIVITY                      	ITEM      	VORNR                         	
+200	PO_CREATE1          	011	I	POCOND                        	COND_VALUE                    	ITEM      	PRICE                         	
+200	PO_CREATE1          	012	I	POCOND                        	ITM_NUMBER                    	ITEM      	AFONR                         	
+200	PO_CREATE1          	013	I	POCOND                        	CURRENCY                      	HEAD      	WAERS                         	
+200	PO_CREATE1          	014	I	POCOND                        	COND_P_UNT                    	ITEM      	PEINH                         	
+200	PO_CREATE1          	015	I	POCOND                        	CHANGE_ID                     	          	                              	U
+200	PO_CREATE1          	016	I	POCOND                        	COND_TYPE                     	          	                              	ZPB0
+200	PO_CREATE1          	017	I	POITEM                        	ACKNOWL_NO                    	ITEM      	AUFNR                         	
+200	PO_CREATE1          	018	I	POITEM                        	TAX_CODE                      	HEAD      	MWSKZ                         	
+200	PO_CREATE1          	019	I	POITEM                        	UNLIMITED_DLV                 	ITEM      	UEBTK                         	
+200	PO_CREATE1          	020	I	POITEM                        	UNDER_DLV_TOL                 	ITEM      	UNTTO                         	
+200	PO_CREATE1          	021	I	POITEM                        	OVER_DLV_TOL                  	ITEM      	UEBTO                         	
+200	PO_CREATE1          	022	I	POITEM                        	MATL_GROUP                    	ITEM      	MATKL                         	
+200	PO_CREATE1          	023	I	POITEM                        	ACCTASSCAT                    	ITEM      	KNTTP                         	
+200	PO_CREATE1          	024	I	POITEM                        	PLANT                         	HEAD      	WERKS                         	
+200	PO_CREATE1          	025	I	POITEM                        	PREQ_ITEM                     	ITEM      	BNFPO                         	
+200	PO_CREATE1          	026	I	POITEM                        	PO_ITEM                       	ITEM      	AFONR                         	
+200	PO_CREATE1          	027	I	POITEM                        	MATERIAL                      	ITEM      	MATNR                         	
+200	PO_CREATE1          	028	I	POITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
+200	PO_CREATE1          	029	I	POITEM                        	PLANT                         	ITEM      	WERKS                         	
+200	PO_CREATE1          	030	I	POITEM                        	STGE_LOC                      	ITEM      	LGORT                         	
+200	PO_CREATE1          	031	I	POITEM                        	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CREATE1          	032	I	POITEM                        	PO_UNIT                       	ITEM      	MEINS                         	
+200	PO_CREATE1          	033	I	POITEM                        	PREQ_NO                       	ITEM      	BANFN                         	
+200	PO_CREATE1          	034	I	POITEM                        	TRACKINGNO                    	ITEM      	SATNR                         	
+200	PO_CREATE1          	035	I	POSCHEDULE                    	PO_ITEM                       	ITEM      	AFONR                         	
+200	PO_CREATE1          	036	I	POSCHEDULE                    	SCHED_LINE                    	          	                              	1
+200	PO_CREATE1          	037	I	POSCHEDULE                    	DELIVERY_DATE                 	HEAD      	EEIND                         	
+200	PO_CREATE1          	038	I	POSCHEDULE                    	DEL_DATCAT_EXT                	          	                              	D
+200	PO_CREATE1          	039	I	POSCHEDULE                    	QUANTITY                      	ITEM      	MENGE                         	
+200	PO_CREATE1          	040	R	EXPPURCHASEORDER              	                              	HEAD      	EBELN                         	
+200	PO_CREATE1          	041	R	EXPPURCHASEORDER              	                              	HEAD      	DOCNR                         	
+200	PO_CREATE1          	042	R	EXPPURCHASEORDER              	                              	HEAD      	AFONO                         	
+200	PO_CREATE1          	043	R	RETURN                        	                              	RET       	                              	
+200	AT_CANCEL           	002	G	IV_EXORD                      	                              	HEAD      	AFONO                         	
+200	AT_CANCEL           	003	G	IV_TYPE                       	                              	          	                              	AT100
+200	AT_CANCEL           	004	R	ET_RETURN                     	                              	RET       	                              	
+200	AT_CANCEL           	001	G	IV_BUDAT                      	                              	HEAD      	BUDAT                         	
+200	PO_RELEASE_SURE     	001	G	PO_REL_CODE                   	                              	          	                              	P1
+200	PO_RELEASE_SURE     	002	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
+200	PO_RELEASE_SURE     	003	R	RETURN                        	                              	RET       	                              	
+200	PO_RESET_RELEASE_SUR	002	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
+200	PO_RESET_RELEASE_SUR	003	R	RETURN                        	                              	RET       	                              	
+200	PO_RESET_RELEASE_SUR	001	G	PO_REL_CODE                   	                              	          	                              	P1
+200	PO_CREATE           	045	R	RETURN                        	                              	RET       	                              	
+200	PO_CREATE1          	100	I	POACCOUNT                     	COSTCENTER                    	ITEM      	KOSTL                         	
+200	PR_CHANGE           	001	G	NUMBER                        	                              	HEAD      	BANFN                         	
+200	PR_CHANGE           	002	H	PRHEADER                      	PR_TYPE                       	HEAD      	BSART                         	
+200	PR_CHANGE           	003	I	PRITEM                        	PREQ_ITEM                     	ITEM      	AFONR                         	
+200	PR_CHANGE           	004	I	PRITEM                        	PUR_GROUP                     	HEAD      	EKGRP                         	
+200	PR_CHANGE           	005	I	PRITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
+200	PR_CHANGE           	006	I	PRITEM                        	MATERIAL                      	ITEM      	MATNR                         	
+200	PR_CHANGE           	007	I	PRITEM                        	PLANT                         	ITEM      	WERKS                         	
+200	PR_CHANGE           	008	I	PRITEM                        	STORE_LOC                     	ITEM      	LGORT                         	
+200	PR_CHANGE           	009	I	PRITEM                        	QUANTITY                      	ITEM      	MENGE                         	
+200	PR_CHANGE           	010	I	PRITEM                        	UNIT                          	ITEM      	MEINS                         	
+200	PR_CHANGE           	011	I	PRITEM                        	DELETE_IND                    	ITEM      	DEL_FLAG                      	
+200	PR_CHANGE           	012	I	PRITEM                        	TAX_CODE                      	HEAD      	MWSKZ                         	
+200	PR_CHANGE           	013	R	RETURN                        	                              	RET       	                              	
+200	PO_DELETE           	001	G	PURCHASEORDER                 	                              	HEAD      	EBELN                         	
+200	PO_DELETE           	002	H	POHEADER                      	PO_NUMBER                     	HEAD      	EBELN                         	
+200	PO_DELETE           	003	H	POHEADER                      	DELETE_IND                    	          	                              	L
+200	PO_DELETE           	004	R	RETURN                        	                              	RET       	                              	
+200	PR_CREATE           	001	H	PRHEADER                      	PR_TYPE                       	HEAD      	BSART                         	
+200	PR_CREATE           	002	I	PRITEM                        	PREQ_ITEM                     	ITEM      	AFONR                         	
+200	PR_CREATE           	003	I	PRITEM                        	MATERIAL                      	ITEM      	MATNR                         	
+200	PR_CREATE           	004	I	PRITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
+200	PR_CREATE           	005	I	PRITEM                        	PLANT                         	ITEM      	WERKS                         	
+200	PR_CREATE           	006	I	PRITEM                        	STORE_LOC                     	ITEM      	LGORT                         	
+200	PR_CREATE           	007	I	PRITEM                        	QUANTITY                      	ITEM      	MENGE                         	
+200	PR_CREATE           	008	I	PRITEM                        	UNIT                          	ITEM      	MEINS                         	
+200	PR_CREATE           	011	I	PRITEM                        	PUR_GROUP                     	HEAD      	EKGRP                         	
+200	PR_CREATE           	100	R	NUMBER                        	                              	HEAD      	DOCNR                         	
+200	PR_CREATE           	101	R	RETURN                        	                              	RET       	                              	
+200	PR_CREATE           	102	R	NUMBER                        	                              	HEAD      	BANFN                         	
+200	PR_DELETE           	001	G	NUMBER                        	                              	HEAD      	BANFN                         	
+200	PR_DELETE           	002	H	PRHEADER                      	PR_TYPE                       	HEAD      	BSART                         	
+200	PR_DELETE           	003	I	PRITEM                        	PREQ_ITEM                     	ITEM      	AFONR                         	
+200	PR_DELETE           	004	I	PRITEM                        	PUR_GROUP                     	HEAD      	EKGRP                         	
+200	PR_DELETE           	005	I	PRITEM                        	SHORT_TEXT                    	ITEM      	MAKTX                         	
+200	PR_DELETE           	006	I	PRITEM                        	MATERIAL                      	ITEM      	MATNR                         	
+200	PR_DELETE           	007	I	PRITEM                        	PLANT                         	ITEM      	WERKS                         	
+200	PR_DELETE           	008	I	PRITEM                        	STORE_LOC                     	ITEM      	LGORT                         	
+200	PR_DELETE           	009	I	PRITEM                        	QUANTITY                      	ITEM      	MENGE                         	
+200	PR_DELETE           	010	I	PRITEM                        	UNIT                          	ITEM      	MEINS                         	
+200	PR_DELETE           	011	I	PRITEM                        	DELETE_IND                    	          	                              	X
+200	PR_DELETE           	012	R	RETURN                        	                              	RET       	                              	
+200	MB_MOVE_E           	013	I	GOODSMVT_ITEM                 	SPEC_STOCK                    	ITEM      	SOBKZ                         	
+200	MB_PO_GR            	006	I	GOODSMVT_ITEM                 	MOVE_TYPE                     	ITEM      	BWART                         	
+200	MB_MO_GI            	019	I	GOODSMVT_ITEM                 	VAL_SALES_ORD                 	ITEM      	KDAUF                         	
+200	MB_MO_GI            	020	I	GOODSMVT_ITEM                 	VAL_S_ORD_ITEM                	ITEM      	KDPOS                         	
+200	PO_CREATE           	012	I	POCOND                        	COND_TYPE                     	          	                              	Z001
+200	PO_CREATE           	013	I	POCOND                        	CHANGE_ID                     	          	                              	U

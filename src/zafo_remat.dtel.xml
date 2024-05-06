@@ -18,6 +18,19 @@
     <DTELMASTER>1</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Reference item number (sample item number)</DDTEXT>
+     <REPTEXT>Reference item number (sample item number)</REPTEXT>
+     <SCRTEXT_S>Reference</SCRTEXT_S>
+     <SCRTEXT_M>Reference item numbe</SCRTEXT_M>
+     <SCRTEXT_L>Reference item number (sample item numbe</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

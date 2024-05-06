@@ -4,19 +4,7 @@
 
 MODULE exit_command INPUT.
 
-  IF sy-dynnr = '0200'.
-    <io_class>->free( ).
-    IF g_container_200 IS BOUND.
-      g_splitter_200->free( ).
-      g_container_200->free( ).
-      FREE g_splitter_200.
-      FREE g_container_200.
-      IF text_container IS BOUND.
-        text_container->free( ).
-        FREE text_container.
-      ENDIF.
-    ENDIF.
-  ENDIF.
+  PERFORM frm_free_object.
 
   CASE sy-ucomm.
     WHEN 'BACK'.
@@ -34,7 +22,7 @@ MODULE exit_command INPUT.
 
     WHEN OTHERS .
       CLEAR sy-ucomm.
-      LEAVE TO SCREEN 0.
+      LEAVE PROGRAM.
   ENDCASE.
 ENDMODULE.                 " EXIT_COMMAND  INPUT
 
@@ -43,8 +31,22 @@ MODULE user_command_0100 INPUT.
                                                                             i_ucomm = sy-ucomm ).
 ENDMODULE.
 
+MODULE user_command_0110 INPUT.
+  IF sy-ucomm = '&SWITCH'.
+    ref_in_switch = COND #( WHEN ref_in_switch = icon_data_area_expand
+                                             THEN icon_data_area_collapse
+                                              ELSE icon_data_area_expand ).
+    PERFORM frm_set_dynp_value USING  'REF_IN_SWITCH' ref_in_switch.
+    CLEAR sy-ucomm.
+  ENDIF.
+ENDMODULE.
+
 MODULE user_command_0200 INPUT.
-  <io_class>->user_command_main( sy-ucomm ).
+  IF sy-ucomm+0(1) = '%'.
+    PERFORM frm_page_trun USING sy-ucomm.
+  ELSE.
+    <io_class>->user_command_main( sy-ucomm ).
+  ENDIF.
 ENDMODULE.
 
 MODULE user_command_0300 INPUT.
@@ -114,16 +116,20 @@ MODULE pr_bsart_list INPUT.
   PERFORM frm_pr_bsart_list.
 ENDMODULE.
 
-MODULE head-tmodel_list INPUT.
-  PERFORM frm_tmodel_list.
-ENDMODULE.
-
 MODULE head-lifnr INPUT.
   PERFORM frm_head_lifnr.
 ENDMODULE.
 
 MODULE head-lifnr_f4 INPUT.
   PERFORM frm_head_lifnr_f4.
+ENDMODULE.
+
+MODULE head-lifnr_bukrs INPUT.
+  PERFORM frm_head_lifnr_bukrs.
+ENDMODULE.
+
+MODULE head-lifnr_f4_bukrs INPUT.
+  PERFORM frm_head_lifnr_f4_bukrs.
 ENDMODULE.
 
 MODULE head-kunnr INPUT.
@@ -152,11 +158,11 @@ ENDMODULE.
 
 
 MODULE head-bukrs INPUT.
-  perform frm_head_bukrs.
+  PERFORM frm_head_bukrs.
 ENDMODULE.
 
 MODULE head-kostl INPUT.
-  perform frm_head_kostl.
+  PERFORM frm_head_kostl.
 ENDMODULE.
 
 
@@ -165,41 +171,41 @@ MODULE head-eeind INPUT.ENDMODULE.
 MODULE head-vkorg INPUT.ENDMODULE.
 
 MODULE head-dict01 INPUT.
-  PERFORM frm_set_dict USING '01'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict02 INPUT.
-  PERFORM frm_set_dict USING '02'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict03 INPUT.
-  PERFORM frm_set_dict USING '03'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict04 INPUT.
-  PERFORM frm_set_dict USING '04'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict05 INPUT.
-  PERFORM frm_set_dict USING '05'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict06 INPUT.
-  PERFORM frm_set_dict USING '06'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict07 INPUT.
-  PERFORM frm_set_dict USING '07'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict08 INPUT.
-  PERFORM frm_set_dict USING '08'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict09 INPUT.
-  PERFORM frm_set_dict USING '09'.
+  PERFORM frm_set_dict .
 ENDMODULE.
 
 MODULE head-dict10 INPUT.
-  PERFORM frm_set_dict USING '10'.
+  PERFORM frm_set_dict .
 ENDMODULE.

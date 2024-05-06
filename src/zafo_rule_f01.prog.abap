@@ -766,3 +766,95 @@ FORM frm_set_return.
   ENDLOOP.
 
 ENDFORM.
+
+FORM frm_init_html.
+  TYPES:BEGIN OF ty_fields,
+          fld  TYPE string,
+          name TYPE string,
+        END OF ty_fields.
+  TYPES tt_fields TYPE TABLE OF ty_fields.
+
+  TYPES:BEGIN OF ty_lines,
+          lid  TYPE string,
+          rid  TYPE string,
+          dvid TYPE string,
+          dv   TYPE string,
+        END OF ty_lines.
+  TYPES:tt_lines TYPE TABLE OF ty_lines.
+
+  DATA:BEGIN OF ty_str,
+         str    TYPE string,
+         name   TYPE string,
+         fields TYPE tt_fields,
+       END OF ty_str.
+
+  DATA tt_str LIKE TABLE OF ty_str.
+
+
+  DATA: BEGIN OF str,
+          left  LIKE tt_str,
+          right LIKE tt_str,
+          lines TYPE tt_lines,
+        END OF str.
+
+  LOOP AT gt_at INTO DATA(parent) WHERE inttype = 'h' OR inttype = 'u'.
+    APPEND INITIAL LINE TO str-left ASSIGNING FIELD-SYMBOL(<parent>).
+    <parent>-str = parent-group.
+    <parent>-name = parent-fieldtext.
+    LOOP AT gt_at INTO DATA(children) WHERE parent = parent-group.
+      APPEND INITIAL LINE TO <parent>-fields ASSIGNING FIELD-SYMBOL(<fld>).
+      <fld>-fld = children-group.
+      <fld>-name = children-fieldtext.
+    ENDLOOP.
+  ENDLOOP.
+
+  LOOP AT gt_func INTO parent WHERE inttype = 'h' OR inttype = 'u' OR inttype = 'a' .
+    APPEND INITIAL LINE TO str-right ASSIGNING <parent>.
+    <parent>-str = parent-group.
+    <parent>-name = parent-fieldtext.
+    LOOP AT gt_func INTO children WHERE parent = parent-group.
+      IF parent-inttype = 'a' AND ( children-inttype = 'h' OR children-inttype = 'u' ).
+        CONTINUE.
+      ENDIF.
+      APPEND INITIAL LINE TO <parent>-fields ASSIGNING <fld>.
+      <fld>-fld = children-group.
+      <fld>-name = children-fieldtext.
+    ENDLOOP.
+  ENDLOOP.
+
+  LOOP AT gt_detail INTO DATA(detail).
+
+    CHECK detail-from_fieldalv IS NOT INITIAL.
+    CHECK detail-from_fname IS NOT INITIAL.
+    CHECK detail-to_tabname IS NOT INITIAL.
+    CHECK detail-to_fieldname IS NOT INITIAL.
+
+    APPEND INITIAL LINE TO str-lines ASSIGNING FIELD-SYMBOL(<line>).
+
+    <line>-rid = 'RIGHT' && '-' && detail-to_tabname && '-' && detail-to_fieldname.
+    IF detail-default_value IS NOT INITIAL.
+      <line>-dvid = 'DV' && <line>-rid.
+      <line>-dv = detail-default_value.
+    ELSE.
+      <line>-lid = 'LEFT' && '-' && detail-from_fieldalv && '-' && detail-from_fname.
+    ENDIF.
+  ENDLOOP.
+
+  DATA(rv_json) =  cl_fdt_json=>data_to_json( ia_data = str ).
+
+  TRANSLATE rv_json TO LOWER CASE.
+
+
+  ob_html = NEW zwft_html( temp = 'ZWFT_MAPPING.HTML' ).
+  ob_html->add_style( 'ZWFT_MAPPING.CSS' ).
+*  ob_html->add_js( 'ZWFT_JQUERY.JS' ).
+*  ob_html->add_js( 'ZWFT_JQUERY-UI.MIN.JS' ).
+  ob_html->add_js( 'ZWFT_MAPPING.JS' ).
+  ob_html->add_json( url = 'ZWFT_DATA.JSON' json = rv_json  ).
+  ob_html->set_size( i_type = 'XL' ).
+
+
+
+  ob_html->display(  ).
+
+ENDFORM.

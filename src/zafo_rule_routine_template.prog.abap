@@ -82,6 +82,9 @@ CLASS routine DEFINITION FINAL.
     CLASS-METHODS routine_after_post IMPORTING run  TYPE REF TO zafo_run
                                      CHANGING  vars TYPE zafo_run=>mtty_bapi_variables
                                      RAISING   cx_static_check cx_dynamic_check.
+    CLASS-METHODS get_var IMPORTING vars        TYPE zafo_run=>mtty_bapi_variables
+                                    name        TYPE rs38l_par_
+                          RETURNING VALUE(data) TYPE REF TO data .
 ENDCLASS.
 
 CLASS routine IMPLEMENTATION.
@@ -120,5 +123,8 @@ CLASS routine IMPLEMENTATION.
   ENDMETHOD.
   METHOD routine_after_post.
 * implementation_after_post
+  ENDMETHOD.
+  METHOD get_var.
+
   ENDMETHOD.
 ENDCLASS.

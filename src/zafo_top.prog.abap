@@ -19,5 +19,6 @@ DATA:g_error TYPE char1.
 DATA:gt_head TYPE TABLE OF zafo_shead  WITH HEADER LINE.
 DATA:gt_item TYPE TABLE OF zafo_sitem  WITH HEADER LINE.
 DATA:g_bustyp TYPE zafo_bustyp.
+DATA ref_in TYPE abap_bool.
 
 CONSTANTS c_fin_flag TYPE char20 VALUE 'ADFHJKZ'.

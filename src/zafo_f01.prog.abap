@@ -2,388 +2,428 @@
 *& 包含               ZAFO_F01
 *&---------------------------------------------------------------------*
 
- FORM frm_set_sel_screen .
+FORM frm_set_ref_in.
+  IF sy-dynnr = '1100'.
+    ref_in = abap_true.
+    PERFORM frm_set_default_value .
+  ELSE.
+    ref_in = abap_false.
+  ENDIF.
 
-   CHECK p_typ IS NOT INITIAL .
-   DATA:l_field TYPE char1.
+ENDFORM.
 
-   gs_bustyp = zafo_basic=>get_bustyp( p_typ ).
+FORM frm_set_sel_screen .
 
-   CHECK gs_bustyp IS NOT INITIAL.
+  CHECK p_typ IS NOT INITIAL .
+  DATA:l_field TYPE char1.
 
-   gv_create_model = gs_bustyp-busref_control.
+  gs_bustyp = zafo_basic=>get_bustyp( p_typ ).
 
-   IF gv_create_model = 1 AND p_ref = 'X'..
-     p_cre = 'X'.
-     p_ref = ''.
-   ELSEIF gv_create_model = 2 AND p_cre = 'X'..
-     p_cre = ''.
-     p_ref = 'X'.
-   ENDIF.
-   DATA(lt_sel_screen) = zafo_basic=>get_bustyp_sel_screen( p_typ ).
+  CHECK gs_bustyp IS NOT INITIAL.
 
-   PERFORM frm_set_werks_flag.
-   PERFORM frm_set_action.
+  gv_create_model = gs_bustyp-busref_control.
 
-   CHECK p_typ IS NOT INITIAL.
+  IF gv_create_model = 1 AND p_ref = 'X'..
+    p_cre = 'X'.
+    p_ref = ''.
+  ELSEIF gv_create_model = 2 AND p_cre = 'X'..
+    p_cre = ''.
+    p_ref = 'X'.
+  ENDIF.
+  DATA(lt_sel_screen) = zafo_basic=>get_bustyp_sel_screen( p_typ ).
 
-   LOOP AT SCREEN.
-     LOOP AT lt_sel_screen INTO DATA(ls_sel_screen) WHERE fieldname IS NOT INITIAL AND action = ''  .
-       IF screen-name CP '*' && ls_sel_screen-fieldname && '*'.
-         IF ls_sel_screen-fieldname = 'P_CRE'.
-           p_cre = ''.
-           IF p_mod = ''.
-             p_dis = 'X'.
-           ENDIF.
-         ENDIF.
-         screen-active = '0'.
-         l_field = 'X'.
-         MODIFY SCREEN.
-       ENDIF.
-     ENDLOOP.
-     IF sy-subrc NE 0.
-       EXIT.
-     ENDIF.
-   ENDLOOP.
+  PERFORM frm_set_werks_flag.
+  PERFORM frm_set_action.
 
-   LOOP AT SCREEN.
+  CHECK p_typ IS NOT INITIAL.
 
-     IF screen-group1 = 'MOD' AND p_mod IS INITIAL."ON 20220325.
-       screen-active = '0'.
-       MODIFY SCREEN.
-     ENDIF.
+  LOOP AT SCREEN.
+    LOOP AT lt_sel_screen INTO DATA(ls_sel_screen) WHERE fieldname IS NOT INITIAL AND action = ''  .
+      IF screen-name CP '*' && ls_sel_screen-fieldname && '*'.
+        IF ls_sel_screen-fieldname = 'P_CRE'.
+          p_cre = ''.
+          IF p_mod = ''.
+            p_dis = 'X'.
+          ENDIF.
+        ENDIF.
+        screen-active = '0'.
+        l_field = 'X'.
+        MODIFY SCREEN.
+      ENDIF.
+    ENDLOOP.
+    IF sy-subrc NE 0.
+      EXIT.
+    ENDIF.
+  ENDLOOP.
 
-     IF screen-name CP '*P_CRE*'.
-       IF gv_create_model = 1 OR gv_create_model = 3.
-         screen-active = '1'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ELSE.
-         screen-active = '0'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ENDIF.
-     ENDIF.
+  LOOP AT SCREEN.
 
-     IF screen-name CP '*P_REF*'.
-       IF gv_create_model = 2 OR gv_create_model = 3.
-         screen-active = '1'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ELSE.
-         screen-active = '0'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ENDIF.
-     ENDIF.
+    IF screen-group1 = 'MOD' AND p_mod IS INITIAL."
+      screen-active = '0'.
+      MODIFY SCREEN.
+    ENDIF.
+    IF ref_in EQ abap_true.
+      IF screen-name CP '*P_DIS*'
+        OR screen-name CP '*P_TYP*'
+        OR screen-name CP '*P_CRE*'
+        OR screen-name CP '*P_REF*'
+        OR screen-name CP '*S_WERKS*'.
+        screen-active = '0'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ENDIF.
+      IF screen-name CP '*P_WERKS*'.
+        screen-active = 1.
+        screen-invisible = 1.
+        screen-input = 0.
+        MODIFY SCREEN.
+        CONTINUE.
+      ENDIF.
+    ENDIF.
 
-     IF screen-name CP '*P_WERKS*'.
-       IF g_werks_flag = 'P' .
-         screen-active = '1'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ELSE.
-         screen-active = '0'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ENDIF.
-       CONTINUE.
-     ENDIF.
+    IF screen-name CP '*P_CRE*'.
 
-     IF screen-name CP '*S_WERKS*'.
-       IF g_werks_flag = 'S' .
-         screen-active = '1'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ELSE.
-         screen-active = '0'.
-         MODIFY SCREEN.
-         CONTINUE.
-       ENDIF.
-       CONTINUE.
-     ENDIF.
+      IF gv_create_model = 1 OR gv_create_model = 3.
+        screen-active = '1'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ELSE.
+        screen-active = '0'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ENDIF.
 
-     IF screen-name CP '*P_MOD*' AND p_mod = ''.
-       screen-active = '0'.
-       MODIFY SCREEN.
-       CONTINUE.
-     ENDIF.
-     CLEAR l_field.
+    ENDIF.
 
-     IF screen-name CP '*P_OBJ*' AND g_action NE 'DIS'  .
-       screen-active = '0'.
-       MODIFY SCREEN.
-       CONTINUE.
-     ENDIF.
+    IF screen-name CP '*P_REF*'.
 
-     IF screen-name CP '*P_FIN*'   .
-       IF NOT ( p_ref = 'X'  AND gs_bustyp-busref CA c_fin_flag ).
-         screen-active = '0'.
-         MODIFY SCREEN.
-       ENDIF.
-       CONTINUE.
-     ENDIF.
+      IF gv_create_model = 2 OR gv_create_model = 3.
+        screen-active = '1'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ELSE.
+        screen-active = '0'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ENDIF.
+    ENDIF.
 
-     IF screen-name CP '*P_LOAD*'   .
-       READ TABLE lt_sel_screen INTO ls_sel_screen WITH KEY fieldname = 'P_LOAD'.
-       IF sy-subrc EQ 0.
-         IF screen-name = 'P_LOAD'.
-           screen-input = 1.
-         ENDIF.
-         screen-active = '1'.
-         screen-invisible = '0'.
-         screen-output = '1'.
-       ELSE.
-         screen-active = '0'.
-         screen-invisible = '1'.
-         screen-output = '0'.
-       ENDIF.
-       MODIFY SCREEN.
-       CONTINUE.
-     ENDIF.
+    IF screen-name CP '*P_WERKS*'.
 
 
-     LOOP AT lt_sel_screen INTO ls_sel_screen WHERE fieldname IS NOT INITIAL AND action = g_action  .
-       IF screen-name CP '*' && ls_sel_screen-fieldname && '*'.
-         screen-active = '1'.
-         l_field = 'X'.
-         IF ls_sel_screen-read_only IS NOT INITIAL.
-           screen-input = ''.
-         ENDIF.
-         MODIFY SCREEN.
-       ENDIF.
-     ENDLOOP.
+      IF g_werks_flag = 'P' .
+        screen-active = '1'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ELSE.
+        screen-active = '0'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ENDIF.
+      CONTINUE.
+    ENDIF.
 
-     CHECK l_field IS INITIAL.
-
-     READ TABLE lt_sel_screen INTO ls_sel_screen
-            WITH KEY fieldgroup = screen-group1
-                     fieldname = ''
-                     action = g_action.
-     IF sy-subrc EQ 0.
-       screen-active = '1'.
-       CONTINUE.
-     ELSE.
-       screen-active = '0'.
-     ENDIF.
-
-     IF g_action = 'LOD' AND screen-group1 = 'CRE'.
-       screen-active = '1'.
-     ENDIF.
-
-     IF screen-group1 = g_action OR screen-group1 = ''.
-       screen-active = '1'.
-     ENDIF.
-     MODIFY SCREEN.
-   ENDLOOP.
- ENDFORM.
-
- FORM frm_clear_sel_value USING fieldname .
-
-   DATA: tabname TYPE char20.
-   FIELD-SYMBOLS: <dyn_table> TYPE table.
-   tabname = fieldname && '[]'.
-   ASSIGN (tabname) TO <dyn_table>.
-   CHECK sy-subrc EQ 0.
-   CLEAR <dyn_table>.
-
- ENDFORM.
+    IF screen-name CP '*S_WERKS*'.
 
 
- FORM frm_set_default_value .
-   DATA: tabname TYPE char30.
-   DATA: ls_day(3) TYPE n.
-   FIELD-SYMBOLS: <dyn_table> TYPE table,
-                  <dyn_wa>    TYPE any,
-                  <txt_field> TYPE any.
+      IF g_werks_flag = 'S' .
+        screen-active = '1'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ELSE.
+        screen-active = '0'.
+        MODIFY SCREEN.
+        CONTINUE.
+      ENDIF.
+      CONTINUE.
+    ENDIF.
 
-   PERFORM frm_clear_select.
+    IF screen-name CP '*P_MOD*' AND p_mod = ''.
+      screen-active = '0'.
+      MODIFY SCREEN.
+      CONTINUE.
+    ENDIF.
+    CLEAR l_field.
 
-   IF p_typ IS INITIAL.
-     READ TABLE gt_list INDEX 1 INTO DATA(l_list).
-     p_typ = l_list-key.
-   ENDIF.
+    IF screen-name CP '*P_OBJ*' AND g_action NE 'DIS'  .
+      screen-active = '0'.
+      MODIFY SCREEN.
+      CONTINUE.
+    ENDIF.
 
-   DATA(lt_value) = zafo_basic=>get_bustyp_sel_value( p_typ ) .
-   CHECK lt_value IS NOT INITIAL.
+    IF screen-name CP '*P_FIN*'   .
+      IF NOT ( p_ref = 'X'  AND gs_bustyp-busref CA c_fin_flag ).
+        screen-active = '0'.
+        MODIFY SCREEN.
+      ENDIF.
+      CONTINUE.
+    ENDIF.
 
-   LOOP AT lt_value INTO DATA(it_value)
-                                         GROUP BY ( fieldname = it_value-fieldname ).
+    IF screen-name CP '*P_LOAD*'   .
+      READ TABLE lt_sel_screen INTO ls_sel_screen WITH KEY fieldname = 'P_LOAD'.
+      IF sy-subrc EQ 0.
+        IF screen-name = 'P_LOAD'.
+          screen-input = 1.
+        ENDIF.
+        screen-active = '1'.
+        screen-invisible = '0'.
+        screen-output = '1'.
+      ELSE.
+        screen-active = '0'.
+        screen-invisible = '1'.
+        screen-output = '0'.
+      ENDIF.
+      MODIFY SCREEN.
+      CONTINUE.
+    ENDIF.
 
-     IF it_value-fieldname+0(1) = 'P'.
+
+    LOOP AT lt_sel_screen INTO ls_sel_screen WHERE fieldname IS NOT INITIAL AND action = g_action  .
+      IF screen-name CP '*' && ls_sel_screen-fieldname && '*'.
+        screen-active = '1'.
+        l_field = 'X'.
+        IF ls_sel_screen-read_only IS NOT INITIAL.
+          screen-input = ''.
+        ENDIF.
+        MODIFY SCREEN.
+      ENDIF.
+    ENDLOOP.
+
+    CHECK l_field IS INITIAL.
+
+    READ TABLE lt_sel_screen INTO ls_sel_screen
+    WITH KEY fieldgroup = screen-group1
+    fieldname = ''
+    action = g_action.
+    IF sy-subrc EQ 0.
+      screen-active = '1'.
+    ELSE.
+      screen-active = '0'.
+    ENDIF.
+
+    IF g_action = 'LOD' AND screen-group1 = 'CRE'.
+      screen-active = '1'.
+    ENDIF.
+
+    IF screen-group1 = g_action OR screen-group1 = ''.
+      screen-active = '1'.
+    ENDIF.
+    MODIFY SCREEN.
+  ENDLOOP.
+ENDFORM.
+
+* FORM frm_clear_sel_value USING fieldname .
+*
+*   DATA: tabname TYPE char20.
+*   FIELD-SYMBOLS: <dyn_table> TYPE table.
+*   tabname = fieldname && '[]'.
+*   ASSIGN (tabname) TO <dyn_table>.
+*   CHECK sy-subrc EQ 0.
+*   CLEAR <dyn_table>.
+*
+* ENDFORM.
+
+
+FORM frm_set_default_value .
+  DATA css_class TYPE i.
+  DATA: tabname TYPE char30.
+  DATA: ls_day(3) TYPE n.
+  FIELD-SYMBOLS: <dyn_table> TYPE table,
+                 <dyn_wa>    TYPE any,
+                 <txt_field> TYPE any.
+
+  PERFORM frm_clear_select.
+
+  IF p_typ IS INITIAL.
+    READ TABLE gt_list INDEX 1 INTO DATA(l_list).
+    p_typ = l_list-key.
+  ENDIF.
+
+  DATA(lt_value) = zafo_basic=>get_bustyp_sel_value( p_typ ) .
+  CHECK lt_value IS NOT INITIAL.
+
+  LOOP AT lt_value INTO DATA(it_value)
+        GROUP BY ( fieldname = it_value-fieldname ).
+
+    IF it_value-fieldname+0(1) = 'P'.
 *       txt_field = it_value-fieldname.
-       ASSIGN (it_value-fieldname) TO <txt_field>.
-       IF sy-subrc EQ 0.
-         <txt_field> = it_value-fieldvalue.
-       ENDIF.
-     ENDIF.
+      ASSIGN (it_value-fieldname) TO <txt_field>.
+      IF sy-subrc EQ 0.
+        <txt_field> = it_value-fieldvalue.
+      ENDIF.
+    ENDIF.
 
-     IF it_value-fieldname+0(1) = 'S'.
-       CONCATENATE it_value-fieldname '[]' INTO tabname.
-       ASSIGN (tabname) TO <dyn_table>.
-       CHECK sy-subrc EQ 0.
-       CLEAR <dyn_table>.
+    IF it_value-fieldname+0(1) = 'S'.
+      CONCATENATE it_value-fieldname '[]' INTO tabname.
+      ASSIGN (tabname) TO <dyn_table>.
+      CHECK sy-subrc EQ 0.
+      CLEAR <dyn_table>.
 
-       LOOP AT GROUP it_value INTO DATA(ls_value).
-         APPEND INITIAL LINE TO <dyn_table> ASSIGNING <dyn_wa>.
+      LOOP AT GROUP it_value INTO DATA(ls_value).
+        APPEND INITIAL LINE TO <dyn_table> ASSIGNING <dyn_wa>.
 
-         ASSIGN COMPONENT 'SIGN' OF STRUCTURE <dyn_wa> TO <txt_field>.
-         CHECK sy-subrc EQ 0.
-         <txt_field> = 'I'.
+        ASSIGN COMPONENT 'SIGN' OF STRUCTURE <dyn_wa> TO <txt_field>.
+        CHECK sy-subrc EQ 0.
+        <txt_field> = 'I'.
 
-         ASSIGN COMPONENT 'OPTION' OF STRUCTURE <dyn_wa> TO <txt_field>.
-         CHECK sy-subrc EQ 0.
-         <txt_field> = ls_value-fieldoption.
+        ASSIGN COMPONENT 'OPTION' OF STRUCTURE <dyn_wa> TO <txt_field>.
+        CHECK sy-subrc EQ 0.
+        <txt_field> = ls_value-fieldoption.
 
-         ASSIGN COMPONENT 'LOW' OF STRUCTURE <dyn_wa> TO <txt_field>.
-         CHECK sy-subrc EQ 0.
-         IF ls_value-fieldvalue = 'UNAME'.
-           <txt_field> = sy-uname.
-         ELSEIF ls_value-fieldvalue+0(3) = 'DAY'.
-           ls_day = ls_value-fieldvalue+3(3).
-           <txt_field> = sy-datum - ls_day.
-           ASSIGN COMPONENT 'HIGH' OF STRUCTURE <dyn_wa> TO <txt_field>.
-           CHECK sy-subrc EQ 0.
-           <txt_field> = sy-datum.
-         ELSE.
-           <txt_field> = ls_value-fieldvalue.
-         ENDIF.
-       ENDLOOP.
-     ENDIF.
-   ENDLOOP.
- ENDFORM.
+        ASSIGN COMPONENT 'LOW' OF STRUCTURE <dyn_wa> TO <txt_field>.
+        CHECK sy-subrc EQ 0.
+        IF ls_value-fieldvalue = 'UNAME'.
+          <txt_field> = sy-uname.
+        ELSEIF ls_value-fieldvalue+0(3) = 'DAY'.
+          ls_day = ls_value-fieldvalue+3(3).
+          <txt_field> = sy-datum - ls_day.
+          ASSIGN COMPONENT 'HIGH' OF STRUCTURE <dyn_wa> TO <txt_field>.
+          CHECK sy-subrc EQ 0.
+          <txt_field> = sy-datum.
+        ELSE.
+          <txt_field> = ls_value-fieldvalue.
+        ENDIF.
+      ENDLOOP.
+    ENDIF.
+  ENDLOOP.
+ENDFORM.
 
- FORM frm_set_action.
-   CASE 'X'.
-     WHEN p_ref.
-       g_action = 'REF'.
-     WHEN p_cre.
-       g_action = 'CRE'.
-     WHEN p_mod.
-       g_action = 'MOD'.
-     WHEN p_dis.
-       g_action = 'DIS'.
-     WHEN p_load.
-       g_action = 'LOD'.
-   ENDCASE.
+FORM frm_set_action.
+  CASE 'X'.
+    WHEN ref_in.
+      g_action = 'REF_IN'.
+    WHEN p_ref.
+      g_action = 'REF'.
+    WHEN p_cre.
+      g_action = 'CRE'.
+    WHEN p_mod.
+      g_action = 'MOD'.
+    WHEN p_dis.
+      g_action = 'DIS'.
+    WHEN p_load.
+      g_action = 'LOD'.
+  ENDCASE.
 
- ENDFORM.
+ENDFORM.
 
 
- FORM frm_set_werks_flag.
-   CASE 'X'.
-     WHEN p_cre OR p_mod OR p_load.
-       g_werks_flag = 'P'.
-     WHEN p_dis OR p_ref.
-       g_werks_flag = 'S'.
-   ENDCASE.
- ENDFORM.
+FORM frm_set_werks_flag.
+  CASE 'X'.
+    WHEN p_cre OR p_mod OR p_load.
+      g_werks_flag = 'P'.
+    WHEN p_dis OR p_ref.
+      g_werks_flag = 'S'.
+  ENDCASE.
+ENDFORM.
 
- FORM frm_init.
-   IF sy-calld = 'X' OR sy-oncom = 'S'.
-     p_mod = 'X'.
-     GET PARAMETER ID 'ZBUSTYP' FIELD p_typ.
-   ENDIF.
-   b_down = TEXT-030.
-   zwft_common=>set_init_sdate( EXPORTING days = '90' CHANGING sdate = s_erdat[] ).
-   APPEND VALUE #( sign = 'I'
-                                 option = 'NE'
-                                 low = 'D'  ) TO s_status.
+FORM frm_init.
+  risubmit = TEXT-012.
 
-   PERFORM frm_set_list.
+  IF sy-calld = 'X' OR sy-oncom = 'S'.
+*     p_mod = 'X'.
+    GET PARAMETER ID 'ZBUSTYP' FIELD p_typ.
+  ENDIF.
+  b_down = TEXT-030.
+  zwft_common=>set_init_sdate( EXPORTING days = '90' CHANGING sdate = s_erdat[] ).
+  APPEND VALUE #( sign = 'I'
+  option = 'NE'
+  low = 'D'  ) TO s_status.
 
-   PERFORM frm_set_default_value.
+  PERFORM frm_set_list.
 
- ENDFORM.
+  PERFORM frm_set_default_value.
 
- FORM frm_set_list.
+ENDFORM.
 
-   DATA(lt_bustyp) = zafo_basic=>get_bustyp_by_tcode( sy-tcode ).
-   SORT lt_bustyp BY bustyp.
-   READ TABLE lt_bustyp INTO DATA(ls_bustyp) INDEX 1.
-   IF sy-subrc EQ 0 AND p_typ IS INITIAL.
-     p_typ = ls_bustyp-bustyp.
-     gv_create_model = ls_bustyp-busref_control.
-     IF gv_create_model = 2 AND p_mod = ''..
-       p_cre = ''.
-       p_ref = 'X'.
-     ELSE.
-       p_cre = 'X'.
-       p_ref = ''.
-     ENDIF.
-   ENDIF.
+FORM frm_set_list.
 
-   gt_list = CORRESPONDING #( lt_bustyp  MAPPING key = bustyp
-                                                                                     text =  bustyp_name1 ).
-   CALL FUNCTION 'VRM_SET_VALUES'
-     EXPORTING
-       id     = 'P_TYP'
-       values = gt_list.
-   IF sy-subrc EQ 0.
-     MODIFY SCREEN.
-   ENDIF.
- ENDFORM.
+  DATA(lt_bustyp) = zafo_basic=>get_bustyp_by_tcode( sy-tcode ).
+  SORT lt_bustyp BY bustyp.
+  READ TABLE lt_bustyp INTO DATA(ls_bustyp) INDEX 1.
+  IF sy-subrc EQ 0 AND p_typ IS INITIAL.
+    p_typ = ls_bustyp-bustyp.
+    gv_create_model = ls_bustyp-busref_control.
+    IF gv_create_model = 2 AND p_mod = ''..
+      p_cre = ''.
+      p_ref = 'X'.
+    ELSE.
+      p_cre = 'X'.
+      p_ref = ''.
+    ENDIF.
+  ENDIF.
+  SELECT SINGLE ttext INTO sy-title FROM tstct WHERE sprsl = sy-langu AND tcode = sy-tcode.
 
- FORM frm_run.
-   IF p_werks IS INITIAL AND g_werks_flag = 'P'.
-     MESSAGE s005 DISPLAY LIKE 'E'.
-     STOP.
-   ENDIF.
+  gt_list = CORRESPONDING #( lt_bustyp  MAPPING key = bustyp
+  text =  bustyp_name1 ).
+  CALL FUNCTION 'VRM_SET_VALUES'
+    EXPORTING
+      id     = 'P_TYP'
+      values = gt_list.
+  IF sy-subrc EQ 0.
+    MODIFY SCREEN.
+  ENDIF.
+ENDFORM.
 
-   DATA(ls_bustyp) = zafo_basic=>get_bustyp( p_typ ).
+FORM frm_run.
+  IF p_werks IS INITIAL AND g_werks_flag = 'P'.
+    MESSAGE s005 DISPLAY LIKE 'E'.
+    STOP.
+  ENDIF.
 
-   CASE 'X'.
-     WHEN p_cre.
-       IF g_werks_flag = 'P'.
-         CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '01' bustyp = p_typ werks = p_werks ).
-       ELSEIF g_werks_flag = 'S'.
-         CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '01' bustyp = p_typ CHANGING swerks =  s_werks[] ).
-       ENDIF.
+  DATA(ls_bustyp) = zafo_basic=>get_bustyp( p_typ ).
 
-       zafo_class=>create( EXPORTING werks = p_werks bustyp = p_typ item = gt_item[] ).
+  CASE 'X'.
+    WHEN p_cre.
+      IF g_werks_flag = 'P'.
+        CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '01' bustyp = p_typ werks = p_werks )  .
+      ELSEIF g_werks_flag = 'S'.
+        CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '01' bustyp = p_typ CHANGING swerks =  s_werks[] ) .
+      ENDIF.
 
-     WHEN p_ref.
-       IF g_werks_flag = 'P'.
-         CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '01' bustyp = p_typ werks = p_werks ).
-       ELSEIF g_werks_flag = 'S'.
-         CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '01' bustyp = p_typ CHANGING swerks =  s_werks[] ).
-       ENDIF.
+      zafo_class=>create( EXPORTING werks = p_werks bustyp = p_typ item = gt_item[] ).
 
-       PERFORM frm_get_ref TABLES gt_item USING ls_bustyp-busref.
-       IF gt_item[] IS INITIAL.
-         MESSAGE TEXT-011 TYPE 'S' DISPLAY LIKE 'E'."无参考数据
-         RETURN.
-       ENDIF.
-       zafo_class=>create_by_ref( EXPORTING bustyp = p_typ item = gt_item[] ).
+    WHEN p_ref.
+      IF g_werks_flag = 'P'.
+        CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '01' bustyp = p_typ werks = p_werks ) .
+      ELSEIF g_werks_flag = 'S'.
+        CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '01' bustyp = p_typ CHANGING swerks =  s_werks[] ) .
+      ENDIF.
 
-     WHEN p_mod.
+      PERFORM frm_get_ref USING ls_bustyp-busref CHANGING gt_item[] .
+      IF gt_item[] IS INITIAL.
+        MESSAGE TEXT-011 TYPE 'S' DISPLAY LIKE 'E'."无参考数据
+        RETURN.
+      ENDIF.
+      zafo_class=>create_by_ref( EXPORTING bustyp = p_typ item = gt_item[] ).
 
-       IF g_werks_flag = 'P'.
-         CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '02' bustyp = p_typ werks = p_werks ).
-       ELSEIF g_werks_flag = 'S'.
-         CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '02' bustyp = p_typ CHANGING swerks =  s_werks[] ).
-       ENDIF.
+    WHEN p_mod.
 
-       zafo_class=>maintain( EXPORTING afono = p_afono bustyp = p_typ  ).
+      IF g_werks_flag = 'P'.
+        CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '02' bustyp = p_typ werks = p_werks ) .
+      ELSEIF g_werks_flag = 'S'.
+        CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '02' bustyp = p_typ CHANGING swerks =  s_werks[] ) .
+      ENDIF.
 
-     WHEN p_dis.
+      zafo_class=>maintain( EXPORTING afono = p_afono   ).
 
-       IF g_werks_flag = 'P'.
-         CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '03' bustyp = p_typ werks = p_werks ).
-       ELSEIF g_werks_flag = 'S'.
-         CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '03' bustyp = p_typ CHANGING swerks =  s_werks[] ).
-       ENDIF.
+    WHEN p_dis.
 
-       PERFORM frm_get_display TABLES gt_head gt_item.
-       CHECK gt_head[] IS NOT INITIAL.
-       zafo_class=>report( bustyp = p_typ head = gt_head[] item = gt_item[] ).
+      IF g_werks_flag = 'P'.
+        CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '03' bustyp = p_typ werks = p_werks ) .
+      ELSEIF g_werks_flag = 'S'.
+        CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '03' bustyp = p_typ CHANGING swerks =  s_werks[] ) .
+      ENDIF.
 
-     WHEN p_load.
-       IF g_werks_flag = 'P'.
-         CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '01' bustyp = p_typ werks = p_werks ).
-       ELSEIF g_werks_flag = 'S'.
-         CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '01' bustyp = p_typ CHANGING swerks =  s_werks[] ).
-       ENDIF.
+      PERFORM frm_get_display TABLES gt_head CHANGING gt_item[].
+      CHECK gt_head[] IS NOT INITIAL.
+      zafo_class=>report( bustyp = p_typ head = gt_head[] item = gt_item[] ).
+
+    WHEN p_load.
+      IF g_werks_flag = 'P'.
+        CHECK zafo_basic=>auth_check_line( EXPORTING actvt = '01' bustyp = p_typ werks = p_werks ).
+      ELSEIF g_werks_flag = 'S'.
+        CHECK zafo_basic=>auth_check_tab( EXPORTING actvt = '01' bustyp = p_typ CHANGING swerks =  s_werks[] ).
+      ENDIF.
 *
 *       CALL FUNCTION 'ZAFO_UPLOAD_CREATE'
 *         EXPORTING
@@ -399,139 +439,132 @@
 *       IF sy-subrc <> 0.
 ** IMPLEMENT SUITABLE ERROR HANDLING HERE
 *       ENDIF.
-   ENDCASE.
+  ENDCASE.
 
- ENDFORM.
-
-
- FORM frm_get_display TABLES ct_head STRUCTURE zafo_shead
-                               ct_item STRUCTURE zafo_sitem.
-   SELECT h~* FROM zafo_head AS h
-     LEFT JOIN zafo_item AS i
-     ON h~afono = i~afono
-     INTO CORRESPONDING FIELDS OF TABLE @ct_head
-     WHERE bustyp = @p_typ
-     AND h~afono IN @s_afono
-     AND h~ernam IN @s_ernam
-     AND h~erdat IN @s_erdat
-     AND h~budat IN @s_budat
-     AND h~status IN @s_status
-     AND h~lifnr IN @s_lifnr
-     AND h~lgort IN @s_lgort
-     AND h~kunnr IN @s_kunnr
-     AND h~eeind IN @s_eeind
-     AND i~ebeln IN @s_ebeln
-     AND i~matnr IN @s_matnr
-     AND i~satnr IN @s_satnr
-     AND i~charg IN @s_charg
-.
-   IF sy-subrc NE 0.
-     MESSAGE s006 DISPLAY LIKE 'E'.
-     RETURN.
-   ENDIF.
-   SORT ct_head BY afono.
-   DELETE ADJACENT DUPLICATES FROM ct_head COMPARING afono.
-
-   SELECT * FROM zafo_item
-     INTO CORRESPONDING FIELDS OF TABLE
-     ct_item
-     FOR ALL ENTRIES IN ct_head
-     WHERE afono = ct_head-afono.
+ENDFORM.
 
 
-   LOOP AT ct_head ASSIGNING  FIELD-SYMBOL(<fs_head>).
-     zafo_basic=>set_icon( EXPORTING status = <fs_head>-status
-                                         IMPORTING icon = <fs_head>-icon text = <fs_head>-text ).
-   ENDLOOP.
+FORM frm_get_display TABLES ct_head STRUCTURE zafo_shead
+CHANGING ct_item TYPE zafo_tt_sitem.
+  SELECT h~* FROM zafo_head AS h
+  LEFT JOIN zafo_item AS i
+  ON h~afono = i~afono
+  INTO CORRESPONDING FIELDS OF TABLE @ct_head
+  WHERE bustyp = @p_typ
+  AND h~werks IN @s_werks
+  AND h~afono IN @s_afono
+  AND h~ernam IN @s_ernam
+  AND h~erdat IN @s_erdat
+  AND h~budat IN @s_budat
+  AND h~status IN @s_status
+  AND h~lifnr IN @s_lifnr
+  AND h~lgort IN @s_lgort
+  AND h~kunnr IN @s_kunnr
+  AND i~eeind IN @s_eeind
+  AND i~lifnr IN @s_lifnr
+  AND i~bsart IN @s_bsart
+  AND i~ekorg IN @s_ekorg
+  AND i~ekgrp IN @s_ekgrp
+  AND i~kdauf IN @s_vbeln
+  AND i~aufnr IN @s_aufnr
+  AND i~maktx IN @s_maktx
+  AND i~matkl IN @s_matkl
+  AND i~mtart IN @s_mtart
+  AND i~ebeln IN @s_ebeln
+  AND i~matnr IN @s_matnr
+  AND i~satnr IN @s_satnr
+  AND i~charg IN @s_charg.
+  IF sy-subrc NE 0.
+    MESSAGE s024 DISPLAY LIKE 'E'.
+    RETURN.
+  ENDIF.
+  SORT ct_head BY afono.
+  DELETE ADJACENT DUPLICATES FROM ct_head COMPARING afono.
 
-   SORT ct_item BY afono   .
+  SELECT * FROM zafo_item
+  INTO CORRESPONDING FIELDS OF TABLE
+  ct_item
+  FOR ALL ENTRIES IN ct_head
+  WHERE afono = ct_head-afono.
 
-   LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<fs_item>).
-     zafo_basic=>set_icon( EXPORTING status = <fs_item>-item_status
-                                         IMPORTING icon = <fs_item>-icon text = <fs_item>-text ).
-   ENDLOOP.
+  SORT ct_head BY afono DESCENDING .
+  SORT ct_item BY afono DESCENDING afonr .
 
- ENDFORM.
 
- FORM  frm_get_ref   TABLES ct_item STRUCTURE zafo_sitem
-                      USING busref.
-   CHECK busref IS NOT INITIAL.
-   PERFORM frm_auth_check.
-   DATA(perform_name) = |FRM_REF_{ busref }|.
-   PERFORM (perform_name) IN PROGRAM zafo TABLES ct_item IF FOUND.
- ENDFORM.
+  LOOP AT ct_head ASSIGNING  FIELD-SYMBOL(<fs_head>).
+    zafo_basic=>set_icon( EXPORTING status = <fs_head>-status
+    IMPORTING icon = <fs_head>-icon text = <fs_head>-text ).
+  ENDLOOP.
 
- FORM frm_auth_check.
-   IF gs_bustyp-category = 'PO' .
-     SELECT * FROM t024
-       INTO TABLE @DATA(gt_t024)
-       WHERE ekgrp IN @s_ekgrp.
+  SORT ct_item BY afono   .
 
-     CHECK sy-subrc EQ 0.
-     CLEAR s_ekgrp[].
+  LOOP AT ct_item ASSIGNING FIELD-SYMBOL(<fs_item>).
+    <fs_item>-history = icon_system_extended_help.
+    zafo_basic=>set_icon( EXPORTING status = <fs_item>-item_status
+    IMPORTING icon = <fs_item>-icon text = <fs_item>-text ).
+  ENDLOOP.
 
-     LOOP AT gt_t024 INTO DATA(gs_t024).
-       AUTHORITY-CHECK OBJECT 'ZAFO_EKGRP'
-                  ID 'EKGRP' FIELD gs_t024-ekgrp
-                  ID 'ACTVT' FIELD '01'.
-       CHECK sy-subrc EQ 0.
+ENDFORM.
 
-       s_ekgrp-sign = 'I'.
-       s_ekgrp-option = 'EQ'.
-       s_ekgrp-low = gs_t024-ekgrp.
-       APPEND s_ekgrp.
-       CLEAR s_ekgrp.
-     ENDLOOP.
+FORM  frm_get_ref   USING busref CHANGING ct_item TYPE zafo_tt_sitem.
 
-   ENDIF.
+  CHECK busref IS NOT INITIAL.
+*   zafo_ref=>get_ranges( 'S_WERKS' ).
+  DATA(perform_name) = |FRM_REF_{ busref }|.
+  PERFORM (perform_name) IN PROGRAM zafo CHANGING ct_item IF FOUND.
+ENDFORM.
 
- ENDFORM.
 
- FORM frm_at_screen CHANGING p_ucomm.
-   CASE p_ucomm.
-     WHEN 'DOWN'.
-       PERFORM frm_download_temp .  "下载模板
-     WHEN 'CON'.
-       PERFORM frm_set_default_value .
-   ENDCASE.
- ENDFORM.
+FORM frm_at_screen CHANGING p_ucomm.
+  CASE p_ucomm.
+    WHEN 'DOWN'.
+      PERFORM frm_download_temp .  "下载模板
+    WHEN 'CON'.
+      PERFORM frm_set_default_value .
+    WHEN '&SUBMIT'.
+      DATA(ls_bustyp) = zafo_basic=>get_bustyp( p_typ ).
+      CLEAR gt_item[].
+      PERFORM frm_get_ref USING ls_bustyp-busref_in  CHANGING gt_item[] .
+      PERFORM frm_ref_in_sure IN PROGRAM ('SAPLZAFO') IF FOUND USING gt_item[].
+  ENDCASE.
+ENDFORM.
 
- FORM frm_download_temp .
-   CHECK p_typ IS NOT INITIAL.
-   CALL FUNCTION 'ZAFO_DOWNLOAD_TEMPLATE'
-     EXPORTING
-       i_bustyp = p_typ
+FORM frm_download_temp .
+  CHECK p_typ IS NOT INITIAL.
+  CALL FUNCTION 'ZAFO_DOWNLOAD_TEMPLATE'
+    EXPORTING
+      i_bustyp = p_typ
 *         TABLES
-*      ET_RETURN       =
-     EXCEPTIONS
-       error    = 1
-       OTHERS   = 2.
-   IF sy-subrc <> 0.
+*     ET_RETURN       =
+    EXCEPTIONS
+      error    = 1
+      OTHERS   = 2.
+  IF sy-subrc <> 0.
 * IMPLEMENT SUITABLE ERROR HANDLING HERE
-   ENDIF.
+  ENDIF.
 
- ENDFORM.
+ENDFORM.
 
- FORM frm_get_excel_f4  CHANGING p_p_up.
+FORM frm_get_excel_f4  CHANGING p_p_up.
 
 
-   CALL FUNCTION 'WS_FILENAME_GET'
-     EXPORTING
-       def_path         = 'D:\'
-       mask             = '*,XLSX,*.XLSX,*.XLS,*.XLS'
-       title            = TEXT-001
-     IMPORTING
-       filename         = p_p_up
-     EXCEPTIONS
-       inv_winsys       = 1
-       no_batch         = 2
-       selection_cancel = 3
-       selection_error  = 4
-       OTHERS           = 5.
+  CALL FUNCTION 'WS_FILENAME_GET'
+    EXPORTING
+      def_path         = 'D:\'
+      mask             = '*,XLSX,*.XLSX,*.XLS,*.XLS'
+      title            = TEXT-001
+    IMPORTING
+      filename         = p_p_up
+    EXCEPTIONS
+      inv_winsys       = 1
+      no_batch         = 2
+      selection_cancel = 3
+      selection_error  = 4
+      OTHERS           = 5.
 
-   IF sy-subrc <> 0 AND sy-subrc <> 3.
-     MESSAGE i004(zafo) DISPLAY LIKE 'E'. "选择文件出错
-     STOP.
-   ENDIF.
+  IF sy-subrc <> 0 AND sy-subrc <> 3.
+    MESSAGE i004(zafo) DISPLAY LIKE 'E'. "选择文件出错
+    STOP.
+  ENDIF.
 *  ENDIF.
- ENDFORM.                    " FRM_GET_EXCEL_F4
+ENDFORM.                    " FRM_GET_EXCEL_F4

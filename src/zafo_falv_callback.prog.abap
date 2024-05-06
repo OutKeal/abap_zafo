@@ -72,3 +72,15 @@ FORM frm_onf4  USING c_falv TYPE REF TO zwft_falv
                                                     i_display = e_display ).
 
 ENDFORM.
+
+FORM frm_btn_click USING c_falv TYPE REF TO zwft_falv "ZCL_SALV
+                                                    es_col_id TYPE lvc_s_col
+                                                    es_row_no TYPE lvc_s_roid.
+  <io_class>->btn_click( c_falv = c_falv is_col_id = es_col_id is_row_no = es_row_no ).
+
+ENDFORM.
+
+FORM frm_ref_in_sure USING ct_item TYPE  zafo_tt_sitem.
+  ref_in_switch = icon_data_area_collapse.
+  <io_class>->item_ref = ct_item.
+ENDFORM.
